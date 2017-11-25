@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+  db:
+    image: postgres
+  app:
+    build:
+      context: services/app
+      dockerfile: Dockerfile
+    command: mix phx.server
+    ports:
+      - "4000:4000"
+    volumes:
+      - "./services/app:/app:cached"
+      - "~/.bash_history:/root/.bash_history:cached"
+      - ".bashrc:/root/.bashrc:cached"
+      - "/var/tmp:/var/tmp:cached"
+      - "/tmp:/tmp:cached"
+    depends_on:
+      - db

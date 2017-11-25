@@ -20,7 +20,7 @@ defmodule HexletBasics.Mixfile do
   def application do
     [
       mod: {HexletBasics.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :yamerl]
     ]
   end
 
@@ -40,7 +40,10 @@ defmodule HexletBasics.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+
+      {:yamerl, "~> 0.4.0"},
+      {:git_cli, "~> 0.2"}
     ]
   end
 
