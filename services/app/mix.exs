@@ -20,7 +20,7 @@ defmodule HexletBasics.Mixfile do
   def application do
     [
       mod: {HexletBasics.Application, []},
-      extra_applications: [:logger, :runtime_tools, :yamerl]
+      extra_applications: [:logger, :runtime_tools, :yaml_elixir]
     ]
   end
 
@@ -42,7 +42,7 @@ defmodule HexletBasics.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
 
-      {:yamerl, "~> 0.4.0"},
+      {:yaml_elixir, "~> 1.3.1"},
       {:git_cli, "~> 0.2"}
     ]
   end

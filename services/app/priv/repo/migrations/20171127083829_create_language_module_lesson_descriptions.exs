@@ -6,12 +6,12 @@ defmodule HexletBasics.Repo.Migrations.CreateLanguageModuleLessonDescriptions do
       add :theory, :text
       add :instructions, :text
       add :locale, :string
-      add :tips, :text
-      add :language_module_lesson_id, references(:language_module_lessons, on_delete: :nothing)
+      add :tips, { :array, :string }
+      add :lesson_id, references(:language_module_lessons, on_delete: :nothing)
 
       timestamps()
     end
 
-    create index(:language_module_lesson_descriptions, [:language_module_lesson_id])
+    create index(:language_module_lesson_descriptions, [:lesson_id])
   end
 end

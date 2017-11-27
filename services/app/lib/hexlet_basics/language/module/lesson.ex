@@ -5,14 +5,15 @@ defmodule HexletBasics.Language.Module.Lesson do
 
 
   schema "language_module_lessons" do
-    field :locale, :string
-    field :name, :string
     field :order, :integer
     field :slug, :string
     field :state, :string
-    field :language_module_id, :id
+    field :module_id, :id
     field :language_id, :id
-    field :language_upload_id, :id
+    field :upload_id, :id
+    field :original_code, :string
+    field :prepared_code, :string
+    field :test_code, :string
 
     timestamps()
   end
@@ -20,7 +21,7 @@ defmodule HexletBasics.Language.Module.Lesson do
   @doc false
   def changeset(%Lesson{} = lesson, attrs) do
     lesson
-    |> cast(attrs, [:name, :slug, :state, :locale, :order])
-    |> validate_required([:name, :slug, :state, :locale, :order])
+    |> cast(attrs, [:slug, :order, :original_code, :prepared_code, :test_code])
+    |> validate_required([:slug, :order, :original_code, :prepared_code, :test_code])
   end
 end

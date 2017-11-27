@@ -8,7 +8,7 @@ defmodule HexletBasics.Language.Module.Description do
     field :description, :string
     field :locale, :string
     field :name, :string
-    field :language_module_id, :id
+    field :module_id, :id
 
     timestamps()
   end

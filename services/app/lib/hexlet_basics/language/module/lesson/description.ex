@@ -8,8 +8,8 @@ defmodule HexletBasics.Language.Module.Lesson.Description do
     field :instructions, :string
     field :locale, :string
     field :theory, :string
-    field :tips, :string
-    field :language_module_lesson_id, :id
+    # field :tips, { :list, :string }
+    field :lesson_id, :id
 
     timestamps()
   end
@@ -17,7 +17,8 @@ defmodule HexletBasics.Language.Module.Lesson.Description do
   @doc false
   def changeset(%Description{} = description, attrs) do
     description
-    |> cast(attrs, [:theory, :instructions, :locale, :tips])
-    |> validate_required([:theory, :instructions, :locale, :tips])
+    |> cast(attrs, [:theory, :instructions, :locale])
+    # |> cast_embed(attrs, :tips)
+    |> validate_required([:theory, :instructions, :locale])
   end
 end

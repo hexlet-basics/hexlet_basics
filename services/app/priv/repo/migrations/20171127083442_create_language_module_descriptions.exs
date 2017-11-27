@@ -6,11 +6,11 @@ defmodule HexletBasics.Repo.Migrations.CreateLanguageModuleDescriptions do
       add :name, :string
       add :description, :text
       add :locale, :string
-      add :language_module_id, references(:language_modules, on_delete: :nothing)
+      add :module_id, references(:language_modules, on_delete: :nothing)
 
       timestamps()
     end
 
-    create index(:language_module_descriptions, [:language_module_id])
+    create index(:language_module_descriptions, [:module_id])
   end
 end

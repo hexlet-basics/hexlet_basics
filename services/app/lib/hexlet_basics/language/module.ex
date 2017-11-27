@@ -18,7 +18,7 @@ defmodule HexletBasics.Language.Module do
   @doc false
   def changeset(%Module{} = module, attrs) do
     module
-    |> cast(attrs, [:slug, :state, :order])
+    |> cast(attrs, [:slug, :state, :order, :language_id, :upload_id])
     |> validate_required([:slug, :order])
   end
 end
