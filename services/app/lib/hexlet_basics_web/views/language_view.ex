@@ -1,3 +1,3 @@
-defmodule HexletBasicsWeb.LangView do
+defmodule HexletBasicsWeb.LanguageView do
   use HexletBasicsWeb, :view
 end

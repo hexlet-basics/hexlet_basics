@@ -37,7 +37,7 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/hexlet_basics_web/views/.*(ex)$},
-      ~r{lib/hexlet_basics_web/templates/.*(eex)$}
+      ~r{lib/hexlet_basics_web/templates/.*(eex|slim|slime)$}
     ]
   ]
 
