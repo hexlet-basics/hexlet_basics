@@ -8,9 +8,9 @@ defmodule HexletBasics.Language.Module do
     field :slug, :string
     field :state, :string
     field :order, :integer
-    field :language_id, :id
 
     belongs_to :upload, HexletBasics.Upload
+    belongs_to :language, HexletBasics.Language
 
     timestamps()
   end

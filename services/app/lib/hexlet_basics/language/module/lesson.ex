@@ -8,12 +8,13 @@ defmodule HexletBasics.Language.Module.Lesson do
     field :order, :integer
     field :slug, :string
     field :state, :string
-    field :module_id, :id
-    field :language_id, :id
-    field :upload_id, :id
     field :original_code, :string
     field :prepared_code, :string
     field :test_code, :string
+
+    belongs_to :language, HexletBasics.Language
+    belongs_to :module, HexletBasics.Language.Module
+    belongs_to :upload, HexletBasics.Upload
 
     timestamps()
   end
@@ -21,7 +22,7 @@ defmodule HexletBasics.Language.Module.Lesson do
   @doc false
   def changeset(%Lesson{} = lesson, attrs) do
     lesson
-    |> cast(attrs, [:slug, :order, :original_code, :prepared_code, :test_code])
+    |> cast(attrs, [:slug, :order, :original_code, :prepared_code, :test_code, :language_id, :module_id, :upload_id])
     |> validate_required([:slug, :order, :original_code, :prepared_code, :test_code])
   end
 end

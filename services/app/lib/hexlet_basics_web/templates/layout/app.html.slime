@@ -1,0 +1,29 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1" name="viewport"
+    meta content="" name="description"
+    meta content="" name="author"
+    / title Hello <%= application_module %>!
+    link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
+
+  body
+    .container
+      header.header
+        nav.navbar.navbar-expand-lg.navbar-light.bg-light role="navigation"
+          a.navbar-brand href="/" Hexlet Basics
+
+      <% if get_flash(@conn, :info) do %>
+        p.alert.alert-info role="alert"= get_flash(@conn, :info)
+      <% end %>
+      <% if get_flash(@conn, :error) do %>
+        p.alert.alert-danger role="alert"= get_flash(@conn, :error)
+      <% end %>
+
+      main.mt-3 role="main"
+        = render @view_module, @view_template, assigns
+
+    = render_gon_script(@conn)
+    script src="#{static_path(@conn, "/js/app.js")}"

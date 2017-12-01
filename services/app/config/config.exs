@@ -9,6 +9,8 @@ use Mix.Config
 config :hexlet_basics,
   ecto_repos: [HexletBasics.Repo]
 
+# config :playfair, Playfair.Gettext, default_locale: "ru_RU"
+
 # Configures the endpoint
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
   url: [host: "localhost"],

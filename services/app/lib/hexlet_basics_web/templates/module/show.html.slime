@@ -1,0 +1,6 @@
+h1 <%= @language.slug %>
+h1 <%= @module.slug %>
+
+<%= for lesson <- @lessons do %>
+  p= link lesson.slug, to: language_module_lesson_path(@conn, :show, @language.slug, @module.slug, lesson.slug)
+<% end %>

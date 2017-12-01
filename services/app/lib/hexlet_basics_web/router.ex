@@ -17,7 +17,11 @@ defmodule HexletBasicsWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/languages", LanguageController
+    resources "/languages", LanguageController do
+      resources "/modules", ModuleController do
+        resources "/lessons", LessonController
+      end
+    end
   end
 
   # Other scopes may use custom stacks.

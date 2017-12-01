@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.X.Exercises do
+defmodule Mix.Tasks.X.Exercises.Load do
   use Mix.Task
   # import Mix.Ecto
   require Logger
@@ -11,13 +11,13 @@ defmodule Mix.Tasks.X.Exercises do
   def run([lang_name]) do
     Application.ensure_all_started(:hexlet_basics)
 
-    dest = "/var/tmp/hexlet-basics-exercises-#{lang_name}"
+    dest = "/var/tmp/hexlet-basics-exercises-#{lang_name}/modules"
 
     { :ok, upload } = Repo.insert(%Upload{
       language_name: lang_name
     })
 
-    language = upsert_lang(upload, lang_name)
+    language = upsert_language(upload, lang_name)
 
     up_repo(lang_name, dest)
     modulesWithMeta = get_modules(dest)
@@ -34,6 +34,7 @@ defmodule Mix.Tasks.X.Exercises do
   end
 
   def get_lessons(dest, module, language) do
+    # TODO: use original path
     module_path = Path.join(dest, "#{module.order}-#{module.slug}")
     wildcard_path = Path.join([module_path, "*"])
     Path.wildcard(wildcard_path)
@@ -43,7 +44,10 @@ defmodule Mix.Tasks.X.Exercises do
       [order, slug] = String.split(folder, "-", parts: 2)
       lesson_path = Path.join(module_path, folder)
       descriptions = get_descriptions(lesson_path)
-      { :ok, test_code } = File.read(Path.join(lesson_path, "test.#{language.slug}"))
+      # TODO: extract to lang spec
+      test_file_path = Path.join(lesson_path, "Test.#{language.slug}")
+      Logger.debug test_file_path
+      { :ok, test_code } = File.read(test_file_path)
       { :ok, original_code } = File.read(Path.join(lesson_path, "index.#{language.slug}"))
       prepared_code = prepare_code(original_code)
 
@@ -52,13 +56,14 @@ defmodule Mix.Tasks.X.Exercises do
   end
 
   def upsert_lesson_with_descriptions({ language, module, order, slug, prepared_code, original_code, test_code, descriptions }) do
-    module = case Repo.get_by(Lesson, module_id: module.id, slug: slug) do
-      nil  -> %Lesson{ module_id: module.id, slug: slug }
-      module -> module
+    mayBeLesson = Repo.get_by(Lesson, language_id: language.id, module_id: module.id, slug: slug)
+    lesson = case mayBeLesson do
+      nil  -> %Lesson{ language: language, module: module, slug: slug }
+      entity -> entity
     end
-    module
+    IO.inspect lesson
+    lesson
     |> Lesson.changeset(%{
-      language_id: language.id,
       order: order,
       upload_id: language.upload_id,
       original_code: original_code,
@@ -99,18 +104,23 @@ defmodule Mix.Tasks.X.Exercises do
     |> Enum.map(fn(filepath) ->
       filename = Path.basename(filepath)
       [_, locale, _] = String.split(filename, ".")
+      Logger.debug filepath
       data = YamlElixir.read_from_file filepath
       { locale, data }
     end)
   end
 
   def upsert_module_with_descriptions(language, order, slug, descriptions) do
-    module = case Repo.get_by(Language.Module, language_id: language.id, slug: slug) do
+    maybeModule = Repo.get_by(Language.Module, language_id: language.id, slug: slug)
+    module = case maybeModule do
       nil  -> %Language.Module{ language_id: language.id, slug: slug }
       module -> module
     end
     module
-    |> Language.Module.changeset(%{ order: order, upload_id: language.upload_id })
+    |> Language.Module.changeset(%{
+      order: order,
+      upload_id: language.upload_id
+    })
     |> Repo.insert_or_update!
 
     descriptions
@@ -128,16 +138,14 @@ defmodule Mix.Tasks.X.Exercises do
     |> Repo.insert_or_update!
   end
 
-  def upsert_lang(upload, lang_name) do
+  def upsert_language(upload, lang_name) do
     language = case Repo.get_by(Language, slug: lang_name) do
       nil  -> %Language{ slug: lang_name }
-      lang -> lang
+      entity -> entity
     end
     language
     |> Language.changeset(%{ upload_id: upload.id, name: lang_name })
     |> Repo.insert_or_update!
-
-    language
   end
 
   def up_repo(lang_name, dest) do

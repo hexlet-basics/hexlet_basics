@@ -4,6 +4,10 @@ compose-build:
 compose:
 	docker-compose up
 
+compose-gettext-build:
+	docker-compose run app mix gettext.extract --merge
+	docker-compose run app mix gettext.merge priv/gettext --locale ru_RU
+
 compose-bash:
 	docker-compose run app bash
 

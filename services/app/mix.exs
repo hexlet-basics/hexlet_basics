@@ -42,8 +42,9 @@ defmodule HexletBasics.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
 
-      {:phoenix_slime, "~> 0.8.0"},
+      {:phoenix_slime, github: "slime-lang/phoenix_slime"},
       {:yaml_elixir, "~> 1.3.1"},
+      {:phoenix_gon, github: "khusnetdinov/phoenix_gon"},
       {:git_cli, "~> 0.2"}
     ]
   end

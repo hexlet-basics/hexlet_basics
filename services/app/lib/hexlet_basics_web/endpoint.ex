@@ -38,6 +38,7 @@ defmodule HexletBasicsWeb.Endpoint do
     key: "_hexlet_basics_key",
     signing_salt: "mKGV92uB"
 
+  plug PhoenixGon.Pipeline
   plug HexletBasicsWeb.Router
 
   @doc """
