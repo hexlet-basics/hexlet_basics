@@ -10,7 +10,7 @@ export default {
   plugins: [
     new ExtractTextPlugin('css/app.css'),
     // new CopyWebpackPlugin([{ from: './web/static/assets/', to: '../' }]),
-    // new CopyWebpackPlugin([ { from: 'node_modules/monaco-editor/min/vs', to: 'vs', } ])
+    new CopyWebpackPlugin([ { from: 'images/favicon.ico', to: 'favicon.ico', } ])
   ],
   module: {
     loaders: [
