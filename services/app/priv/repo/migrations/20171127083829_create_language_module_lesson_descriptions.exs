@@ -3,6 +3,7 @@ defmodule HexletBasics.Repo.Migrations.CreateLanguageModuleLessonDescriptions do
 
   def change do
     create table(:language_module_lesson_descriptions) do
+      add :name, :string
       add :theory, :text
       add :instructions, :text
       add :locale, :string

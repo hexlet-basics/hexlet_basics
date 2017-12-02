@@ -11,10 +11,10 @@ services:
     ports:
       - "4000:4000"
     volumes:
-      - "./services/app:/app:cached"
+      - "./services/app:/app"
       - "~/.bash_history:/root/.bash_history:cached"
       - ".bashrc:/root/.bashrc:cached"
-      - "/var/tmp:/var/tmp:cached"
-      - "/tmp:/tmp:cached"
+      - "/var/tmp:/var/tmp"
+      - "/tmp:/tmp"
     depends_on:
       - db

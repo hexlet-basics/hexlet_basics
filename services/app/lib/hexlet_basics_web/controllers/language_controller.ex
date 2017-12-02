@@ -14,6 +14,7 @@ defmodule HexletBasicsWeb.LanguageController do
       where: m.language_id == ^language.id and m.upload_id == ^language.upload_id,
       order_by: [asc: m.order]
     modules = Repo.all(query)
+
     render conn, language: language, modules: modules
   end
 end

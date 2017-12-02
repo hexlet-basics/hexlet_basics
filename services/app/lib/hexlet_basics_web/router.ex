@@ -13,14 +13,28 @@ defmodule HexletBasicsWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :api do
+    plug :accepts, ["json"]
+  end
+
+  scope "/api", HexletBasicsWeb do
+    pipe_through :api
+
+    resources "/checks", Api.CheckController, include: [:create]
+  end
+
   scope "/", HexletBasicsWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
     resources "/languages", LanguageController do
-      resources "/modules", ModuleController do
-        resources "/lessons", LessonController
+      resources "/modules", Language.ModuleController do
+        resources "/lessons", Language.Module.LessonController
       end
+    end
+
+    resources "/lessons", LessonController, include: [] do
+      get "/redirect-to-next", LessonController, :next, as: :next
     end
   end
 

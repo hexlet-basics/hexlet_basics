@@ -1,4 +1,4 @@
-defmodule HexletBasicsWeb.ModuleController do
+defmodule HexletBasicsWeb.Language.ModuleController do
   use HexletBasicsWeb, :controller
   alias HexletBasics.Repo, as: Repo
   alias HexletBasics.Language, as: Language

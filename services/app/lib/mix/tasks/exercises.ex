@@ -61,8 +61,6 @@ defmodule Mix.Tasks.X.Exercises.Load do
       nil  -> %Lesson{ language: language, module: module, slug: slug }
       entity -> entity
     end
-    IO.inspect lesson
-    lesson
     |> Lesson.changeset(%{
       order: order,
       upload_id: language.upload_id,
@@ -73,14 +71,14 @@ defmodule Mix.Tasks.X.Exercises.Load do
     |> Repo.insert_or_update!
 
     descriptions
-    |> Enum.map(&(upsert_lesson_description(module, &1)))
+    |> Enum.map(&(upsert_lesson_description(lesson, &1)))
 
-    module
+    lesson
   end
 
-  def upsert_lesson_description(module, { locale, data }) do
-    case Repo.get_by(Lesson.Description, lesson_id: module.id, locale: locale) do
-      nil  -> %Lesson.Description{ lesson_id: module.id, locale: locale }
+  def upsert_lesson_description(lesson, { locale, data }) do
+    case Repo.get_by(Lesson.Description, lesson_id: lesson.id, locale: locale) do
+      nil  -> %Lesson.Description{ lesson_id: lesson.id, locale: locale }
       module -> module
     end
     |> Lesson.Description.changeset(data)
@@ -116,7 +114,6 @@ defmodule Mix.Tasks.X.Exercises.Load do
       nil  -> %Language.Module{ language_id: language.id, slug: slug }
       module -> module
     end
-    module
     |> Language.Module.changeset(%{
       order: order,
       upload_id: language.upload_id

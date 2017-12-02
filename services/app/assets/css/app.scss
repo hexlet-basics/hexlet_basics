@@ -1,5 +1,13 @@
-@import "~bootstrap/scss/bootstrap";
+$font-size-base: .875rem;
 
-p {
-  color: 234;
+@import "~bootstrap/scss/bootstrap";
+@import "~jq-console/css/ansi";
+@import "~highlight.js/styles/atom-one-light";
+
+.x-100vh {
+  height: 100vh;
+}
+
+.x-overflow {
+  overflow: auto;
 }
