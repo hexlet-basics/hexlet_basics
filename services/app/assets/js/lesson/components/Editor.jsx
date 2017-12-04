@@ -19,8 +19,16 @@ export default class App extends React.Component {
       },
     };
 
+    const options = {
+      fontSize: 16,
+      scrollBeyondLastLine: false,
+      minimap: {
+        enabled: false
+      }
+    }
     return (<MonacoEditor
       theme="vs-dark"
+      options={options}
       language={this.props.language}
       editorDidMount={this.editorDidMount}
       defaultValue={this.props.defaultValue}
