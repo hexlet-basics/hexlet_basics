@@ -1,11 +1,11 @@
 .card-deck
-  .card
+  .card.hexlet-basics-card
     / img.card-img-top src="image"
     .card-body
       h4.card-title PHP
       / p.card-text This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-      = link gettext("Start"), to: language_path(@conn, :show, "php"), class: "btn btn-primary btn-outline"
-  .card
+      = link gettext("Start"), to: language_path(@conn, :show, "php"), class: "btn btn-primary"
+  .card.hexlet-basics-card
     / img.card-img-top src="image2"
     .card-body
       h4.card-title JavaScript
