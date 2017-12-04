@@ -1,12 +1,17 @@
 import webpack from 'webpack';
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+
+const apps = {
+  app: './assets/js/app.js',
+  lesson: './assets/js/lesson/index.jsx',
+};
 
 export default {
-  entry: ['./assets/css/app.scss', './assets/js/app.js'],
+  entry: apps,
   output: {
     path: `${__dirname}/priv/static`,
-    filename: 'js/app.js',
+    filename: 'js/[name].js',
   },
   plugins: [
     new ExtractTextPlugin('css/app.css'),

@@ -9,3 +9,7 @@ plugins: [flowtype]
 
 extends:
   - 'airbnb'
+
+rules:
+  "react/prop-types": 0
+  "react/jsx-closing-tag-location": 0

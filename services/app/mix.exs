@@ -20,7 +20,7 @@ defmodule HexletBasics.Mixfile do
   def application do
     [
       mod: {HexletBasics.Application, []},
-      extra_applications: [:logger, :runtime_tools, :yaml_elixir]
+      extra_applications: [:logger, :runtime_tools, :yaml_elixir, :dockerex]
     ]
   end
 
@@ -43,6 +43,7 @@ defmodule HexletBasics.Mixfile do
       {:cowboy, "~> 1.0"},
 
       {:phoenix_slime, github: "slime-lang/phoenix_slime"},
+      {:dockerex, "~> 0.1.0"},
       {:yaml_elixir, "~> 1.3.1"},
       {:phoenix_gon, github: "khusnetdinov/phoenix_gon"},
       {:git_cli, "~> 0.2"}

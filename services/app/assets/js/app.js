@@ -19,4 +19,4 @@
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
-import './lesson/index.jsx';
+import '../css/app.scss';

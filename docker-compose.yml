@@ -8,6 +8,8 @@ services:
       context: services/app
       dockerfile: Dockerfile
     command: mix phx.server
+    environment:
+      PORT: 4000
     ports:
       - "4000:4000"
     volumes:

@@ -20,7 +20,7 @@ export default class App extends React.Component {
     };
 
     return (<MonacoEditor
-      theme="vs-light"
+      theme="vs-dark"
       language={this.props.language}
       editorDidMount={this.editorDidMount}
       defaultValue={this.props.defaultValue}

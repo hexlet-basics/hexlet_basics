@@ -5,6 +5,9 @@
 # is restricted to this project.
 use Mix.Config
 
+config :dockerex,
+  host: "http+unix://%2Fvar%2Frun%2Fdocker.sock"
+
 # General application configuration
 config :hexlet_basics,
   ecto_repos: [HexletBasics.Repo]

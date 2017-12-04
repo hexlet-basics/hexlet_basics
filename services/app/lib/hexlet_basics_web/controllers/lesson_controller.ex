@@ -9,6 +9,9 @@ defmodule HexletBasicsWeb.LessonController do
 
   def next(conn, %{ "id" => id}) do
     lesson = Repo.get!(Language.Module.Lesson, id)
+    # next lesson in current module
+    # first lesson in next module
+    # lessons finished
   end
 end
 

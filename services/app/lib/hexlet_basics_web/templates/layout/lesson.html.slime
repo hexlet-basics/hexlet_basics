@@ -6,7 +6,7 @@ html lang="en"
   body.x-100vh
     .container-fluid
       header.header
-        nav.navbar.navbar-expand-lg.navbar-light.bg-light role="navigation"
+        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark role="navigation"
           a.navbar-brand href="/" Hexlet Basics
           .navbar-text
             = @language.slug
@@ -17,3 +17,4 @@ html lang="en"
 
     = render_gon_script(@conn)
     script src="#{static_path(@conn, "/js/app.js")}"
+    script src="#{static_path(@conn, "/js/lesson.js")}"
