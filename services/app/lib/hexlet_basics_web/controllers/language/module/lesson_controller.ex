@@ -22,9 +22,6 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
     lessons = Repo.all(query)
     module_length = length(lessons)
 
-    
-    # test = testLesson.order
-
     lesson = Repo.get_by!(Language.Module.Lesson,  language_id: language.id, module_id: module.id, slug: id)
     lesson_description = Repo.get_by!(Language.Module.Lesson.Description,  lesson_id: lesson.id, locale: "ru")
     lesson_order_natural = Enum.find_index(lessons, fn(x) -> x.order == lesson.order end) + 1
