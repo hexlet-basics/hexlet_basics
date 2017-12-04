@@ -34,7 +34,6 @@ COPY . .
 # Compile the entire project
 RUN mix compile
 
-RUN brunch build --production
 RUN mix phx.digest
 
 CMD mix phx.server
