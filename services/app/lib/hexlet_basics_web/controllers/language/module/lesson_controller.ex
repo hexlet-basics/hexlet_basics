@@ -21,10 +21,10 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
 
     query_lessons = from l in Language.Module.Lesson, where: l.upload_id == ^language.upload_id
     lessons_count = Repo.aggregate(query_lessons, :count, :id)
-    query_previous_lessons = from l in Language.Module.Lesson, where: l.upload_id == ^language.upload_id and l.order > ^lesson.order
-    previous_lessons_count = Repo.aggregate(query_previous_lessons, :count, :id)
+    query_next_lessons = from l in Language.Module.Lesson, where: l.upload_id == ^language.upload_id and l.order > ^lesson.order
+    next_lessons_count = Repo.aggregate(query_next_lessons, :count, :id)
 
-    lesson_order_natural = lessons_count - previous_lessons_count
+    lesson_order_natural = lessons_count - next_lessons_count
 
     conn = put_gon(conn, lesson: lesson, lesson_description: lesson_description, language: language)
 
