@@ -18,10 +18,10 @@ export default class App extends React.Component {
 
     return (<div className="row">
       <div className="col-5">
-        <div className="card">
-          <div className="card-header">
+        <div className="card hexlet-basics-card">
+          <h4 className="card-header">
             {lesson.name}
-          </div>
+          </h4>
           <div className="card-body">
             <h5 className="card-title">Теория</h5>
             <div className="card-text" dangerouslySetInnerHTML={{ __html: theory }} />
@@ -30,7 +30,7 @@ export default class App extends React.Component {
           </div>
         </div>
       </div>
-      <div className="col-7 no-gutters pl-0 pr-0">
+      <div className="col-7 no-gutters pl-0">
         <TabsBox />
         <div className="row">
           <div className="col">
