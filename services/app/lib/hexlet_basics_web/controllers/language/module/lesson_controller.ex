@@ -16,15 +16,15 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
     module = Repo.get_by!(Language.Module, language_id: language.id, slug: module_id)
     module_description = Repo.get_by!(Language.Module.Description,  module_id: module.id, locale: "ru")
 
-    query = from l in Language.Module.Lesson,
-      where: l.language_id == ^language.id and l.upload_id == ^language.upload_id and l.module_id == ^module.id,
-      order_by: [asc: l.order]
-    lessons = Repo.all(query)
-    module_length = length(lessons)
-
     lesson = Repo.get_by!(Language.Module.Lesson,  language_id: language.id, module_id: module.id, slug: id)
     lesson_description = Repo.get_by!(Language.Module.Lesson.Description,  lesson_id: lesson.id, locale: "ru")
-    lesson_order_natural = Enum.find_index(lessons, fn(x) -> x.order == lesson.order end) + 1
+
+    query_lessons = from l in Language.Module.Lesson, where: l.upload_id == ^language.upload_id
+    lessons_count = Repo.aggregate(query_lessons, :count, :id)
+    query_previous_lessons = from l in Language.Module.Lesson, where: l.upload_id == ^language.upload_id and l.order > ^lesson.order
+    previous_lessons_count = Repo.aggregate(query_previous_lessons, :count, :id)
+
+    lesson_order_natural = lessons_count - previous_lessons_count
 
     conn = put_gon(conn, lesson: lesson, lesson_description: lesson_description, language: language)
 
@@ -34,7 +34,7 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
       lesson: lesson,
       module_description: module_description,
       lesson_description: lesson_description,
-      module_length: module_length,
+      lessons_count: lessons_count,
       lesson_order_natural: lesson_order_natural
   end
 end

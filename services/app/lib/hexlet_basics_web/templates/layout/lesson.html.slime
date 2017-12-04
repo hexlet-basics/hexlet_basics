@@ -12,7 +12,11 @@ html lang="en"
             = @language.slug
             = " → "
             = @module_description.name
-            |  (<%= @module_length %> / <%= @lesson_order_natural %>)
+            |  (
+            = @lesson_order_natural
+            | /
+            = @lessons_count
+            |)
 
       main.mt-3 role="main"
         = render @view_module, @view_template, assigns

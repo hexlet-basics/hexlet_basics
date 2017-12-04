@@ -1,7 +1,9 @@
 h1 <%= @language.slug %>
 h2 
-  <%= @module.slug %>
-  |  (<%= length(@lessons) %>)
+  = @module.slug
+  |  (
+  = length(@lessons)
+  | )
 
 ol
   <%= for lesson <- @lessons do %>
