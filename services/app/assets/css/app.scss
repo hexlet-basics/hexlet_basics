@@ -5,6 +5,7 @@ $hexlet-basics-active-bg: #1e1e1e;
 
 $font-size-base: .875rem;
 $body-bg: #21252b;
+$border-radius: 0 !default;
 
 $close-color: #fff;
 
@@ -36,4 +37,8 @@ $link-color: $hexlet-basics-font-color;
 .x-flex-1 {
   flex: 1;
   flex-basics: 0;
+}
+
+.hexlet-basics-card {
+  color: $hexlet-basics-dark-color;
 }
