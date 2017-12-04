@@ -11,7 +11,8 @@ defmodule Mix.Tasks.X.Exercises.Load do
   def run([lang_name]) do
     Application.ensure_all_started(:hexlet_basics)
 
-    dest = "/var/tmp/hexlet-basics-exercises-#{lang_name}/modules"
+    repoDest = "/var/tmp/hexlet-basics-exercises-#{lang_name}"
+    modulesDest = "#{repoDest}/modules"
 
     { :ok, upload } = Repo.insert(%Upload{
       language_name: lang_name
@@ -19,8 +20,8 @@ defmodule Mix.Tasks.X.Exercises.Load do
 
     language = upsert_language(upload, lang_name)
 
-    up_repo(lang_name, dest)
-    modulesWithMeta = get_modules(dest)
+    up_repo(lang_name, repoDest)
+    modulesWithMeta = get_modules(modulesDest)
     modules = modulesWithMeta
     |> Enum.map(fn({ order, slug, descriptions }) ->
       upsert_module_with_descriptions(language, order, slug, descriptions)
@@ -28,7 +29,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
 
     modules
     |> Enum.flat_map(fn(module) ->
-      get_lessons(dest, module, language)
+      get_lessons(modulesDest, module, language)
     end)
     |> Enum.map(&upsert_lesson_with_descriptions/1)
   end
