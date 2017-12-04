@@ -7,10 +7,12 @@ html lang="en"
     .container-fluid
       header.header
         nav.navbar.navbar-expand-lg.navbar-dark.bg-dark role="navigation"
-          a.navbar-brand href="/" Hexlet Basics
-          .navbar-text
+          a.navbar-brand href="/" Code Basics
+          .navbar-text.mx-auto.pr-5
             = @language.slug
+            = " → "
             = @module_description.name
+            |  (<%= @module_length %> / <%= @lesson_order_natural %>)
 
       main.mt-3 role="main"
         = render @view_module, @view_template, assigns

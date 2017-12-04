@@ -3,12 +3,11 @@ html lang="en"
   head
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
-
   body
     .container-fluid
       header.header
         nav.navbar.navbar-expand-lg.navbar-light.bg-light role="navigation"
-          a.navbar-brand href="/" Hexlet Basics
+          a.navbar-brand href="/" Code Basics
 
       - if get_flash(@conn, :info) do
         p.alert.alert-info role="alert"= get_flash(@conn, :info)
