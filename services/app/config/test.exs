@@ -13,7 +13,7 @@ config :logger, level: :warn
 config :hexlet_basics, HexletBasics.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "postgres",
+  password: "",
   database: "hexlet_basics_test",
-  hostname: "localhost",
+  hostname: "db",
   pool: Ecto.Adapters.SQL.Sandbox

@@ -20,6 +20,7 @@ defmodule HexletBasicsWeb.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
       import HexletBasicsWeb.Router.Helpers
+      import HexletBasics.Factory
 
       # The default endpoint for testing
       @endpoint HexletBasicsWeb.Endpoint

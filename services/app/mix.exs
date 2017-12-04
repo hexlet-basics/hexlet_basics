@@ -43,6 +43,8 @@ defmodule HexletBasics.Mixfile do
       {:cowboy, "~> 1.0"},
 
       {:phoenix_slime, github: "slime-lang/phoenix_slime"},
+      {:ecto_state_machine, "~> 0.1.0"},
+      {:ex_machina, "~> 2.1"},
       {:dockerex, "~> 0.1.0"},
       {:yaml_elixir, "~> 1.3.1"},
       {:phoenix_gon, github: "khusnetdinov/phoenix_gon"},

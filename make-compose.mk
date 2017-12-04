@@ -1,3 +1,5 @@
+compose-test:
+	docker-compose run app mix test
 compose-build:
 	docker-compose build
 
@@ -14,8 +16,10 @@ compose-kill:
 compose-bash:
 	docker-compose run app bash
 
-compose-setup:
+compose-install:
 	docker-compose run app mix deps.get
+
+compose-setup: compose-install
 	docker-compose run app mix ecto.create
 	docker-compose run app mix ecto.migrate
 	docker-compose run app bash -c "cd assets && npm install"
