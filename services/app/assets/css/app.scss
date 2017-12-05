@@ -21,9 +21,9 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 $link-hover-decoration: none;
 $body-color: $hexlet-basics-font-color;
 $link-color: $hexlet-basics-font-color;
+$pre-color: $hexlet-basics-font-color;
 
 @import "~bootstrap/scss/bootstrap";
-@import "~jq-console/css/ansi";
 @import "~highlight.js/styles/atom-one-light";
 
 .x-100vh {
@@ -36,7 +36,11 @@ $link-color: $hexlet-basics-font-color;
 
 .x-flex-1 {
   flex: 1;
-  flex-basics: 0;
+  flex-basis: 0;
+}
+
+.hexlet-basics-tab-content {
+  background-color: $hexlet-basics-active-bg;
 }
 
 .hexlet-basics-card {

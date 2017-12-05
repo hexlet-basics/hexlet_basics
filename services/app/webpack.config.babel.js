@@ -3,6 +3,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const apps = {
+  vendors: ['babel-polyfill'],
   app: './assets/js/app.js',
   lesson: './assets/js/lesson/index.jsx',
 };
@@ -13,10 +14,12 @@ export default {
     path: `${__dirname}/priv/static`,
     filename: 'js/[name].js',
   },
+  devtool: 'inline-source-map',
   plugins: [
     new ExtractTextPlugin('css/app.css'),
     // new CopyWebpackPlugin([{ from: './web/static/assets/', to: '../' }]),
     new CopyWebpackPlugin([{ from: 'assets/images/favicon.ico', to: 'favicon.ico' }]),
+    // new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',

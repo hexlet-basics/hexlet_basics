@@ -12,5 +12,6 @@ defmodule HexletBasics.Repo.Migrations.CreateLanguages do
     end
 
     create index(:languages, [:upload_id])
+    create unique_index(:languages, [:slug])
   end
 end

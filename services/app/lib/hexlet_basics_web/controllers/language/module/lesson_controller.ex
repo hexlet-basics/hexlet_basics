@@ -7,10 +7,6 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
 
   plug :put_layout, "lesson.html"
 
-  def index(conn, _params) do
-    render conn
-  end
-
   def show(conn, %{ "id" => id, "module_id" => module_id, "language_id" => language_id }) do
     language = Repo.get_by!(Language, slug: language_id)
     module = Repo.get_by!(Language.Module, language_id: language.id, slug: module_id)

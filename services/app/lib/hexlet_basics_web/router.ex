@@ -13,10 +13,6 @@ defmodule HexletBasicsWeb.Router do
     plug :accepts, ["json"]
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
-
   scope "/api", HexletBasicsWeb do
     pipe_through :api
 

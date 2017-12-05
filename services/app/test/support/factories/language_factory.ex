@@ -3,8 +3,8 @@ defmodule HexletBasics.LanguageFactory do
     quote do
       def language_factory do
         %HexletBasics.Language{
-          slug: "php",
-          name: "PHP",
+          slug: Faker.Internet.slug,
+          name: Faker.Internet.slug,
           upload: build(:upload)
         }
       end

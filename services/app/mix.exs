@@ -7,7 +7,7 @@ defmodule HexletBasics.Mixfile do
       version: "0.0.1",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers,
+      compilers: [:phoenix, :gettext] ++ Mix.compilers, # ++ [:jsroutes],
       start_permanent: Mix.env == :prod,
       aliases: aliases(),
       deps: deps()
@@ -44,7 +44,9 @@ defmodule HexletBasics.Mixfile do
 
       {:phoenix_slime, github: "slime-lang/phoenix_slime"},
       {:ecto_state_machine, "~> 0.1.0"},
+      {:phoenix_jsroutes, "~> 0.0.4"},
       {:ex_machina, "~> 2.1"},
+      {:faker, "~> 0.9"},
       {:dockerex, "~> 0.1.0"},
       {:yaml_elixir, "~> 1.3.1"},
       {:phoenix_gon, github: "khusnetdinov/phoenix_gon"},

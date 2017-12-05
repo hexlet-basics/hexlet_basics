@@ -1,9 +1,13 @@
 import React from 'react';
 import ansiUp from '../../lib/ansi_up';
 
-export default ({ output }) => {
-  const html = ansiUp(output);
+export default ({ outputs }) => {
+  const html = outputs.map(ansiUp).join('\n\n');
   return (<div>
-    {html}
+    <pre>
+      <code>
+        {html}
+      </code>
+    </pre>
   </div>);
 };

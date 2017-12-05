@@ -19,8 +19,13 @@ compose-bash:
 compose-install:
 	docker-compose run app mix deps.get
 
-compose-setup: compose-install
+compose-setup: compose-install compose-db-prepare
+	docker-compose run app bash -c "cd assets && npm install"
+
+compose-db-drop:
+	docker-compose run app mix ecto.drop
+
+compose-db-prepare:
 	docker-compose run app mix ecto.create
 	docker-compose run app mix ecto.migrate
-	docker-compose run app bash -c "cd assets && npm install"
 

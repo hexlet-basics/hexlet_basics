@@ -4,9 +4,16 @@ import MonacoEditor from 'react-monaco-editor';
 export default class App extends React.Component {
   editorDidMount = (editor) => {
     this.editor = editor;
+    this.editor.focus();
     // this.editor.getModel().updateOptions({ tabSize: this.tabSize });
 
     window.addEventListener('resize', this.handleResize);
+  }
+
+  componentDidUpdate() {
+    if (this.editor) {
+      this.editor.focus();
+    }
   }
 
   handleResize = () => this.editor.layout();
@@ -22,6 +29,8 @@ export default class App extends React.Component {
     const options = {
       fontSize: 16,
       scrollBeyondLastLine: false,
+      selectOnLineNumbers: true,
+      // automaticLayout: true,
       minimap: {
         enabled: false
       }

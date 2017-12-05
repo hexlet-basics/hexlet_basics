@@ -4,10 +4,6 @@ defmodule HexletBasicsWeb.LanguageController do
   alias HexletBasics.Language, as: Language
   import Ecto.Query
 
-  def index(conn, _params) do
-    render conn
-  end
-
   def show(conn, %{ "id" => id }) do
     language = Repo.get_by(HexletBasics.Language, slug: id)
     query = from m in Language.Module,
