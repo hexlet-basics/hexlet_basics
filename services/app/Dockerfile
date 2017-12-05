@@ -15,7 +15,8 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get update && apt-get install -y nodejs
 
 # Copy all dependencies files
-COPY mix.* ./
+COPY mix.exs ./
+COPY mix.lock ./
 
 # Install all production dependencies
 RUN mix deps.get --only prod
