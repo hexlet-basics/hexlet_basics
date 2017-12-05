@@ -17,6 +17,7 @@ export default class App extends React.Component {
   }
 
   handleResize = () => this.editor.layout();
+  handleChange = content => this.props.changeCode({ content });
 
   render() {
     const requireConfig = {
@@ -32,9 +33,9 @@ export default class App extends React.Component {
       selectOnLineNumbers: true,
       // automaticLayout: true,
       minimap: {
-        enabled: false
-      }
-    }
+        enabled: false,
+      },
+    };
     return (<MonacoEditor
       theme="vs-dark"
       options={options}
@@ -42,6 +43,7 @@ export default class App extends React.Component {
       editorDidMount={this.editorDidMount}
       defaultValue={this.props.defaultValue}
       requireConfig={requireConfig}
+      onChange={this.handleChange}
     />);
   }
 }

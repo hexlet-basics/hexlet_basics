@@ -6,6 +6,13 @@ import * as actions from '../actions';
 const consoleIndex = 1;
 const editorIndex = 0;
 
+const code = handleActions({
+  [actions.changeCode]: (state, { payload }) => {
+    const { content } = payload;
+    return content;
+  },
+}, '');
+
 const currentTabInfo = handleActions({
   [actions.runCheckRequest]: (state) => {
     const newState = { ...state, index: consoleIndex };
@@ -58,6 +65,7 @@ const checkInfo = handleActions({
 }, { processing: false, outputs: [] });
 
 export default combineReducers({
+  code,
   currentTabInfo,
   notification,
   checkInfo,

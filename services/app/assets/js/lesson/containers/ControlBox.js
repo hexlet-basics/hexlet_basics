@@ -3,8 +3,8 @@ import * as actionCreators from '../actions';
 import ControlBox from '../components/ControlBox.jsx';
 
 const mapStateToProps = (state) => {
-  const { checkInfo } = state;
-  const props = { checkInfo };
+  const { checkInfo, code } = state;
+  const props = { checkInfo, code };
   return props;
 };
 

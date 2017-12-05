@@ -11,7 +11,7 @@ const lesson = gon.getAsset('lesson');
 const language = gon.getAsset('language');
 const description = gon.getAsset('lesson_description');
 
-const store = configureStore(reducers);
+const store = configureStore(reducers, { code: lesson.prepared_code });
 
 ReactDOM.render(
   <Provider store={store}>

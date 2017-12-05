@@ -13,7 +13,8 @@ export default class TabsBox extends React.Component {
     const buttonClasses = cn({
       'btn btn-primary': true,
       disabled: checkInfo.processing,
-    })
+    });
+
     return (
       <div className="row">
         <div className="col">

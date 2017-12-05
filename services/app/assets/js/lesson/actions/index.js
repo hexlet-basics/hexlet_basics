@@ -6,6 +6,7 @@ export const runCheckRequest = createAction('CHECK_RUN_REQUEST');
 export const runCheckSuccess = createAction('CHECK_RUN_SUCCESS');
 export const runCheckFailure = createAction('CHECK_RUN_FAILURE');
 
+export const changeCode = createAction('CODE_CHANGE');
 export const selectTab = createAction('TAB_SELECT');
 
 export const dismissNotification = createAction('NOTIFICATION_DISMISS');
