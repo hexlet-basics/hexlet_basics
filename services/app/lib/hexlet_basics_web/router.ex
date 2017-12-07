@@ -30,7 +30,7 @@ defmodule HexletBasicsWeb.Router do
     end
 
     resources "/lessons", LessonController, include: [] do
-      get "/redirect-to-next", LessonController, :next, as: :next
+      get "/redirect-to-next", LessonController, :next, as: :member
     end
   end
 

@@ -5,6 +5,10 @@
 # is restricted to this project.
 use Mix.Config
 
+config :rollbax,
+  access_token: System.get_env("HEXLET_BASICS_ROLLBAR_ACCESS_TOKEN"),
+  environment: "production"
+
 config :dockerex,
   host: "http+unix://%2Fvar%2Frun%2Fdocker.sock"
 

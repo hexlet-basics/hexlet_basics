@@ -21,6 +21,6 @@ defmodule HexletBasics.Language do
     |> cast(attrs, [:name, :slug, :upload_id])
     # |> cast_assoc(:upload)
     |> validate_required([:name, :slug])
-    |> unique_constraint(:slug, message: "JOPA!")
+    # |> unique_constraint(:slug, message: "JOPA!")
   end
 end

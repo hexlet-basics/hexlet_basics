@@ -13,6 +13,10 @@ const code = handleActions({
   },
 }, '');
 
+const finished = handleActions({
+  [actions.runCheckSuccess]: () => true,
+}, false);
+
 const currentTabInfo = handleActions({
   [actions.runCheckRequest]: (state) => {
     const newState = { ...state, index: consoleIndex };
@@ -31,15 +35,15 @@ const notification = handleActions({
     return info;
   },
   [actions.runCheckFailure]: () => {
-    const info = { type: 'danger', message: 'something was wrong, try one more time' };
+    const info = { type: 'danger', headline: 'Oops!', message: 'something was wrong, try one more time' };
     return info;
   },
   [actions.runCheckRequest]: () => {
     const info = null;
     return info;
   },
-  [actions.runCheckSuccess]: (state, { payload }) => {
-    const info = { type: 'success', message: 'Whoa! You did it! Go next.' };
+  [actions.runCheckSuccess]: () => {
+    const info = { type: 'success', headline: 'Great!', message: 'Whoa! You did it! Go next.' };
     return info;
   },
 }, null);
@@ -65,6 +69,7 @@ const checkInfo = handleActions({
 }, { processing: false, outputs: [] });
 
 export default combineReducers({
+  finished,
   code,
   currentTabInfo,
   notification,

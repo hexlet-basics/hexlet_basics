@@ -7,7 +7,8 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   server: false
 
 # Print only warnings and errors during test
-config :logger, level: :warn
+# config :logger, level: :warn
+config :logger, :console, format: "[$level] $message\n"
 
 # Configure your database
 config :hexlet_basics, HexletBasics.Repo,

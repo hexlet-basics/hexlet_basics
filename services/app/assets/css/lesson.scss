@@ -9,35 +9,17 @@ $border-radius: 0 !default;
 
 $close-color: #fff;
 
-$nav-tabs-border-radius: 0;
-$nav-link-padding-y: .2rem !default;
-$nav-link-padding-x: 0.75rem !default;
 $nav-tabs-border-color: $hexlet-basics-dark-color;
 $nav-tabs-link-active-border-color: $hexlet-basics-dark-color;
 $nav-tabs-link-hover-border-color: $body-bg;
 $nav-tabs-link-active-color: $hexlet-basics-active-color;
 $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 
-$link-hover-decoration: none;
 $body-color: $hexlet-basics-font-color;
 $link-color: $hexlet-basics-font-color;
 $pre-color: $hexlet-basics-font-color;
 
-@import "~bootstrap/scss/bootstrap";
-@import "~highlight.js/styles/atom-one-light";
-
-.x-100vh {
-  height: 100vh;
-}
-
-.x-overflow {
-  overflow: auto;
-}
-
-.x-flex-1 {
-  flex: 1;
-  flex-basis: 0;
-}
+@import './common';
 
 .hexlet-basics-tab-content {
   background-color: $hexlet-basics-active-bg;

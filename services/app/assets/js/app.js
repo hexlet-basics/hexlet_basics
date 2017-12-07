@@ -19,4 +19,5 @@
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
-import '../css/app.scss';
+// import '../css/common.scss';
+// import '../css/lesson.scss';

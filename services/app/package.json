@@ -1,6 +1,10 @@
 {
   "repository": {},
   "license": "MIT",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "scripts": {
     "lint": "eslint",
     "deploy": "webpack -p",
@@ -33,9 +37,13 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "postcss-import": "*",
+    "cssnano": "*",
+    "postcss-cssnext": "*",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
     "babel-loader": "^7.1.2",
+    "postcss-loader": "*",
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",

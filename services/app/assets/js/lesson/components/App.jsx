@@ -5,6 +5,7 @@ import TabsBox from './TabsBox.jsx';
 import ControlBoxContainer from '../containers/ControlBox';
 import md from '../../lib/markdown';
 
+
 export default class App extends React.Component {
   getChildContext() {
     return {
@@ -18,7 +19,7 @@ export default class App extends React.Component {
     if (!notification) {
       return null;
     }
-    return (<Alert timeout={5000} onDismiss={this.props.dismissNotification} className="hexlet-ide-notifications" type={notification.type} headline="Oops">
+    return (<Alert timeout={5000} onDismiss={this.props.dismissNotification} className="hexlet-ide-notifications" type={notification.type} headline={notification.headline}>
       {notification.message}
     </Alert>);
   }

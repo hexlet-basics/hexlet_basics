@@ -1,6 +1,7 @@
 doctype html
 html lang="en"
   head
+    link rel="stylesheet" href="#{static_path(@conn, "/css/lessonCss.css")}"
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
   body.x-100vh
@@ -12,11 +13,10 @@ html lang="en"
             = @language.slug
             = " → "
             = @module_description.name
-            |  (
+            | &nbsp;
             = @lesson_order_natural
-            | /
+            | &nbsp;/&nbsp;
             = @lessons_count
-            |)
 
       main.mt-3 role="main"
         = render @view_module, @view_template, assigns

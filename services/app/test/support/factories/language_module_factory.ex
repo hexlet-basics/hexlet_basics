@@ -4,7 +4,8 @@ defmodule HexletBasics.LanguageModuleFactory do
       def language_module_factory do
         %HexletBasics.Language.Module{
           slug: Faker.Internet.slug,
-          language: build(:language)
+          language: build(:language),
+          order: 100
         }
       end
     end

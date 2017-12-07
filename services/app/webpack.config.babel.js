@@ -3,6 +3,8 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const apps = {
+  commonCss: './assets/css/common.scss',
+  lessonCss: './assets/css/lesson.scss',
   vendors: ['babel-polyfill'],
   app: './assets/js/app.js',
   lesson: './assets/js/lesson/index.jsx',
@@ -15,11 +17,16 @@ export default {
     filename: 'js/[name].js',
   },
   devtool: 'inline-source-map',
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: 1000,
+  },
   plugins: [
-    new ExtractTextPlugin('css/app.css'),
-    // new CopyWebpackPlugin([{ from: './web/static/assets/', to: '../' }]),
+    new ExtractTextPlugin({
+      allChunks: true,
+      filename: 'css/[name].css',
+    }),
     new CopyWebpackPlugin([{ from: 'assets/images/favicon.ico', to: 'favicon.ico' }]),
-    // new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
@@ -44,7 +51,7 @@ export default {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader'],
+          use: ['css-loader', 'postcss-loader', 'sass-loader'],
         }),
       },
     ],
