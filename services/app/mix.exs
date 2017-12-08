@@ -20,7 +20,15 @@ defmodule HexletBasics.Mixfile do
   def application do
     [
       mod: {HexletBasics.Application, []},
-      extra_applications: [:logger, :runtime_tools, :yaml_elixir, :dockerex, :rollbax]
+      extra_applications: [
+        :logger,
+        :runtime_tools,
+        :yaml_elixir,
+        :docker_api,
+        :rollbax,
+        :ueberauth_github,
+        :ueberauth
+      ]
     ]
   end
 
@@ -47,12 +55,13 @@ defmodule HexletBasics.Mixfile do
       {:phoenix_jsroutes, "~> 0.0.4"},
       {:ex_machina, "~> 2.1"},
       {:faker, "~> 0.9"},
-      {:dockerex, "~> 0.1.0"},
       {:yaml_elixir, "~> 1.3.1"},
       {:rollbax, "~> 0.6"},
       {:phoenix_gon, github: "khusnetdinov/phoenix_gon"},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
-      {:git_cli, "~> 0.2"}
+      {:git_cli, "~> 0.2"},
+      {:ueberauth_github, "~> 0.6"},
+      {:ueberauth, "~> 0.4"}
     ]
   end
 

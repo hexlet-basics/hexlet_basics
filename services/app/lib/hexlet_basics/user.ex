@@ -8,6 +8,9 @@ defmodule HexletBasics.User do
     field :email, :string
     field :first_name, :string
     field :last_name, :string
+    field :github_uid, :integer
+    field :nickname, :string
+    field :guest, :boolean, virtual: true, default: false
 
     timestamps()
   end
@@ -15,7 +18,7 @@ defmodule HexletBasics.User do
   @doc false
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:first_name, :last_name, :email])
-    |> validate_required([:first_name, :last_name, :email])
+    |> cast(attrs, [:github_uid, :nickname, :email])
+    |> validate_required([:github_uid, :nickname, :email])
   end
 end

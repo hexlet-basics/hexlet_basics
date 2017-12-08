@@ -1,10 +1,14 @@
 use Mix.Config
 
+
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
   http: [port: 4001],
   server: false
+
+config :hexlet_basics,
+  code_directory: "/tmp/hexlet-basics/code"
 
 # Print only warnings and errors during test
 # config :logger, level: :warn

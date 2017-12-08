@@ -5,16 +5,23 @@
 # is restricted to this project.
 use Mix.Config
 
-config :rollbax,
-  access_token: System.get_env("HEXLET_BASICS_ROLLBAR_ACCESS_TOKEN"),
-  environment: "production"
+config :ueberauth, Ueberauth,
+  providers: [
+    github: { Ueberauth.Strategy.Github, [] }
+  ]
 
-config :dockerex,
-  host: "http+unix://%2Fvar%2Frun%2Fdocker.sock"
+config :ueberauth, Ueberauth.Strategy.Github.OAuth,
+  client_id: System.get_env("GITHUB_CLIENT_ID"),
+  client_secret: System.get_env("GITHUB_CLIENT_SECRET")
+
+config :rollbax,
+  access_token: System.get_env("ROLLBAR_ACCESS_TOKEN"),
+  environment: "production"
 
 # General application configuration
 config :hexlet_basics,
-  ecto_repos: [HexletBasics.Repo]
+  ecto_repos: [HexletBasics.Repo],
+  code_directory: "/opt/hexlet-basics/code"
 
 # config :playfair, Playfair.Gettext, default_locale: "ru_RU"
 

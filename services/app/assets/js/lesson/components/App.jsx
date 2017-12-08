@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert } from 'react-bs-notifier';
-import TabsBox from './TabsBox.jsx';
+import TabsBoxContainer from '../containers/TabsBox';
 import ControlBoxContainer from '../containers/ControlBox';
 import md from '../../lib/markdown';
 
@@ -47,7 +47,7 @@ export default class App extends React.Component {
             </div>
           </div>
           <div className="col-7 no-gutters pl-0">
-            <TabsBox checkInfo={checkInfo} currentTabInfo={currentTabInfo} selectTab={this.props.selectTab} />
+            <TabsBoxContainer />
             <ControlBoxContainer />
           </div>
         </div>

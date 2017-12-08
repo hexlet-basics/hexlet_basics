@@ -4,6 +4,7 @@ defmodule HexletBasicsWeb.Router do
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
+    plug HexletBasicsWeb.Plugs.AssignCurrentUser
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
@@ -11,6 +12,16 @@ defmodule HexletBasicsWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug HexletBasicsWeb.Plugs.AssignCurrentUser
+    plug HexletBasicsWeb.Plugs.RequireAuth
+  end
+
+  scope "/auth", HexletBasicsWeb do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
   end
 
   scope "/api", HexletBasicsWeb do
@@ -23,6 +34,7 @@ defmodule HexletBasicsWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/session", SessionController, singleton: true
     resources "/languages", LanguageController do
       resources "/modules", Language.ModuleController do
         resources "/lessons", Language.Module.LessonController

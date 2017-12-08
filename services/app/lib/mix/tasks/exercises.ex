@@ -2,10 +2,11 @@ defmodule Mix.Tasks.X.Exercises.Load do
   use Mix.Task
   # import Mix.Ecto
   require Logger
-  alias HexletBasics.Repo, as: Repo
-  alias HexletBasics.Language, as: Language
-  alias HexletBasics.Language.Module.Lesson, as: Lesson
-  alias HexletBasics.Upload, as: Upload
+  alias HexletBasics.Repo
+  alias HexletBasics.Language
+  alias HexletBasics.Language.Module
+  alias HexletBasics.Language.Module.Lesson
+  alias HexletBasics.Upload
 
   @shortdoc "Load exercises"
   def run([lang_name]) do
@@ -23,8 +24,8 @@ defmodule Mix.Tasks.X.Exercises.Load do
     up_repo(lang_name, repoDest)
     modulesWithMeta = get_modules(modulesDest)
     modules = modulesWithMeta
-    |> Enum.map(fn({ order, slug, descriptions }) ->
-      upsert_module_with_descriptions(language, order, slug, descriptions)
+    |> Enum.map(fn(data) ->
+      upsert_module_with_descriptions(language, data)
     end)
 
     modules
@@ -35,15 +36,15 @@ defmodule Mix.Tasks.X.Exercises.Load do
   end
 
   def get_lessons(dest, module, language) do
-    # TODO: use original path
-    module_path = Path.join(dest, "#{module.order}-#{module.slug}")
-    wildcard_path = Path.join([module_path, "*"])
+    module_directory = Module.get_directory(module)
+    module_path = Path.join(dest, module_directory)
+    wildcard_path = Path.join(module_path, "*")
     Path.wildcard(wildcard_path)
     |> Enum.filter(&File.dir?/1)
     |> Enum.map(&Path.basename/1)
-    |> Enum.map(fn(folder) ->
-      [order, slug] = String.split(folder, "-", parts: 2)
-      lesson_path = Path.join(module_path, folder)
+    |> Enum.map(fn(directory) ->
+      [order, slug] = String.split(directory, "-", parts: 2)
+      lesson_path = Path.join(module_path, directory)
       descriptions = get_descriptions(lesson_path)
       # TODO: extract to lang spec
       test_file_path = Path.join(lesson_path, "Test.#{language.slug}")
@@ -51,12 +52,13 @@ defmodule Mix.Tasks.X.Exercises.Load do
       { :ok, test_code } = File.read(test_file_path)
       { :ok, original_code } = File.read(Path.join(lesson_path, "index.#{language.slug}"))
       prepared_code = prepare_code(original_code)
+      path_to_original_code = Path.join(module_directory, directory)
 
-      { language, module, order, slug, prepared_code, original_code, test_code, descriptions }
+      { language, module, order, slug, prepared_code, original_code, test_code, descriptions, path_to_original_code }
     end)
   end
 
-  def upsert_lesson_with_descriptions({ language, module, order, slug, prepared_code, original_code, test_code, descriptions }) do
+  def upsert_lesson_with_descriptions({ language, module, order, slug, prepared_code, original_code, test_code, descriptions, path_to_original_code }) do
     mayBeLesson = Repo.get_by(Lesson, language_id: language.id, module_id: module.id, slug: slug)
     lesson = case mayBeLesson do
       nil  -> %Lesson{ language: language, module: module, slug: slug }
@@ -64,6 +66,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
     end
     |> Lesson.changeset(%{
       order: order,
+      path_to_original_code: path_to_original_code,
       upload_id: language.upload_id,
       original_code: original_code,
       prepared_code: prepared_code,
@@ -91,10 +94,10 @@ defmodule Mix.Tasks.X.Exercises.Load do
     Path.wildcard("#{dest}/*")
     |> Enum.filter(&File.dir?/1)
     |> Enum.map(&Path.basename/1)
-    |> Enum.map(fn(folder) ->
-      [order, slug] = String.split(folder, "-", parts: 2)
-      descriptions = get_descriptions(Path.join(dest, folder))
-      { order, slug, descriptions }
+    |> Enum.map(fn(directory) ->
+      [order, slug] = String.split(directory, "-", parts: 2)
+      descriptions = get_descriptions(Path.join(dest, directory))
+      %{ order: order, slug: slug, descriptions: descriptions }
     end)
   end
 
@@ -109,7 +112,8 @@ defmodule Mix.Tasks.X.Exercises.Load do
     end)
   end
 
-  def upsert_module_with_descriptions(language, order, slug, descriptions) do
+  def upsert_module_with_descriptions(language, data) do
+    %{ order: order, slug: slug, descriptions: descriptions } = data
     maybeModule = Repo.get_by(Language.Module, language_id: language.id, slug: slug)
     module = case maybeModule do
       nil  -> %Language.Module{ language_id: language.id, slug: slug }
@@ -160,6 +164,12 @@ defmodule Mix.Tasks.X.Exercises.Load do
   end
 
   def prepare_code(code) do
-    code
+    reg = ~r/(?<begin>^[^\n]*?BEGIN.*?$\s*)(?<content>.+?)(?<end>^[^\n]*?END.*?$)/msu
+    result = Regex.replace(reg, code, "\\1\n\\3")
+    if result != code do
+      result
+    else
+      ""
+    end
   end
 end

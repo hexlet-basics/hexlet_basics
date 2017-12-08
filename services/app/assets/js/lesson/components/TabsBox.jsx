@@ -27,7 +27,11 @@ export default class TabsBox extends React.Component {
         <Tab className="nav-item nav-link"><a href="#">Console</a></Tab>
       </TabList>
       <TabPanel className="d-none" selectedClassName={tabPanelSelectedClasses}>
-        <Editor border-dark defaultValue={lesson.prepared_code} language={language.slug} />
+        <Editor
+          defaultValue={lesson.prepared_code}
+          onCodeChange={this.props.changeCode}
+          language={language.slug}
+        />
       </TabPanel>
       <TabPanel className="d-none hexlet-basics-tab-content p-2" selectedClassName={tabPanelSelectedClasses}>
         <Console outputs={checkInfo.outputs} />

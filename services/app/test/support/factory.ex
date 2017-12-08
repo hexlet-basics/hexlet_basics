@@ -4,4 +4,5 @@ defmodule HexletBasics.Factory do
   use HexletBasics.UploadFactory
   use HexletBasics.LanguageModuleFactory
   use HexletBasics.LanguageModuleLessonFactory
+  use HexletBasics.UserFactory
 end

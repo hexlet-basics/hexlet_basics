@@ -17,7 +17,7 @@ export default class App extends React.Component {
   }
 
   handleResize = () => this.editor.layout();
-  handleChange = content => this.props.changeCode({ content });
+  handleChange = content => this.props.onCodeChange({ content });
 
   render() {
     const requireConfig = {

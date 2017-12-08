@@ -1,9 +1,11 @@
 defmodule HexletBasicsWeb.LessonController do
   use HexletBasicsWeb, :controller
-  alias HexletBasics.Repo, as: Repo
-  alias HexletBasics.Language, as: Language
+  alias HexletBasics.Repo
+  alias HexletBasics.Language
   require Logger
   import Ecto.Query
+
+  plug HexletBasicsWeb.Plugs.RequireAuth
 
   def next(conn, %{ "lesson_id" => id}) do
     lesson = Repo.get!(Language.Module.Lesson, id)

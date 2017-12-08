@@ -6,6 +6,8 @@ defmodule HexletBasics.Repo.Migrations.CreateUsers do
       add :first_name, :string
       add :last_name, :string
       add :email, :string
+      add :nickname, :string
+      add :github_uid, :integer
 
       timestamps()
     end

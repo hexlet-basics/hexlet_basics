@@ -12,10 +12,12 @@ services:
       PORT: 4000
     ports:
       - "4000:4000"
+    env_file: '.env.development'
     volumes:
       - "./services/app:/app"
       - "~/.bash_history:/root/.bash_history:cached"
       - ".bashrc:/root/.bashrc:cached"
+      - '/var/run/docker.sock:/var/run/docker.sock'
       - "/var/tmp:/var/tmp"
       - "/tmp:/tmp"
     depends_on:

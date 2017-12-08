@@ -5,6 +5,8 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
   import PhoenixGon.Controller
   import Ecto.Query
 
+  plug HexletBasicsWeb.Plugs.RequireAuth
+
   plug :put_layout, "lesson.html"
 
   def show(conn, %{ "id" => id, "module_id" => module_id, "language_id" => language_id }) do

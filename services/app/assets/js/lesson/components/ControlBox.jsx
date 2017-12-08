@@ -13,15 +13,17 @@ class ControlBox extends React.Component {
     const { lesson } = this.context;
 
     const runButtonClasses = cn({
-      'btn btn-outline-primary mr-3': true,
+      'btn btn-primary mr-3': true,
       disabled: checkInfo.processing,
     });
 
     const nextButtonClasses = cn({
-      'btn btn-outline-success': true,
-      disabled: !finished,
+      btn: true,
+      'btn-outline-success disabled': !finished,
+      'btn-success': finished,
     });
 
+    // TODO move to js routes
     const nextLessonUrl = `/lessons/${lesson.id}/redirect-to-next`;
 
     return (
