@@ -5,7 +5,11 @@ defmodule HexletBasics.LanguageModuleFactory do
         %HexletBasics.Language.Module{
           slug: Faker.Internet.slug,
           language: build(:language),
-          order: 100
+          order: 100,
+          descriptions: [
+            build(:language_module_description),
+            build(:language_module_description, locale: "en")
+          ]
         }
       end
     end

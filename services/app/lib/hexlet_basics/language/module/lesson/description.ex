@@ -2,6 +2,7 @@ defmodule HexletBasics.Language.Module.Lesson.Description do
   use Ecto.Schema
   import Ecto.Changeset
   alias HexletBasics.Language.Module.Lesson.Description
+  alias HexletBasics.Language.Module.Lesson
 
   @derive {Poison.Encoder, only: [:instructions, :theory, :name]}
 
@@ -11,7 +12,7 @@ defmodule HexletBasics.Language.Module.Lesson.Description do
     field :name, :string
     field :theory, :string
     # field :tips, { :list, :string }
-    field :lesson_id, :id
+    belongs_to :lesson, Lesson
 
     timestamps()
   end

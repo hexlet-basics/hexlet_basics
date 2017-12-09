@@ -7,7 +7,12 @@ defmodule HexletBasics.LanguageModuleLessonFactory do
           slug: Faker.Internet.slug,
           order: 100,
           module: module,
-          language: module.language
+          language: module.language,
+          path_to_original_code: "path/to/original/code",
+          descriptions: [
+            build(:language_module_lesson_description),
+            build(:language_module_lesson_description, locale: "en")
+          ]
         }
       end
     end

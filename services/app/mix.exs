@@ -24,7 +24,6 @@ defmodule HexletBasics.Mixfile do
         :logger,
         :runtime_tools,
         :yaml_elixir,
-        :docker_api,
         :rollbax,
         :ueberauth_github,
         :ueberauth
@@ -53,7 +52,7 @@ defmodule HexletBasics.Mixfile do
       {:phoenix_slime, github: "slime-lang/phoenix_slime"},
       {:ecto_state_machine, "~> 0.1.0"},
       {:phoenix_jsroutes, "~> 0.0.4"},
-      {:ex_machina, "~> 2.1"},
+      {:ex_machina, github: "thoughtbot/ex_machina"},
       {:faker, "~> 0.9"},
       {:yaml_elixir, "~> 1.3.1"},
       {:rollbax, "~> 0.6"},
@@ -75,7 +74,8 @@ defmodule HexletBasics.Mixfile do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      "test": ["ecto.create --quiet", "ecto.migrate", "test"]
+      "test": ["ecto.create --quiet", "ecto.migrate", "test"],
+      "compile": ["compile --warnings-as-errors"]
     ]
   end
 end

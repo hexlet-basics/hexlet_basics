@@ -3,6 +3,8 @@ defmodule HexletBasics.Factory do
   use HexletBasics.LanguageFactory
   use HexletBasics.UploadFactory
   use HexletBasics.LanguageModuleFactory
+  use HexletBasics.LanguageModuleDescriptionFactory
   use HexletBasics.LanguageModuleLessonFactory
+  use HexletBasics.LanguageModuleLessonDescriptionFactory
   use HexletBasics.UserFactory
 end

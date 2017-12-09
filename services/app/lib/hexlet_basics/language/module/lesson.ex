@@ -17,6 +17,7 @@ defmodule HexletBasics.Language.Module.Lesson do
     belongs_to :language, HexletBasics.Language
     belongs_to :module, HexletBasics.Language.Module
     belongs_to :upload, HexletBasics.Upload
+    has_many :descriptions, Lesson.Description
 
     timestamps()
   end

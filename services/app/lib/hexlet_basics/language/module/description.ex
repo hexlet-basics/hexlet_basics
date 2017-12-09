@@ -2,13 +2,14 @@ defmodule HexletBasics.Language.Module.Description do
   use Ecto.Schema
   import Ecto.Changeset
   alias HexletBasics.Language.Module.Description
+  alias HexletBasics.Language.Module
 
 
   schema "language_module_descriptions" do
     field :description, :string
     field :locale, :string
     field :name, :string
-    field :module_id, :id
+    belongs_to :module, Module
 
     timestamps()
   end

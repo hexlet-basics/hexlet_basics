@@ -2,7 +2,6 @@ defmodule HexletBasicsWeb.AuthController do
   use HexletBasicsWeb, :controller
   alias HexletBasics.Repo
   alias HexletBasics.{User}
-  alias HexletBasics.Language.Module.Lesson
   plug Ueberauth
 
   alias Ueberauth.Strategy.Helpers
@@ -18,7 +17,7 @@ defmodule HexletBasicsWeb.AuthController do
     |> redirect(to: "/")
   end
 
-  def callback(%{assigns: %{ueberauth_failure: fails}} = conn, _params) do
+  def callback(%{assigns: %{ueberauth_failure: _fails}} = conn, _params) do
     conn
     |> put_flash(:error, gettext "Failed to authenticate.")
     |> redirect(to: page_path(conn, :index))

@@ -2,7 +2,7 @@ defmodule HexletBasicsWeb.Plugs.RequireAuth do
   import Plug.Conn
   import Phoenix.Controller
   import HexletBasicsWeb.Gettext
-  alias SimpleBlog.Router.Helpers, as: RouteHelpers
+  alias HexletBasicsWeb.Router.Helpers, as: RouteHelpers
 
   def init(options), do: options
 

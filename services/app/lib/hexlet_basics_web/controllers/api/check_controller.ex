@@ -1,8 +1,8 @@
 defmodule HexletBasicsWeb.Api.CheckController do
   use HexletBasicsWeb, :controller
-  alias HexletBasics.Repo, as: Repo
-  alias HexletBasics.Language, as: Language
-  import Ecto.Query
+  # alias HexletBasics.Repo, as: Repo
+  # alias HexletBasics.Language, as: Language
+  # import Ecto.Query
 
   def create(conn, _params) do
     # FIXME: return errros if timeout
