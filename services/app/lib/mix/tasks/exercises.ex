@@ -19,9 +19,9 @@ defmodule Mix.Tasks.X.Exercises.Load do
       language_name: lang_name
     })
 
-    language = upsert_language(upload, lang_name)
-
     up_repo(lang_name, repo_dest)
+    language = upsert_language(upload, lang_name, repo_dest)
+
     modules_with_meta = get_modules(module_dest)
     modules = modules_with_meta
     |> Enum.map(fn(data) ->
@@ -48,33 +48,33 @@ defmodule Mix.Tasks.X.Exercises.Load do
       lesson_path = Path.join(module_path, directory)
       descriptions = get_descriptions(lesson_path)
       # TODO: extract to lang spec
-      test_file_path = Path.join(lesson_path, "Test.#{language.slug}")
+      test_file_path = Path.join(lesson_path, language.exercise_test_filename)
       Logger.debug test_file_path
       {:ok, test_code} = File.read(test_file_path)
-      {:ok, original_code} = File.read(Path.join(lesson_path, "index.#{language.slug}"))
+      {:ok, original_code} = File.read(Path.join(lesson_path, language.exercise_filename))
       prepared_code = prepare_code(original_code)
-      path_to_original_code = Path.join(module_directory, directory)
+      path_to_code = Path.join(["/exercises/modules", module_directory, directory])
 
-      {language, module, order, slug, prepared_code, original_code, test_code, descriptions, path_to_original_code}
+      {language, module, order, slug, prepared_code, original_code, test_code, descriptions, path_to_code}
     end)
   end
 
-  def upsert_lesson_with_descriptions({language, module, order, slug, prepared_code, original_code, test_code, descriptions, path_to_original_code}) do
+  def upsert_lesson_with_descriptions({language, module, order, slug, prepared_code, original_code, test_code, descriptions, path_to_code}) do
     may_be_lesson = Repo.get_by(Lesson, language_id: language.id, module_id: module.id, slug: slug)
     lesson = case may_be_lesson do
       nil  -> %Lesson{language: language, module: module, slug: slug}
       entity -> entity
     end
-    lesson
-    |> Lesson.changeset(%{
-      order: order,
-      path_to_original_code: path_to_original_code,
-      upload_id: language.upload_id,
-      original_code: original_code,
-      prepared_code: prepared_code,
-      test_code: test_code
-    })
-    |> Repo.insert_or_update!
+    lesson = lesson
+             |> Lesson.changeset(%{
+               order: order,
+               path_to_code: path_to_code,
+               upload_id: language.upload_id,
+               original_code: original_code,
+               prepared_code: prepared_code,
+               test_code: test_code
+             })
+             |> Repo.insert_or_update!
 
     descriptions
     |> Enum.each(&(upsert_lesson_description(lesson, &1)))
@@ -124,12 +124,12 @@ defmodule Mix.Tasks.X.Exercises.Load do
       nil  -> %Language.Module{language_id: language.id, slug: slug}
       module -> module
     end
-    module
-    |> Language.Module.changeset(%{
-      order: order,
-      upload_id: language.upload_id
-    })
-    |> Repo.insert_or_update!
+    module = module
+             |> Language.Module.changeset(%{
+               order: order,
+               upload_id: language.upload_id
+             })
+             |> Repo.insert_or_update!
 
     descriptions
     |> Enum.each(&(upsert_module_description(module, &1)))
@@ -147,13 +147,22 @@ defmodule Mix.Tasks.X.Exercises.Load do
     |> Repo.insert_or_update!
   end
 
-  def upsert_language(upload, lang_name) do
+  def upsert_language(upload, lang_name, repo_dest) do
+    spec_filepath = Path.join(repo_dest, "spec.yml")
+    %{ "language" => language_info } = YamlElixir.read_from_file spec_filepath
     language = case Repo.get_by(Language, slug: lang_name) do
       nil  -> %Language{slug: lang_name}
       entity -> entity
     end
     language
-    |> Language.changeset(%{upload_id: upload.id, name: lang_name})
+    |> Language.changeset(%{
+      upload_id: upload.id,
+      name: lang_name,
+      docker_image: language_info["docker_image"],
+      extension: language_info["extension"],
+      exercise_filename: language_info["exercise_filename"],
+      exercise_test_filename: language_info["exercise_test_filename"]
+    })
     |> Repo.insert_or_update!
   end
 

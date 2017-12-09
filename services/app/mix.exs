@@ -26,7 +26,8 @@ defmodule HexletBasics.Mixfile do
         :yaml_elixir,
         :rollbax,
         :ueberauth_github,
-        :ueberauth
+        :ueberauth,
+        :porcelain
       ]
     ]
   end
@@ -59,6 +60,7 @@ defmodule HexletBasics.Mixfile do
       {:phoenix_gon, github: "khusnetdinov/phoenix_gon"},
       # {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
       {:git_cli, "~> 0.2"},
+      {:porcelain, "~> 2.0"},
       {:ueberauth_github, "~> 0.6"},
       {:ueberauth, "~> 0.4"}
     ]

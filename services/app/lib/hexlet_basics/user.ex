@@ -21,4 +21,14 @@ defmodule HexletBasics.User do
     |> cast(attrs, [:github_uid, :nickname, :email])
     |> validate_required([:github_uid, :nickname, :email])
   end
+
+  def directory_for_code(current_user) do
+    current_user.id
+    |> Integer.to_string
+    |> String.pad_leading(6, "0")
+    |> String.reverse
+    |> String.to_charlist
+    |> Enum.chunk(3)
+    |> Path.join
+  end
 end

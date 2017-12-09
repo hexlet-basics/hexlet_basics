@@ -27,7 +27,9 @@ defmodule HexletBasicsWeb.Router do
   scope "/api", HexletBasicsWeb do
     pipe_through :api
 
-    resources "/checks", Api.CheckController, include: [:create]
+    resources "/lessons", Api.LessonController, include: [] do
+      resources "/checks", Api.Lesson.CheckController, include: [:create]
+    end
   end
 
   scope "/", HexletBasicsWeb do

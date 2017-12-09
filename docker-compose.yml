@@ -14,11 +14,11 @@ services:
       - "4000:4000"
     env_file: '.env.development'
     volumes:
-      - "./services/app:/app"
+      - "./services/app:/app:cached"
       - "~/.bash_history:/root/.bash_history:cached"
       - ".bashrc:/root/.bashrc:cached"
       - '/var/run/docker.sock:/var/run/docker.sock'
-      - "/var/tmp:/var/tmp"
-      - "/tmp:/tmp"
+      - "/var/tmp:/var/tmp:cached"
+      - "/tmp:/tmp:cached"
     depends_on:
       - db

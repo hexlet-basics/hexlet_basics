@@ -8,7 +8,7 @@ defmodule HexletBasics.LanguageModuleLessonFactory do
           order: 100,
           module: module,
           language: module.language,
-          path_to_original_code: "path/to/original/code",
+          path_to_code: "/exercises/modules/10-basics/10-hello-world",
           descriptions: [
             build(:language_module_lesson_description),
             build(:language_module_lesson_description, locale: "en")

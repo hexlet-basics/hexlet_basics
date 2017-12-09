@@ -41,8 +41,9 @@ RUN npm install
 COPY . .
 
 # Compile the entire project
-RUN mix compile
+RUN MIX_ENV=prod mix compile
+RUN MIX_ENV=prod mix release
 
-RUN mix phx.digest
+# RUN mix phx.digest
 
 CMD mix phx.server

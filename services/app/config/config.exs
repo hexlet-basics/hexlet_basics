@@ -5,9 +5,11 @@
 # is restricted to this project.
 use Mix.Config
 
+# config :porcelain, :driver, :basic
+
 config :ueberauth, Ueberauth,
   providers: [
-    github: { Ueberauth.Strategy.Github, [] }
+    github: {Ueberauth.Strategy.Github, []}
   ]
 
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,

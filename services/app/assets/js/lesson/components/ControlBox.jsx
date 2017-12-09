@@ -5,7 +5,8 @@ import cn from 'classnames';
 class ControlBox extends React.Component {
   handleRunCheck = () => {
     const { code } = this.props;
-    this.props.runCheck({ code });
+    const { lesson } = this.context;
+    this.props.runCheck({ lesson, code });
   }
 
   render() {

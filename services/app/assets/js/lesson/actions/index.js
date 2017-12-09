@@ -11,10 +11,9 @@ export const selectTab = createAction('TAB_SELECT');
 
 export const dismissNotification = createAction('NOTIFICATION_DISMISS');
 
-export const runCheck = ({ code }) => async (dispatch) => {
-  // const { code } = data;
+export const runCheck = ({ lesson, code }) => async (dispatch) => {
   dispatch(runCheckRequest());
-  const url = '/api/checks'; // TOOO: jsroutes
+  const url = `/api/lessons/${lesson.id}/checks`; // TOOO: jsroutes
   const data = {
     type: 'check',
     attributes: {

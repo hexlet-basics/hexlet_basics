@@ -9,7 +9,7 @@ defmodule HexletBasics.Repo.Migrations.CreateLanguageModuleLessons do
       add :original_code, :text
       add :prepared_code, :text
       add :test_code, :text
-      add :path_to_original_code, :string
+      add :path_to_code, :string
       add :module_id, references(:language_modules, on_delete: :nothing)
       add :language_id, references(:languages, on_delete: :nothing)
       add :upload_id, references(:uploads, on_delete: :nothing)
