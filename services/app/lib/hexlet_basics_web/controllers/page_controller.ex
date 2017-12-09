@@ -4,11 +4,10 @@ defmodule HexletBasicsWeb.PageController do
   def index(conn, _params) do
     languages = HexletBasics.Repo.all(HexletBasics.Language)
     # IO.inspect languages
-    languagesBySlug = Enum.reduce(languages, %{}, fn(l, acc) ->
-      langName = String.to_atom(l.slug)
-      Map.put(acc, langName, l)
+    language_by_slug = Enum.reduce(languages, %{}, fn(l, acc) ->
+      lang_name = String.to_atom(l.slug)
+      Map.put(acc, lang_name, l)
     end)
-    # IO.inspect languagesBySlug
-    render conn, languagesBySlug
+    render conn, language_by_slug
   end
 end

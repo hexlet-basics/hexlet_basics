@@ -7,9 +7,9 @@ defmodule HexletBasicsWeb.LessonController do
 
   plug HexletBasicsWeb.Plugs.RequireAuth
 
-  def next(conn, %{ "lesson_id" => id}) do
+  def next(conn, %{"lesson_id" => id}) do
     lesson = Repo.get!(Language.Module.Lesson, id)
-      |> Repo.preload([:module, :language])
+             |> Repo.preload([:module, :language])
     module = lesson.module
     language = lesson.language
 
@@ -49,7 +49,7 @@ defmodule HexletBasicsWeb.LessonController do
     case redirect_path do
       nil ->
         conn
-        |> put_flash(:info, "You did it!")
+        |> put_flash(:info, gettext "You did it!")
         |> redirect(to: page_path(conn, :index))
       path -> redirect conn, to: path
     end

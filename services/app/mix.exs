@@ -58,7 +58,7 @@ defmodule HexletBasics.Mixfile do
       {:yaml_elixir, "~> 1.3.1"},
       {:rollbax, "~> 0.6"},
       {:phoenix_gon, github: "khusnetdinov/phoenix_gon"},
-      {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
+      # {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
       {:git_cli, "~> 0.2"},
       {:ueberauth_github, "~> 0.6"},
       {:ueberauth, "~> 0.4"}

@@ -4,9 +4,9 @@ defmodule HexletBasicsWeb.Api.CheckController do
   alias HexletBasics.Language, as: Language
   import Ecto.Query
 
-  def create(conn, params) do
+  def create(conn, _params) do
     # FIXME: return errros if timeout
-    %{ assigns: %{ current_user: current_user } } = conn
+    %{assigns: %{current_user: current_user}} = conn
 
     part = current_user.id
            |> Integer.to_string

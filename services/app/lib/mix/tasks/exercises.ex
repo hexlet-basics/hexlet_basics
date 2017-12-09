@@ -12,25 +12,25 @@ defmodule Mix.Tasks.X.Exercises.Load do
   def run([lang_name]) do
     Application.ensure_all_started(:hexlet_basics)
 
-    repoDest = "/var/tmp/hexlet-basics-exercises-#{lang_name}"
-    modulesDest = "#{repoDest}/modules"
+    repo_dest = "/var/tmp/hexlet-basics-exercises-#{lang_name}"
+    module_dest = "#{repo_dest}/modules"
 
-    { :ok, upload } = Repo.insert(%Upload{
+    {:ok, upload} = Repo.insert(%Upload{
       language_name: lang_name
     })
 
     language = upsert_language(upload, lang_name)
 
-    up_repo(lang_name, repoDest)
-    modulesWithMeta = get_modules(modulesDest)
-    modules = modulesWithMeta
+    up_repo(lang_name, repo_dest)
+    modules_with_meta = get_modules(module_dest)
+    modules = modules_with_meta
     |> Enum.map(fn(data) ->
       upsert_module_with_descriptions(language, data)
     end)
 
     modules
     |> Enum.flat_map(fn(module) ->
-      get_lessons(modulesDest, module, language)
+      get_lessons(module_dest, module, language)
     end)
     |> Enum.map(&upsert_lesson_with_descriptions/1)
   end
@@ -39,7 +39,8 @@ defmodule Mix.Tasks.X.Exercises.Load do
     module_directory = Module.get_directory(module)
     module_path = Path.join(dest, module_directory)
     wildcard_path = Path.join(module_path, "*")
-    Path.wildcard(wildcard_path)
+    files = Path.wildcard(wildcard_path)
+    files
     |> Enum.filter(&File.dir?/1)
     |> Enum.map(&Path.basename/1)
     |> Enum.map(fn(directory) ->
@@ -49,21 +50,22 @@ defmodule Mix.Tasks.X.Exercises.Load do
       # TODO: extract to lang spec
       test_file_path = Path.join(lesson_path, "Test.#{language.slug}")
       Logger.debug test_file_path
-      { :ok, test_code } = File.read(test_file_path)
-      { :ok, original_code } = File.read(Path.join(lesson_path, "index.#{language.slug}"))
+      {:ok, test_code} = File.read(test_file_path)
+      {:ok, original_code} = File.read(Path.join(lesson_path, "index.#{language.slug}"))
       prepared_code = prepare_code(original_code)
       path_to_original_code = Path.join(module_directory, directory)
 
-      { language, module, order, slug, prepared_code, original_code, test_code, descriptions, path_to_original_code }
+      {language, module, order, slug, prepared_code, original_code, test_code, descriptions, path_to_original_code}
     end)
   end
 
-  def upsert_lesson_with_descriptions({ language, module, order, slug, prepared_code, original_code, test_code, descriptions, path_to_original_code }) do
-    mayBeLesson = Repo.get_by(Lesson, language_id: language.id, module_id: module.id, slug: slug)
-    lesson = case mayBeLesson do
-      nil  -> %Lesson{ language: language, module: module, slug: slug }
+  def upsert_lesson_with_descriptions({language, module, order, slug, prepared_code, original_code, test_code, descriptions, path_to_original_code}) do
+    may_be_lesson = Repo.get_by(Lesson, language_id: language.id, module_id: module.id, slug: slug)
+    lesson = case may_be_lesson do
+      nil  -> %Lesson{language: language, module: module, slug: slug}
       entity -> entity
     end
+    lesson
     |> Lesson.changeset(%{
       order: order,
       path_to_original_code: path_to_original_code,
@@ -75,50 +77,54 @@ defmodule Mix.Tasks.X.Exercises.Load do
     |> Repo.insert_or_update!
 
     descriptions
-    |> Enum.map(&(upsert_lesson_description(lesson, &1)))
+    |> Enum.each(&(upsert_lesson_description(lesson, &1)))
 
     lesson
   end
 
-  def upsert_lesson_description(lesson, { locale, data }) do
-    case Repo.get_by(Lesson.Description, lesson_id: lesson.id, locale: locale) do
-      nil  -> %Lesson.Description{ lesson_id: lesson.id, locale: locale }
+  def upsert_lesson_description(lesson, {locale, data}) do
+    description = case Repo.get_by(Lesson.Description, lesson_id: lesson.id, locale: locale) do
+      nil  -> %Lesson.Description{lesson_id: lesson.id, locale: locale}
       module -> module
     end
+    description
     |> Lesson.Description.changeset(data)
     |> Repo.insert_or_update!
   end
 
 
   def get_modules(dest) do
-    Path.wildcard("#{dest}/*")
+    files = Path.wildcard("#{dest}/*")
+    files
     |> Enum.filter(&File.dir?/1)
     |> Enum.map(&Path.basename/1)
     |> Enum.map(fn(directory) ->
       [order, slug] = String.split(directory, "-", parts: 2)
       descriptions = get_descriptions(Path.join(dest, directory))
-      %{ order: order, slug: slug, descriptions: descriptions }
+      %{order: order, slug: slug, descriptions: descriptions}
     end)
   end
 
   def get_descriptions(path) do
-    Path.wildcard("#{path}/description.*.yml")
+    files = Path.wildcard("#{path}/description.*.yml")
+    files
     |> Enum.map(fn(filepath) ->
       filename = Path.basename(filepath)
       [_, locale, _] = String.split(filename, ".")
       Logger.debug filepath
       data = YamlElixir.read_from_file filepath
-      { locale, data }
+      {locale, data}
     end)
   end
 
   def upsert_module_with_descriptions(language, data) do
-    %{ order: order, slug: slug, descriptions: descriptions } = data
-    maybeModule = Repo.get_by(Language.Module, language_id: language.id, slug: slug)
-    module = case maybeModule do
-      nil  -> %Language.Module{ language_id: language.id, slug: slug }
+    %{order: order, slug: slug, descriptions: descriptions} = data
+    maybe_module = Repo.get_by(Language.Module, language_id: language.id, slug: slug)
+    module = case maybe_module do
+      nil  -> %Language.Module{language_id: language.id, slug: slug}
       module -> module
     end
+    module
     |> Language.Module.changeset(%{
       order: order,
       upload_id: language.upload_id
@@ -126,27 +132,28 @@ defmodule Mix.Tasks.X.Exercises.Load do
     |> Repo.insert_or_update!
 
     descriptions
-    |> Enum.map(&(upsert_module_description(module, &1)))
+    |> Enum.each(&(upsert_module_description(module, &1)))
 
     module
   end
 
-  def upsert_module_description(module, { locale, data }) do
-    case Repo.get_by(Language.Module.Description, module_id: module.id, locale: locale) do
-      nil  -> %Language.Module.Description{ module_id: module.id, locale: locale }
+  def upsert_module_description(module, {locale, data}) do
+    description = case Repo.get_by(Language.Module.Description, module_id: module.id, locale: locale) do
+      nil  -> %Language.Module.Description{module_id: module.id, locale: locale}
       module -> module
     end
+    description
     |> Language.Module.Description.changeset(data)
     |> Repo.insert_or_update!
   end
 
   def upsert_language(upload, lang_name) do
     language = case Repo.get_by(Language, slug: lang_name) do
-      nil  -> %Language{ slug: lang_name }
+      nil  -> %Language{slug: lang_name}
       entity -> entity
     end
     language
-    |> Language.changeset(%{ upload_id: upload.id, name: lang_name })
+    |> Language.changeset(%{upload_id: upload.id, name: lang_name})
     |> Repo.insert_or_update!
   end
 

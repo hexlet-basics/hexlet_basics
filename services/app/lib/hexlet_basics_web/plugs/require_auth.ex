@@ -1,7 +1,8 @@
 defmodule HexletBasicsWeb.Plugs.RequireAuth do
   import Plug.Conn
   import Phoenix.Controller
-  # alias SimpleBlog.Router.Helpers, as: RouteHelpers
+  import HexletBasicsWeb.Gettext
+  alias SimpleBlog.Router.Helpers, as: RouteHelpers
 
   def init(options), do: options
 
@@ -10,8 +11,8 @@ defmodule HexletBasicsWeb.Plugs.RequireAuth do
       conn
     else
       conn
-      |> put_flash(:danger, "Require auth")
-      |> redirect(to: "/") # TODO use routing
+      |> put_flash(:danger, gettext "Require auth")
+      |> redirect(to: RouteHelpers.page_path(conn, :index))
       |> halt
     end
   end
