@@ -32,7 +32,7 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckController do
       type: "check",
       data: %{
         attributes: %{
-          output: "lalala"
+          output: output
         }
       }
     }
