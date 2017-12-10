@@ -50,6 +50,7 @@ defmodule HexletBasics.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
 
+      {:distillery, "~> 1.5", runtime: false},
       {:phoenix_slime, github: "slime-lang/phoenix_slime"},
       {:ecto_state_machine, "~> 0.1.0"},
       {:phoenix_jsroutes, "~> 0.0.4"},

@@ -5,7 +5,7 @@
 # is restricted to this project.
 use Mix.Config
 
-# config :porcelain, :driver, :basic
+config :porcelain, :driver, Porcelain.Driver.Basic
 
 config :ueberauth, Ueberauth,
   providers: [

@@ -34,16 +34,11 @@ COPY package-lock.json ./
 
 RUN npm install
 
-# FIXME: copy package.lock
-# npm install
-
-# Copy all application files
 COPY . .
 
-# Compile the entire project
-RUN MIX_ENV=prod mix compile
+RUN npm run deploy
+
+# RUN MIX_ENV=prod mix release.init
 RUN MIX_ENV=prod mix release
 
-# RUN mix phx.digest
-
-CMD mix phx.server
+CMD _build/prod/rel/hexlet_basics/bin/hexlet_basics foreground

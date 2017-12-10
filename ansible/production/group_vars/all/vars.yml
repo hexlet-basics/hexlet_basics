@@ -1,1 +1,2 @@
-hexlet_basics_env: production
+hexlet_basics_env: prod
+hexlet_basics_port: 3000
