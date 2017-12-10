@@ -1,0 +1,4 @@
+resource "aws_key_pair" "kirillm" {
+  key_name   = "kirillm"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6iksm2XCHg7SsmBtEDOPI1B1aH0XtmR1InL9wphnICiCnUggi2EIDjxOHVbSnKVIVKgg6roBNBCcYsScWTbZiO9u+KfgMgG6F6H/zyD97TVazlK4wshw8EsZXQhUFPkG3xbyaGNUb82vfjnYuivyj8gQZRM39+jfI/mkKDzwImOE3rmNJoWBodjgLDFFtzM5HmcBqrb1STDjqJwFzrakyHVh7L7Hm9mYWzZNtmPRFzVrYvsrxx8M0QtBEAJx/k4ehHWc6wQR1BnTNGiKxGoiGZG/XPSRqQG+c+l6kxE9041YaBlLhXVjJYfw60xd2qYGRRvpE1p0oLK85LmsVCJcd mokevnin@gmail.com"
+}

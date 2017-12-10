@@ -1,0 +1,29 @@
+- hosts: all
+
+  pre_tasks:
+    - block:
+      - name: generate locale
+        locale_gen:
+          name: en_US.UTF-8
+        tags: [locale]
+
+      - name: set locale
+        become: yes
+        shell: update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8
+        tags: [locale]
+
+      - meta: reset_connection
+
+
+  roles:
+    - { role: geerlingguy.docker, become: yes }
+
+  post_tasks:
+
+    - user:
+        name: "{{ hexlet_basics_run_user }}"
+        groups: docker
+        append: yes
+      become: yes
+
+    - meta: reset_connection
