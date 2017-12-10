@@ -28,4 +28,3 @@ compose-db-drop:
 compose-db-prepare:
 	docker-compose run app mix ecto.create
 	docker-compose run app mix ecto.migrate
-

@@ -1,0 +1,89 @@
+---
+- hosts: all
+  gather_facts: no
+  vars_prompt:
+    - name: "hexlet_basics_image_tag"
+      prompt: "Hexlet image tag"
+      private: no
+  tasks:
+    # - set_fact: hexlet_basics_image_tag={{ hexlet_basics_image_tag }}
+    #   tags: always
+
+    - local_action:
+        module: slack
+        domain: hexlet.slack.com
+        token: "{{ hexlet_basics_vault_slack_token }}"
+        msg: "Hexlet Basics deploy started: {{ deploy_env }}:{{ hexlet_basics_image_tag }}"
+        channel: "#operation"
+        username: "{{ ansible_ssh_user }}"
+      run_once: yes
+
+- hosts: webservers
+  gather_facts: no
+  become: yes
+  become_user: "{{ run_user }}"
+
+  tasks:
+
+    # - shell: docker pull hexlet/hexlet-web-nginx
+    #   become: yes
+    #   become_user: "{{ run_user }}"
+    #   tags: [webserver]
+
+    - docker_container:
+        recreate: yes
+        name: hexlet-web-nginx
+        image: hexlet/hexlet-web-nginx
+        state: started
+        restart_policy: always
+        ports:
+          - "80:80"
+          - "443:443"
+        networks:
+          - name: "{{hexlet_web_network}}"
+      tags: [webserver]
+
+    - docker_container:
+        recreate: yes
+        name: hexlet-web
+        image: hexlet/hexlet-web:{{ hexlet_basics_image_tag }}
+        # memory: 800m
+        state: started
+        log_driver: awslogs
+        log_options:
+          awslogs-group: hexlet-production
+          awslogs-stream: hexlet-web
+          awslogs-region: '{{ aws_region }}'
+        restart_policy: always
+        command: "bin/rails server -e production"
+        env_file: "{{ hexlet_user_home }}/.env"
+        ports:
+          - "3000:3000"
+        networks:
+          - name: "{{hexlet_web_network}}"
+        volumes:
+          - "/var/run/docker.sock:/var/run/docker.sock"
+          - "/tmp:/tmp"
+          - "/var/tmp:/var/tmp"
+      tags: [webserver]
+
+- hosts: all
+  gather_facts: no
+  tasks:
+
+    - name: "Send deploy hook to Rollbar"
+      local_action: shell curl https://api.rollbar.com/api/1/deploy/ \
+          -F access_token="{{ hexlet_basics_vault_rollbar_backend_token }}" \
+          -F environment="{{ hexlet_basics_env }}" \
+          -F revision="{{ hexlet_basics_image_tag }}" \
+          -F local_username="{{ ansible_ssh_user }}"
+      run_once: yes
+
+    - local_action:
+        module: slack
+        domain: hexlet.slack.com
+        token: "{{ hexlet_basics_vault_slack_token }}"
+        msg: "Hexlet Basics deploy completed ({{ deploy_env }})"
+        channel: "#operation"
+        username: "{{ ansible_ssh_user }}"
+      run_once: yes

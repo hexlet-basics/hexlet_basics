@@ -1,6 +1,10 @@
 - hosts: all
   gather_facts: no
   tasks:
+    - pip:
+        name: docker
+
     - template:
         src: environment.j2
         dest: '../.env.development'
+      tags: env

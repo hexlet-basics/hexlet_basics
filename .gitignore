@@ -29,3 +29,5 @@ static
 # variables.
 # /config/*.secret.exs
 .tern-port
+*.backup
+.terraform
