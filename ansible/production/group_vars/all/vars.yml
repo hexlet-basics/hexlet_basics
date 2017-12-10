@@ -1,2 +1,3 @@
 hexlet_basics_env: prod
 hexlet_basics_port: 3000
+hexlet_basics_env_file: "{{ hexlet_basics_run_user_home }}/.env.production"

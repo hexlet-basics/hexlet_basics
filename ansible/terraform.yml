@@ -1,0 +1,8 @@
+- hosts: all
+  gather_facts: no
+  vars:
+    ansible_connection: local
+  tasks:
+    - template:
+        src: secrets.auto.tfvars.j2
+        dest: '../terraform/aws/production/secrets.auto.tfvars'

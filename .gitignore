@@ -31,3 +31,4 @@ static
 .tern-port
 *.backup
 .terraform
+secrets.auto.tfvars

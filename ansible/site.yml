@@ -1,6 +1,13 @@
 - hosts: all
 
   pre_tasks:
+    - apt:
+        update_cache: yes
+        name: "{{ item }}"
+      with_items:
+        - python3-pip
+      become: yes
+
     - block:
       - name: generate locale
         locale_gen:
@@ -13,6 +20,14 @@
         tags: [locale]
 
       - meta: reset_connection
+    - pip:
+        name: docker
+      become: yes
+
+    - template:
+        src: environment.j2
+        dest: "{{ hexlet_basics_env_file }}"
+      tags: env
 
 
   roles:
