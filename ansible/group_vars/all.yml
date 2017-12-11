@@ -5,4 +5,6 @@ hexlet_basics_directory_to_clone: /var/tmp/hexlet_basics
 hexlet_basics_image_name: "hexlet/hexlet-basics"
 hexlet_basics_run_user: ubuntu
 hexlet_basics_run_user_home: /home/ubuntu
+hexlet_basics_port: 3000
+
 docker_install_compose: no
