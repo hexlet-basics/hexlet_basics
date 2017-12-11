@@ -5,6 +5,8 @@ WORKDIR /app
 # Install hex (Elixir package manager)
 RUN mix local.hex --force
 
+RUN mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+
 # Install rebar (Erlang build tool)
 RUN mix local.rebar --force
 
@@ -24,7 +26,7 @@ COPY mix.exs ./
 COPY mix.lock ./
 
 # Install all production dependencies
-RUN mix deps.get --only prod
+RUN mix deps.get
 
 # Compile all dependencies
 RUN mix deps.compile
@@ -36,6 +38,7 @@ RUN npm install
 
 COPY . .
 
+RUN mix compile
 RUN npm run deploy
 # RUN mix phx.digest
 

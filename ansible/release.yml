@@ -12,11 +12,13 @@
     - git:
         repo: "{{ hexlet_basics_repository }}"
         dest: "{{ hexlet_basics_directory_to_clone }}"
+        force: yes
         accept_hostkey: yes
         version: "{{ hexlet_basics_image_tag }}"
 
     - docker_image:
         name: "{{ hexlet_basics_image_name }}"
         tag: "{{ hexlet_basics_image_tag }}"
+        force: yes
         path: "{{ hexlet_basics_directory_to_clone }}/services/app"
         push: yes

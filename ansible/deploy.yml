@@ -25,11 +25,6 @@
 
   tasks:
 
-    # - shell: docker pull hexlet/hexlet-web-nginx
-    #   become: yes
-    #   become_user: "{{ run_user }}"
-    #   tags: [webserver]
-
     # - docker_container:
     #     recreate: yes
     #     name: hexlet-web-nginx
@@ -42,6 +37,10 @@
     #     networks:
     #       - name: "{{hexlet_web_network}}"
     #   tags: [webserver]
+
+    - docker_image:
+        name: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
+        force: yes
 
     - docker_container:
         recreate: yes

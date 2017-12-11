@@ -123,3 +123,49 @@ resource "aws_route_table" "hexlet-basics" {
     Name = "hexlet-basics"
   }
 }
+
+resource "aws_security_group" "hexlet-basics-db" {
+  name        = "hexlet-basics-db"
+  description = "allow connect to db"
+  vpc_id      = "${aws_vpc.hexlet-basics.id}"
+
+	tags {
+		Name = "hexlet-basics-db"
+	}
+}
+
+resource "aws_security_group_rule" "allow-tcp" {
+  type            = "ingress"
+  from_port       = 0
+  to_port         = 65535
+  protocol        = "tcp"
+  source_security_group_id = "${aws_security_group.hexlet-basics-http.id}"
+  security_group_id = "${aws_security_group.hexlet-basics-db.id}"
+}
+
+resource "aws_security_group_rule" "allow-udp" {
+  type            = "ingress"
+  from_port       = 0
+  to_port         = 65535
+  protocol        = "udp"
+  source_security_group_id = "${aws_security_group.hexlet-basics-http.id}"
+  security_group_id = "${aws_security_group.hexlet-basics-db.id}"
+}
+
+resource "aws_security_group_rule" "allow-icmp" {
+  type            = "ingress"
+  from_port       = 0
+  to_port         = 8
+  protocol        = "icmp"
+  source_security_group_id = "${aws_security_group.hexlet-basics-http.id}"
+  security_group_id = "${aws_security_group.hexlet-basics-db.id}"
+}
+
+resource "aws_security_group_rule" "allow-tcp-db-port" {
+  type            = "ingress"
+  from_port       = 5432
+  to_port         = 5432
+  protocol        = "tcp"
+  source_security_group_id = "${aws_security_group.hexlet-basics-http.id}"
+  security_group_id = "${aws_security_group.hexlet-basics-db.id}"
+}
