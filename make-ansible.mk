@@ -18,7 +18,7 @@ ansible-vaults-decrypt:
 	ansible-vault decrypt ansible/development/group_vars/all/vault.yml
 
 ansible-development-setup:
-	ansible-playbook ansible/development.yml -i ansible/development -vv
+	ansible-playbook ansible/development.yml -i ansible/development -vv -K
 
 ansible-terraform-vars-generate:
 	ansible-playbook ansible/terraform.yml -i ansible/production -vv
