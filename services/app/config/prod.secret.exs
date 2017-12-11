@@ -9,12 +9,12 @@ use Mix.Config
 # kept out of version control and might be hard to recover
 # or recreate for your teammates (or yourself later on).
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
-  secret_key_base: "g5bhGGJIJL33c2l1dPmW8DR4Yn9yUnZ5F93BkwbmcrVvsuLv7PCdrt9guusigF1t"
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 # Configure your database
 config :hexlet_basics, HexletBasics.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "hexlet_basics_prod",
+  username: System.get_env("DB_USERNAME"),
+  password: System.get_env("DB_PASSWORD"),
+  database: System.get_env("DB_NAME")
   pool_size: 15
