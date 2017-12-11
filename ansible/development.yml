@@ -2,7 +2,10 @@
   gather_facts: no
   tasks:
     - pip:
-        name: docker
+        name: "{{ item }}"
+      with_items:
+        - docker
+        - docker-py
 
     - template:
         src: environment.j2
