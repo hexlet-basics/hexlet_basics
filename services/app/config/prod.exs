@@ -22,7 +22,7 @@ config :hexlet_basics,
   code_directory: "/opt/hexlet-basics/code"
 
 # Do not print debug messages in production
-config :logger, level: :info
+config :logger, level: :debug
 
 # ## SSL Support
 #
