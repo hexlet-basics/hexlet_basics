@@ -13,7 +13,7 @@
         module: slack
         domain: hexlet.slack.com
         token: "{{ hexlet_basics_vault_slack_token }}"
-        msg: "Hexlet Basics deploy started: {{ hexlet_basics_env }}:{{ hexlet_basics_image_tag }}"
+        msg: "Hexlet Basics deploy started: {{ hexlet_basics_mix_env }}:{{ hexlet_basics_image_tag }}"
         channel: "#operation"
         username: "{{ ansible_ssh_user }}"
       run_once: yes
@@ -74,7 +74,7 @@
     # - name: "Send deploy hook to Rollbar"
     #   local_action: shell curl https://api.rollbar.com/api/1/deploy/ \
     #       -F access_token="{{ hexlet_basics_vault_rollbar_backend_token }}" \
-    #       -F environment="{{ hexlet_basics_env }}" \
+    #       -F environment="{{ hexlet_basics_mix_env }}" \
     #       -F revision="{{ hexlet_basics_image_tag }}" \
     #       -F local_username="{{ ansible_ssh_user }}"
     #   run_once: yes
@@ -83,7 +83,7 @@
         module: slack
         domain: hexlet.slack.com
         token: "{{ hexlet_basics_vault_slack_token }}"
-        msg: "Hexlet Basics deploy completed ({{ hexlet_basics_env }})"
+        msg: "Hexlet Basics deploy completed ({{ hexlet_basics_mix_env }})"
         channel: "#operation"
         username: "{{ ansible_ssh_user }}"
       run_once: yes

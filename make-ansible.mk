@@ -6,6 +6,9 @@ ansible-deps-install:
 ansible-site-setup:
 	ansible-playbook ansible/site.yml -i ansible/production -u $U
 
+ansible-site-update-env:
+	ansible-playbook ansible/site.yml -i ansible/production -u $U --tag env
+
 ansible-site-deploy:
 	ansible-playbook ansible/deploy.yml -i ansible/production -u $U
 

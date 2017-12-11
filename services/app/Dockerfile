@@ -37,8 +37,10 @@ RUN npm install
 COPY . .
 
 RUN npm run deploy
+# RUN mix phx.digest
 
 # RUN MIX_ENV=prod mix release.init
-RUN MIX_ENV=prod mix release
+# RUN MIX_ENV=prod mix release
 
-CMD _build/prod/rel/hexlet_basics/bin/hexlet_basics foreground
+# CMD _build/prod/rel/hexlet_basics/bin/hexlet_basics foreground
+CMD ["mix", "phoenix.server"]
