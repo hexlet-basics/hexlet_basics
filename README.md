@@ -25,3 +25,9 @@ $ mix x.exercises.load php
 $ cd hexlet_basics
 $ make compose
 ```
+
+### Usefull
+
+    brew install git-secrets
+    git secrets --install
+    git secrets --register-aws
