@@ -26,7 +26,10 @@ export default {
       allChunks: true,
       filename: 'css/[name].css',
     }),
-    new CopyWebpackPlugin([{ from: 'assets/images/favicon.ico', to: 'favicon.ico' }]),
+    new CopyWebpackPlugin([
+      { from: 'assets/images/favicon.ico', to: 'favicon.ico' },
+      { from: 'node_modules/font-awesome/fonts', to: 'fonts' },
+    ]),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
@@ -53,6 +56,9 @@ export default {
           fallback: 'style-loader',
           use: ['css-loader', 'postcss-loader', 'sass-loader'],
         }),
+      }, {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'url-loader',
       },
     ],
   },

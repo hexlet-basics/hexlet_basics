@@ -11,10 +11,13 @@ html lang="en"
           a.navbar-brand href="/" Code Basics
           button.navbar-toggler(data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation")
           #navbarText.collapse.navbar-collapse
-            .navbar-nav.ml-auto
-              .nav-item
+            ul.navbar-nav.ml-auto
+              li.nav-item
                 = if @current_user.guest do
-                  = link gettext("Sign In"), to: auth_path(@conn, :request, :github), class: "nav-link"
+                  = link to: auth_path(@conn, :request, :github), class: "nav-link" do
+                    i.fa.fa-github
+                      | &nbsp;
+                      = gettext("Sign In")
                 - else
                   = link gettext("Sign Out"), to: session_path(@conn, :delete), method: "delete", class: "nav-link"
 
