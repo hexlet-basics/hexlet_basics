@@ -13,3 +13,38 @@ resource "aws_instance" "hexlet-basics-web" {
     Name = "hexlet-basics-web-a"
   }
 }
+
+resource "aws_lb" "hexlet-basics" {
+  name               = "hexlet-basics"
+  internal        = false
+
+  security_groups = ["${aws_security_group.hexlet-basics-http.id}"]
+  subnets = ["${aws_subnet.hexlet-basics-app-a.id}", "${aws_subnet.hexlet-basics-app-b.id}"]
+  tags {
+    Name = "hexlet-basics"
+  }
+}
+
+resource "aws_lb_target_group" "hexlet-basics" {
+  name     = "hexlet-basics"
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = "${aws_vpc.hexlet-basics.id}"
+}
+
+resource "aws_lb_target_group_attachment" "hexlet-basics" {
+  target_group_arn = "${aws_lb_target_group.hexlet-basics.arn}"
+  target_id        = "${aws_instance.hexlet-basics-web.id}"
+  port             = 80
+}
+
+resource "aws_lb_listener" "hexlet-basics" {
+  load_balancer_arn = "${aws_lb.hexlet-basics.arn}"
+  port              = "80"
+  protocol          = "HTTP"
+
+  default_action {
+    target_group_arn = "${aws_lb_target_group.hexlet-basics.arn}"
+    type             = "forward"
+  }
+}

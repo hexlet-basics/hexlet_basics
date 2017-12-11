@@ -1,5 +1,8 @@
 U := ubuntu
 
+ansible-exercises-load:
+	ansible-playbook ansible/exercises.yml -i ansible/production -u $U -e "hexlet_basics_language_for_loading=$L" -vv
+
 ansible-deps-install:
 	ansible-galaxy install -r requirements.yml
 

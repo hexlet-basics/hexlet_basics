@@ -22,28 +22,27 @@ RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_6
   | tar -xzC /usr/local/bin --strip=1 docker/docker
 
 # Copy all dependencies files
-COPY mix.exs ./
-COPY mix.lock ./
+COPY mix.* ./
 
 # Install all production dependencies
-RUN mix deps.get
-
-# Compile all dependencies
-RUN mix deps.compile
+RUN mix deps.get --only prod
 
 COPY package.json ./
 COPY package-lock.json ./
 
 RUN npm install
 
+# Compile all dependencies
+RUN mix deps.compile --only prod
+
 COPY . .
 
-RUN mix compile
 RUN npm run deploy
+RUN MIX_ENV=prod mix compile --only prod
 # RUN mix phx.digest
 
 # RUN MIX_ENV=prod mix release.init
 # RUN MIX_ENV=prod mix release
 
 # CMD _build/prod/rel/hexlet_basics/bin/hexlet_basics foreground
-CMD ["mix", "phoenix.server"]
+CMD ["mix", "phx.server"]

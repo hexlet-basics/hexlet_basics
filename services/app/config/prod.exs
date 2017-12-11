@@ -18,6 +18,9 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   url: [host: "localhost", port: 3000]
   # cache_static_manifest: "priv/static/cache_manifest.json"
 
+config :hexlet_basics,
+  code_directory: "/opt/hexlet-basics/code"
+
 # Do not print debug messages in production
 config :logger, level: :info
 
