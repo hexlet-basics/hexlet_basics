@@ -10,10 +10,14 @@ defmodule HexletBasicsWeb.LanguageController do
       where: m.language_id == ^language.id and m.upload_id == ^language.upload_id,
       order_by: [asc: m.order]
     modules = Repo.all(query)
+              |> Repo.preload(:lessons)
 
     # TODO add langauge_id
-    # descriptions = Repo.get_by(Language.Module.Description, locale: conn.assigns.locale)
-    # descriptions_by_module = descriptions
+    description_query = from d in Language.Module.Description,
+      where: d.locale == ^conn.assigns[:locale]
+    descriptions = Repo.all(description_query)
+    descriptions_by_module = descriptions
+                             |> Enum.reduce(%{}, &(Map.put(&2, &1.module_id, &1)))
 
     render conn, language: language, modules: modules, descriptions_by_module: descriptions_by_module
   end
