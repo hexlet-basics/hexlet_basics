@@ -1,7 +1,7 @@
 doctype html
 html lang="en"
   head
-    link rel="stylesheet" href="#{static_path(@conn, "/css/commonCss.css")}"
+    link rel="stylesheet" href="#{static_path(@conn, "/main.css")}"
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
   body.x-100vh
@@ -22,6 +22,6 @@ html lang="en"
         = render @view_module, @view_template, assigns
 
     = render_gon_script(@conn)
-    script src="#{static_path(@conn, "/js/vendors.js")}"
-    script src="#{static_path(@conn, "/js/app.js")}"
-    script src="#{static_path(@conn, "/js/lesson.js")}"
+    script src="#{static_path(@conn, "/vendors.js")}"
+    script src="#{static_path(@conn, "/main.js")}"
+    script src="#{static_path(@conn, "/lesson.js")}"

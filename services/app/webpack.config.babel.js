@@ -1,12 +1,11 @@
 import webpack from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import ManifestPlugin from 'webpack-manifest-plugin';
 
 const apps = {
-  commonCss: './assets/css/common.scss',
-  lessonCss: './assets/css/lesson.scss',
-  vendors: ['babel-polyfill'],
-  app: './assets/js/app.js',
+  main: ['./assets/js/app.js', './assets/css/app.scss'],
+  vendors: ['./assets/js/vendors.js'],
   lesson: './assets/js/lesson/index.jsx',
 };
 
@@ -14,7 +13,8 @@ export default {
   entry: apps,
   output: {
     path: `${__dirname}/priv/static`,
-    filename: 'js/[name].js',
+    // publicPath: '/assets',
+    filename: 'assets/[name].[chunkhash].js',
   },
   devtool: 'inline-source-map',
   watchOptions: {
@@ -24,17 +24,24 @@ export default {
   plugins: [
     new ExtractTextPlugin({
       allChunks: true,
-      filename: 'css/[name].css',
+      filename: 'assets/[name].[chunkhash].css',
     }),
     new CopyWebpackPlugin([
-      { from: 'assets/favicon.ico', to: 'favicon.ico' },
-      { from: 'assets/images', to: 'images' },
+      { from: 'assets/static' },
       { from: 'node_modules/font-awesome/fonts', to: 'fonts' },
     ]),
+    new ManifestPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendors',
+      minChunks: 1,
+    }),
+    new webpack.HashedModuleIdsPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
+      // React: 'react',
+      // ReactDOM: 'react-dom',
       // Tether: 'tether',
     }),
   ],
@@ -42,13 +49,16 @@ export default {
     gon: 'Gon',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['env', 'flow', 'stage-0'],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true,
+            presets: ['env', 'flow', 'stage-0'],
+          },
         },
       },
       {
@@ -59,7 +69,7 @@ export default {
         }),
       }, {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'url-loader',
+        use: 'url-loader',
       },
     ],
   },

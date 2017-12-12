@@ -39,7 +39,7 @@ COPY . .
 
 RUN npm run deploy
 RUN MIX_ENV=prod mix compile --only prod
-RUN MIX_ENV=prod mix phx.digest --only prod
+# RUN MIX_ENV=prod mix phx.digest --only prod
 
 # RUN MIX_ENV=prod mix release.init
 # RUN MIX_ENV=prod mix release
