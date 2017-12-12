@@ -34,7 +34,7 @@ export default class App extends React.Component {
         {this.renderAlert()}
         <div className="row">
           <div className="col-5">
-            <div className="card hexlet-basics-card">
+            <div className="card hexlet-basics-theory-card">
               <h4 className="card-header">
                 {lesson.name}
               </h4>

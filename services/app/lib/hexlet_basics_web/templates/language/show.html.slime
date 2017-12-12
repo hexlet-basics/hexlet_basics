@@ -1,11 +1,11 @@
 h1= @language.slug
 
 = for module <- @modules do
-  p= link module.slug, to: language_module_path(@conn, :show, @language.slug, module.slug)
+  p.lead= link module.slug, to: language_module_path(@conn, :show, @language.slug, module.slug)
   - description = @descriptions_by_module[module.id]
-  p= description.name
-  p= description.description
+  p.lead= description.name
+  p.lead= description.description
 
-  ul
+  ol.lead
     = for lesson <- module.lessons do
-      li= link lesson.slug, to: language_module_lesson_path(@conn, :show, @language.slug, module.slug, lesson.slug)
+      li= link lesson.slug, to: language_module_lesson_path(@conn, :show, @language.slug, module.slug, lesson.slug), class: "hexlet-basics-lesson-link p-1"

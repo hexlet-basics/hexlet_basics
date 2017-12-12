@@ -1,7 +1,7 @@
 doctype html
 html lang="en"
   head
-    link rel="stylesheet" href="#{static_path(@conn, "/css/lessonCss.css")}"
+    link rel="stylesheet" href="#{static_path(@conn, "/css/commonCss.css")}"
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
   body.x-100vh

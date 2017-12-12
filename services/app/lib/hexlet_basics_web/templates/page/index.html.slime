@@ -1,28 +1,21 @@
 .card-deck
   .card
-    / img.card-img-top src="image"
     .card-body
       h4.card-title.text-center PHP
-      / p.card-text This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+      img.hexlet-basics-language-icon.img-fluid(src=static_path(@conn, "/images/php.png"))
       = link gettext("Start"), to: language_path(@conn, :show, "php"), class: "btn btn-primary btn-block"
-  .card
-    / img.card-img-top src="image2"
+  .card.hexlet-basics-indigo-card
     .card-body
-      h4.card-title JavaScript
-      p.card-text Under Development
-      / p.card-text
-      /   small.text-muted Last updated 3 mins ago
-  .card
-    / img.card-img-top src="image2"
+      h4.card-title.text-center JavaScript
+      img.hexlet-basics-language-icon.img-fluid(src=static_path(@conn, "/images/js.png"))
+      p.card-title.text-center Under Development
+  .card.hexlet-basics-purple-card
     .card-body
-      h4.card-title Python
-      p.card-text Under Development
-      / p.card-text
-      /   small.text-muted Last updated 3 mins ago
-  .card
-    / img.card-img-top src="image2"
+      h4.card-title.text-center Python
+      img.hexlet-basics-language-icon.img-fluid(src=static_path(@conn, "/images/python.png"))
+      p.card-title.text-center Under Development
+  .card.hexlet-basics-orange-card
     .card-body
-      h4.card-title Racket
-      p.card-text Under Development
-      / p.card-text
-      /   small.text-muted Last updated 3 mins ago
+      h4.card-title.text-center Racket
+      img.hexlet-basics-language-icon.img-fluid(src=static_path(@conn, "/images/racket2.png"))
+      p.card-title.text-center Under Development
