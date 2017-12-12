@@ -19,5 +19,5 @@ import '../../deps/phoenix_html/priv/static/phoenix_html';
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
-// import '../css/common.scss';
+// import '../css/app.scss';
 // import '../css/lesson.scss';

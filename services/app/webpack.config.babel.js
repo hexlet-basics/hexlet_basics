@@ -33,7 +33,7 @@ export default {
     new ManifestPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendors',
-      minChunks: 1,
+      // minChunks: 1,
     }),
     new webpack.HashedModuleIdsPlugin(),
     new webpack.ProvidePlugin({
