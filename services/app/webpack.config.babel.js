@@ -27,7 +27,8 @@ export default {
       filename: 'css/[name].css',
     }),
     new CopyWebpackPlugin([
-      { from: 'assets/images/favicon.ico', to: 'favicon.ico' },
+      { from: 'assets/favicon.ico', to: 'favicon.ico' },
+      { from: 'assets/images', to: 'images' },
       { from: 'node_modules/font-awesome/fonts', to: 'fonts' },
     ]),
     new webpack.ProvidePlugin({
