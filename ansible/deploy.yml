@@ -5,11 +5,13 @@
     - name: "hexlet_basics_image_tag"
       prompt: "Hexlet Basics image tag"
       private: no
+
   tasks:
     - set_fact: hexlet_basics_image_tag={{ hexlet_basics_image_tag }}
       tags: always
 
-    - local_action:
+    - name: notify slack
+      local_action:
         module: slack
         domain: hexlet.slack.com
         token: "{{ hexlet_basics_vault_slack_token }}"
@@ -38,11 +40,13 @@
     #       - name: "{{hexlet_web_network}}"
     #   tags: [webserver]
 
-    - docker_image:
+    - name: download image
+      docker_image:
         name: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
         force: yes
 
-    - docker_container:
+    - name: run migrations
+      docker_container:
         recreate: yes
         name: hexlet-basics-migrations
         command: "mix ecto.migrate"
@@ -60,7 +64,8 @@
       run_once: yes
       tags: [webserver]
 
-    - docker_container:
+    - name: start application
+      docker_container:
         recreate: yes
         name: hexlet-basics-web
         image: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
@@ -93,7 +98,8 @@
     #       -F local_username="{{ ansible_ssh_user }}"
     #   run_once: yes
 
-    - local_action:
+    - name: notify slack
+      local_action:
         module: slack
         domain: hexlet.slack.com
         token: "{{ hexlet_basics_vault_slack_token }}"
