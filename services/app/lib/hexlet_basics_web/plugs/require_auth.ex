@@ -7,13 +7,13 @@ defmodule HexletBasicsWeb.Plugs.RequireAuth do
   def init(options), do: options
 
   def call(conn, _) do
-    if conn.assigns[:current_user] do
+    if conn.assigns.current_user.guest do
       conn
-    else
-      conn
-      |> put_flash(:danger, gettext "Require auth")
+      |> put_flash(:error, gettext "Require auth")
       |> redirect(to: RouteHelpers.page_path(conn, :index))
       |> halt
+    else
+      conn
     end
   end
 

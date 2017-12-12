@@ -3,6 +3,7 @@ defmodule HexletBasicsWeb.Router do
 
   pipeline :browser do
     plug :accepts, ["html"]
+    plug HexletBasicsWeb.Plugs.SetLocale
     plug :fetch_session
     plug HexletBasicsWeb.Plugs.AssignCurrentUser
     plug :fetch_flash
@@ -12,6 +13,7 @@ defmodule HexletBasicsWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug HexletBasicsWeb.Plugs.SetLocale
     plug :fetch_session
     plug HexletBasicsWeb.Plugs.AssignCurrentUser
     plug HexletBasicsWeb.Plugs.RequireAuth

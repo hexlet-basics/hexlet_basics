@@ -16,7 +16,6 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  secret_key_base: "as df;lkajsdf ;alkjsdf ;alksdjf ;alksdjf ;alskdjf ;alskdjf a;lsdjkf ;alsdkjfa ;lskdjf a;lskdj f;alksdjf ;alksjdfal;sdjfqwerty",
   watchers: [node: ["node_modules/webpack/bin/webpack.js", "--watch-stdin", "--progress", "--color",
                     cd: Path.expand("..", __DIR__)]]
 

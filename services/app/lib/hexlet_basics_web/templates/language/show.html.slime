@@ -1,5 +1,4 @@
-h1 <%= @language.slug %>
+h1= @language.slug
 
-<%= for module <- @modules do %>
+= for module <- @modules do
   p= link module.slug, to: language_module_path(@conn, :show, @language.slug, module.slug)
-<% end %>

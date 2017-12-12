@@ -5,7 +5,7 @@ html lang="en"
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
   body
-    .container-fluid
+    .container
       header.header
         nav.navbar.navbar-expand-lg.navbar-light.bg-light role="navigation"
           a.navbar-brand href="/" Code Basics
@@ -28,6 +28,9 @@ html lang="en"
 
       main.mt-3 role="main"
         = render @view_module, @view_template, assigns
+
+      footer.footer
+        span.text-muted &copy; Hexlet 2017
 
     = render_gon_script(@conn)
     script src="#{static_path(@conn, "/js/app.js")}"

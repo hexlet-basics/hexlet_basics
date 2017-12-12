@@ -1,10 +1,10 @@
 defmodule HexletBasicsWeb.Language.ModuleController do
   use HexletBasicsWeb, :controller
-  alias HexletBasics.Repo, as: Repo
-  alias HexletBasics.Language, as: Language
+  alias HexletBasics.Repo
+  alias HexletBasics.Language
   import Ecto.Query
 
-  def show(conn, %{ "id" => id, "language_id" => language_id }) do
+  def show(conn, %{"id" => id, "language_id" => language_id}) do
     language = Repo.get_by(Language, slug: language_id)
     module = Repo.get_by(Language.Module, language_id: language.id, slug: id)
 

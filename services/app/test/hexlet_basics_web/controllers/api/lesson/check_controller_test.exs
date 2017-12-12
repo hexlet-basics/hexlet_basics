@@ -14,8 +14,8 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckControllerTest do
     }
     user = insert(:user)
     conn = conn
-    |> put_session(:current_user, user)
-    |> post(lesson_check_path(conn, :create, lesson.id), data: data)
+           |> put_session(:current_user, user)
+           |> post(lesson_check_path(conn, :create, lesson.id), data: data)
 
     assert json_response(conn, 200)
   end

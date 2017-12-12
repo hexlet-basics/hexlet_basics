@@ -11,7 +11,11 @@ defmodule HexletBasicsWeb.LanguageController do
       order_by: [asc: m.order]
     modules = Repo.all(query)
 
-    render conn, language: language, modules: modules
+    # TODO add langauge_id
+    # descriptions = Repo.get_by(Language.Module.Description, locale: conn.assigns.locale)
+    # descriptions_by_module = descriptions
+
+    render conn, language: language, modules: modules, descriptions_by_module: descriptions_by_module
   end
 end
 

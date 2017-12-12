@@ -30,6 +30,7 @@ config :hexlet_basics,
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: HexletBasicsWeb.ErrorView, accepts: ~w(html json)],
+  secret_key_base: "as df;lkajsdf ;alkjsdf ;alksdjf ;alksdjf ;alskdjf ;alskdjf a;lsdjkf ;alsdkjfa ;lskdjf a;lskdj f;alksdjf ;alksjdfal;sdjfqwerty",
   pubsub: [name: HexletBasics.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
