@@ -58,6 +58,8 @@
         #   awslogs-stream: hexlet-web
         #   awslogs-region: '{{ aws_region }}'
         env_file: "{{ hexlet_basics_env_file }}"
+        environment:
+          MIX_ENV: production
         volumes:
           - "/tmp:/tmp"
           - "/var/tmp:/var/tmp"
