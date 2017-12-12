@@ -15,7 +15,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
   load_from_system_env: true,
-  url: [host: "localhost", port: 3000],
+  url: [host: "localhost", port: 3000]
 
 config :hexlet_basics,
   code_directory: "/opt/hexlet-basics/code"
