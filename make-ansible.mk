@@ -24,6 +24,7 @@ ansible-vaults-decrypt:
 	ansible-vault decrypt ansible/development/group_vars/all/vault.yml
 
 ansible-development-setup:
+	mkdir -p tmp
 	touch tmp/ansible-vault-password
 	ansible-playbook ansible/development.yml -i ansible/development -vv -K
 
