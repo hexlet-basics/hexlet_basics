@@ -3,11 +3,12 @@
 * Mac / Linux
 * Docker
 * Docker Compose
+* Ansible (installed using pip3)
 
 ### Install
 
 ```sh
-$ cd hexlet_basics
+$ make ansible-development-setup
 $ make compose-build
 $ make compose-setup
 ```
@@ -22,7 +23,6 @@ $ mix x.exercises.load php
 ### Run
 
 ```sh
-$ cd hexlet_basics
 $ make compose
 ```
 
