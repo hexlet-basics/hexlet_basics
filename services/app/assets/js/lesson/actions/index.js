@@ -22,7 +22,7 @@ export const runCheck = ({ lesson, code }) => async (dispatch) => {
   };
   try {
     const response = await axios.post(url, { data });
-    dispatch(runCheckSuccess({ responseObject: response.data }));
+    dispatch(runCheckSuccess({ check: response.data }));
   } catch (e) {
     console.log(e);
     dispatch(runCheckFailure());

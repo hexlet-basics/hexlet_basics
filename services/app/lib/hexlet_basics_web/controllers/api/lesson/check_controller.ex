@@ -25,13 +25,12 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckController do
     command = "docker run --rm #{volume} #{language.docker_image} timeout -t 1 make --silent -C #{lesson.path_to_code} test"
     Logger.debug command
     %Porcelain.Result{out: output, status: status} = Porcelain.shell(command)
-    IO.inspect status
-    IO.inspect output
 
     json conn, %{
       type: "check",
       data: %{
         attributes: %{
+          status: status,
           output: output
         }
       }

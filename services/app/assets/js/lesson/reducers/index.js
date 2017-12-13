@@ -14,7 +14,10 @@ const code = handleActions({
 }, '');
 
 const finished = handleActions({
-  [actions.runCheckSuccess]: () => true,
+  [actions.runCheckSuccess]: (state, { payload }) => {
+    const { check: { data: { attributes } } } = payload;
+    return attributes.status === 0;
+  },
 }, false);
 
 const currentTabInfo = handleActions({
@@ -35,16 +38,20 @@ const notification = handleActions({
     return info;
   },
   [actions.runCheckFailure]: () => {
-    const info = { type: 'danger', headline: 'Oops!', message: 'something was wrong, try one more time' };
-    return info;
+    const msg = { type: 'danger', headline: 'Oops!', message: 'something was wrong, try one more time' };
+    return msg;
   },
   [actions.runCheckRequest]: () => {
     const info = null;
     return info;
   },
-  [actions.runCheckSuccess]: () => {
-    const info = { type: 'success', headline: 'Great!', message: 'Whoa! You did it! Go next.' };
-    return info;
+  [actions.runCheckSuccess]: (_, { payload }) => {
+    const { check: { data: { attributes } } } = payload;
+    if (attributes.status === 0) {
+      return { type: 'success', headline: 'Tests passed', message: 'Whoa! You did it! Go next.' };
+    }
+
+    return { type: 'warning', headline: 'Tests Failed', message: 'Fix errros and run again' };
   },
 }, null);
 
@@ -54,7 +61,7 @@ const checkInfo = handleActions({
     return newState;
   },
   [actions.runCheckSuccess]: (state, { payload }) => {
-    const { data: { attributes } } = payload.responseObject;
+    const { check: { data: { attributes } } } = payload;
     return {
       ...state,
       processing: false,
