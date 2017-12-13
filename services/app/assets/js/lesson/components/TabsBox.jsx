@@ -33,7 +33,7 @@ export default class TabsBox extends React.Component {
           language={language.slug}
         />
       </TabPanel>
-      <TabPanel className="d-none hexlet-basics-tab-content p-2" selectedClassName={tabPanelSelectedClasses}>
+      <TabPanel className="d-none hexlet-basics-tab-content x-overflow p-2" selectedClassName={tabPanelSelectedClasses}>
         <Console outputs={checkInfo.outputs} />
       </TabPanel>
     </Tabs>);
