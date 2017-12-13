@@ -60,6 +60,7 @@
         env_file: "{{ hexlet_basics_env_file }}"
         env:
           MIX_ENV: production
+          NODE_ENV: production
         volumes:
           - "/tmp:/tmp"
           - "/var/tmp:/var/tmp"
