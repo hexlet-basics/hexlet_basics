@@ -2,6 +2,10 @@ import webpack from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import ManifestPlugin from 'webpack-manifest-plugin';
+// import CleanObsoleteChunks from 'webpack-clean-obsolete-chunks';
+// import CleanWebpackPlugin from 'clean-webpack-plugin';
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 const apps = {
   main: ['./assets/js/app.js', './assets/css/app.scss'],
@@ -14,7 +18,7 @@ export default {
   output: {
     path: `${__dirname}/priv/static`,
     // publicPath: '/assets',
-    filename: 'assets/[name].[chunkhash].js',
+    filename: `assets/[name]${isProduction ? '.[chunkhash]' : ''}.js`,
   },
   devtool: 'inline-source-map',
   watchOptions: {
@@ -22,20 +26,22 @@ export default {
     poll: 1000,
   },
   plugins: [
+    // new CleanWebpackPlugin(['priv/static']),
     new ExtractTextPlugin({
       allChunks: true,
-      filename: 'assets/[name].[chunkhash].css',
+      filename: `assets/[name]${isProduction ? '.[chunkhash]' : ''}.css`,
     }),
     new CopyWebpackPlugin([
       { from: 'assets/static' },
       { from: 'node_modules/font-awesome/fonts', to: 'fonts' },
     ]),
-    new ManifestPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendors',
       // minChunks: 1,
     }),
+    // new CleanObsoleteChunks({ verbose: true, deep: true }),
     new webpack.HashedModuleIdsPlugin(),
+    new ManifestPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
