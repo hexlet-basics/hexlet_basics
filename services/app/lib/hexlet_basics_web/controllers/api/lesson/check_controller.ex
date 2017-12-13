@@ -16,9 +16,11 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckController do
     full_directory_path = Path.join(prefix, User.directory_for_code(current_user))
     # TODO use mocks. there is no fakefs library in elixir world (
     File.mkdir_p(full_directory_path)
+    Logger.debug ['mkdir_p ', full_directory_path]
 
     full_exercise_file_path = Path.join(full_directory_path, Lesson.file_name_for_exercise(lesson))
-    File.write(full_exercise_file_path, code)
+    File.write(full_exercise_file_path, code || '')
+    Logger.debug ['write ', full_exercise_file_path]
 
     path_to_exersice_file = Path.join(lesson.path_to_code, language.exercise_filename)
     volume = "-v #{full_exercise_file_path}:#{path_to_exersice_file}"
