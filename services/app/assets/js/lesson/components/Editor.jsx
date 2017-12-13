@@ -11,7 +11,7 @@ export default class App extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.editor) {
+    if (this.editor && this.props.current) {
       this.editor.focus();
     }
   }

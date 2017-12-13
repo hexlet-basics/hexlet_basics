@@ -31,6 +31,7 @@ export default class TabsBox extends React.Component {
           defaultValue={lesson.prepared_code}
           onCodeChange={this.props.changeCode}
           language={language.slug}
+          current={currentTabInfo.index === 0}
         />
       </TabPanel>
       <TabPanel className="d-none hexlet-basics-tab-content x-overflow p-2" selectedClassName={tabPanelSelectedClasses}>
