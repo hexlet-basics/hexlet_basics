@@ -60,6 +60,10 @@ $fa-font-path: "/fonts";
 
 .hexlet-basics-tab-content {
   background-color: $hexlet-basics-active-bg;
+
+  pre code {
+    color: $hexlet-basics-very-light-yellow;
+  }
 }
 
 .hexlet-basics-theory-card {
