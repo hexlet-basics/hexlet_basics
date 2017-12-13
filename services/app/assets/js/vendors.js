@@ -14,3 +14,5 @@ import 'ansi_up';
 import 'redux-thunk';
 import 'markdown-it';
 import 'highlight.js';
+import '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-free-solid';

@@ -38,7 +38,6 @@ config :hexlet_basics, HexletBasics.Repo,
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: HexletBasicsWeb.ErrorView, accepts: ~w(html json)],
-  cache_static_manifest: "priv/static/manifest.json",
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
   pubsub: [name: HexletBasics.PubSub,
            adapter: Phoenix.PubSub.PG2]

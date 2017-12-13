@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/fontawesome-free-solid';
 
 class ControlBox extends React.Component {
   handleRunCheck = () => {
@@ -13,6 +15,7 @@ class ControlBox extends React.Component {
     const { checkInfo, finished } = this.props;
     const { lesson } = this.context;
 
+    // console.log('asdf')
     const runButtonClasses = cn({
       'btn btn-primary mr-3': true,
       disabled: checkInfo.processing,
@@ -24,13 +27,17 @@ class ControlBox extends React.Component {
       'btn-success': finished,
     });
 
-    // TODO move to js routes
+    // TODO move to  js routes
     const nextLessonUrl = `/lessons/${lesson.id}/redirect-to-next`;
+
 
     return (
       <div className="row">
         <div className="col">
-          <button className={runButtonClasses} onClick={this.handleRunCheck}>Run</button>
+          <button className={runButtonClasses} onClick={this.handleRunCheck}>
+            { checkInfo.processing && <FontAwesomeIcon className="mr-1" icon={faSpinner} spin /> }
+            Run
+          </button>
           <a className={nextButtonClasses} href={nextLessonUrl}>Next Lesson</a>
         </div>
       </div>

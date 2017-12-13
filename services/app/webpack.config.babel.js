@@ -1,11 +1,11 @@
 import webpack from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import ManifestPlugin from 'webpack-manifest-plugin';
+// import ManifestPlugin from 'webpack-manifest-plugin';
 // import CleanObsoleteChunks from 'webpack-clean-obsolete-chunks';
 // import CleanWebpackPlugin from 'clean-webpack-plugin';
 
-const isProduction = process.env.NODE_ENV === 'production';
+// const isProduction = process.env.NODE_ENV === 'production';
 
 const apps = {
   main: ['./assets/js/app.js', './assets/css/app.scss'],
@@ -17,8 +17,8 @@ export default {
   entry: apps,
   output: {
     path: `${__dirname}/priv/static`,
-    // publicPath: '/assets',
-    filename: `assets/[name]${isProduction ? '.[chunkhash]' : ''}.js`,
+    // publicPath: isProduction ? '' : '/assets',
+    filename: 'assets/[name].js',
   },
   devtool: 'inline-source-map',
   watchOptions: {
@@ -29,7 +29,7 @@ export default {
     // new CleanWebpackPlugin(['priv/static']),
     new ExtractTextPlugin({
       allChunks: true,
-      filename: `assets/[name]${isProduction ? '.[chunkhash]' : ''}.css`,
+      filename: 'assets/[name].css',
     }),
     new CopyWebpackPlugin([
       { from: 'assets/static' },
@@ -40,8 +40,8 @@ export default {
       // minChunks: 1,
     }),
     // new CleanObsoleteChunks({ verbose: true, deep: true }),
-    new webpack.HashedModuleIdsPlugin(),
-    new ManifestPlugin(),
+    // new webpack.HashedModuleIdsPlugin(),
+    // new ManifestPlugin({ basePath: '/assets/' }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',

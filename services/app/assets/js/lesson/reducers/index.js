@@ -50,23 +50,22 @@ const notification = handleActions({
 
 const checkInfo = handleActions({
   [actions.runCheckRequest]: (state) => {
-    const newState = { ...state, processing: true };
+    const newState = { ...state, output: '', processing: true };
     return newState;
   },
   [actions.runCheckSuccess]: (state, { payload }) => {
     const { data: { attributes } } = payload.responseObject;
-    const newOutputs = [...state.outputs, attributes.output];
     return {
       ...state,
       processing: false,
-      outputs: newOutputs,
+      output: attributes.output,
     };
   },
   [actions.runCheckFailure]: (state) => {
     const newState = { ...state, processing: false };
     return newState;
   },
-}, { processing: false, outputs: [] });
+}, { processing: false, output: '' });
 
 export default combineReducers({
   finished,
