@@ -10,7 +10,7 @@ defmodule HexletBasicsWeb.LanguageController do
       where: m.language_id == ^language.id and m.upload_id == ^language.upload_id,
       order_by: [asc: m.order]
     modules = Repo.all(query)
-              |> Repo.preload(:lessons)
+              |> Repo.preload(lessons: from(Language.Module.Lesson, order_by: [asc: :order]))
 
     # TODO add langauge_id
     description_query = from d in Language.Module.Description,
