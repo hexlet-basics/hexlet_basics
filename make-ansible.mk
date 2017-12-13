@@ -12,6 +12,9 @@ ansible-site-setup:
 ansible-site-update-env:
 	ansible-playbook ansible/site.yml -i ansible/production -u $U --tag env
 
+ansible-site-update-exercise-images:
+	ansible-playbook ansible/site.yml -i ansible/production -u $U --tag images
+
 ansible-site-deploy:
 	ansible-playbook ansible/deploy.yml -i ansible/production -u $U
 

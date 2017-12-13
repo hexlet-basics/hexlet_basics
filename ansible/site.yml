@@ -46,3 +46,4 @@
     - docker_image:
         name: hexlet/hexlet-basics-exercises-php
         force: yes
+      tags: [images]
