@@ -6,7 +6,7 @@
   # become_user: "{{ hexlet_basics_run_user }}"
 
   vars:
-    hexlet_basics_image_tag: master
+    hexlet_basics_image_tag: latest
   tasks:
 
     - docker_container:

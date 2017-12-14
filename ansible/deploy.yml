@@ -59,8 +59,7 @@
         #   awslogs-region: '{{ aws_region }}'
         env_file: "{{ hexlet_basics_env_file }}"
         env:
-          MIX_ENV: production
-          NODE_ENV: production
+          MIX_ENV: prod
         volumes:
           - "/tmp:/tmp"
           - "/var/tmp:/var/tmp"
@@ -80,6 +79,9 @@
         #   awslogs-region: '{{ aws_region }}'
         restart_policy: always
         env_file: "{{ hexlet_basics_env_file }}"
+        env:
+          MIX_ENV: prod
+          NODE_ENV: production
         ports:
           - "80:3000"
         volumes:
