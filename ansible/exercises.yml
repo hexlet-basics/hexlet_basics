@@ -9,18 +9,29 @@
     hexlet_basics_image_tag: latest
   tasks:
 
+    - name: download image
+      docker_image:
+        name: hexlet/hexlet-basics-exercises-php
+        force: yes
+
+    - name: exercises-php data container
+      docker_container:
+        recreate: yes
+        name: hexlet-basics-exercises-php-data
+        image: hexlet/hexlet-basics-exercises-php
+        state: present
+        volumes:
+        - /exercises
+
     - docker_container:
         recreate: yes
-        name: hexlet-basics-exercises
-        command: "mix x.exercises.load {{ hexlet_basics_language_for_loading }}"
+        name: hexlet-basics-exercises-php
+        command: "mix x.exercises.load"
         image: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
         state: started
-        # log_driver: awslogs
-        # log_options:
-        #   awslogs-group: hexlet-production
-        #   awslogs-stream: hexlet-web
-        #   awslogs-region: '{{ aws_region }}'
         env_file: "{{ hexlet_basics_env_file }}"
+        volumes_from:
+          - hexlet-basics-exercises-php-data
         volumes:
           - "/tmp:/tmp"
           - "/var/tmp:/var/tmp"

@@ -95,13 +95,13 @@
   gather_facts: no
   tasks:
 
-    # - name: "Send deploy hook to Rollbar"
-    #   local_action: shell curl https://api.rollbar.com/api/1/deploy/ \
-    #       -F access_token="{{ hexlet_basics_vault_rollbar_backend_token }}" \
-    #       -F environment="{{ hexlet_basics_mix_env }}" \
-    #       -F revision="{{ hexlet_basics_image_tag }}" \
-    #       -F local_username="{{ ansible_ssh_user }}"
-    #   run_once: yes
+    - name: "Send deploy hook to Rollbar"
+      local_action: shell curl https://api.rollbar.com/api/1/deploy/ \
+          -F access_token="{{ hexlet_basics_vault_rollbar_access_token }}" \
+          -F environment="{{ hexlet_basics_env }}" \
+          -F revision="{{ hexlet_basics_image_tag }}" \
+          -F local_username="{{ ansible_ssh_user }}"
+      run_once: yes
 
     - name: notify slack
       local_action:
