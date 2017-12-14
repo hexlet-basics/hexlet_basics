@@ -9,7 +9,7 @@ config :porcelain, :driver, Porcelain.Driver.Basic
 
 config :ueberauth, Ueberauth,
   providers: [
-    github: {Ueberauth.Strategy.Github, []}
+    github: {Ueberauth.Strategy.Github, [default_scope: "read:user,user:email"]}
   ]
 
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
