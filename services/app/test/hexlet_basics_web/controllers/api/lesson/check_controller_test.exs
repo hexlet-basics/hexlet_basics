@@ -2,6 +2,7 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckControllerTest do
   import Plug.Conn
   use HexletBasicsWeb.ConnCase
 
+  @tag :skip
   test "create", %{conn: conn} do
     lesson = insert(:language_module_lesson)
     data = %{
