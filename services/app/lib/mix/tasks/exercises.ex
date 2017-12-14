@@ -9,17 +9,17 @@ defmodule Mix.Tasks.X.Exercises.Load do
   alias HexletBasics.Upload
 
   @shortdoc "Load exercises"
-  def run([lang_name]) do
+  def run do
     Application.ensure_all_started(:hexlet_basics)
 
-    repo_dest = "/var/tmp/hexlet-basics-exercises-#{lang_name}"
+    repo_dest = "/exercises"
     module_dest = "#{repo_dest}/modules"
 
     {:ok, upload} = Repo.insert(%Upload{
       language_name: lang_name
     })
 
-    up_repo(lang_name, repo_dest)
+    # up_repo(lang_name, repo_dest)
     language = upsert_language(upload, lang_name, repo_dest)
 
     modules_with_meta = get_modules(module_dest)
