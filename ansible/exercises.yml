@@ -5,9 +5,14 @@
   # become: yes
   # become_user: "{{ hexlet_basics_run_user }}"
 
-  vars:
-    hexlet_basics_image_tag: latest
+  vars_prompt:
+    - name: "hexlet_basics_image_tag"
+      prompt: "Hexlet Basics image tag"
+      private: no
+
   tasks:
+    - set_fact: hexlet_basics_image_tag={{ hexlet_basics_image_tag }}
+      tags: always
 
     - name: download image
       docker_image:

@@ -1,8 +1,8 @@
 U := ubuntu
-E := development
+# E := development
 
 ansible-exercises-load:
-	ansible-playbook ansible/exercises.yml -i ansible/$E -u $U -vv
+	ansible-playbook ansible/exercises.yml -i ansible/production -u $U -vv
 
 ansible-deps-install:
 	ansible-galaxy install -r requirements.yml
