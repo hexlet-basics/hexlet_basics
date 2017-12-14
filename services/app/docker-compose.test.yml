@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  db:
+    image: postgres
+  sut:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: mix test
+    # environment:
+    #   AWS_REGION: eu-central-1
+    depends_on:
+      - db
