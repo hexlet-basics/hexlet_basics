@@ -8,7 +8,9 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   server: false
 
 config :hexlet_basics,
-  code_directory: "/tmp/hexlet-basics/code"
+  common: %{
+    code_directory: "/tmp/hexlet-basics-test/code"
+  }
 
 # Print only warnings and errors during test
 # config :logger, level: :warn

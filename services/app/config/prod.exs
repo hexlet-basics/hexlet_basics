@@ -18,8 +18,21 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   load_from_system_env: true,
   url: [host: "localhost", port: 3000]
 
-config :hexlet_basics,
-  code_directory: "/opt/hexlet-basics/code"
+  config :hexlet_basics,
+  common: %{
+    code_directory: "/opt/hexlet-basics/code"
+  },
+  ru: %{
+    ga: "UA-1360700-63"
+  },
+  en: %{
+    ga: "UA-1360700-64"
+  }
+
+config :rollbax,
+  access_token: System.get_env("ROLLBAR_ACCESS_TOKEN"),
+  environment: "production",
+  enabled: true
 
 # Do not print debug messages in production
 config :logger, level: :debug

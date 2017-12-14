@@ -21,7 +21,6 @@ html lang="en"
       main.mt-3 role="main"
         = render @view_module, @view_template, assigns
 
-    = render_gon_script(@conn)
     script src="#{static_path(@conn, "/assets/vendors.js")}"
     script src="#{static_path(@conn, "/assets/main.js")}"
     script src="#{static_path(@conn, "/assets/lesson.js")}"

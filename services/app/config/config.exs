@@ -13,12 +13,8 @@ config :ueberauth, Ueberauth,
   ]
 
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
-  client_id: System.get_env("GITHUB_CLIENT_ID"),
-  client_secret: System.get_env("GITHUB_CLIENT_SECRET")
-
-config :rollbax,
-  access_token: System.get_env("ROLLBAR_ACCESS_TOKEN"),
-  environment: "production"
+  client_id: System.get_env("GITHUB_CLIENT_ID_RU"),
+  client_secret: System.get_env("GITHUB_CLIENT_SECRET_RU")
 
 # General application configuration
 config :hexlet_basics,

@@ -28,3 +28,6 @@ compose-db-drop:
 compose-db-prepare:
 	docker-compose run app mix ecto.create
 	docker-compose run app mix ecto.migrate
+
+compose-i18next-convert:
+	docker-compose run app npm run i18next-conv -- -l ru -s priv/gettext/ru_RU/LC_MESSAGES/default.po -t ./priv/locales/ru

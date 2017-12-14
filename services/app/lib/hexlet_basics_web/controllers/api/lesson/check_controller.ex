@@ -12,8 +12,8 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckController do
 
     lesson = Repo.get(Lesson, lesson_id) |> Repo.preload(:language)
     language = lesson.language
-    prefix = Application.fetch_env!(:hexlet_basics, :code_directory)
-    full_directory_path = Path.join(prefix, User.directory_for_code(current_user))
+    %{code_directory: code_directory} = Application.fetch_env!(:hexlet_basics, :common)
+    full_directory_path = Path.join(code_directory, User.directory_for_code(current_user))
     # TODO use mocks. there is no fakefs library in elixir world (
     File.mkdir_p(full_directory_path)
     Logger.debug ['mkdir_p ', full_directory_path]
