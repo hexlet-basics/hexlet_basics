@@ -25,7 +25,7 @@ RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_6
 COPY mix.* ./
 
 # Install all production dependencies
-RUN mix deps.get --only prod
+RUN mix deps.get
 
 COPY package.json ./
 COPY package-lock.json ./
@@ -33,13 +33,13 @@ COPY package-lock.json ./
 RUN npm install
 
 # Compile all dependencies
-RUN mix deps.compile --only prod
+RUN mix deps.compile
 
 COPY . .
 
 RUN NODE_ENV=production npm run deploy
-RUN MIX_ENV=prod mix compile --only prod
-RUN MIX_ENV=prod mix phx.digest --only prod
+RUN MIX_ENV=prod mix compile
+RUN MIX_ENV=prod mix phx.digest
 
 # RUN MIX_ENV=prod mix release.init
 # RUN MIX_ENV=prod mix release
