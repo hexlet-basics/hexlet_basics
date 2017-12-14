@@ -1,6 +1,7 @@
 defmodule HexletBasics.Language.Module.Lesson.Description do
   use Ecto.Schema
   import Ecto.Changeset
+  alias HexletBasics.Language
   alias HexletBasics.Language.Module.Lesson.Description
   alias HexletBasics.Language.Module.Lesson
 
@@ -13,6 +14,7 @@ defmodule HexletBasics.Language.Module.Lesson.Description do
     field :theory, :string
     # field :tips, { :list, :string }
     belongs_to :lesson, Lesson
+    belongs_to :language, Language
 
     timestamps()
   end
@@ -20,8 +22,8 @@ defmodule HexletBasics.Language.Module.Lesson.Description do
   @doc false
   def changeset(%Description{} = description, attrs) do
     description
-    |> cast(attrs, [:theory, :instructions, :locale, :name])
+    |> cast(attrs, [:theory, :instructions, :locale, :name, :lesson_id, :language_id])
     # |> cast_embed(attrs, :tips)
-    |> validate_required([:theory, :instructions, :locale, :name])
+    |> validate_required([:theory, :instructions, :locale, :name, :lesson_id, :language_id])
   end
 end

@@ -1,4 +1,5 @@
 // Basic Colors
+
 $blue:    #6699cc !default;
 $indigo:  #7986CB !default;
 $purple:  #c594c5 !default;
@@ -40,6 +41,12 @@ $nav-link-padding-y: .2rem !default;
 $nav-link-padding-x: 0.75rem !default;
 $link-hover-decoration: none;
 $fa-font-path: "/fonts";
+
+$nav-tabs-border-color: $hexlet-basics-dark-color;
+$nav-tabs-link-active-border-color: $hexlet-basics-dark-color;
+$nav-tabs-link-hover-border-color: $body-bg;
+$nav-tabs-link-active-color: $hexlet-basics-active-color;
+$nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 
 @import "~bootstrap/scss/bootstrap";
 @import "~font-awesome/scss/font-awesome";
@@ -93,7 +100,7 @@ $fa-font-path: "/fonts";
 }
 
 a.hexlet-basics-lesson-link {
-  
+
 }
 
 a.hexlet-basics-lesson-link:hover {
@@ -126,12 +133,6 @@ a.hexlet-basics-lesson-link:hover {
 // $card-border-color:                 rgba($teal,.125) !default;
 // $card-cap-bg:                       rgba($black, .03) !default;
 
-
-// $nav-tabs-border-color: $hexlet-basics-dark-color;
-// $nav-tabs-link-active-border-color: $hexlet-basics-dark-color;
-// $nav-tabs-link-hover-border-color: $body-bg;
-// $nav-tabs-link-active-color: $hexlet-basics-active-color;
-// $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 
 // // $link-color: $hexlet-basics-font-color;
 // $pre-color: $hexlet-basics-font-color;

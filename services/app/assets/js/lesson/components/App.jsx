@@ -19,13 +19,15 @@ export default class App extends React.Component {
     if (!notification) {
       return null;
     }
-    return (<AlertContainer><Alert timeout={5000} onDismiss={this.props.dismissNotification} className="hexlet-ide-notifications" type={notification.type} headline={notification.headline}>
-      {notification.message}
-    </Alert></AlertContainer>);
+    return (<AlertContainer>
+      <Alert timeout={5000} onDismiss={this.props.dismissNotification} className="hexlet-ide-notifications" type={notification.type} headline={notification.headline}>
+        {notification.message}
+      </Alert>
+    </AlertContainer>);
   }
 
   render() {
-    const { lesson, checkInfo, currentTabInfo } = this.props;
+    const { lesson } = this.props;
     const theory = md(lesson.theory);
     const instructions = md(lesson.instructions);
 

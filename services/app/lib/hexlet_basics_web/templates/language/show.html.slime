@@ -1,11 +1,17 @@
-h1= @language.slug
+h1.text-center.display-2= @language.slug
 
 = for module <- @modules do
-  p.lead= link module.slug, to: language_module_path(@conn, :show, @language.slug, module.slug)
-  - description = @descriptions_by_module[module.id]
-  p.lead= description.name
-  p.lead= description.description
+  .my-4
+    - module_description = @descriptions_by_module[module.id]
+    h2.text-center= module_description.name
+    p.lead= module_description.description
 
-  ol.lead
-    = for lesson <- module.lessons do
-      li= link lesson.slug, to: language_module_lesson_path(@conn, :show, @language.slug, module.slug, lesson.slug), class: "hexlet-basics-lesson-link p-1"
+    - grouped_lessons = Enum.chunk_every(module.lessons, 4)
+    = for group <- grouped_lessons do
+      .row.mb-3
+        = for lesson <- group do
+          - lesson_description = @descriptions_by_lesson[lesson.id]
+          .col-3
+            .card
+              .card-body
+                .card-text.text-center= link lesson_description.name, to: language_module_lesson_path(@conn, :show, @language.slug, module.slug, lesson.slug)

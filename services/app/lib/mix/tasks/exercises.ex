@@ -88,7 +88,9 @@ defmodule Mix.Tasks.X.Exercises.Load do
       module -> module
     end
     description
-    |> Lesson.Description.changeset(data)
+    |> Lesson.Description.changeset(Map.merge(data, %{
+      "language_id" => lesson.language_id
+    }))
     |> Repo.insert_or_update!
   end
 
@@ -143,7 +145,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
       module -> module
     end
     description
-    |> Language.Module.Description.changeset(data)
+    |> Language.Module.Description.changeset(Map.merge(data, %{"language_id" => module.language_id}))
     |> Repo.insert_or_update!
   end
 

@@ -10,7 +10,7 @@ html lang="en"
         nav.navbar.navbar-expand-lg.navbar-dark.bg-dark role="navigation"
           a.navbar-brand href="/" Code Basics
           .navbar-text.mx-auto.pr-5
-            = @language.slug
+            = link @language.slug, to: language_path(@conn, :show, @language.slug)
             = " → "
             = @module_description.name
             | &nbsp;
