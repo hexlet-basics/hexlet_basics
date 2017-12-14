@@ -4,7 +4,7 @@ html lang="en"
     link rel="stylesheet" href="#{static_path(@conn, "/assets/main.css")}"
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
-  body.x-100vh
+  body.x-100vh.x-overflow-hidden
     .container-fluid
       header.header
         nav.navbar.navbar-expand-lg.navbar-dark.bg-dark role="navigation"

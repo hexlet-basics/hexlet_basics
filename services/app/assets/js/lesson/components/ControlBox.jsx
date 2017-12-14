@@ -17,7 +17,7 @@ class ControlBox extends React.Component {
 
     // console.log('asdf')
     const runButtonClasses = cn({
-      'btn btn-primary mr-3': true,
+      'btn btn-primary x-no-focus-outline x-cursor-pointer px-4 mr-3': true,
       disabled: checkInfo.processing,
     });
 

@@ -26,7 +26,7 @@ $hexlet-basics-very-light-yellow: #fffffb;
 $primary: $hexlet-basics-very-light-gray !default;
 $body-bg: $hexlet-basics-very-dark-gray;
 $body-color: $hexlet-basics-font-color !default;
-$close-color: $hexlet-basics-very-light-gray;
+$close-color: $hexlet-basics-very-dark-gray;
 $card-bg: $teal !default;
 
 // Fonts
@@ -49,6 +49,14 @@ $fa-font-path: "/fonts";
   height: 100vh;
 }
 
+.x-overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+.x-overflow-hidden {
+  overflow: hidden;
+}
+
 .x-overflow {
   overflow: auto;
 }
@@ -56,6 +64,17 @@ $fa-font-path: "/fonts";
 .x-flex-1 {
   flex: 1;
   flex-basis: 0;
+}
+
+.x-no-focus-outline {
+  &:focus, &:active {
+    outline:0;
+    box-shadow: none;
+  }
+}
+
+.x-cursor-pointer {
+  cursor: pointer;
 }
 
 .hexlet-basics-tab-content {
@@ -67,9 +86,10 @@ $fa-font-path: "/fonts";
 }
 
 .hexlet-basics-theory-card {
-  background-color: $hexlet-basics-very-light-yellow;
-  color: $hexlet-basics-dark-color;
+  height: calc(100vh - 5em);
   font-family: $font-family-sans-serif;
+  color: $hexlet-basics-dark-color;
+  background-color: $hexlet-basics-very-light-yellow;
 }
 
 a.hexlet-basics-lesson-link {

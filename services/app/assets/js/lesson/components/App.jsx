@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert } from 'react-bs-notifier';
+import { Alert, AlertContainer } from 'react-bs-notifier';
 import TabsBoxContainer from '../containers/TabsBox';
 import ControlBoxContainer from '../containers/ControlBox';
 import md from '../../lib/markdown';
@@ -19,9 +19,9 @@ export default class App extends React.Component {
     if (!notification) {
       return null;
     }
-    return (<Alert timeout={5000} onDismiss={this.props.dismissNotification} className="hexlet-ide-notifications" type={notification.type} headline={notification.headline}>
+    return (<AlertContainer><Alert timeout={5000} onDismiss={this.props.dismissNotification} className="hexlet-ide-notifications" type={notification.type} headline={notification.headline}>
       {notification.message}
-    </Alert>);
+    </Alert></AlertContainer>);
   }
 
   render() {
@@ -38,7 +38,7 @@ export default class App extends React.Component {
               <h4 className="card-header">
                 {lesson.name}
               </h4>
-              <div className="card-body">
+              <div className="card-body x-overflow-y-scroll">
                 <h5 className="card-title">Теория</h5>
                 <div className="card-text" dangerouslySetInnerHTML={{ __html: theory }} />
                 <h5 className="card-title">Инструкции</h5>
@@ -46,7 +46,7 @@ export default class App extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-7 no-gutters pl-0">
+          <div className="col-7 no-gutters pl-0 d-flex flex-column">
             <TabsBoxContainer />
             <ControlBoxContainer />
           </div>

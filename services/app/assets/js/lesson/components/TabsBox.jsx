@@ -16,7 +16,7 @@ export default class TabsBox extends React.Component {
 
     const tabPanelSelectedClasses = 'd-flex x-flex-1';
     return (<Tabs
-      className="d-flex flex-column x-flex-1 h-100"
+      className="d-flex flex-column x-flex-1 h-100 mb-2"
       onSelect={this.handleSelectTab}
       selectedIndex={currentTabInfo.index}
       forceRenderTabPanel
