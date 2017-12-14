@@ -1,5 +1,5 @@
 resource "aws_instance" "hexlet-basics-web" {
-  ami           = "${data.aws_ami.ubuntu.id}"
+  ami           = "ami-e22aaa8d"
   instance_type = "t2.small"
   subnet_id = "${aws_subnet.hexlet-basics-app-a.id}"
   associate_public_ip_address = true
@@ -11,6 +11,7 @@ resource "aws_instance" "hexlet-basics-web" {
 
   tags {
     Name = "hexlet-basics-web-a"
+    Project = "hexlet-basics"
   }
 }
 
@@ -22,6 +23,7 @@ resource "aws_lb" "hexlet-basics" {
   subnets = ["${aws_subnet.hexlet-basics-app-a.id}", "${aws_subnet.hexlet-basics-app-b.id}"]
   tags {
     Name = "hexlet-basics"
+    Project = "hexlet-basics"
   }
 }
 

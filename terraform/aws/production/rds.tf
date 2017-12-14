@@ -13,6 +13,7 @@ resource "aws_db_subnet_group" "hexlet-basics" {
 
   tags {
     Name = "hexlet-basics"
+    Project = "hexlet-basics"
   }
 }
 

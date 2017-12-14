@@ -4,6 +4,7 @@ resource "aws_vpc" "hexlet-basics" {
 
 	tags {
 		Name = "hexlet-basics"
+    Project = "hexlet-basics"
 	}
 }
 
@@ -12,6 +13,7 @@ resource "aws_internet_gateway" "hexlet-basics" {
 
   tags {
     Name = "hexlet-basics"
+    Project = "hexlet-basics"
   }
 }
 
@@ -22,6 +24,7 @@ resource "aws_subnet" "hexlet-basics-app-a" {
 
 	tags {
 		Name = "hexlet-basics-app-a"
+    Project = "hexlet-basics"
 	}
 }
 
@@ -32,6 +35,7 @@ resource "aws_subnet" "hexlet-basics-app-b" {
 
 	tags {
 		Name = "hexlet-basics-app-b"
+    Project = "hexlet-basics"
 	}
 }
 
@@ -41,6 +45,7 @@ resource "aws_subnet" "hexlet-basics-db-a" {
 
 	tags {
 		Name = "hexlet-basics-db-a"
+    Project = "hexlet-basics"
 	}
 }
 
@@ -50,6 +55,7 @@ resource "aws_subnet" "hexlet-basics-db-b" {
 
 	tags {
 		Name = "hexlet-basics-db-b"
+    Project = "hexlet-basics"
 	}
 }
 
@@ -74,6 +80,7 @@ resource "aws_security_group" "hexlet-basics-ssh" {
 
 	tags {
 		Name = "hexlet-basics-ssh"
+    Project = "hexlet-basics"
 	}
 }
 
@@ -98,6 +105,7 @@ resource "aws_security_group" "hexlet-basics-http" {
 
 	tags {
 		Name = "hexlet-basics-http"
+    Project = "hexlet-basics"
 	}
 }
 
