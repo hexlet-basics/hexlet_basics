@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-// import ReactDisqusComments from 'react-disqus-comments';
 import Editor from './Editor.jsx';
 import Console from './Console.jsx';
 // import md from '../../lib/markdown';

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert, AlertContainer } from 'react-bs-notifier';
+import ReactDisqusComments from 'react-disqus-comments';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import TabsBoxContainer from '../containers/TabsBox';
 import ControlBoxContainer from '../containers/ControlBox';
 import md from '../../lib/markdown';
@@ -37,15 +39,28 @@ export default class App extends React.Component {
         <div className="row">
           <div className="col-5">
             <div className="card hexlet-basics-theory-card">
-              <h4 className="card-header">
-                {lesson.name}
-              </h4>
-              <div className="card-body x-overflow-y-scroll">
-                <h5 className="card-title">Теория</h5>
-                <div className="card-text" dangerouslySetInnerHTML={{ __html: theory }} />
-                <h5 className="card-title">Инструкции</h5>
-                <div className="card-text" dangerouslySetInnerHTML={{ __html: instructions }} />
-              </div>
+              <Tabs selectedTabClassName="active">
+                <div className="card-header">
+                  <TabList className="nav nav-pills card-header-pills justify-content-center">
+                    <Tab className="nav-item nav-link"><a href="#">Урок</a></Tab>
+                    <Tab className="nav-item nav-link"><a href="#">Обсуждение</a></Tab>
+                  </TabList>
+                </div>
+                <div className="card-body x-overflow-y-scroll">
+                  <TabPanel>
+                    <h4>{lesson.name}</h4>
+                    <div className="card-text" dangerouslySetInnerHTML={{ __html: theory }} />
+                    <h5 className="card-title">Инструкции</h5>
+                    <div className="card-text" dangerouslySetInnerHTML={{ __html: instructions }} />
+                  </TabPanel>
+                  <TabPanel>
+                    <ReactDisqusComments
+                      identifier={`lesson-${lesson.id}`}
+                      shortname="hexlet-basics"
+                    />
+                  </TabPanel>
+                </div>
+              </Tabs>
             </div>
           </div>
           <div className="col-7 no-gutters pl-0 d-flex flex-column">
