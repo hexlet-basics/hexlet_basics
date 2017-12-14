@@ -21,12 +21,12 @@
         image: hexlet/hexlet-basics-exercises-php
         state: present
         volumes:
-        - /exercises
+        - /exercises-php
 
     - docker_container:
         recreate: yes
         name: hexlet-basics-exercises-php
-        command: "mix x.exercises.load"
+        command: "mix x.exercises.load php"
         image: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
         state: started
         env_file: "{{ hexlet_basics_env_file }}"

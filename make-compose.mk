@@ -29,5 +29,11 @@ compose-db-prepare:
 	docker-compose run app mix ecto.create
 	docker-compose run app mix ecto.migrate
 
+compose-exercises-load:
+	docker pull hexlet/hexlet-basics-exercises-php
+	rm -rf tmp/exercises-php
+	docker run --rm -v $(CURDIR)/tmp/exercises-php:/out hexlet/hexlet-basics-exercises-php bash -c "cp -r /exercises/* /out"
+	docker-compose run --rm -v $(CURDIR)/tmp/exercises-php:/exercises-php app mix x.exercises.load php
+
 compose-i18next-convert:
 	docker-compose run app npm run i18next-conv -- -l ru -s priv/gettext/ru_RU/LC_MESSAGES/default.po -t ./priv/locales/ru
