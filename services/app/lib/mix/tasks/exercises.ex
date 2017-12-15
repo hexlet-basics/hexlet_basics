@@ -53,7 +53,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
       {:ok, test_code} = File.read(test_file_path)
       {:ok, original_code} = File.read(Path.join(lesson_path, language.exercise_filename))
       prepared_code = prepare_code(original_code)
-      path_to_code = Path.join(["/exercises/modules", module_directory, directory])
+      path_to_code = Path.join(["/exercises-#{language.slug}/modules", module_directory, directory])
 
       {language, module, order, slug, prepared_code, original_code, test_code, descriptions, path_to_code}
     end)
