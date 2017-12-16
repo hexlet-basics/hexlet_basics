@@ -16,8 +16,7 @@ $ make compose-setup
 ### Load content
 
 ```sh
-$ make compose-bash
-$ mix x.exercises.load php
+$ make compose-exercises-load
 ```
 
 ### Run
