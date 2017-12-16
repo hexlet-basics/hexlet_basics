@@ -1,9 +1,9 @@
 import React from 'react';
 import ansiUp from '../../lib/ansi_up';
 
-export default ({ output }) => {
+export default ({ output, className }) => {
   const html = ansiUp(output);
-  return (<div>
+  return (<div className={className}>
     <pre>
       <code>
         {html}

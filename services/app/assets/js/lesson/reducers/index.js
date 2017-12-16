@@ -3,9 +3,6 @@ import { handleActions } from 'redux-actions';
 
 import * as actions from '../actions';
 
-const consoleIndex = 1;
-const editorIndex = 0;
-
 const code = handleActions({
   [actions.changeCode]: (state, { payload }) => {
     const { content } = payload;
@@ -22,15 +19,15 @@ const finished = handleActions({
 
 const currentTabInfo = handleActions({
   [actions.runCheckRequest]: (state) => {
-    const newState = { ...state, index: consoleIndex };
+    const newState = { ...state, current: 'console' };
     return newState;
   },
   [actions.selectTab]: (state, { payload }) => {
-    const { index } = payload;
-    const newClicksCount = state.index === index ? state.clicksCount + 1 : 0;
-    return { index, clicksCount: newClicksCount };
+    const { current } = payload;
+    const newClicksCount = state.current === current ? state.clicksCount + 1 : 0;
+    return { current, clicksCount: newClicksCount };
   },
-}, { index: editorIndex, clicksCount: 0 });
+}, { current: 'editor', clicksCount: 0 });
 
 const notification = handleActions({
   [actions.dismissNotification]: () => {

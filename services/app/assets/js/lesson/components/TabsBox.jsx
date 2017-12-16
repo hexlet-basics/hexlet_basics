@@ -1,43 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+// import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import Editor from './Editor.jsx';
 import Console from './Console.jsx';
+import withActive from '../hoc/withActive.jsx';
 // import md from '../../lib/markdown';
 
-export default class TabsBox extends React.Component {
-  handleSelectTab = (index) => {
-    this.props.selectTab({ index });
-  }
+class TabsBox extends React.Component {
   render() {
     const { lesson, language } = this.context;
     const { checkInfo, currentTabInfo } = this.props;
 
-    const tabPanelSelectedClasses = 'd-flex x-flex-1';
-    return (<Tabs
-      className="d-flex flex-column x-flex-1 h-100 mb-2"
-      onSelect={this.handleSelectTab}
-      selectedIndex={currentTabInfo.index}
-      forceRenderTabPanel
-      selectedTabClassName="active"
-    >
-      <TabList className="nav nav-tabs" >
-        <Tab className="nav-item nav-link"><a href="#">Code</a></Tab>
-        <Tab className="nav-item nav-link"><a href="#">Console</a></Tab>
-      </TabList>
-      <TabPanel className="d-none" selectedClassName={tabPanelSelectedClasses}>
-        <Editor
-          defaultValue={lesson.prepared_code}
-          onCodeChange={this.props.changeCode}
-          language={language.slug}
-          current={currentTabInfo.index === 0}
-        />
-      </TabPanel>
-      <TabPanel className="d-none hexlet-basics-tab-content x-overflow p-2" selectedClassName={tabPanelSelectedClasses}>
+    const activate = this.props.activeClass('active');
 
-        <Console output={checkInfo.output} />
-      </TabPanel>
-    </Tabs>);
+    return (<div className="d-flex flex-column x-flex-1 h-100 mb-2">
+      <Nav tabs>
+        <NavItem>
+          <NavLink href="#" {...activate('editor', { default: true })}>Code</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#" {...activate('console')}>Console</NavLink>
+        </NavItem>
+      </Nav>
+      <TabContent className="d-flex x-flex-1" activeTab={this.props.active}>
+        <TabPane tabId="editor">
+          <Editor
+            defaultValue={lesson.prepared_code}
+            onCodeChange={this.props.changeCode}
+            language={language.slug}
+            current={currentTabInfo.index === 0}
+          />
+        </TabPane>
+        <TabPane className="d-flex x-flex-1" tabId="console">
+          <Console className="hexlet-basics-tab-content d-flex x-flex-1 p-2" output={checkInfo.output} />
+        </TabPane>
+      </TabContent>
+    </div>);
   }
 }
 
@@ -45,3 +44,5 @@ TabsBox.contextTypes = {
   lesson: PropTypes.object,
   language: PropTypes.object,
 };
+
+export default withActive(TabsBox);
