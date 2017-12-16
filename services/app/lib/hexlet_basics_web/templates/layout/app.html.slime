@@ -32,6 +32,8 @@ html lang="en"
 
       footer.footer.mt-5
         span.text-muted &copy; Hexlet, 2017
+        br
+        small.text-muted.small Icons by pictohaven, Saeful Muslim, Focus Lab, prasong tadoungsorn from the Noun Project
 
     script src="#{static_path(@conn, "/assets/vendors.js")}"
     script src="#{static_path(@conn, "/assets/main.js")}"
