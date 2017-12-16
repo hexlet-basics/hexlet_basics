@@ -24,7 +24,7 @@ class ControlBox extends React.Component {
 
     const nextButtonClasses = cn({
       btn: true,
-      'btn-outline-success disabled': !finished,
+      'btn-outline-secondary disabled': !finished,
       'btn-success': finished,
     });
 

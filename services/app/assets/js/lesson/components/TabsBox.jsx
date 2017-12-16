@@ -17,7 +17,7 @@ class TabsBox extends React.Component {
     return (<div className="d-flex flex-column x-flex-1 h-100 mb-2">
       <Nav tabs>
         <NavItem>
-          <NavLink href="#" {...activate('editor', { default: true })}>{t('editor')}</NavLink>
+          <NavLink href="#" {...activate('editor')}>{t('editor')}</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="#" {...activate('console')}>{t('console')}</NavLink>
@@ -45,4 +45,4 @@ TabsBox.contextTypes = {
   language: PropTypes.object,
 };
 
-export default translate()(withActive(TabsBox));
+export default translate()(withActive()(TabsBox));

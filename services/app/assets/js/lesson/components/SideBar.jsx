@@ -14,7 +14,7 @@ const SideBar = ({ lesson, activeClass, active, t }) => {
     <div className="card-header">
       <Nav className="nav nav-pills card-header-pills justify-content-center">
         <NavItem>
-          <NavLink href="#" {...activate('lesson', { default: true })}>{t('lesson')}</NavLink>
+          <NavLink href="#" {...activate('lesson')}>{t('lesson')}</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="#" {...activate('discuss')}>{t('discuss')}</NavLink>
@@ -40,4 +40,4 @@ const SideBar = ({ lesson, activeClass, active, t }) => {
   </div>);
 };
 
-export default translate()(withActive(SideBar));
+export default translate()(withActive('lesson')(SideBar));
