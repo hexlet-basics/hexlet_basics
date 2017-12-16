@@ -27,6 +27,7 @@ $hexlet-basics-very-light-yellow: #fffffb;
 $primary: $hexlet-basics-very-light-gray !default;
 $body-bg: $hexlet-basics-very-dark-gray;
 $body-color: $hexlet-basics-font-color !default;
+$pre-color: $hexlet-basics-very-light-yellow;
 $close-color: $hexlet-basics-very-dark-gray;
 $card-bg: $teal !default;
 
@@ -84,12 +85,10 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
   cursor: pointer;
 }
 
+// Code-related tabs
+
 .hexlet-basics-tab-content {
   background-color: $hexlet-basics-active-bg;
-
-  pre code {
-    color: $hexlet-basics-very-light-yellow;
-  }
 }
 
 .hexlet-basics-theory-card {
@@ -99,17 +98,26 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
   background-color: $hexlet-basics-very-light-yellow;
 }
 
-a.hexlet-basics-lesson-link {
-
-}
-
-a.hexlet-basics-lesson-link:hover {
-  background-color: $blue;
-  color: $hexlet-basics-very-light-yellow;
-}
+// Languages list
 
 .hexlet-basics-language-icon {
   filter:invert(100%);
+}
+
+// Lessons list
+
+.hexlet-basics-lesson-card {
+  background-color: $indigo;
+}
+
+.hexlet-basics-lesson-card:hover {
+  background-color: $purple;;
+}
+
+// Cards
+
+.hexlet-basics-card {
+  color: white;
 }
 
 .hexlet-basics-indigo-card {

@@ -42,8 +42,8 @@ export default class App extends React.Component {
               <Tabs selectedTabClassName="active">
                 <div className="card-header">
                   <TabList className="nav nav-pills card-header-pills justify-content-center">
-                    <Tab className="nav-item nav-link"><a href="#">Урок</a></Tab>
-                    <Tab className="nav-item nav-link"><a href="#">Обсуждение</a></Tab>
+                    <Tab className="nav-item"><a className="nav-link" href="#">Урок</a></Tab>
+                    <Tab className="nav-item"><a className="nav-link" href="#">Обсуждение</a></Tab>
                   </TabList>
                 </div>
                 <div className="card-body x-overflow-y-scroll">
