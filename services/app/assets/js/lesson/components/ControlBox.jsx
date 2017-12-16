@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faSpinner, faPlayCircle } from '@fortawesome/fontawesome-free-solid';
+import { translate } from 'react-i18next';
 
 class ControlBox extends React.Component {
   handleRunCheck = () => {
@@ -12,7 +13,7 @@ class ControlBox extends React.Component {
   }
 
   render() {
-    const { checkInfo, finished } = this.props;
+    const { checkInfo, finished, t } = this.props;
     const { lesson } = this.context;
 
     // console.log('asdf')
@@ -39,9 +40,11 @@ class ControlBox extends React.Component {
               { checkInfo.processing && <FontAwesomeIcon icon={faSpinner} spin /> }
               { !checkInfo.processing && <FontAwesomeIcon icon={faPlayCircle} /> }
             </span>
-            Run
+            {t('run')}
           </button>
-          <a className={nextButtonClasses} href={nextLessonUrl}>Next Lesson</a>
+          <a className={nextButtonClasses} href={nextLessonUrl}>
+            {t('next_lesson')}
+          </a>
         </div>
       </div>
     );
@@ -52,4 +55,4 @@ ControlBox.contextTypes = {
   lesson: PropTypes.object,
 };
 
-export default ControlBox;
+export default translate()(ControlBox);

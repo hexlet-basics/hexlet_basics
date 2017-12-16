@@ -6,9 +6,11 @@ compose-build:
 compose:
 	docker-compose up
 
-compose-gettext-build:
+compose-locales-build:
 	docker-compose run app mix gettext.extract --merge
 	docker-compose run app mix gettext.merge priv/gettext --locale ru_RU
+	docker-compose run app bash -c "cp -r priv/locales priv/static"
+
 
 compose-kill:
 	docker-compose kill
@@ -34,6 +36,3 @@ compose-exercises-load:
 	rm -rf tmp/exercises-php
 	docker run --rm -v $(CURDIR)/tmp/exercises-php:/out hexlet/hexlet-basics-exercises-php bash -c "cp -r /exercises-php/* /out"
 	docker-compose run --rm -v $(CURDIR)/tmp/exercises-php:/exercises-php app mix x.exercises.load php
-
-compose-i18next-convert:
-	docker-compose run app npm run i18next-conv -- -l ru -s priv/gettext/ru_RU/LC_MESSAGES/default.po -t ./priv/locales/ru

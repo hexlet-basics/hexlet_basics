@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
+import { translate } from 'react-i18next';
 import Editor from './Editor.jsx';
 import Console from './Console.jsx';
 import withActive from '../hoc/withActive.jsx';
@@ -10,17 +10,17 @@ import withActive from '../hoc/withActive.jsx';
 class TabsBox extends React.Component {
   render() {
     const { lesson, language } = this.context;
-    const { checkInfo, currentTabInfo } = this.props;
+    const { checkInfo, currentTabInfo, t } = this.props;
 
     const activate = this.props.activeClass('active');
 
     return (<div className="d-flex flex-column x-flex-1 h-100 mb-2">
       <Nav tabs>
         <NavItem>
-          <NavLink href="#" {...activate('editor', { default: true })}>Code</NavLink>
+          <NavLink href="#" {...activate('editor', { default: true })}>{t('editor')}</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#" {...activate('console')}>Console</NavLink>
+          <NavLink href="#" {...activate('console')}>{t('console')}</NavLink>
         </NavItem>
       </Nav>
       <TabContent className="d-flex x-flex-1" activeTab={this.props.active}>
@@ -45,4 +45,4 @@ TabsBox.contextTypes = {
   language: PropTypes.object,
 };
 
-export default withActive(TabsBox);
+export default translate()(withActive(TabsBox));
