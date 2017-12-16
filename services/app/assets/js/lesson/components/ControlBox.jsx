@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/fontawesome-free-solid';
+import { faSpinner, faPlayCircle } from '@fortawesome/fontawesome-free-solid';
 
 class ControlBox extends React.Component {
   handleRunCheck = () => {
@@ -33,9 +33,12 @@ class ControlBox extends React.Component {
 
     return (
       <div className="row">
-        <div className="col">
+        <div className="col x-font-sans-serif">
           <button className={runButtonClasses} onClick={this.handleRunCheck}>
-            { checkInfo.processing && <FontAwesomeIcon className="mr-1" icon={faSpinner} spin /> }
+            <span className="text-secondary x-1em-inline-block mr-2">
+              { checkInfo.processing && <FontAwesomeIcon icon={faSpinner} spin /> }
+              { !checkInfo.processing && <FontAwesomeIcon icon={faPlayCircle} /> }
+            </span>
             Run
           </button>
           <a className={nextButtonClasses} href={nextLessonUrl}>Next Lesson</a>

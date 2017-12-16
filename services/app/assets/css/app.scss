@@ -85,6 +85,15 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
   cursor: pointer;
 }
 
+.x-1em-inline-block {
+  width: 1em;
+  display: inline-block;
+}
+
+.x-font-sans-serif {
+  font-family: $font-family-sans-serif;
+}
+
 // Code-related tabs
 
 .hexlet-basics-tab-content {
