@@ -76,6 +76,10 @@ defmodule Mix.Tasks.X.Exercises.Load do
              })
              |> Repo.insert_or_update!
 
+    if Enum.empty?(descriptions) do
+      raise "Lesson '#{module.slug}.#{lesson.slug}' does not have descriptions"
+    end
+
     descriptions
     |> Enum.each(&(upsert_lesson_description(lesson, &1)))
 
@@ -121,6 +125,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
 
   def upsert_module_with_descriptions(language, data) do
     %{order: order, slug: slug, descriptions: descriptions} = data
+
     maybe_module = Repo.get_by(Language.Module, language_id: language.id, slug: slug)
     module = case maybe_module do
       nil  -> %Language.Module{language_id: language.id, slug: slug}
@@ -132,6 +137,10 @@ defmodule Mix.Tasks.X.Exercises.Load do
                upload_id: language.upload_id
              })
              |> Repo.insert_or_update!
+
+    if Enum.empty?(descriptions) do
+      raise "Module '#{module.slug}' does not have descriptions"
+    end
 
     descriptions
     |> Enum.each(&(upsert_module_description(module, &1)))
