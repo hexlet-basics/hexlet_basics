@@ -67,6 +67,11 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
   overflow: auto;
 }
 
+.x-wrap-word {
+  white-space: pre-wrap;
+  word-wrap: break-word; 
+}
+
 .x-flex-1 {
   flex: 1;
   flex-basis: 0;

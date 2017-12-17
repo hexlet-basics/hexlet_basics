@@ -5,7 +5,7 @@ export default ({ output, className }) => {
   const html = ansiUp(output);
   return (<div className={className}>
     <pre>
-      <code>
+      <code className="x-wrap-word">
         {html}
       </code>
     </pre>
