@@ -1,3 +1,9 @@
 {
-    "run": "Run"
+    "run": "Run",
+    "editor": "Editor",
+    "console": "Console",
+    "lesson": "Lesson",
+    "discuss": "Discuss",
+    "instructions": "Instructions",
+    "next_lesson": "Next Lesson"
 }

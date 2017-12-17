@@ -6,16 +6,17 @@ import Gon from 'gon';
 i18n
   .use(XHR)
   .init({
-    fallbackLng: 'en',
+    load: 'languageOnly',
+    fallbackLng: false,
     lng: Gon.getAsset('locale'),
     debug: true,
     // react i18next special options (optional)
     react: {
-      wait: false,
+      wait: true,
       bindI18n: 'languageChanged loaded',
       bindStore: 'added removed',
-      nsMode: 'default'
-    }
+      nsMode: 'default',
+    },
   });
 
 
