@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import withActive from '../hoc/withActive.jsx';
 import md from '../../lib/markdown';
 
-const SideBar = ({ lesson, activeClass, active, t }) => {
+const SideBar = ({ lesson, activeClass, active, t, setActive }) => {
   const theory = md(lesson.theory);
   const instructions = md(lesson.instructions);
   const activate = activeClass('active');
@@ -14,10 +14,10 @@ const SideBar = ({ lesson, activeClass, active, t }) => {
     <div className="card-header py-0">
       <Nav className="nav nav-pills card-header-pills justify-content-center">
         <NavItem>
-          <NavLink href="#" {...activate('lesson')}>{t('lesson')}</NavLink>
+          <NavLink href="#" onClick={setActive('lesson')} className={activate('lesson')}>{t('lesson')}</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#" {...activate('discuss')}>{t('discuss')}</NavLink>
+          <NavLink href="#" onClick={setActive('discuss')} className={activate('discuss')}>{t('discuss')}</NavLink>
         </NavItem>
       </Nav>
     </div>

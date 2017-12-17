@@ -13,24 +13,27 @@ export default defaultActive => Component => class Active extends React.Componen
     this.props.onSelectActive(value);
   };
 
-  activeClass = (activeClassName, defaultClassName = '') => (activeName) => {
+  getCurrent() {
     const { active } = this.props;
-    const value = active || this.state.value;
-    const onClick = this.handleSetActive(activeName);
+    return active || this.state.value;
+  }
+
+  activeClass = (activeClassName, defaultClassName = '') => (activeName) => {
+    const value = this.getCurrent();
     if (!value) {
       const maybeActiveClass = defaultActive === activeName ? activeClassName : '';
-      return { onClick, className: cn(defaultClassName, maybeActiveClass) };
+      return cn(defaultClassName, maybeActiveClass);
     } else if (value === activeName) {
-      return { onClick, className: cn(activeClassName, defaultClassName) };
+      return cn(activeClassName, defaultClassName);
     }
 
-    return { onClick, className: defaultClassName };
+    return defaultClassName;
   }
 
   render() {
     return (<Component
       {...this.props}
-      active={this.state.value}
+      active={this.getCurrent()}
       activeClass={this.activeClass}
       setActive={this.handleSetActive}
     />);

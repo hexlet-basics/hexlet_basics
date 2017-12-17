@@ -1,7 +1,7 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
 
-export default class App extends React.Component {
+export default class Editor extends React.Component {
   editorDidMount = (editor) => {
     this.editor = editor;
     this.editor.focus();
