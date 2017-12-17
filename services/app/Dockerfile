@@ -37,10 +37,10 @@ RUN mix deps.compile
 
 COPY . .
 
-RUN make locales-generate
 RUN NODE_ENV=production npm run deploy
-RUN MIX_ENV=prod mix phx.digest
 RUN MIX_ENV=prod mix compile
+RUN MIX_ENV=prod mix phx.digest
+RUN make locales-generate
 
 # RUN MIX_ENV=prod mix release.init
 # RUN MIX_ENV=prod mix release
