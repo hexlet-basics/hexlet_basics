@@ -1,5 +1,4 @@
 // Basic Colors
-
 $blue:    #6699cc !default;
 $indigo:  #7986CB !default;
 $purple:  #c594c5 !default;
@@ -16,11 +15,10 @@ $hexlet-basics-font-color: #f8f8f2;
 $hexlet-basics-dark-color: #343a40;
 $hexlet-basics-active-color: #eee;
 $hexlet-basics-active-bg: #1e1e1e;
-$hexlet-basics-very-light-gray: #D8DEE9;
-$hexlet-basics-light-gray: #A7ADBA;
-$hexlet-basics-gray: #A7ADBA;
-$hexlet-basics-dark-gray: #A7ADBA;
-$hexlet-basics-very-dark-gray: #343D46;
+
+$hexlet-basics-gray: #a7adba;
+$hexlet-basics-very-light-gray: #d8dee9;
+$hexlet-basics-very-dark-gray: #343d46;
 $hexlet-basics-very-light-yellow: #fffffb;
 
 // Bootstrap color settings
@@ -95,26 +93,16 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 }
 
 // Code-related tabs
-
 .hexlet-basics-tab-content {
   background-color: $hexlet-basics-active-bg;
 }
 
-.hexlet-basics-theory-card {
-  height: calc(100vh - 5em);
-  font-family: $font-family-sans-serif;
-  color: $hexlet-basics-dark-color;
-  background-color: $hexlet-basics-very-light-yellow;
-}
-
 // Languages list
-
 .hexlet-basics-language-icon {
   filter:invert(100%);
 }
 
 // Lessons list
-
 .hexlet-basics-lesson-card {
   background-color: $indigo;
 }
@@ -124,7 +112,6 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 }
 
 // Cards
-
 .hexlet-basics-card {
   color: white;
 }
@@ -142,15 +129,22 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 }
 
 .hexlet-basics-disabled-card {
-  background-color: $hexlet-basics-dark-gray;
+  background-color: $hexlet-basics-gray;
 }
 
-// Etc
+/* the only light, non-standard block, has to be customized directly */
+.hexlet-basics-theory-card {
+  height: calc(100vh - 5em);
+  font-family: $font-family-sans-serif;
+  color: $hexlet-basics-dark-color;
+  background-color: $hexlet-basics-very-light-yellow;
 
-// $card-border-color:                 rgba($teal,.125) !default;
-// $card-cap-bg:                       rgba($black, .03) !default;
+  a {
+    color: $blue;
+  }
 
-
-// // $link-color: $hexlet-basics-font-color;
-// $pre-color: $hexlet-basics-font-color;
-
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: $blue;
+    background-color: #D8DEE9;
+  }
+}

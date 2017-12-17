@@ -11,7 +11,7 @@ const SideBar = ({ lesson, activeClass, active, t }) => {
   const activate = activeClass('active');
 
   return (<div className="card hexlet-basics-theory-card">
-    <div className="card-header">
+    <div className="card-header py-0">
       <Nav className="nav nav-pills card-header-pills justify-content-center">
         <NavItem>
           <NavLink href="#" {...activate('lesson')}>{t('lesson')}</NavLink>
