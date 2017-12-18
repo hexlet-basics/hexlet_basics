@@ -11,10 +11,10 @@ msgstr ""
 "Language: ru_RU\n"
 
 msgid "can't be blank"
-msgstr ""
+msgstr "не может быть пустым"
 
 msgid "has already been taken"
-msgstr ""
+msgstr "уже существует"
 
 msgid "is invalid"
 msgstr ""
@@ -23,7 +23,7 @@ msgid "must be accepted"
 msgstr ""
 
 msgid "has invalid format"
-msgstr ""
+msgstr "имеет неверный формат"
 
 msgid "has an invalid entry"
 msgstr ""
