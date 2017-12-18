@@ -3,6 +3,7 @@ html lang="en"
   head
     link rel="stylesheet" href="#{static_path(@conn, "/assets/main.css")}"
     link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Fira+Mono:400,700&subset=cyrillic,cyrillic-ext'
+    title= page_title(@conn)
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
   body.x-100vh

@@ -10,7 +10,11 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
 config :hexlet_basics,
   common: %{
     code_directory: "/tmp/hexlet-basics-test/code"
-  }
+  },
+  ru: %{},
+  en: %{}
+
+config :rollbax, enabled: false
 
 # Print only warnings and errors during test
 # config :logger, level: :warn
