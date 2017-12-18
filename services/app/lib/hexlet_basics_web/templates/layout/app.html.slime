@@ -5,8 +5,8 @@ html lang="en"
     link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Fira+Mono:400,700&subset=cyrillic,cyrillic-ext'
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
-  body
-    .container
+  body.x-100vh
+    .container.x-100vh.d-flex.flex-column
       header.header
         nav.navbar.navbar-expand.navbar-light.bg-light role="navigation"
           a.navbar-brand href="/" Code Basics
@@ -27,10 +27,10 @@ html lang="en"
         = if message do
           .alert (class="alert-#{alert_name_by_flash(name)}" role="alert")= message
 
-      main.mt-3 role="main"
+      main.mt-3.x-flex-1 role="main"
         = render @view_module, @view_template, assigns
 
-      footer.footer.mt-5
+      footer.footer.my-3
         span.text-muted &copy; Hexlet, 2017
         br
         small.text-muted.small Icons by pictohaven, Saeful Muslim, Focus Lab, prasong tadoungsorn from the Noun Project
