@@ -41,6 +41,10 @@ defmodule HexletBasicsWeb do
       import HexletBasicsWeb.Router.Helpers
       import HexletBasicsWeb.ErrorHelpers
       import HexletBasicsWeb.Gettext
+
+      def current_user(conn) do
+        conn.assigns[:current_user]
+      end
     end
   end
 

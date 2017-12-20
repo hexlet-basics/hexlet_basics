@@ -19,7 +19,10 @@
             #disqus_thread
 
   .col-7.no-gutters.pl-0.d-flex.flex-column
-    div id="basics-lesson-container"
+    = if current_user(@conn).guest do
+      p= gettext "Exercise available only for signed in users"
+    - else
+      #basics-lesson-container
 
 javascript:
   var lesson = Gon.getAsset('lesson');

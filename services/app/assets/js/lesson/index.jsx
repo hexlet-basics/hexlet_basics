@@ -9,17 +9,24 @@ import configureStore from '../lib/configureStore';
 import AppContainer from './containers/App';
 import reducers from './reducers';
 
+const currentUser = gon.getAsset('current_user');
 const lesson = gon.getAsset('lesson');
 const language = gon.getAsset('language');
 const description = gon.getAsset('lesson_description');
 
-const store = configureStore(reducers, { code: lesson.prepared_code });
+const run = () => {
+  const store = configureStore(reducers, { code: lesson.prepared_code });
 
-ReactDOM.render(
-  <Provider store={store}>
-    <I18nextProvider i18n={i18n}>
-      <AppContainer lesson={{ ...lesson, ...description }} language={language} />
-    </I18nextProvider>
-  </Provider>,
-  document.getElementById('basics-lesson-container'),
-);
+  ReactDOM.render(
+    <Provider store={store}>
+      <I18nextProvider i18n={i18n}>
+        <AppContainer lesson={{ ...lesson, ...description }} language={language} />
+      </I18nextProvider>
+    </Provider>,
+    document.getElementById('basics-lesson-container'),
+  );
+};
+
+if (!currentUser.guest) {
+  run();
+}

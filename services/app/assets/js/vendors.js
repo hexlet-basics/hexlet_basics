@@ -19,3 +19,6 @@ import '@fortawesome/fontawesome-free-solid';
 import 'tether';
 import 'popper.js';
 import 'bootstrap';
+import hljs from 'highlight.js';
+
+hljs.initHighlightingOnLoad();

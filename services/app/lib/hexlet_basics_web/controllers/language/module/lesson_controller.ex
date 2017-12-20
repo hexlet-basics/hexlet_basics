@@ -5,7 +5,7 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
   import PhoenixGon.Controller
   import Ecto.Query
 
-  plug HexletBasicsWeb.Plugs.RequireAuth
+  # plug HexletBasicsWeb.Plugs.RequireAuth
 
   plug :put_layout, "lesson.html"
 

@@ -42,3 +42,31 @@ msgstr ""
 #: lib/hexlet_basics_web/controllers/session_controller.ex:6
 msgid "You have been logged out!"
 msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "Exercise available only for signed in users"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "discuss"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "instructions"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "lesson"
+msgstr ""

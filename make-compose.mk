@@ -9,7 +9,6 @@ compose:
 compose-locales-build:
 	docker-compose run app mix gettext.extract --merge
 	docker-compose run app mix gettext.merge priv/gettext --locale ru_RU
-	docker-compose run app make locales-generate
 
 
 compose-kill:
