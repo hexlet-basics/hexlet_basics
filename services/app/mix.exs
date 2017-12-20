@@ -55,6 +55,7 @@ defmodule HexletBasics.Mixfile do
       {:ecto_state_machine, "~> 0.1.0"},
       {:phoenix_jsroutes, "~> 0.0.4"},
       {:ex_machina, github: "thoughtbot/ex_machina", only: :test},
+      {:earmark, github: "pragdave/earmark"},
       {:faker, "~> 0.9", only: :test},
       {:yaml_elixir, "~> 1.3.1"},
       {:rollbax, github: "elixir-addicts/rollbax"},

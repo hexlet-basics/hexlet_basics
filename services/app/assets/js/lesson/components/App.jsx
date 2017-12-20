@@ -30,21 +30,13 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { currentTabInfo, lesson } = this.props;
+    const { currentTabInfo } = this.props;
 
-    return (
-      <React.Fragment>
-        {this.renderAlert()}
-        <div className="row">
-          <div className="col-5">
-            <SideBar lesson={lesson} />
-          </div>
-          <div className="col-7 no-gutters pl-0 d-flex flex-column">
-            <TabsBoxContainer onSelectActive={this.handleSelectTab} active={currentTabInfo.current} />
-            <ControlBoxContainer />
-          </div>
-        </div>
-      </React.Fragment>);
+    return (<React.Fragment>
+      {this.renderAlert()}
+      <TabsBoxContainer onSelectActive={this.handleSelectTab} active={currentTabInfo.current} />
+      <ControlBoxContainer />
+    </React.Fragment>);
   }
 }
 

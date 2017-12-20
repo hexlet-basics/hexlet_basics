@@ -32,6 +32,7 @@ export default {
       filename: 'assets/[name].css',
     }),
     new CopyWebpackPlugin([
+      { from: 'priv/locales', to: 'locales' },
       { from: 'assets/static' },
       { from: 'node_modules/font-awesome/fonts', to: 'fonts' },
     ]),
@@ -48,7 +49,8 @@ export default {
       'window.jQuery': 'jquery',
       // React: 'react',
       // ReactDOM: 'react-dom',
-      // Tether: 'tether',
+      Tether: 'tether',
+      Popper: ['popper.js', 'default'],
     }),
   ],
   externals: {

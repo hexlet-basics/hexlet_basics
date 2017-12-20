@@ -11,6 +11,8 @@
     "watch": "webpack --watch-stdin --progress --color"
   },
   "dependencies": {
+    "popper.js": "*",
+    "tether": "*",
     "@fortawesome/fontawesome": "^1.0.1",
     "@fortawesome/fontawesome-free-brands": "^5.0.1",
     "@fortawesome/fontawesome-free-regular": "^5.0.1",

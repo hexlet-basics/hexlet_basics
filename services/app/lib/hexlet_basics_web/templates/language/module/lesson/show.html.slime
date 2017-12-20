@@ -1,1 +1,35 @@
-div id="basics-lesson-container"
+.row
+  .col-5
+    .card.hexlet-basics-theory-card
+      .card-header.py-0
+        ul.nav.nav-pills.card-header-pills.justify-content-center
+          li.nav-item
+            a.nav-link.active(href="#lesson" data-toggle="pill")= gettext "lesson"
+          li.nav-item
+            a.nav-link(href="#discuss" data-toggle="pill")= gettext "discuss"
+
+      .card-body.x-overflow-y-scroll
+        .tab-content
+          .tab-pane.fade.show.active#lesson
+            h3= @lesson_description.name
+            == @lesson_theory_html
+            h3= gettext "instructions"
+            == @lesson_instructions_html
+          .tab-pane#discuss
+            #disqus_thread
+
+  .col-7.no-gutters.pl-0.d-flex.flex-column
+    div id="basics-lesson-container"
+
+javascript:
+  var lesson = Gon.getAsset('lesson');
+  var disqus_config = function () {
+    // this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = `lesson-${lesson.id}`
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://hexlet-basics.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();

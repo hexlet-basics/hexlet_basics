@@ -16,3 +16,6 @@ import 'markdown-it';
 import 'highlight.js';
 import '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-free-solid';
+import 'tether';
+import 'popper.js';
+import 'bootstrap';

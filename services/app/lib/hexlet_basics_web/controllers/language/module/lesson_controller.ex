@@ -25,10 +25,15 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
 
     conn = put_gon(conn, lesson: lesson, lesson_description: lesson_description, language: language)
 
+    lesson_theory_html = Earmark.as_html!(lesson_description.theory)
+    lesson_instructions_html = Earmark.as_html!(lesson_description.instructions)
+
     render conn,
       language: language,
       module: module,
       lesson: lesson,
+      lesson_theory_html: lesson_theory_html,
+      lesson_instructions_html: lesson_instructions_html,
       module_description: module_description,
       lesson_description: lesson_description,
       lessons_count: lessons_count,
