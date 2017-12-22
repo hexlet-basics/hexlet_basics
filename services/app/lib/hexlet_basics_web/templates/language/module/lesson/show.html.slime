@@ -18,11 +18,11 @@
           .tab-pane#discuss
             #disqus_thread
 
-  .col-7.no-gutters.pl-0.d-flex.flex-column
+  .col-7.no-gutters.pl-0.d-flex.flex-column.x-flex-1
     = if current_user(@conn).guest do
       p= gettext "Exercise available only for signed in users"
     - else
-      #basics-lesson-container
+      #basics-lesson-container.d-flex.flex-column.x-flex-1
 
 javascript:
   var lesson = Gon.getAsset('lesson');
