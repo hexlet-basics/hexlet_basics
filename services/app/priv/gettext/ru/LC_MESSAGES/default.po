@@ -16,11 +16,11 @@ msgstr "Начать"
 
 #: lib/hexlet_basics_web/controllers/auth_controller.ex:22
 msgid "Failed to authenticate."
-msgstr ""
+msgstr "Ошибка аутентификации"
 
 #: lib/hexlet_basics_web/plugs/require_auth.ex:12
 msgid "Require auth"
-msgstr ""
+msgstr "Требуется аутентификация"
 
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Sign In"
@@ -32,41 +32,41 @@ msgstr "Выйти"
 
 #: lib/hexlet_basics_web/controllers/auth_controller.ex:40
 msgid "Successfully authenticated."
-msgstr ""
+msgstr "Вы авторизовались"
 
 #: lib/hexlet_basics_web/controllers/lesson_controller.ex:52
 msgid "You did it!"
-msgstr ""
+msgstr "Упражнение пройдено!"
 
 #: lib/hexlet_basics_web/controllers/auth_controller.ex:15
 #: lib/hexlet_basics_web/controllers/session_controller.ex:6
 msgid "You have been logged out!"
-msgstr ""
+msgstr "Вы вышли"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "Exercise available only for signed in users"
-msgstr ""
+msgstr "Упражнение доступно только для авторизованных пользователей"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "discuss"
-msgstr ""
+msgstr "Обсуждение"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "instructions"
-msgstr ""
+msgstr "Инструкции"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "lesson"
-msgstr ""
+msgstr "Урок"
