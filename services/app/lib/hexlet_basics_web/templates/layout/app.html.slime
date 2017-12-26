@@ -10,7 +10,7 @@ html lang="en"
     .container.x-100vh.d-flex.flex-column
       header.header
         nav.navbar.navbar-expand.navbar-light.bg-light role="navigation"
-          a.navbar-brand href="/" Code Basics
+          a.navbar-brand href="/"= gettext("Code Basics")
           button.navbar-toggler(data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation")
           #navbarText.collapse.navbar-collapse
             ul.navbar-nav.ml-auto

@@ -43,30 +43,30 @@ msgstr "Упражнение пройдено!"
 msgid "You have been logged out!"
 msgstr "Вы вышли"
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "Exercise available only for signed in users"
 msgstr "Упражнение доступно только для авторизованных пользователей"
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "discuss"
 msgstr "Обсуждение"
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "instructions"
 msgstr "Инструкции"
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "lesson"
 msgstr "Урок"
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Code Basics"
+msgstr "Основы программирования"
