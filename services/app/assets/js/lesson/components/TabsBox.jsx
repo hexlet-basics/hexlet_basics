@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
-import cn from 'classnames';
 import { translate } from 'react-i18next';
 import Editor from './Editor.jsx';
 import Console from './Console.jsx';

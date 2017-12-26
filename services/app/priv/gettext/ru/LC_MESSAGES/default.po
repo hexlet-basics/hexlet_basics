@@ -35,6 +35,7 @@ msgid "Successfully authenticated."
 msgstr "Вы авторизовались"
 
 #: lib/hexlet_basics_web/controllers/lesson_controller.ex:52
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "You did it!"
 msgstr "Упражнение пройдено!"
 
@@ -68,5 +69,14 @@ msgid "lesson"
 msgstr "Урок"
 
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/lesson.html.slime:1
 msgid "Code Basics"
 msgstr "Основы программирования"
+
+#: lib/hexlet_basics_web/templates/language/show.html.slime:1
+msgid "Continue Learning"
+msgstr "Продолжить обучение"
+
+#: lib/hexlet_basics_web/templates/language/show.html.slime:1
+msgid "Start learning"
+msgstr "Начать обучение"

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert, AlertContainer } from 'react-bs-notifier';
+import { translate } from 'react-i18next';
 import TabsBoxContainer from '../containers/TabsBox';
 import ControlBoxContainer from '../containers/ControlBox';
-import SideBar from './SideBar.jsx';
 
-export default class App extends React.Component {
+class App extends React.Component {
   getChildContext() {
     return {
       language: this.props.language,
@@ -18,13 +18,13 @@ export default class App extends React.Component {
   }
 
   renderAlert() {
-    const { notification } = this.props;
+    const { notification, t } = this.props;
     if (!notification) {
       return null;
     }
     return (<AlertContainer>
-      <Alert timeout={5000} onDismiss={this.props.dismissNotification} className="hexlet-ide-notifications" type={notification.type} headline={notification.headline}>
-        {notification.message}
+      <Alert timeout={5000} onDismiss={this.props.dismissNotification} className="hexlet-ide-notifications" type={notification.type} headline={t(notification.headline)}>
+        {t(notification.message)}
       </Alert>
     </AlertContainer>);
   }
@@ -44,3 +44,5 @@ App.childContextTypes = {
   lesson: PropTypes.object,
   language: PropTypes.object,
 };
+
+export default translate()(App);

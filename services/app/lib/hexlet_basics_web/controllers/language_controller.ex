@@ -6,12 +6,14 @@ defmodule HexletBasicsWeb.LanguageController do
   import Ecto.Query
 
   def show(conn, %{"id" => id}) do
+    %{assigns: %{current_user: current_user}} = conn
+
     language = Repo.get_by!(HexletBasics.Language, slug: id)
     query = from m in Language.Module,
       where: m.language_id == ^language.id and m.upload_id == ^language.upload_id,
       order_by: [asc: m.order]
     modules = Repo.all(query)
-              |> Repo.preload(lessons: from(Language.Module.Lesson, order_by: [asc: :order]))
+    modules = modules |> Repo.preload(lessons: from(Language.Module.Lesson, order_by: [asc: :order]))
 
     module_description_query = from d in Language.Module.Description,
       where: d.locale == ^conn.assigns[:locale] and d.language_id == ^language.id
@@ -27,9 +29,32 @@ defmodule HexletBasicsWeb.LanguageController do
     descriptions_by_lesson = lesson_descriptions
                              |> Enum.reduce(%{}, &(Map.put(&2, &1.lesson_id, &1)))
 
+    lessons_query = Ecto.assoc(language, :lessons)
+    lessons_query = from l in lessons_query,
+      order_by: [asc: l.natural_order],
+      limit: 1
+    first_lesson = Repo.one(lessons_query)
+    first_lesson = first_lesson |> Repo.preload(:module)
+
+
+    next_lesson = case current_user.guest do
+      true -> first_lesson
+      false ->
+        next_lesson_query = from l in Language.Module.Lesson,
+          left_join: fl in assoc(l, :user_finished_lessons),
+          on: fl.user_id == ^current_user.id,
+          where: l.language_id == ^language.id and is_nil(fl.id),
+          order_by: [asc: l.natural_order],
+          limit: 1
+        Repo.one(next_lesson_query)
+    end
+    next_lesson = next_lesson |> Repo.preload(:module)
+
     render conn, language: language,
       modules: modules,
       descriptions_by_module: descriptions_by_module,
+      next_lesson: next_lesson,
+      first_lesson: first_lesson,
       descriptions_by_lesson: descriptions_by_lesson
   end
 end

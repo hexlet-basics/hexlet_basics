@@ -5,5 +5,19 @@
     "lesson": "Lesson",
     "discuss": "Discuss",
     "instructions": "Instructions",
-    "next_lesson": "Next Lesson"
+    "next_lesson": "Next Lesson",
+    "alert": {
+      "error": {
+        "message": "something was wrong, try one more time",
+        "headline": "Oops!"
+      },
+      "passed": {
+        "message": "Whoa! You did it! Go next.",
+        "headline": "Tests passed"
+      },
+      "failed": {
+        "message": "Fix errros and run again",
+        "headline": "Tests Failed"
+      }
+    }
 }

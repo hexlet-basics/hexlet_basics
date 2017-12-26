@@ -14,6 +14,7 @@ defmodule HexletBasics.Language do
     field :exercise_test_filename, :string
 
     belongs_to :upload, HexletBasics.Upload
+    has_many :lessons, Language.Module.Lesson
 
     timestamps()
   end

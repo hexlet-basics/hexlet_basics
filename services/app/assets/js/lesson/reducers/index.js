@@ -35,7 +35,7 @@ const notification = handleActions({
     return info;
   },
   [actions.runCheckFailure]: () => {
-    const msg = { type: 'danger', headline: 'Oops!', message: 'something was wrong, try one more time' };
+    const msg = { type: 'danger', headline: 'alert.error.headline', message: 'alert.error.message' };
     return msg;
   },
   [actions.runCheckRequest]: () => {
@@ -45,10 +45,10 @@ const notification = handleActions({
   [actions.runCheckSuccess]: (_, { payload }) => {
     const { check: { data: { attributes } } } = payload;
     if (attributes.status === 0) {
-      return { type: 'success', headline: 'Tests passed', message: 'Whoa! You did it! Go next.' };
+      return { type: 'success', headline: 'alert.passed.headline', message: 'alert.passed.message' };
     }
 
-    return { type: 'warning', headline: 'Tests Failed', message: 'Fix errros and run again' };
+    return { type: 'warning', headline: 'alert.failed.headline', message: 'alert.failed.message' };
   },
 }, null);
 

@@ -32,7 +32,8 @@ defmodule Mix.Tasks.X.Exercises.Load do
     |> Enum.flat_map(fn(module) ->
       get_lessons(module_dest, module, language)
     end)
-    |> Enum.map(&upsert_lesson_with_descriptions/1)
+    |> Enum.with_index
+    |> Enum.each(&upsert_lesson_with_descriptions/1)
   end
 
   def get_lessons(dest, module, language) do
@@ -59,15 +60,16 @@ defmodule Mix.Tasks.X.Exercises.Load do
     end)
   end
 
-  def upsert_lesson_with_descriptions({language, module, order, slug, prepared_code, original_code, test_code, descriptions, path_to_code}) do
+  def upsert_lesson_with_descriptions({{language, module, order, slug, prepared_code, original_code, test_code, descriptions, path_to_code}, i}) do
     may_be_lesson = Repo.get_by(Lesson, language_id: language.id, module_id: module.id, slug: slug)
     lesson = case may_be_lesson do
-      nil  -> %Lesson{language: language, module: module, slug: slug}
+      nil  -> %Lesson{language_id: language.id, module_id: module.id, slug: slug}
       entity -> entity
     end
     lesson = lesson
              |> Lesson.changeset(%{
                order: order,
+               natural_order: i + 1,
                path_to_code: path_to_code,
                upload_id: language.upload_id,
                original_code: original_code,

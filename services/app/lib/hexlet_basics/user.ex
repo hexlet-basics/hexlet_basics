@@ -12,6 +12,7 @@ defmodule HexletBasics.User do
     field :github_uid, :integer
     field :nickname, :string
     field :guest, :boolean, virtual: true, default: false
+    has_many :finished_lessons, User.FinishedLesson
 
     timestamps()
   end

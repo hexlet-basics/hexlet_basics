@@ -17,11 +17,10 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
     lesson = Repo.get_by!(Language.Module.Lesson,  language_id: language.id, module_id: module.id, slug: id)
     lesson_description = Repo.get_by!(Language.Module.Lesson.Description,  lesson_id: lesson.id, locale: "ru")
 
-    query_lessons = from l in Language.Module.Lesson, where: l.upload_id == ^language.upload_id
-    query_next_lessons = query_lessons |> where([l], l.order > ^lesson.order)
-    lessons_count = Repo.aggregate(query_lessons, :count, :id)
-    next_lessons_count = Repo.aggregate(query_next_lessons, :count, :id)
-    lesson_order_natural = lessons_count - next_lessons_count
+    lessons_query = Ecto.assoc(language, :lessons)
+    lessons_query = from l in lessons_query,
+      where: l.upload_id == ^language.upload_id
+    lessons_count = Repo.aggregate(lessons_query, :count, :id)
 
     conn = put_gon(conn, lesson: lesson, lesson_description: lesson_description, language: language)
 
@@ -36,8 +35,7 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
       lesson_instructions_html: lesson_instructions_html,
       module_description: module_description,
       lesson_description: lesson_description,
-      lessons_count: lessons_count,
-      lesson_order_natural: lesson_order_natural
+      lessons_count: lessons_count
   end
 end
 

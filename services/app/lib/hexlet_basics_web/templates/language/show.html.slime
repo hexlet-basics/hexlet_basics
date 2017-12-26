@@ -1,5 +1,13 @@
 h1.text-center.display-2= @language.slug
 
+- anchor = if @first_lesson == @next_lesson, do: gettext("Start learning"), else: gettext("Continue Learning")
+- if @next_lesson do
+  .text-center
+    = link anchor, to: language_module_lesson_path(@conn, :show, @language.slug, @next_lesson.module.slug, @next_lesson.slug),
+      class: 'btn btn-outline-primary'
+- else
+  = gettext "You did it!"
+
 = for module <- @modules do
   .my-4
     - module_description = @descriptions_by_module[module.id]
