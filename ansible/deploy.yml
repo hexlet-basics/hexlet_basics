@@ -27,19 +27,6 @@
 
   tasks:
 
-    # - docker_container:
-    #     recreate: yes
-    #     name: hexlet-web-nginx
-    #     image: hexlet/hexlet-web-nginx
-    #     state: started
-    #     restart_policy: always
-    #     ports:
-    #       - "80:80"
-    #       - "443:443"
-    #     networks:
-    #       - name: "{{hexlet_web_network}}"
-    #   tags: [webserver]
-
     - name: download image
       docker_image:
         name: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
@@ -48,6 +35,7 @@
     - name: run migrations
       docker_container:
         recreate: yes
+        detach: no
         name: hexlet-basics-migrations
         command: "mix ecto.migrate"
         image: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"

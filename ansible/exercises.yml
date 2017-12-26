@@ -21,6 +21,7 @@
 
     - name: exercises-php data container
       docker_container:
+        detach: no
         recreate: yes
         name: hexlet-basics-exercises-php-data
         image: hexlet/hexlet-basics-exercises-php
@@ -30,6 +31,7 @@
 
     - docker_container:
         recreate: yes
+        detach: no
         name: hexlet-basics-exercises-php
         command: "mix x.exercises.load php"
         image: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
