@@ -18,6 +18,7 @@ html lang="en"
             = @lesson.natural_order
             | &nbsp;/&nbsp;
             = @lessons_count
+          = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
       main.mt-3 role="main"
         = render @view_module, @view_template, assigns

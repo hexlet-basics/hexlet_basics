@@ -7,6 +7,14 @@ defmodule HexletBasicsWeb.LanguageController do
 
   def show(conn, %{"id" => id}) do
     %{assigns: %{current_user: current_user}} = conn
+    # TODO: where is polymorphism?
+    current_user = if current_user.guest, do: current_user, else: Repo.preload(current_user, :finished_lessons)
+    user_finished_lessons_by_lesson = if current_user.guest do
+      %{}
+    else
+      current_user.finished_lessons
+      |> Enum.reduce(%{}, &(Map.put(&2, &1.language_module_lesson_id, &1)))
+    end
 
     language = Repo.get_by!(HexletBasics.Language, slug: id)
     query = from m in Language.Module,
@@ -55,6 +63,7 @@ defmodule HexletBasicsWeb.LanguageController do
       descriptions_by_module: descriptions_by_module,
       next_lesson: next_lesson,
       first_lesson: first_lesson,
+      user_finished_lessons_by_lesson: user_finished_lessons_by_lesson,
       descriptions_by_lesson: descriptions_by_lesson
   end
 end

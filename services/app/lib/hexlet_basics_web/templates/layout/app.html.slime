@@ -13,15 +13,7 @@ html lang="en"
           a.navbar-brand href="/"= gettext("Code Basics")
           button.navbar-toggler(data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation")
           #navbarText.collapse.navbar-collapse
-            ul.navbar-nav.ml-auto
-              li.nav-item
-                = if @current_user.guest do
-                  = link to: auth_path(@conn, :request, :github), class: "nav-link" do
-                    i.fa.fa-github
-                    | &nbsp;
-                    = gettext("Sign In")
-                - else
-                  = link gettext("Sign Out"), to: session_path(@conn, :delete), method: "delete", class: "nav-link"
+          = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
       = for name <- [:info, :error] do
         - message = get_flash(@conn, name)

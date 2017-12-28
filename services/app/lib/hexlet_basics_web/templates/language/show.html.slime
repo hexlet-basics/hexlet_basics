@@ -19,9 +19,13 @@ h1.text-center.display-2= @language.slug
       .row
         = for lesson <- group do
           - lesson_description = @descriptions_by_lesson[lesson.id]
+          - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
           .col-12.col-sm-6.col-lg-3.mb-3
             = link to: language_module_lesson_path(@conn, :show, @language.slug, module.slug, lesson.slug) do
               .card.hexlet-basics-card.hexlet-basics-lesson-card
                 .card-body
                   .card-text.text-center
-                    = lesson_description.name
+                    = if finished_lesson do
+                      s= lesson_description.name
+                    - else
+                      = lesson_description.name
