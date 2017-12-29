@@ -7,7 +7,8 @@ defmodule HexletBasicsWeb.LanguageControllerTest do
   end
 
   test "show", %{conn: conn} do
-    language = insert(:language)
+    lesson = insert(:language_module_lesson)
+    language = lesson.language
     conn = get conn, language_path(conn, :show, language.slug)
     assert html_response(conn, 200)
   end
