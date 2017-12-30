@@ -13,7 +13,12 @@ html lang="en"
           a.navbar-brand href="/"= gettext("Code Basics")
           button.navbar-toggler(data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation")
           #navbarText.collapse.navbar-collapse
-          = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
+            ul.navbar-nav.mr-auto
+              li.nav-item
+                a.nav-link target="_blank" href="http://guides.hexlet.io"= gettext "Guides"
+              li.nav-item
+                a.nav-link target="_blank" href="https://ru.hexlet.io/projects"= gettext "Projects"
+            = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
       = for name <- [:info, :error] do
         - message = get_flash(@conn, name)
@@ -24,9 +29,27 @@ html lang="en"
         = render @view_module, @view_template, assigns
 
       footer.footer.my-3
-        span.text-muted &copy; Hexlet, 2018
-        br
-        small.text-muted.small Lessons by Kirill Mokevnin, design and editing by Rakhim Davletkaliyev and Natalia Bass. With the help of Hexlet Community.
+        .row
+          .col-6
+            span.text-muted &copy; Hexlet, 2018
+            br
+            small.text-muted.small Lessons by Kirill Mokevnin, design and editing by Rakhim Davletkaliyev and Natalia Bass. With the help of Hexlet Community.
+
+          .col-3
+            ul.list-unstyled
+              li
+                a.text-muted target="_blank" href="https://ru.hexlet.io/blog"= gettext "Blog"
+              li
+                a.text-muted target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Chat"
+              li
+                a.text-muted target="_blank" href="https://github.com/hexlet-basics"= gettext "Source code"
+
+          .col-3
+            ul.list-unstyled
+              li
+                a.text-muted target="_blank" href="https://ru.hexlet.io/pages/recommended-books"= gettext "Recommended Books"
+              li
+                a.text-muted target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSr58Xg4DVX2WdmAkv3hE2ITJ3fPeNUmRFe0Ekro53U-ACFrhcUkV8PlUm4ddcn53Uh-5UIezZtZZgc/pubhtml"= gettext "Matrix"
 
     script src="#{static_path(@conn, "/assets/vendors.js")}"
     script src="#{static_path(@conn, "/assets/main.js")}"

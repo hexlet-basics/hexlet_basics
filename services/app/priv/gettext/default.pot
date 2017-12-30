@@ -22,11 +22,11 @@ msgstr ""
 msgid "Require auth"
 msgstr ""
 
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
 msgid "Sign In"
 msgstr ""
 
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
 msgid "Sign Out"
 msgstr ""
 
@@ -79,4 +79,39 @@ msgstr ""
 
 #: lib/hexlet_basics_web/templates/language/show.html.slime:1
 msgid "Start learning"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Blog"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Chat"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Guides"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Matrix"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Projects"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Recommended Books"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Source code"
 msgstr ""

@@ -22,11 +22,11 @@ msgstr "Ошибка аутентификации"
 msgid "Require auth"
 msgstr "Требуется аутентификация"
 
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
 msgid "Sign In"
 msgstr "Войти"
 
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
 msgid "Sign Out"
 msgstr "Выйти"
 
@@ -80,3 +80,38 @@ msgstr "Продолжить обучение"
 #: lib/hexlet_basics_web/templates/language/show.html.slime:1
 msgid "Start learning"
 msgstr "Начать обучение"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Blog"
+msgstr "Блог"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Chat"
+msgstr "Сообщество (Slack)"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Guides"
+msgstr "Гайды"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Matrix"
+msgstr "Матрица компетентности"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Projects"
+msgstr "Проекты"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Recommended Books"
+msgstr "Рекомендуемые книги"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Source code"
+msgstr "Исходный код"
