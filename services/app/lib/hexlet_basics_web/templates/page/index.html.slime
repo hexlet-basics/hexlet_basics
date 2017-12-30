@@ -3,23 +3,23 @@
     .card
       .card-body
         h4.card-title.text-center PHP
-        img.hexlet-basics-language-icon.img-fluid(src=static_path(@conn, "/images/php.png"))
+        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/php.png"))
         = link gettext("Start"), to: language_path(@conn, :show, "php"), class: "btn btn-primary btn-block"
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.hexlet-basics-indigo-card
       .card-body
         h4.card-title.text-center JavaScript
-        img.hexlet-basics-language-icon.img-fluid(src=static_path(@conn, "/images/js.png"))
+        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/js.png"))
         .btn.btn-dark.disabled.btn-block coming soon
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.hexlet-basics-purple-card
       .card-body
         h4.card-title.text-center Python
-        img.hexlet-basics-language-icon.img-fluid(src=static_path(@conn, "/images/python.png"))
+        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/python.png"))
         .btn.btn-dark.disabled.btn-block coming soon
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.hexlet-basics-orange-card
       .card-body
         h4.card-title.text-center Racket
-        img.hexlet-basics-language-icon.img-fluid(src=static_path(@conn, "/images/racket2.png"))
+        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/racket.png"))
         .btn.btn-dark.disabled.btn-block coming soon

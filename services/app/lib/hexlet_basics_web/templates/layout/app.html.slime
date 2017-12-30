@@ -24,9 +24,9 @@ html lang="en"
         = render @view_module, @view_template, assigns
 
       footer.footer.my-3
-        span.text-muted &copy; Hexlet, 2017
+        span.text-muted &copy; Hexlet, 2018
         br
-        small.text-muted.small Icons by pictohaven, Saeful Muslim, Focus Lab, prasong tadoungsorn from the Noun Project
+        small.text-muted.small Lessons by Kirill Mokevnin, design and editing by Rakhim Davletkaliyev and Natalia Bass. With the help of Hexlet Community.
 
     script src="#{static_path(@conn, "/assets/vendors.js")}"
     script src="#{static_path(@conn, "/assets/main.js")}"

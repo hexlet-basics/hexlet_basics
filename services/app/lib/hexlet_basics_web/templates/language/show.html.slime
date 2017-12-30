@@ -4,7 +4,7 @@ h1.text-center.display-2= @language.slug
 = if @next_lesson do
   .text-center
     = link anchor, to: language_module_lesson_path(@conn, :show, @language.slug, @next_lesson.module.slug, @next_lesson.slug),
-      class: 'btn btn-outline-primary'
+      class: 'btn btn-lg btn-outline-primary px-4 mb-3 mt-2'
 - else
   = gettext "You did it!"
 
