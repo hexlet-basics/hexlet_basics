@@ -5,7 +5,7 @@ defmodule HexletBasicsWeb.LanguageController do
   import Ecto.Query
 
   def show(conn, %{"id" => id}) do
-    %{assigns: %{current_user: current_user}} = conn
+    %{assigns: %{current_user: current_user, locale: locale}} = conn
     user_finished_lessons_by_lesson = current_user
                       |> Ecto.assoc(:finished_lessons)
                       |> Repo.all
@@ -15,9 +15,9 @@ defmodule HexletBasicsWeb.LanguageController do
 
     modules_assoc = Ecto.assoc(language, :modules)
     modules = modules_assoc
-              |> Module.Scope.web(language)
+              |> Module.Scope.web(language, locale)
               |> Repo.all
-              |> Repo.preload(lessons: Lesson.Scope.web(Lesson, language))
+              |> Repo.preload(lessons: Lesson.Scope.web(Lesson, language, locale))
 
     module_descriptions_assoc = Ecto.assoc(language, :module_descriptions)
     module_description_query = from d in module_descriptions_assoc,
@@ -35,7 +35,7 @@ defmodule HexletBasicsWeb.LanguageController do
 
     lessons_assoc = Ecto.assoc(language, :lessons)
     lessons_query = lessons_assoc
-                    |> Lesson.Scope.web(language)
+                    |> Lesson.Scope.web(language, locale)
 
     first_lesson = lessons_query
                    |> limit(1)
