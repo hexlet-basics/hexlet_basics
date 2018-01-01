@@ -20,7 +20,8 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
 
   config :hexlet_basics,
   common: %{
-    code_directory: "/opt/hexlet-basics/code"
+    code_directory: "/opt/hexlet-basics/code",
+    langs: %{"code-basics.ru": "ru", "code-basics.com": "en"}
   },
   ru: %{
     ga: "UA-1360700-63"

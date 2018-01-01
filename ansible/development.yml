@@ -11,3 +11,10 @@
         src: environment.j2
         dest: '../.env.development'
       tags: env
+
+    - lineinfile:
+        path: /etc/hosts
+        regexp: 'hexlet-basics'
+        line: '127.0.0.1 ru.hexlet-basics.test en.hexlet-basics.test # hexlet-basics'
+      become: yes
+

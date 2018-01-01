@@ -7,7 +7,9 @@ defmodule HexletBasicsWeb.Plugs.SetLocale do
   def init(options), do: options
 
   def call(conn, _) do
-    locale = "ru"
+    params = Application.fetch_env!(:hexlet_basics, :common)
+    locale = Map.get(params.langs, conn.host, "ru")
+    IO.inspect [params, conn.host, locale]
     Gettext.put_locale(HexletBasicsWeb.Gettext, locale)
     conn
     |> assign(:locale, locale)

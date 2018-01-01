@@ -9,7 +9,8 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
 
 config :hexlet_basics,
   common: %{
-    code_directory: "/tmp/hexlet-basics-test/code"
+    code_directory: "/tmp/hexlet-basics-test/code",
+    langs: %{}
   },
   ru: %{},
   en: %{}
