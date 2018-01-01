@@ -9,10 +9,10 @@ resource "aws_route53_record" "hexlet-basics-ru-ns" {
   ttl     = "30"
 
   records = [
-    "ns-167.awsdns-20.com.",
-    "ns-524.awsdns-01.net.",
-    "ns-1386.awsdns-45.org.",
-    "ns-2000.awsdns-58.co.uk.",
+    "${aws_route53_zone.hexlet-basics-ru.name_servers.0}",
+    "${aws_route53_zone.hexlet-basics-ru.name_servers.1}",
+    "${aws_route53_zone.hexlet-basics-ru.name_servers.2}",
+    "${aws_route53_zone.hexlet-basics-ru.name_servers.3}",
   ]
 }
 
@@ -39,10 +39,10 @@ resource "aws_route53_record" "hexlet-basics-en-ns" {
   ttl     = "30"
 
   records = [
-    "ns-491.awsdns-61.com.",
-    "ns-946.awsdns-54.net.",
-    "ns-1773.awsdns-29.co.uk.",
-    "ns-1431.awsdns-50.org."
+    "${aws_route53_zone.hexlet-basics-en.name_servers.0}",
+    "${aws_route53_zone.hexlet-basics-en.name_servers.1}",
+    "${aws_route53_zone.hexlet-basics-en.name_servers.2}",
+    "${aws_route53_zone.hexlet-basics-en.name_servers.3}",
   ]
 }
 
