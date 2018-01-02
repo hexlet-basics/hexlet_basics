@@ -12,8 +12,12 @@ config :hexlet_basics,
     code_directory: "/tmp/hexlet-basics-test/code",
     langs: %{}
   },
-  ru: %{},
-  en: %{}
+  ru: %{
+    ga: ""
+  },
+  en: %{
+    ga: ""
+  }
 
 config :rollbax, enabled: false
 

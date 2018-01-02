@@ -51,8 +51,12 @@ config :hexlet_basics,
     code_directory: "/tmp/hexlet-basics/code",
     langs: %{"ru.hexlet-basics.test" => "ru", "en.hexlet-basics.test" => "en"}
   },
-  ru: %{},
-  en: %{}
+  ru: %{
+    ga: "ruGtag"
+  },
+  en: %{
+    ga: "enGtag"
+  }
 
 config :rollbax, enabled: :log
 
