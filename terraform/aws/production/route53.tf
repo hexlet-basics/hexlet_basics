@@ -16,6 +16,17 @@ resource "aws_route53_record" "hexlet-basics-ru-ns" {
   ]
 }
 
+resource "aws_route53_record" "hexlet-basics-ru-txt-google-site-verification" {
+  zone_id = "${aws_route53_zone.hexlet-basics-ru.zone_id}"
+  name    = "code-basics.ru"
+  type    = "TXT"
+  ttl     = "30"
+
+  records = [
+    "google-site-verification=4huglkhRsZ-R-K7j_xxxkfVgqaJq-Ir1fwnN05RV50o",
+  ]
+}
+
 resource "aws_route53_record" "hexlet-basics-ru-a" {
   zone_id = "${aws_route53_zone.hexlet-basics-ru.zone_id}"
   name    = "code-basics.ru"
@@ -43,6 +54,17 @@ resource "aws_route53_record" "hexlet-basics-en-ns" {
     "${aws_route53_zone.hexlet-basics-en.name_servers.1}",
     "${aws_route53_zone.hexlet-basics-en.name_servers.2}",
     "${aws_route53_zone.hexlet-basics-en.name_servers.3}",
+  ]
+}
+
+resource "aws_route53_record" "hexlet-basics-en-txt-google-site-verification" {
+  zone_id = "${aws_route53_zone.hexlet-basics-en.zone_id}"
+  name    = "code-basics.com"
+  type    = "TXT"
+  ttl     = "30"
+
+  records = [
+    "google-site-verification=0kk3DdOciLvoog-nVFcbRzmZH65FWmNW-_aYElP0gJk",
   ]
 }
 
