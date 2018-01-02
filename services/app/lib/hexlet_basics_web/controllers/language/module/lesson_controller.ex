@@ -10,12 +10,14 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
   plug :put_layout, "lesson.html"
 
   def show(conn, %{"id" => id, "module_id" => module_id, "language_id" => language_id}) do
+    %{assigns: %{locale: locale}} = conn
+
     language = Repo.get_by!(Language, slug: language_id)
     module = Repo.get_by!(Language.Module, language_id: language.id, slug: module_id)
-    module_description = Repo.get_by!(Language.Module.Description,  module_id: module.id, locale: "ru")
+    module_description = Repo.get_by!(Language.Module.Description,  module_id: module.id, locale: locale)
 
     lesson = Repo.get_by!(Language.Module.Lesson,  language_id: language.id, module_id: module.id, slug: id)
-    lesson_description = Repo.get_by!(Language.Module.Lesson.Description,  lesson_id: lesson.id, locale: "ru")
+    lesson_description = Repo.get_by!(Language.Module.Lesson.Description,  lesson_id: lesson.id, locale: locale)
 
     lessons_query = Ecto.assoc(language, :lessons)
     lessons_query = from l in lessons_query,

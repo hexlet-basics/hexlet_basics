@@ -60,7 +60,7 @@ msgstr "Обсуждение"
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "instructions"
-msgstr "Инструкции"
+msgstr "Задание"
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
