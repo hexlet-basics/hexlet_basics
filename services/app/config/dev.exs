@@ -47,16 +47,10 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   ]
 
 config :hexlet_basics,
-  common: %{
-    code_directory: "/tmp/hexlet-basics/code",
-    langs: %{"ru.hexlet-basics.test" => "ru", "en.hexlet-basics.test" => "en"}
-  },
-  ru: %{
-    ga: "ruGtag"
-  },
-  en: %{
-    ga: "enGtag"
-  }
+  code_directory: "/tmp/hexlet-basics/code",
+  langs: %{"ru.hexlet-basics.test" => "ru", "en.hexlet-basics.test" => "en"},
+  ga_ru: "ruGtag",
+  ga_en: "enGtag"
 
 config :rollbax, enabled: :log
 

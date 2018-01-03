@@ -18,7 +18,10 @@ config :ueberauth, Ueberauth.Strategy.Github.OAuth,
 
 # General application configuration
 config :hexlet_basics,
-  ecto_repos: [HexletBasics.Repo]
+  ecto_repos: [HexletBasics.Repo],
+  disqus_ru: "hexlet-basics",
+  disqus_en: "hexlet-basics-en"
+
 
 config :hexlet_basics, HexletBasics.Repo,
   adapter: Ecto.Adapters.Postgres,

@@ -8,16 +8,10 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   server: false
 
 config :hexlet_basics,
-  common: %{
-    code_directory: "/tmp/hexlet-basics-test/code",
-    langs: %{}
-  },
-  ru: %{
-    ga: ""
-  },
-  en: %{
-    ga: ""
-  }
+  code_directory: "/tmp/hexlet-basics-test/code",
+  langs: %{},
+  ga_ru: "ruGtag",
+  ga_en: "enGtag"
 
 config :rollbax, enabled: false
 
