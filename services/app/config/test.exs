@@ -8,6 +8,7 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   server: false
 
 config :hexlet_basics,
+  docker_command_template: "echo 'docker run --rm ~s ~s timeout -t 1 make --silent -C ~s test'",
   code_directory: "/tmp/hexlet-basics-test/code",
   langs: %{},
   ga_ru: "ruGtag",

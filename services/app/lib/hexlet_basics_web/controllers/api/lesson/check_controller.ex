@@ -24,7 +24,9 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckController do
 
     path_to_exersice_file = Path.join(lesson.path_to_code, language.exercise_filename)
     volume = "-v #{full_exercise_file_path}:#{path_to_exersice_file}"
-    command = "docker run --rm #{volume} #{language.docker_image} timeout -t 1 make --silent -C #{lesson.path_to_code} test"
+    docker_command_template = Application.fetch_env!(:hexlet_basics, :docker_command_template)
+    command = :io_lib.format(docker_command_template, [volume, language.docker_image, lesson.path_to_code])
+    command = String.Chars.to_string(command)
     Logger.debug command
     %Porcelain.Result{out: output, status: status} = Porcelain.shell(command)
 

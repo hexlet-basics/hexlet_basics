@@ -47,6 +47,7 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   ]
 
 config :hexlet_basics,
+  docker_command_template: "docker run --rm ~s ~s timeout -t 1 make --silent -C ~s test",
   code_directory: "/tmp/hexlet-basics/code",
   langs: %{"ru.hexlet-basics.test" => "ru", "en.hexlet-basics.test" => "en"},
   ga_ru: "ruGtag",
