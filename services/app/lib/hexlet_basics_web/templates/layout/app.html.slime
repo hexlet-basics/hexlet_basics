@@ -9,7 +9,7 @@ html lang="en"
   body.x-100vh
     .container.x-100vh.d-flex.flex-column
       header.header
-        nav.navbar.navbar-expand.navbar-light.bg-light role="navigation"
+        nav.navbar.navbar-expand-md.navbar-light.bg-light role="navigation"
           a.navbar-brand href="/"= gettext("Code Basics")
           button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation")
             span.navbar-toggler-icon
@@ -29,14 +29,14 @@ html lang="en"
       main.mt-3.x-flex-1 role="main"
         = render @view_module, @view_template, assigns
 
-      footer.footer.my-3
+      footer.footer.mb-3
         .row
-          .col-6
+          .col-12.col-md-6.mt-3
             span.text-muted &copy; Hexlet, 2018
             br
             small.text-muted.small Lessons by Kirill Mokevnin, design and editing by Rakhim Davletkaliyev and Natalia Bass. With the help of Hexlet Community.
 
-          .col-3
+          .col-12.col-md-3.mt-3
             ul.list-unstyled
               li
                 a.text-muted target="_blank" href="https://ru.hexlet.io/blog"= gettext "Blog"
@@ -45,7 +45,7 @@ html lang="en"
               li
                 a.text-muted target="_blank" href="https://github.com/hexlet-basics"= gettext "Source code"
 
-          .col-3
+          .col-12.col-md-3.mt-3
             ul.list-unstyled
               li
                 a.text-muted target="_blank" href="https://ru.hexlet.io/pages/recommended-books"= gettext "Recommended Books"
