@@ -22,11 +22,11 @@ class App extends React.Component {
     if (!notification) {
       return null;
     }
-    return (<AlertContainer>
-      <Alert timeout={5000} onDismiss={this.props.dismissNotification} className="hexlet-ide-notifications" type={notification.type} headline={t(notification.headline)}>
+    return (<div className="hexlet-ide-notifications"><AlertContainer>
+      <Alert timeout={5000} onDismiss={this.props.dismissNotification} type={notification.type} headline={t(notification.headline)}>
         {t(notification.message)}
       </Alert>
-    </AlertContainer>);
+    </AlertContainer></div>);
   }
 
   render() {

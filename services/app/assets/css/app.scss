@@ -10,6 +10,12 @@ $green:   #99C794 !default;
 $teal:    #5fb3b3 !default;
 $cyan:    #89DDF3 !default;
 
+// Languages colors
+$hexlet-basics-php-color: $teal;
+$hexlet-basics-javascript-color: $indigo;
+$hexlet-basics-python-color: $purple;
+$hexlet-basics-racket-color: darken($orange, 10%);
+
 // App colors
 $hexlet-basics-font-color: #f8f8f2;
 $hexlet-basics-dark-color: #343a40;
@@ -51,6 +57,7 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 @import "~font-awesome/scss/font-awesome";
 @import "~highlight.js/styles/atom-one-light";
 
+// Custom utils
 .x-100vh {
   height: 100vh;
 }
@@ -69,7 +76,7 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 
 .x-wrap-word {
   white-space: pre-wrap;
-  word-wrap: break-word; 
+  word-wrap: break-word;
 }
 
 .x-flex-1 {
@@ -97,6 +104,21 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
   font-family: $font-family-sans-serif;
 }
 
+// Notifications
+
+.hexlet-ide-notifications {
+  color: black;
+  .fa {
+    opacity: 1;
+  }
+  .fa-warning {
+    color: #df0000;
+  }
+  .fa-check {
+    color: green;
+  }
+}
+
 // Code-related tabs
 .hexlet-basics-tab-content {
   background-color: $hexlet-basics-active-bg;
@@ -104,14 +126,40 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 
 // Lessons list
 .hexlet-basics-lesson-card {
-  background-color: $indigo;
+  background-color: red;
+  border: none;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: lighten(red, 10%);
+  }
 }
 
-.hexlet-basics-lesson-card:hover {
-  background-color: $purple;;
+.hexlet-basics-lesson-card-php {
+  background-color: $hexlet-basics-php-color;
+
+  &:hover {
+    background-color: lighten($hexlet-basics-php-color, 10%);
+  }
 }
 
-// Cards
+.hexlet-basics-lesson-card-javascript {
+  background-color: $hexlet-basics-javascript-color;
+
+  &:hover {
+    background-color: lighten($hexlet-basics-javascript-color, 10%);
+  }
+}
+
+.hexlet-basics-finished-lesson-card {
+  background-color: gray;
+
+  &:hover {
+    background-color: lighten(gray, 10%);
+  }
+}
+
+// Generic cards
 .hexlet-basics-card {
   color: white;
 }
@@ -130,6 +178,13 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 
 .hexlet-basics-disabled-card {
   background-color: $hexlet-basics-gray;
+}
+
+img.hexlet-basics-finished-lesson-sticker {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
 }
 
 /* the only light, non-standard block, has to be customized directly */

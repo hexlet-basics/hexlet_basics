@@ -9,23 +9,34 @@ h1.text-center.display-2= @language.slug
   = gettext "You did it!"
 
 = for module <- @modules do
-  .my-4
-    - module_description = @descriptions_by_module[module.id]
-    h2.text-center= module_description.name
-    p.lead= module_description.description
-
-    - grouped_lessons = Enum.chunk_every(module.lessons, 4)
-    = for group <- grouped_lessons do
-      .row
-        = for lesson <- group do
-          - lesson_description = @descriptions_by_lesson[lesson.id]
-          - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
-          .col-12.col-sm-6.col-lg-3.mb-3
-            = link to: language_module_lesson_path(@conn, :show, @language.slug, module.slug, lesson.slug) do
-              .card.hexlet-basics-card.hexlet-basics-lesson-card
-                .card-body
-                  .card-text.text-center
-                    = if finished_lesson do
-                      s= lesson_description.name
-                    - else
+  .row.my-4.d-flex.flex-row
+    .col-12.mb-3
+      - module_description = @descriptions_by_module[module.id]
+      h2= module_description.name
+    .col-12.col-md-6.lead
+      = for lesson <- module.lessons do
+        - lesson_description = @descriptions_by_lesson[lesson.id]
+        - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
+        .mb-2
+          = link to: language_module_lesson_path(@conn, :show, @language.slug, module.slug, lesson.slug) do
+            = if finished_lesson do
+              .card.hexlet-basics-card.hexlet-basics-lesson-card.hexlet-basics-finished-lesson-card
+                .card-body.py-2
+                  img.img-fluid.hexlet-basics-finished-lesson-sticker(src=static_path(@conn, "/images/finished_lesson_pin.png"))
+                  .card-text
+                    s
+                      = lesson.natural_order
+                      | .&nbsp;
                       = lesson_description.name
+            - else
+              .card.hexlet-basics-card.hexlet-basics-lesson-card(class="hexlet-basics-lesson-card-#{@language.slug}")
+                .card-body.py-2
+                  .card-text
+                    = lesson.natural_order
+                    | .&nbsp;
+                    = lesson_description.name
+
+    .col-12.col-md-6
+      p.lead= module_description.description
+
+  hr.mt-4.mb-5
