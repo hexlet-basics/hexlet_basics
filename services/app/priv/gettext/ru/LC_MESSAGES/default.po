@@ -62,6 +62,12 @@ msgstr "Обсуждение"
 msgid "instructions"
 msgstr "Задание"
 
+msgid "definitions"
+msgstr "Определения"
+
+msgid "previous_definitions"
+msgstr "прошлые определения"
+
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1

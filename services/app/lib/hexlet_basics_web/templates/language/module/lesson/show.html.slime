@@ -15,6 +15,15 @@
             == @lesson_theory_html
             h3= gettext "instructions"
             == @lesson_instructions_html
+            h3= gettext "definitions"
+            ul
+              li
+              li
+            details.mt-2.ml-1
+              summary.h5= gettext "previous_definitions"
+              ul
+                li
+                li
           .tab-pane#discuss
             #disqus_thread
 
