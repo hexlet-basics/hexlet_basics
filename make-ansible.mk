@@ -2,7 +2,7 @@ U := ubuntu
 # E := development
 
 ansible-exercises-load:
-	ansible-playbook ansible/exercises.yml -i ansible/production -u $U -vv
+	ansible-playbook ansible/exercises.yml -i ansible/production -u $U -vv --ask-vault-pass
 
 ansible-deps-install:
 	ansible-galaxy install -r requirements.yml
@@ -17,7 +17,7 @@ ansible-site-update-exercise-images:
 	ansible-playbook ansible/site.yml -i ansible/production -u $U --tag images
 
 ansible-site-deploy:
-	ansible-playbook ansible/deploy.yml -i ansible/production -u $U
+	ansible-playbook ansible/deploy.yml -i ansible/production -u $U --ask-vault-pass
 
 ansible-vaults-encrypt:
 	ansible-vault encrypt ansible/production/group_vars/all/vault.yml

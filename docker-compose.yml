@@ -16,6 +16,7 @@ services:
     volumes:
       - "./services/app:/app:cached"
       - "~/.bash_history:/root/.bash_history:cached"
+      - "../exercises-php:/exercises-php"
       - ".bashrc:/root/.bashrc:cached"
       - '/var/run/docker.sock:/var/run/docker.sock'
       - "/var/tmp:/var/tmp:cached"
