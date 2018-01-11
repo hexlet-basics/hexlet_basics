@@ -7,7 +7,7 @@ defmodule HexletBasics.Repo.Migrations.CreateLanguageModuleLessonDescriptions do
       add :theory, :text
       add :instructions, :text
       add :locale, :string
-      add :tips, { :array, :string }
+      add :tips, {:array, :string}
       add :lesson_id, references(:language_module_lessons, on_delete: :nothing)
 
       timestamps()

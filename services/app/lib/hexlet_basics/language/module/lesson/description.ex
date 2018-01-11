@@ -12,7 +12,8 @@ defmodule HexletBasics.Language.Module.Lesson.Description do
     field :locale, :string
     field :name, :string
     field :theory, :string
-    # field :tips, { :list, :string }
+    field :tips, {:array, :string}
+    field :definitions, {:array, :map}
     belongs_to :lesson, Lesson
     belongs_to :language, Language
 
@@ -22,7 +23,7 @@ defmodule HexletBasics.Language.Module.Lesson.Description do
   @doc false
   def changeset(%Description{} = description, attrs) do
     description
-    |> cast(attrs, [:theory, :instructions, :locale, :name, :lesson_id, :language_id])
+    |> cast(attrs, [:theory, :instructions, :locale, :name, :lesson_id, :language_id, :tips, :definitions])
     # |> cast_embed(attrs, :tips)
     |> validate_required([:theory, :instructions, :locale, :name, :lesson_id, :language_id])
   end

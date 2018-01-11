@@ -15,6 +15,8 @@
             == @lesson_theory_html
             h3= gettext "instructions"
             == @lesson_instructions_html
+            h3= gettext "tips"
+            == @lesson_tips_html
           .tab-pane#discuss
             #disqus_thread
 
