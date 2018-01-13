@@ -25,7 +25,7 @@ $ make compose-exercises-load
 $ make compose
 ```
 
-### Usefull
+### Useful
 
     brew install git-secrets
     git secrets --install
