@@ -8,21 +8,19 @@
 ### Install
 
 ```sh
-$ make ansible-development-setup
-$ make compose-build
-$ make compose-setup
+$ make app-setup
 ```
 
 ### Load content
 
 ```sh
-$ make compose-exercises-load
+$ make app-exercises-load
 ```
 
 ### Run
 
 ```sh
-$ make compose
+$ make app
 ```
 
 ### Useful

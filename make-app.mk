@@ -1,36 +1,36 @@
-compose-test:
+app-test:
 	docker-compose run app mix test
-compose-build:
+
+app-build:
 	docker-compose build
 
-compose:
+app:
 	docker-compose up
 
-compose-locales-build:
+app-locales-build:
 	docker-compose run app mix gettext.extract --merge
 	docker-compose run app mix gettext.merge priv/gettext --locale ru
 
+app-down:
+	docker-compose down
 
-compose-kill:
-	docker-compose kill
-
-compose-bash:
+app-bash:
 	docker-compose run app bash
 
-compose-install:
+app-install:
 	docker-compose run app mix deps.get
 
-compose-setup: compose-install compose-db-prepare
+app-setup: development-setup app-build app-install app-db-prepare
 	docker-compose run app npm install
 
-compose-db-drop:
+app-db-drop:
 	docker-compose run app mix ecto.drop
 
-compose-db-prepare:
+app-db-prepare:
 	docker-compose run app mix ecto.create
 	docker-compose run app mix ecto.migrate
 
-compose-exercises-load:
+app-exercises-load:
 	docker pull hexlet/hexlet-basics-exercises-php
 	rm -rf tmp/exercises-php
 	docker run --rm -v $(CURDIR)/tmp/exercises-php:/out hexlet/hexlet-basics-exercises-php bash -c "cp -r /exercises-php/* /out"
