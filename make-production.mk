@@ -4,14 +4,14 @@ U := ubuntu
 production-exercises-load:
 	ansible-playbook ansible/exercises.yml -i ansible/production -u $U -vv --ask-vault-pass
 
-production-site-setup:
+production-setup:
 	ansible-playbook ansible/site.yml -i ansible/production -u $U
 
-production-site-update-env:
+production-env-update:
 	ansible-playbook ansible/site.yml -i ansible/production -u $U --tag env
 
-production-site-update-exercise-images:
-	ansible-playbook ansible/site.yml -i ansible/production -u $U --tag images
+# production-update-exercise-images:
+# 	ansible-playbook ansible/site.yml -i ansible/production -u $U --tag images
 
-production-site-deploy:
+production-deploy:
 	ansible-playbook ansible/deploy.yml -i ansible/production -u $U --ask-vault-pass
