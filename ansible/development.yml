@@ -9,7 +9,7 @@
 
     - template:
         src: environment.j2
-        dest: '../.env.development'
+        dest: '../.env'
       tags: env
 
     - lineinfile:

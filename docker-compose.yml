@@ -8,11 +8,9 @@ services:
       context: services/app
       dockerfile: Dockerfile
     command: mix phx.server
-    environment:
-      PORT: 4000
     ports:
-      - "4000:4000"
-    env_file: '.env.development'
+      - "${PORT}:${PORT}"
+    env_file: '.env'
     volumes:
       - "./services/app:/app:cached"
       - "~/.bash_history:/root/.bash_history:cached"
