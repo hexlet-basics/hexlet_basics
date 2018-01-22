@@ -1,7 +1,7 @@
 ---
 
 - hosts: all
-  gather_facts: no
+  # gather_facts: no
   # become: yes
   # become_user: "{{ hexlet_basics_run_user }}"
 
@@ -26,7 +26,7 @@
         detach: no
         name: hexlet-basics-exercises-php
         command: "mix x.exercises.load php"
-        image: "{{ hexlet_basics_image_name }}:{{ lookup('env','HEXLET_BASICS_VERSION') }}"
+        image: "{{ hexlet_basics_image_name }}:{{ ansible_env.HEXLET_BASICS_VERSION }}"
         state: started
         env_file: "{{ hexlet_basics_env_file }}"
         volumes_from:

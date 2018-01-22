@@ -2,7 +2,7 @@ U := ubuntu
 # E := development
 
 production-exercises-load:
-	ansible-playbook ansible/exercises.yml -i ansible/production -u $U -vvv --ask-vault-pass
+	ansible-playbook ansible/exercises.yml -i ansible/production -u $U -vv --ask-vault-pass
 
 production-setup:
 	ansible-playbook ansible/site.yml -i ansible/production -u $U
