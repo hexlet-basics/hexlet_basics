@@ -4,6 +4,7 @@ import cn from 'classnames';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faSpinner, faPlayCircle } from '@fortawesome/fontawesome-free-solid';
 import { translate } from 'react-i18next';
+import Hotkeys from 'react-hot-keys';
 
 class ControlBox extends React.Component {
   handleRunCheck = () => {
@@ -33,20 +34,22 @@ class ControlBox extends React.Component {
 
 
     return (
-      <div className="row">
-        <div className="col x-font-sans-serif">
-          <button className={runButtonClasses} onClick={this.handleRunCheck}>
-            <span className="text-secondary x-1em-inline-block mr-2">
-              { checkInfo.processing && <FontAwesomeIcon icon={faSpinner} spin /> }
-              { !checkInfo.processing && <FontAwesomeIcon icon={faPlayCircle} /> }
-            </span>
-            {t('run')}
-          </button>
-          <a className={nextButtonClasses} href={nextLessonUrl}>
-            {t('next_lesson')}
-          </a>
+      <Hotkeys keyName="ctrl+Enter" onKeyUp={this.handleRunCheck}>
+        <div className="row">
+          <div className="col x-font-sans-serif">
+            <button className={runButtonClasses} onClick={this.handleRunCheck}>
+              <span className="text-secondary x-1em-inline-block mr-2">
+                { checkInfo.processing && <FontAwesomeIcon icon={faSpinner} spin /> }
+                { !checkInfo.processing && <FontAwesomeIcon icon={faPlayCircle} /> }
+              </span>
+              {t('run')}
+            </button>
+            <a className={nextButtonClasses} href={nextLessonUrl}>
+              {t('next_lesson')}
+            </a>
+          </div>
         </div>
-      </div>
+      </Hotkeys>
     );
   }
 }
