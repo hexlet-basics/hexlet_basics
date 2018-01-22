@@ -4,6 +4,7 @@ resource "aws_instance" "hexlet-basics-web" {
   subnet_id = "${aws_subnet.hexlet-basics-app-a.id}"
   associate_public_ip_address = true
   key_name = "${aws_key_pair.kirillm.id}"
+  iam_instance_profile = "${aws_iam_instance_profile.webserver.name}"
   vpc_security_group_ids = [
     "${aws_security_group.hexlet-basics-ssh.id}",
     "${aws_security_group.hexlet-basics-http.id}"

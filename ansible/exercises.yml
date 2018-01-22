@@ -5,15 +5,7 @@
   # become: yes
   # become_user: "{{ hexlet_basics_run_user }}"
 
-  vars_prompt:
-    - name: "hexlet_basics_image_tag"
-      prompt: "Hexlet Basics image tag"
-      private: no
-
   tasks:
-    - set_fact: hexlet_basics_image_tag={{ hexlet_basics_image_tag }}
-      tags: always
-
     - name: download image
       docker_image:
         name: hexlet/hexlet-basics-exercises-php
@@ -34,7 +26,7 @@
         detach: no
         name: hexlet-basics-exercises-php
         command: "mix x.exercises.load php"
-        image: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
+        image: "{{ hexlet_basics_image_name }}:{{ lookup('env','HEXLET_BASICS_VERSION') }}"
         state: started
         env_file: "{{ hexlet_basics_env_file }}"
         volumes_from:

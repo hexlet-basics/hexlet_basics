@@ -1,4 +1,7 @@
 hexlet_basics_mix_env: prod
+hexlet_basics_aws_region: eu-central-1
 hexlet_basics_run_user: ubuntu
 hexlet_basics_run_user_home: /home/ubuntu
 hexlet_basics_env_file: "{{ hexlet_basics_run_user_home }}/.env"
+hexlet_basics_aws_logs_group: hexlet_basics
+hexlet_basics_aws_logs_stream_web: web

@@ -1,3 +1,5 @@
+USER = "$(shell id -u):$(shell id -g)"
+
 app-test:
 	docker-compose run app mix test
 
@@ -15,7 +17,7 @@ app-down:
 	docker-compose down
 
 app-bash:
-	docker-compose run app bash
+	docker-compose run --user=$(USER) app bash
 
 app-install:
 	docker-compose run app mix deps.get

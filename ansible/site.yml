@@ -24,12 +24,6 @@
         name: docker
       become: yes
 
-    - template:
-        src: environment.j2
-        dest: "{{ hexlet_basics_env_file }}"
-      tags: env
-
-
   roles:
     - { role: geerlingguy.docker, become: yes }
 

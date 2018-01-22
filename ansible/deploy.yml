@@ -27,6 +27,11 @@
 
   tasks:
 
+    - template:
+        src: environment.j2
+        dest: "{{ hexlet_basics_env_file }}"
+      tags: env
+
     - name: download image
       docker_image:
         name: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
@@ -40,11 +45,6 @@
         command: "mix ecto.migrate"
         image: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
         state: started
-        # log_driver: awslogs
-        # log_options:
-        #   awslogs-group: hexlet-production
-        #   awslogs-stream: hexlet-web
-        #   awslogs-region: '{{ aws_region }}'
         env_file: "{{ hexlet_basics_env_file }}"
         env:
           MIX_ENV: prod
@@ -60,24 +60,32 @@
         name: hexlet-basics-web
         image: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
         state: started
-        # log_driver: awslogs
-        # log_options:
-        #   awslogs-group: hexlet-production
-        #   awslogs-stream: hexlet-web
-        #   awslogs-region: '{{ aws_region }}'
+        log_driver: awslogs
+        log_options:
+          awslogs-group: "{{ hexlet_basics_aws_logs_group }}"
+          awslogs-stream: "{{ hexlet_basics_aws_logs_stream_web }}"
+          awslogs-region: '{{ hexlet_basics_aws_region }}'
         restart_policy: always
         env_file: "{{ hexlet_basics_env_file }}"
         env:
           MIX_ENV: prod
           NODE_ENV: production
         ports:
-          - "80:3000"
+          - "80:{{ hexlet_basics_port }}"
         volumes:
           - "/var/run/docker.sock:/var/run/docker.sock"
           - "/tmp:/tmp"
           - "/opt:/opt"
           - "/var/tmp:/var/tmp"
       tags: [webserver]
+
+    - lineinfile:
+        regexp: "HEXLET_BASICS_VERSION"
+        line: "HEXLET_BASICS_VERSION={{ hexlet_basics_image_tag }}"
+        dest: /etc/environment
+        backup: yes
+        state: present
+      become: yes
 
 - hosts: all
   gather_facts: no
