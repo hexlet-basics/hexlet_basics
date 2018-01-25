@@ -35,6 +35,9 @@ $pre-color: $hexlet-basics-very-light-yellow;
 $close-color: $hexlet-basics-very-dark-gray;
 $card-bg: $teal !default;
 
+$code-font-size: 100% !default;
+$code-color: darken($purple, 28%) !default;
+
 // Fonts
 $font-family-monospace: 'Fira Mono', 'Courier New', monospace !default;
 $font-family-base: $font-family-monospace !default;
@@ -205,5 +208,12 @@ img.hexlet-basics-finished-lesson-sticker {
 
   pre {
     color: $hexlet-basics-dark-color;
+    border: 1px dashed $indigo;
+  }
+
+  p code {
+    background-color: lighten($blue, 34%);
+    padding: 1px 4px;
+    border-radius: 3px;
   }
 }
