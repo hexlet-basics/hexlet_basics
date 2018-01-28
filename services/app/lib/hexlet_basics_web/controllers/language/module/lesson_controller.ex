@@ -40,4 +40,3 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
       lessons_count: lessons_count
   end
 end
-
