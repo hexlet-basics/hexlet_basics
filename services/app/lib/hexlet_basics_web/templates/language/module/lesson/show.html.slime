@@ -15,8 +15,11 @@
             == @lesson_theory_html
             h3= gettext "instructions"
             == @lesson_instructions_html
-            h3= gettext "tips"
-            == @lesson_tips_html
+            - if Enum.count(@lesson_description.tips) > 0 do
+              h3= gettext "tips"
+              ul
+                = for tip <- @lesson_description.tips do
+                  li= Earmark.as_html!(tip)
           .tab-pane#discuss
             #disqus_thread
 

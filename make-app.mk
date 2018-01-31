@@ -19,6 +19,9 @@ app-down:
 app-bash:
 	docker-compose run --user=$(USER) app bash
 
+app-bash-root:
+	docker-compose run app bash
+
 app-install:
 	docker-compose run app mix deps.get
 
