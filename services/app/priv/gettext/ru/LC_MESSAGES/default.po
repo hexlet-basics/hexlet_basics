@@ -30,7 +30,7 @@ msgstr "Войти"
 msgid "Sign Out"
 msgstr "Выйти"
 
-#: lib/hexlet_basics_web/controllers/auth_controller.ex:40
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:41
 msgid "Successfully authenticated."
 msgstr "Вы авторизовались"
 
@@ -81,37 +81,43 @@ msgstr "Продолжить обучение"
 msgid "Start learning"
 msgstr "Начать обучение"
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Blog"
 msgstr "Блог"
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Chat"
 msgstr "Сообщество (Slack)"
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Guides"
 msgstr "Гайды"
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Matrix"
 msgstr "Матрица компетентности"
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Projects"
 msgstr "Проекты"
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Recommended Books"
 msgstr "Рекомендуемые книги"
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Source code"
 msgstr "Исходный код"
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "tips"
+msgstr "Советы"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "definitions"
+msgstr "Определения"
