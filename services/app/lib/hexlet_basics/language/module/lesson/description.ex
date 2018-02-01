@@ -12,8 +12,8 @@ defmodule HexletBasics.Language.Module.Lesson.Description do
     field :locale, :string
     field :name, :string
     field :theory, :string
-    field :tips, {:array, :string}
-    field :definitions, {:array, :map}
+    field :tips, {:array, :string}, default: []
+    field :definitions, {:array, :map}, default: []
     belongs_to :lesson, Lesson
     belongs_to :language, Language
 
