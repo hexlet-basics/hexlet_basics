@@ -93,10 +93,12 @@ defmodule Mix.Tasks.X.Exercises.Load do
       nil  -> %Lesson.Description{lesson_id: lesson.id, locale: locale}
       module -> module
     end
-    description
-    |> Lesson.Description.changeset(Map.merge(data, %{
+    new_data = Map.merge(data, %{
       "language_id" => lesson.language_id
-    }))
+    })
+    Logger.debug inspect new_data
+    description
+    |> Lesson.Description.changeset(new_data)
     |> Repo.insert_or_update!
   end
 
