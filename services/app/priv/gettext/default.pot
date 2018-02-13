@@ -116,8 +116,13 @@ msgid "tips"
 msgstr ""
 
 #, elixir-format
+
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "definitions"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Credits"
 msgstr ""

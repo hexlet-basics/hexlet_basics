@@ -87,7 +87,7 @@ msgstr "Блог"
 
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Chat"
-msgstr "Сообщество (Slack)"
+msgstr "Чат сообщества"
 
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Guides"
@@ -121,3 +121,8 @@ msgstr "Советы"
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "definitions"
 msgstr "Определения"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Credits"
+msgstr "Уроки: Кирилл Мокевнин, Рахим Давлеткалиев, Наталия Басс. При поддержке сообщества Хекслет."

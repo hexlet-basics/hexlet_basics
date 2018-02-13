@@ -30,7 +30,7 @@ msgstr ""
 msgid "Sign Out"
 msgstr ""
 
-#: lib/hexlet_basics_web/controllers/auth_controller.ex:40
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:41
 msgid "Successfully authenticated."
 msgstr ""
 
@@ -81,37 +81,41 @@ msgstr ""
 msgid "Start learning"
 msgstr ""
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Blog"
 msgstr ""
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Chat"
 msgstr ""
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Guides"
 msgstr ""
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Matrix"
 msgstr ""
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Projects"
 msgstr ""
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Recommended Books"
 msgstr ""
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Source code"
 msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "tips"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Credits"
+msgstr "Lessons by Kirill Mokevnin, Rakhim Davletkaliyev and Natalia Bass. With the help of Hexlet Community."

@@ -12,31 +12,37 @@ h1.text-center.display-2= @language.slug
   .row.my-4.d-flex.flex-row
     .col-12.mb-3
       - module_description = @descriptions_by_module[module.id]
-      h2= module_description.name
-    .col-12.col-md-6.lead
-      = for lesson <- module.lessons do
-        - lesson_description = @descriptions_by_lesson[lesson.id]
-        - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
-        .mb-2
-          = link to: language_module_lesson_path(@conn, :show, @language.slug, module.slug, lesson.slug) do
-            = if finished_lesson do
-              .card.hexlet-basics-card.hexlet-basics-lesson-card.hexlet-basics-finished-lesson-card
-                .card-body.py-2
-                  img.img-fluid.hexlet-basics-finished-lesson-sticker(src=static_path(@conn, "/images/finished_lesson_pin.png"))
-                  .card-text
-                    s
+      h2
+        = module_description.name
+        a aria-controls="module_#{module.id}" aria-expanded="false" data-toggle="collapse" href="#module_#{module.id}"
+          small.ml-3.text-muted
+            span.fas.fa-chevron-right
+
+  .collapse.show id="module_#{module.id}"
+    .row.d-flex.flex-row
+      .col-12.col-md-6.lead
+        = for lesson <- module.lessons do
+          - lesson_description = @descriptions_by_lesson[lesson.id]
+          - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
+          .mb-2
+            = link to: language_module_lesson_path(@conn, :show, @language.slug, module.slug, lesson.slug) do
+              = if finished_lesson do
+                .card.hexlet-basics-card.hexlet-basics-lesson-card.hexlet-basics-finished-lesson-card
+                  .card-body.py-2
+                    img.img-fluid.hexlet-basics-finished-lesson-sticker(src=static_path(@conn, "/images/finished_lesson_pin.png"))
+                    .card-text
                       = lesson.natural_order
                       | .&nbsp;
                       = lesson_description.name
-            - else
-              .card.hexlet-basics-card.hexlet-basics-lesson-card(class="hexlet-basics-lesson-card-#{@language.slug}")
-                .card-body.py-2
-                  .card-text
-                    = lesson.natural_order
-                    | .&nbsp;
-                    = lesson_description.name
+              - else
+                .card.hexlet-basics-card.hexlet-basics-lesson-card(class="hexlet-basics-lesson-card-#{@language.slug}")
+                  .card-body.py-2
+                    .card-text
+                      = lesson.natural_order
+                      | .&nbsp;
+                      = lesson_description.name
 
-    .col-12.col-md-6
-      p.lead= module_description.description
+      .col-12.col-md-6
+        p.lead= module_description.description
 
   hr.mt-4.mb-5

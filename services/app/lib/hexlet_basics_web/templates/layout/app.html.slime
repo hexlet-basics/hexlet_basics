@@ -30,23 +30,25 @@ html lang="en"
         = render @view_module, @view_template, assigns
 
       footer.footer.mb-3
-        .row
+        .row.d-flex.flex-row.justify-content-between
           .col-12.col-md-6.mt-3
-            span.text-muted &copy; Hexlet, 2018
+            span.text-muted.h4.mb-2 &copy; Hexlet, 2018
             br
-            small.text-muted.small Lessons by Kirill Mokevnin, design and editing by Rakhim Davletkaliyev and Natalia Bass. With the help of Hexlet Community.
+            small.text-muted.small
+              = gettext "Credits"
+            br
+            small.text-muted.small
+              a.text-muted target="_blank" href="https://github.com/hexlet-basics"
+                = gettext "Source code"
+                span.fas.fa-link.ml-2
 
-          .col-12.col-md-3.mt-3
+          .col-12.col-md-5.mt-3.text-right
             ul.list-unstyled
               li
                 a.text-muted target="_blank" href="https://ru.hexlet.io/blog"= gettext "Blog"
               li
                 a.text-muted target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Chat"
-              li
-                a.text-muted target="_blank" href="https://github.com/hexlet-basics"= gettext "Source code"
 
-          .col-12.col-md-3.mt-3
-            ul.list-unstyled
               li
                 a.text-muted target="_blank" href="https://ru.hexlet.io/pages/recommended-books"= gettext "Recommended Books"
               li

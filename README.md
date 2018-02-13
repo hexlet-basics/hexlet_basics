@@ -23,6 +23,8 @@ $ make app-exercises-load
 $ make app
 ```
 
+Go to [http://localhost:4000/](http://localhost:4000/)
+
 ### Useful
 
     brew install git-secrets
