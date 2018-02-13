@@ -4,13 +4,14 @@ h1.text-center.display-2= @language.slug
 = if @next_lesson do
   .text-center
     = link anchor, to: language_module_lesson_path(@conn, :show, @language.slug, @next_lesson.module.slug, @next_lesson.slug),
-      class: 'btn btn-lg btn-outline-primary px-4 mb-3 mt-2'
+      class: 'btn btn-lg btn-success px-4 mb-3 mt-2'
+
 - else
-  = gettext "You did it!"
+  = gettext "All lessons completed!"
 
 = for module <- @modules do
   .row.my-4.d-flex.flex-row
-    .col-12.mb-3
+    .col-12
       - module_description = @descriptions_by_module[module.id]
       h2
         = module_description.name
@@ -20,7 +21,7 @@ h1.text-center.display-2= @language.slug
 
   .collapse.show id="module_#{module.id}"
     .row.d-flex.flex-row
-      .col-12.col-md-6.lead
+      .col-12.col-md-6.lead.mt-4
         = for lesson <- module.lessons do
           - lesson_description = @descriptions_by_lesson[lesson.id]
           - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
@@ -42,7 +43,7 @@ h1.text-center.display-2= @language.slug
                       | .&nbsp;
                       = lesson_description.name
 
-      .col-12.col-md-6
+      .col-12.col-md-6.mt-3
         p.lead= module_description.description
 
   hr.mt-4.mb-5

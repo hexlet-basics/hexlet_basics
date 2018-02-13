@@ -35,7 +35,6 @@ msgid "Successfully authenticated."
 msgstr ""
 
 #: lib/hexlet_basics_web/controllers/lesson_controller.ex:52
-#: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "You did it!"
 msgstr ""
 
@@ -115,7 +114,17 @@ msgstr ""
 msgid "tips"
 msgstr ""
 
-#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "definitions"
+msgstr ""
+
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Credits"
 msgstr "Lessons by Kirill Mokevnin, Rakhim Davletkaliyev and Natalia Bass. With the help of Hexlet Community."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "All lessons completed!"
+msgstr ""

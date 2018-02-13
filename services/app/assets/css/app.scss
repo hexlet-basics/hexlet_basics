@@ -191,6 +191,16 @@ img.hexlet-basics-finished-lesson-sticker {
   width: auto;
 }
 
+#basics-lesson-container {
+  ul.nav-tabs {
+    border-bottom: none;
+  }
+
+  li.nav-item a {
+    border-left: none;
+  }
+}
+
 /* the only light, non-standard block, has to be customized directly */
 .hexlet-basics-theory-card {
   height: calc(100vh - 5em);
@@ -213,13 +223,28 @@ img.hexlet-basics-finished-lesson-sticker {
   }
 
   pre.hexlet-basics-output {
-    background-color: grey;
-    border: 5px solid black;
-    color: white;
     display: inline-block;
+    background-color: #1e1e1e;
+    color: white;
+    min-width: 220px;
+    max-width: 100%;
+    padding: 0 0 12px 15px;
     margin-bottom: 0;
-    min-width: 150px;
-    padding: 10px;
+    border: none;
+  }
+
+  pre.hexlet-basics-output:before {
+    content: '';
+    background:url('/images/fake_output_topbar.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 210px;
+    height: 27px;
+    display: block;
+    margin-bottom: 10px;
+    background-color: #353d46;
+    width: calc(100% + 15px);
+    margin-left: -15px;
   }
 
   p code {

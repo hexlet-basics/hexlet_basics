@@ -15,15 +15,18 @@
             == @lesson_theory_html
             h3= gettext "instructions"
             == @lesson_instructions_html
+            = if (Enum.count(@lesson_description.tips) + Enum.count(@lesson_description.definitions)) > 0 do
+              hr.my-4
             = if Enum.count(@lesson_description.tips) > 0 do
-              h3= gettext "tips"
-              ul
+              h6.mt-4= gettext "tips"
+              ul.pl-4
                 = for tip <- @lesson_description.tips do
                   li== Earmark.as_html!(tip)
             = if Enum.count(@lesson_description.definitions) > 0 do
-              h3= gettext "definitions"
-              = for definition <- @lesson_description.definitions do
-                == Earmark.as_html!("#{definition["name"]} - #{definition["description"]}")
+              h6= gettext "definitions"
+              ul.pl-4
+                = for definition <- @lesson_description.definitions do
+                  li== Earmark.as_html!("#{definition["name"]} — #{definition["description"]}")
           .tab-pane#discuss
             #disqus_thread
 
