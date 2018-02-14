@@ -34,7 +34,7 @@ export default {
     new CopyWebpackPlugin([
       { from: 'priv/locales', to: 'locales' },
       { from: 'assets/static' },
-      { from: 'node_modules/font-awesome/fonts', to: 'fonts' },
+      // { from: 'node_modules/font-awesome/fonts', to: 'fonts' },
     ]),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendors',
