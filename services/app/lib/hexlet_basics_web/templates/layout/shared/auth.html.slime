@@ -5,6 +5,7 @@ ul.navbar-nav.ml-auto
     = if @current_user.guest do
       = link to: auth_path(@conn, :request, :github), class: "nav-link" do
         strong
+          fi.fab.fa-github.mr-2
           = gettext("Sign In")
     - else
       = link gettext("Sign Out"), to: session_path(@conn, :delete), method: "delete", class: "nav-link"
