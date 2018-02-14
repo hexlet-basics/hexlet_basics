@@ -7,3 +7,4 @@ hexlet_basics_port: 4000
 hexlet_basics_aws_region: eu-central-1
 
 docker_install_compose: no
+docker_package_state: latest
