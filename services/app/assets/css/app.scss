@@ -212,6 +212,10 @@ img.hexlet-basics-finished-lesson-sticker {
     color: $blue;
   }
 
+  img {
+    max-width: 100%;
+  }
+
   .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: $blue;
     background-color: #D8DEE9;
@@ -228,7 +232,7 @@ img.hexlet-basics-finished-lesson-sticker {
     color: white;
     min-width: 220px;
     max-width: 100%;
-    padding: 0 0 12px 15px;
+    padding: 0 10px 12px 15px;
     margin-bottom: 0;
     border: none;
   }
