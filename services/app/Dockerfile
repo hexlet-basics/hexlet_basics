@@ -17,7 +17,7 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get update && apt-get install -y nodejs
 
 ENV DOCKER_CHANNEL edge
-ENV DOCKER_VERSION 17.11.0-ce
+ENV DOCKER_VERSION 17.12.0-ce
 RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_64/docker-${DOCKER_VERSION}.tgz" \
   | tar -xzC /usr/local/bin --strip=1 docker/docker
 
