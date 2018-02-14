@@ -18,6 +18,7 @@ config :ueberauth, Ueberauth.Strategy.Github.OAuth,
 
 # General application configuration
 config :hexlet_basics,
+  docker_command_template: "docker run --rm ~s ~s timeout -t 1 make --silent -C ~s test",
   ecto_repos: [HexletBasics.Repo],
   disqus_ru: "hexlet-basics",
   disqus_en: "hexlet-basics-en"
