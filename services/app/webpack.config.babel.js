@@ -39,6 +39,7 @@ export default {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendors',
       // minChunks: 1,
+      minChunks: Infinity,
     }),
     // new CleanObsoleteChunks({ verbose: true, deep: true }),
     // new webpack.HashedModuleIdsPlugin(),
@@ -65,7 +66,7 @@ export default {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
-            presets: ['env', 'flow', 'stage-0'],
+            // presets: ['@babel/env', '@babel/flow', '@babel/stage-0'],
           },
         },
       },

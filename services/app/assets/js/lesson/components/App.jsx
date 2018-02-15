@@ -2,10 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert, AlertContainer } from 'react-bs-notifier';
 import { translate } from 'react-i18next';
-import TabsBoxContainer from '../containers/TabsBox';
-import ControlBoxContainer from '../containers/ControlBox';
+import connect from '../connect';
+import TabsBox from '../components/TabsBox.jsx';
+import ControlBox from '../components/ControlBox.jsx';
 
+const mapStateToProps = (state) => {
+  const { notification, checkInfo, currentTabInfo } = state;
+  const props = { notification, checkInfo, currentTabInfo };
+  return props;
+};
+
+@connect(mapStateToProps)
+@translate()
 class App extends React.Component {
+  static childContextTypes = {
+    lesson: PropTypes.object,
+    language: PropTypes.object,
+  };
+
   getChildContext() {
     return {
       language: this.props.language,
@@ -34,15 +48,10 @@ class App extends React.Component {
 
     return (<React.Fragment>
       {this.renderAlert()}
-      <TabsBoxContainer onSelectActive={this.handleSelectTab} active={currentTabInfo.current} />
-      <ControlBoxContainer />
+      <TabsBox onSelectActive={this.handleSelectTab} active={currentTabInfo.current} />
+      <ControlBox />
     </React.Fragment>);
   }
 }
 
-App.childContextTypes = {
-  lesson: PropTypes.object,
-  language: PropTypes.object,
-};
-
-export default translate()(App);
+export default App;

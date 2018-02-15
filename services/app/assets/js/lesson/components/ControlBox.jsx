@@ -5,8 +5,21 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faSpinner, faPlayCircle } from '@fortawesome/fontawesome-free-solid';
 import { translate } from 'react-i18next';
 import Hotkeys from 'react-hot-keys';
+import connect from '../connect';
 
+const mapStateToProps = (state) => {
+  const { checkInfo, code, finished } = state;
+  const props = { checkInfo, code, finished };
+  return props;
+};
+
+@connect(mapStateToProps)
+@translate()
 class ControlBox extends React.Component {
+  static contextTypes = {
+    lesson: PropTypes.object,
+  };
+
   handleRunCheck = () => {
     const { code } = this.props;
     const { lesson } = this.context;
@@ -54,8 +67,4 @@ class ControlBox extends React.Component {
   }
 }
 
-ControlBox.contextTypes = {
-  lesson: PropTypes.object,
-};
-
-export default translate()(ControlBox);
+export default ControlBox;

@@ -5,12 +5,31 @@ import { translate } from 'react-i18next';
 import Editor from './Editor.jsx';
 import Console from './Console.jsx';
 import withActive from '../hoc/withActive.jsx';
-// import md from '../../lib/markdown';
+import connect from '../connect';
 
+const mapStateToProps = (state) => {
+  const { checkInfo, currentTabInfo } = state;
+  const props = { checkInfo, currentTabInfo };
+  return props;
+};
+
+@connect(mapStateToProps)
+@translate()
+@withActive()
 class TabsBox extends React.Component {
+  static contextTypes = {
+    lesson: PropTypes.object,
+    language: PropTypes.object,
+  };
+
   render() {
     const { lesson, language } = this.context;
-    const { checkInfo, currentTabInfo, t, setActive } = this.props;
+    const {
+      checkInfo,
+      currentTabInfo,
+      t,
+      setActive,
+    } = this.props;
 
     const activateNavLink = this.props.activeClass('active d-flex x-flex-1');
     const activateTabPane = this.props.activeClass('d-flex x-flex-1');
@@ -42,9 +61,4 @@ class TabsBox extends React.Component {
   }
 }
 
-TabsBox.contextTypes = {
-  lesson: PropTypes.object,
-  language: PropTypes.object,
-};
-
-export default translate()(withActive()(TabsBox));
+export default TabsBox;

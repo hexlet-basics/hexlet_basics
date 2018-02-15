@@ -1,7 +1,10 @@
 {
-  "presets": [
-    "react",
-    "stage-0",
-    "env"
+  presets: [
+    ["@babel/preset-env", {
+      "targets": { "node": "current" },
+      "ignoreBrowserslistConfig": true
+    }],
+    "@babel/preset-stage-0",
+    "@babel/preset-react"
   ]
 }
