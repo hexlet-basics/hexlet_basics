@@ -124,7 +124,21 @@ msgstr ""
 msgid "Credits"
 msgstr ""
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "All lessons completed!"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+msgid "Code Basics Description"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+msgid "Code Basics Author"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+msgid "Code Basics Title"
 msgstr ""

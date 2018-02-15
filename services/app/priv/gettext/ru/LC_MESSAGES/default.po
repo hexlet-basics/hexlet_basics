@@ -124,7 +124,21 @@ msgstr "Определения"
 msgid "Credits"
 msgstr "Уроки: Кирилл Мокевнин, Рахим Давлеткалиев, Наталия Басс. При поддержке сообщества Хекслет."
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "All lessons completed!"
-msgstr ""
+msgstr "Все уроки завершены!"
+
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+msgid "Code Basics Description"
+msgstr "Бесплатные практические уроки по программированию для новичков, начинающих с нуля."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+msgid "Code Basics Author"
+msgstr "Кирилл Мокевнин, Рахим Давлеткалиев, Наталия Басс"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+msgid "Code Basics Title"
+msgstr "Code Basics: основы программирования"

@@ -1,8 +1,11 @@
 meta charset="utf-8"
 meta content="IE=edge" http-equiv="X-UA-Compatible"
 meta content="width=device-width, initial-scale=1" name="viewport"
-meta content="" name="description"
-meta content="" name="author"
+meta content="" name="#{gettext("Code Basics Description")}"
+meta content="" name="#{gettext("Code Basics Author")}"
+meta content=("#{gettext("Code Basics Title")}") property="og:title" /
+meta content=("#{gettext("Code Basics Description")}") property="og:description" /
+meta content="/images/smm_cover.jpg" property="og:image" /
 / title Hello <%= application_module %>!
 
 = render_gon_script(@conn)
