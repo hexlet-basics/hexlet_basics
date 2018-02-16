@@ -66,7 +66,7 @@ export default {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
-            // presets: ['@babel/env', '@babel/flow', '@babel/stage-0'],
+            presets: ['@babel/preset-env', '@babel/preset-flow', '@babel/preset-stage-0'],
           },
         },
       },
