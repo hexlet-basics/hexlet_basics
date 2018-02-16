@@ -4,11 +4,10 @@ WORKDIR /app
 
 # Install hex (Elixir package manager)
 RUN mix local.hex --force
-
-RUN mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
-
 # Install rebar (Erlang build tool)
 RUN mix local.rebar --force
+
+RUN mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
 
 RUN apt-get update && apt-get install -y inotify-tools
 
