@@ -13,6 +13,7 @@ const currentUser = gon.getAsset('current_user');
 const lesson = gon.getAsset('lesson');
 const language = gon.getAsset('language');
 const description = gon.getAsset('lesson_description');
+const userFinishedLesson = gon.getAsset('user_finished_lesson');
 
 const run = () => {
   const store = configureStore(reducers, { code: lesson.prepared_code });
@@ -20,7 +21,7 @@ const run = () => {
   ReactDOM.render(
     <Provider store={store}>
       <I18nextProvider i18n={i18n}>
-        <App lesson={{ ...lesson, ...description }} language={language} />
+        <App lesson={{ ...lesson, ...description }} language={language} userFinishedLesson={userFinishedLesson} />
       </I18nextProvider>
     </Provider>,
     document.getElementById('basics-lesson-container'),

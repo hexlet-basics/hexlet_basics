@@ -44,12 +44,12 @@ class App extends React.Component {
   }
 
   render() {
-    const { currentTabInfo } = this.props;
+    const { currentTabInfo, userFinishedLesson } = this.props;
 
     return (<React.Fragment>
       {this.renderAlert()}
       <TabsBox onSelectActive={this.handleSelectTab} active={currentTabInfo.current} />
-      <ControlBox />
+      <ControlBox userFinishedLesson={userFinishedLesson} />
     </React.Fragment>);
   }
 }

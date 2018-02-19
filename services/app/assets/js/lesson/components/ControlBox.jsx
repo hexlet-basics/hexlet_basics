@@ -27,7 +27,7 @@ class ControlBox extends React.Component {
   }
 
   render() {
-    const { checkInfo, finished, t } = this.props;
+    const { checkInfo, finished, t, userFinishedLesson } = this.props;
     const { lesson } = this.context;
 
     // console.log('asdf')
@@ -38,8 +38,8 @@ class ControlBox extends React.Component {
 
     const nextButtonClasses = cn({
       btn: true,
-      'btn-outline-secondary disabled': !finished,
-      'btn-success': finished,
+      'btn-outline-secondary disabled': !finished && !userFinishedLesson,
+      'btn-success': finished || userFinishedLesson,
     });
 
     // TODO move to  js routes

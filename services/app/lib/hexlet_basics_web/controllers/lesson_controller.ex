@@ -10,7 +10,7 @@ defmodule HexletBasicsWeb.LessonController do
   def next(conn, %{"lesson_id" => id}) do
     %{assigns: %{locale: locale}} = conn
     lesson = Repo.get!(Lesson, id)
-    lesson = lesson |> Repo.preload([:module, :language])
+    lesson = lesson |> Repo.preload([:language])
     language = lesson.language
 
 
@@ -24,6 +24,7 @@ defmodule HexletBasicsWeb.LessonController do
         |> put_flash(:info, gettext "You did it!")
         |> redirect(to: page_path(conn, :index))
       next_lesson ->
+        next_lesson = next_lesson |> Repo.preload([:module])
         Logger.debug inspect next_lesson
         module = next_lesson.module
         path = language_module_lesson_path(conn, :show, language.slug, module.slug, next_lesson.slug)

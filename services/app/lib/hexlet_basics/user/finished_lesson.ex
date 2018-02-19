@@ -3,6 +3,7 @@ defmodule HexletBasics.User.FinishedLesson do
   import Ecto.Changeset
   alias HexletBasics.User.FinishedLesson
 
+  @derive {Poison.Encoder, only: [:id]}
 
   schema "user_finished_lessons" do
     belongs_to :user, HexletBasics.User
