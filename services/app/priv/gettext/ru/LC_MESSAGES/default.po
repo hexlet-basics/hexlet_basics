@@ -36,7 +36,7 @@ msgstr "Вы авторизовались"
 
 #: lib/hexlet_basics_web/controllers/lesson_controller.ex:52
 msgid "You did it!"
-msgstr "Упражнение пройдено!"
+msgstr "Вы прошли все доступные упражнения. Скоро появятся новые."
 
 #: lib/hexlet_basics_web/controllers/auth_controller.ex:15
 #: lib/hexlet_basics_web/controllers/session_controller.ex:6
