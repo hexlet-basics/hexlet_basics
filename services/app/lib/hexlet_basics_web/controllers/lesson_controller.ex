@@ -11,7 +11,6 @@ defmodule HexletBasicsWeb.LessonController do
     %{assigns: %{locale: locale}} = conn
     lesson = Repo.get!(Lesson, id)
     lesson = lesson |> Repo.preload([:module, :language])
-    module = lesson.module
     language = lesson.language
 
 
@@ -26,6 +25,7 @@ defmodule HexletBasicsWeb.LessonController do
         |> redirect(to: page_path(conn, :index))
       next_lesson ->
         Logger.debug inspect next_lesson
+        module = next_lesson.module
         path = language_module_lesson_path(conn, :show, language.slug, module.slug, next_lesson.slug)
         redirect conn, to: path
     end
