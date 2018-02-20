@@ -4,6 +4,7 @@ import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import { translate } from 'react-i18next';
 import Editor from './Editor.jsx';
 import Console from './Console.jsx';
+import Solution from './Solution.jsx';
 import withActive from '../hoc/withActive.jsx';
 import connect from '../connect';
 
@@ -42,6 +43,9 @@ class TabsBox extends React.Component {
         <NavItem>
           <NavLink href="#" onClick={setActive('console')} className={activateNavLink('console')}>{t('console')}</NavLink>
         </NavItem>
+        <NavItem>
+          <NavLink href="#" onClick={setActive('solution')} className={activateNavLink('solution')}>{t('solution')}</NavLink>
+        </NavItem>
       </Nav>
       <TabContent className="d-flex x-flex-1" activeTab={this.props.active}>
         <TabPane tabId="editor" className={activateTabPane('editor')}>
@@ -55,6 +59,16 @@ class TabsBox extends React.Component {
         </TabPane>
         <TabPane tabId="console" className={activateTabPane('console')}>
           <Console className="hexlet-basics-tab-content d-flex x-flex-1 p-2" output={checkInfo.output} />
+        </TabPane>
+        <TabPane tabId="solution" className={activateTabPane('solution')}>
+          <Solution
+            defaultValue={lesson.prepared_code}
+            onCodeChange={this.props.changeCode}
+            language={language.slug}
+            current={currentTabInfo.current === 'solution'}
+            clicksCount={currentTabInfo.clicksCount}
+            userFinishedLesson={this.props.userFinishedLesson}
+          />
         </TabPane>
       </TabContent>
     </div>);
