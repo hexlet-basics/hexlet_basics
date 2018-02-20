@@ -6,7 +6,8 @@ defmodule Mixfile do
       app: :hexlet_basics,
       version: "0.0.1",
       elixir: "~> 1.6",
-      deps: deps()
+      deps: deps(),
+      dialyzer: [paths: ["services/app/_build/dev"]]
     ]
   end
 
