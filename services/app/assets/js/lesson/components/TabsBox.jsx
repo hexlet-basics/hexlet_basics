@@ -30,6 +30,8 @@ class TabsBox extends React.Component {
       currentTabInfo,
       t,
       setActive,
+      changeCode,
+      userFinishedLesson,
     } = this.props;
 
     const activateNavLink = this.props.activeClass('active d-flex x-flex-1');
@@ -51,7 +53,7 @@ class TabsBox extends React.Component {
         <TabPane tabId="editor" className={activateTabPane('editor')}>
           <Editor
             defaultValue={lesson.prepared_code}
-            onCodeChange={this.props.changeCode}
+            onCodeChange={changeCode}
             language={language.slug}
             current={currentTabInfo.current === 'editor'}
             clicksCount={currentTabInfo.clicksCount}
@@ -62,12 +64,9 @@ class TabsBox extends React.Component {
         </TabPane>
         <TabPane tabId="solution" className={activateTabPane('solution')}>
           <Solution
-            defaultValue={lesson.prepared_code}
-            onCodeChange={this.props.changeCode}
+            defaultValue={lesson.original_code}
             language={language.slug}
-            current={currentTabInfo.current === 'solution'}
-            clicksCount={currentTabInfo.clicksCount}
-            userFinishedLesson={this.props.userFinishedLesson}
+            userFinishedLesson={userFinishedLesson}
           />
         </TabPane>
       </TabContent>
