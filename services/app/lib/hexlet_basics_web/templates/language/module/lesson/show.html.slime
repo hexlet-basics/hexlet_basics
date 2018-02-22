@@ -9,26 +9,26 @@
             a.nav-link(href="#discuss" data-toggle="pill")= gettext "discuss"
 
       .card-body.x-overflow-y-scroll
-        .tab-content
-          .tab-pane.fade.show.active#lesson
-            h3= @lesson_description.name
-            == @lesson_theory_html
-            h3= gettext "instructions"
-            == @lesson_instructions_html
-            = if (Enum.count(@lesson_description.tips) + Enum.count(@lesson_description.definitions)) > 0 do
-              hr.my-4
-            = if Enum.count(@lesson_description.tips) > 0 do
-              h6.mt-4= gettext "tips"
-              ul.pl-4
-                = for tip <- @lesson_description.tips do
-                  li== Earmark.as_html!(tip)
-            = if Enum.count(@lesson_description.definitions) > 0 do
-              h6= gettext "definitions"
-              ul.pl-4
-                = for definition <- @lesson_description.definitions do
-                  li== Earmark.as_html!("#{definition["name"]} — #{definition["description"]}")
-          .tab-pane#discuss
-            #disqus_thread
+        .tab-content(itemscope itemtype="http://schema.org/Article")
+            .tab-pane.fade.show.active#lesson
+              h3(itemprop="name")= @lesson_description.name
+              == @lesson_theory_html
+              h3= gettext "instructions"
+              == @lesson_instructions_html
+              = if (Enum.count(@lesson_description.tips) + Enum.count(@lesson_description.definitions)) > 0 do
+                hr.my-4
+              = if Enum.count(@lesson_description.tips) > 0 do
+                h6.mt-4= gettext "tips"
+                ul.pl-4
+                  = for tip <- @lesson_description.tips do
+                    li== Earmark.as_html!(tip)
+              = if Enum.count(@lesson_description.definitions) > 0 do
+                h6= gettext "definitions"
+                ul.pl-4
+                  = for definition <- @lesson_description.definitions do
+                    li== Earmark.as_html!("#{definition["name"]} — #{definition["description"]}")
+            .tab-pane#discuss
+              #disqus_thread
 
   .col-7.no-gutters.pl-0.d-flex.flex-column.x-flex-1
     = if current_user(@conn).guest do
