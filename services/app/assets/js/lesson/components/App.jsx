@@ -48,7 +48,7 @@ class App extends React.Component {
 
     return (<React.Fragment>
       {this.renderAlert()}
-      <TabsBox onSelectActive={this.handleSelectTab} active={currentTabInfo.current} />
+      <TabsBox onSelectActive={this.handleSelectTab} active={currentTabInfo.current} userFinishedLesson={userFinishedLesson} />
       <ControlBox userFinishedLesson={userFinishedLesson} />
     </React.Fragment>);
   }

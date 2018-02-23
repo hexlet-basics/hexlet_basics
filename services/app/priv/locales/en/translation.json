@@ -2,17 +2,22 @@
     "run": "Run",
     "editor": "Editor",
     "console": "Console",
+    "solution": "Solution",
+    "teacher_solution": "Teacher's soltuion:",
+    "user_code": "Your solution:",
+    "user_code_instructions": "(start writing in Editor, your code will appear here and you'll be able to compare it to the teacher's solution)",
+    "solution_instructions": "Teacher's solution is available after you finish the task yourself.",
     "lesson": "Lesson",
-    "discuss": "Discuss",
+    "discuss": "Discussion",
     "instructions": "Instructions",
     "next_lesson": "Next Lesson",
     "alert": {
       "error": {
-        "message": "something was wrong, try one more time",
+        "message": "something went wrong, try one more time, please",
         "headline": "Oops!"
       },
       "passed": {
-        "message": "Whoa! You did it! Go next.",
+        "message": "Whoa! You did it! Proceed.",
         "headline": "Tests passed"
       },
       "failed": {

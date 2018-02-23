@@ -34,7 +34,7 @@ msgstr "Выйти"
 msgid "Successfully authenticated."
 msgstr "Вы авторизовались"
 
-#: lib/hexlet_basics_web/controllers/lesson_controller.ex:52
+#: lib/hexlet_basics_web/controllers/lesson_controller.ex:24
 msgid "You did it!"
 msgstr "Вы прошли все доступные упражнения. Скоро появятся новые."
 
@@ -133,12 +133,11 @@ msgstr "Все уроки завершены!"
 msgid "Code Basics Description"
 msgstr "Бесплатные практические уроки по программированию для новичков, начинающих с нуля."
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Author"
 msgstr "Кирилл Мокевнин, Рахим Давлеткалиев, Наталия Басс"
 
-#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Title"
 msgstr "Code Basics: основы программирования"

@@ -202,6 +202,18 @@ img.hexlet-basics-finished-lesson-sticker {
   }
 }
 
+#basics-solution {
+  background-color: #f7f7f3;
+  width: 100%;
+  color: $hexlet-basics-dark-color;
+}
+
+.hexlet-basics-theory-card pre,
+#basics-solution pre {
+  color: $hexlet-basics-dark-color;
+  border: 1px dashed $indigo;
+}
+
 /* the only light, non-standard block, has to be customized directly */
 .hexlet-basics-theory-card {
   height: calc(100vh - 5em);
@@ -229,7 +241,7 @@ img.hexlet-basics-finished-lesson-sticker {
 
   pre.hexlet-basics-output {
     display: inline-block;
-    background-color: #1e1e1e;
+    background-color: $hexlet-basics-active-bg;
     color: white;
     min-width: 220px;
     max-width: 100%;
