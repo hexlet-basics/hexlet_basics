@@ -1,5 +1,6 @@
 import React from 'react';
-import { MonacoDiffEditor } from 'react-monaco-editor';
+import { Highlight } from 'react-fast-highlight';
+import { translate } from 'react-i18next';
 import connect from '../connect';
 
 const mapStateToProps = (state) => {
@@ -9,10 +10,11 @@ const mapStateToProps = (state) => {
 };
 
 @connect(mapStateToProps)
+@translate()
 export default class Editor extends React.Component {
   render() {
     const {
-      code, userFinishedLesson, finished, defaultValue, language,
+      code, userFinishedLesson, finished, defaultValue, language, t
     } = this.props;
 
     const teacherCode = defaultValue;
@@ -27,17 +29,26 @@ export default class Editor extends React.Component {
       },
     };
 
+    const renderUserCode = userCode ? (
+      <div>
+        <p className="mt-3 mb-0">{t('user_code')}</p>
+        <Highlight languages={[language]}>
+          {userCode}
+        </Highlight>
+      </div>
+    ) : (<p className="mt-3">{t('user_code_instructions')}</p>);
+
     const renderSolution = (
-      <MonacoDiffEditor
-        theme="vs-dark"
-        original={teacherCode}
-        value={userCode}
-        options={options}
-        language={language}
-      />
+      <div className='p-3 pt-2' id='basics-solution'>
+        <p className="mb-0">{t('teacher_solution')}</p>
+        <Highlight languages={[language]}>
+          {teacherCode}
+        </Highlight>
+        {renderUserCode}
+      </div>
     );
 
-    const renderMessage = <p>Решение учителя станет доступно после успешного выполнения задачи</p>;
+    const renderMessage = <div className='p-3 pt-2' id='basics-solution'><p>{t('solution_instructions')}</p></div>;
 
     return finished || userFinishedLesson ? renderSolution : renderMessage;
   }

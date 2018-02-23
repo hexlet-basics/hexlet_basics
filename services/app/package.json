@@ -40,6 +40,7 @@
     "react-redux": "^5.0.6",
     "react-resize-aware": "^2.7.0",
     "react-tabs": "^2.2.1",
+    "react-fast-highlight": "^2.2.0",
     "reactstrap": "^5.0.0-beta",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",

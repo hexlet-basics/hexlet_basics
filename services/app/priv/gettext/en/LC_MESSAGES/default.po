@@ -34,7 +34,7 @@ msgstr ""
 msgid "Successfully authenticated."
 msgstr ""
 
-#: lib/hexlet_basics_web/controllers/lesson_controller.ex:52
+#: lib/hexlet_basics_web/controllers/lesson_controller.ex:24
 msgid "You did it!"
 msgstr ""
 
@@ -133,12 +133,11 @@ msgstr ""
 msgid "Code Basics Description"
 msgstr "Learn the basics of programming for free with interactive exercises. No prior experience required!"
 
-#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Author"
 msgstr "Kirill Mokevnin, Rakhim Davletkaliyev, Natalia Bass"
 
-#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Title"
 msgstr "Code Basics: basics of programming"
