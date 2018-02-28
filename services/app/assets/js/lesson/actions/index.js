@@ -11,6 +11,8 @@ export const selectTab = createAction('TAB_SELECT');
 
 export const dismissNotification = createAction('NOTIFICATION_DISMISS');
 
+export const toggleSolution = createAction('TOGGLE_SOLUTION');
+
 export const runCheck = ({ lesson, code }) => async (dispatch) => {
   dispatch(runCheckRequest());
   const url = `/api/lessons/${lesson.id}/checks`; // TOOO: jsroutes
@@ -28,3 +30,6 @@ export const runCheck = ({ lesson, code }) => async (dispatch) => {
     dispatch(runCheckFailure());
   }
 };
+
+export const runToggleSolution = time => dispatch =>
+  setTimeout(() => dispatch(toggleSolution()), time);
