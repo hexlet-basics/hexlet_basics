@@ -50,6 +50,9 @@ $nav-link-padding-x: 0.75rem !default;
 $link-hover-decoration: none;
 $fa-font-path: "/fonts";
 
+$table-border-width: 1px;
+$table-border-color: $gray-300;
+
 $nav-tabs-border-color: $hexlet-basics-dark-color;
 $nav-tabs-link-active-border-color: $hexlet-basics-dark-color;
 $nav-tabs-link-hover-border-color: $body-bg;
@@ -228,6 +231,20 @@ img.hexlet-basics-finished-lesson-sticker {
   img {
     max-width: 100%;
   }
+
+  table {
+    margin-bottom: 2em;
+  }
+
+  table, th, td {
+   border: 1px solid black;
+
+  }
+
+  th, td {
+    padding: 5px;
+  }
+
 
   .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: $blue;
