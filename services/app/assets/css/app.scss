@@ -51,7 +51,7 @@ $link-hover-decoration: none;
 $fa-font-path: "/fonts";
 
 $table-border-width: 1px;
-$table-border-color: $gray-300;
+$table-border-color: $hexlet-basics-gray;
 
 $nav-tabs-border-color: $hexlet-basics-dark-color;
 $nav-tabs-link-active-border-color: $hexlet-basics-dark-color;
@@ -238,7 +238,6 @@ img.hexlet-basics-finished-lesson-sticker {
 
   table, th, td {
    border: 1px solid black;
-
   }
 
   th, td {
