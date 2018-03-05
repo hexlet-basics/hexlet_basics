@@ -18,7 +18,7 @@ const finished = handleActions({
 }, false);
 
 const solutionVisibility = handleActions({
-  [actions.checkTimerStatus]: () => true,
+  [actions.timePassed]: () => true,
 }, false);
 
 const currentTabInfo = handleActions({

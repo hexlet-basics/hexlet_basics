@@ -11,7 +11,7 @@ export const selectTab = createAction('TAB_SELECT');
 
 export const dismissNotification = createAction('NOTIFICATION_DISMISS');
 
-export const checkTimerStatus = createAction('CHECK_TIMER');
+export const timePassed = createAction('CHECK_TIMER');
 
 export const runCheck = ({ lesson, code }) => async (dispatch) => {
   dispatch(runCheckRequest());
@@ -26,10 +26,9 @@ export const runCheck = ({ lesson, code }) => async (dispatch) => {
     const response = await axios.post(url, { data });
     dispatch(runCheckSuccess({ check: response.data }));
   } catch (e) {
-    console.log(e);
     dispatch(runCheckFailure());
   }
 };
 
 export const startTimer = time => dispatch =>
-  setTimeout(() => dispatch(checkTimerStatus()), time);
+  setTimeout(() => dispatch(timePassed()), time);
