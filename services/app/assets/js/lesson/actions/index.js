@@ -11,7 +11,7 @@ export const selectTab = createAction('TAB_SELECT');
 
 export const dismissNotification = createAction('NOTIFICATION_DISMISS');
 
-export const toggleSolution = createAction('TOGGLE_SOLUTION');
+export const checkTimerStatus = createAction('CHECK_TIMER');
 
 export const runCheck = ({ lesson, code }) => async (dispatch) => {
   dispatch(runCheckRequest());
@@ -31,5 +31,5 @@ export const runCheck = ({ lesson, code }) => async (dispatch) => {
   }
 };
 
-export const runToggleSolution = time => dispatch =>
-  setTimeout(() => dispatch(toggleSolution()), time);
+export const startTimer = time => dispatch =>
+  setTimeout(() => dispatch(checkTimerStatus()), time);

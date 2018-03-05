@@ -28,7 +28,7 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    this.props.runToggleSolution(7200000);
+    this.props.startTimer(7200000);
   }
 
   handleSelectTab = (current) => {

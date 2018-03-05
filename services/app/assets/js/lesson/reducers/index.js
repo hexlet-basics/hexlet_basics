@@ -17,8 +17,8 @@ const finished = handleActions({
   },
 }, false);
 
-const canRenderSolution = handleActions({
-  [actions.toggleSolution]: () => true,
+const solutionVisibility = handleActions({
+  [actions.checkTimerStatus]: () => true,
 }, false);
 
 const currentTabInfo = handleActions({
@@ -81,5 +81,5 @@ export default combineReducers({
   currentTabInfo,
   notification,
   checkInfo,
-  canRenderSolution,
+  solutionVisibility,
 });
