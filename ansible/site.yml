@@ -36,3 +36,11 @@
       become: yes
 
     - meta: reset_connection
+
+    - cron:
+        name: "docker system prune"
+        minute: "0"
+        hour: "3"
+        job: "docker system prune -a"
+      tags: [cron]
+
