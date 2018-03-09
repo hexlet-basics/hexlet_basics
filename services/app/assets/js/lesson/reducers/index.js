@@ -17,6 +17,10 @@ const finished = handleActions({
   },
 }, false);
 
+const solutionVisibility = handleActions({
+  [actions.timePassed]: () => true,
+}, false);
+
 const currentTabInfo = handleActions({
   [actions.runCheckRequest]: (state) => {
     const newState = { ...state, current: 'console' };
@@ -77,4 +81,5 @@ export default combineReducers({
   currentTabInfo,
   notification,
   checkInfo,
+  solutionVisibility,
 });

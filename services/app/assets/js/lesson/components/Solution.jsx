@@ -4,8 +4,8 @@ import { translate } from 'react-i18next';
 import connect from '../connect';
 
 const mapStateToProps = (state) => {
-  const { code, finished } = state;
-  const props = { code, finished };
+  const { code, finished, solutionVisibility } = state;
+  const props = { code, finished, solutionVisibility };
   return props;
 };
 
@@ -14,20 +14,17 @@ const mapStateToProps = (state) => {
 export default class Editor extends React.Component {
   render() {
     const {
-      code, userFinishedLesson, finished, defaultValue, language, t
+      code,
+      userFinishedLesson,
+      finished,
+      defaultValue,
+      language,
+      t,
+      solutionVisibility,
     } = this.props;
 
     const teacherCode = defaultValue;
     const userCode = code;
-    const options = {
-      fontSize: 16,
-      scrollBeyondLastLine: false,
-      selectOnLineNumbers: true,
-      readOnly: true,
-      minimap: {
-        enabled: false,
-      },
-    };
 
     const renderUserCode = userCode ? (
       <div>
@@ -50,6 +47,7 @@ export default class Editor extends React.Component {
 
     const renderMessage = <div className='p-3 pt-2' id='basics-solution'><p>{t('solution_instructions')}</p></div>;
 
-    return finished || userFinishedLesson ? renderSolution : renderMessage;
+    // return finished || userFinishedLesson || solutionVisibility ? renderSolution : renderMessage;
+    return solutionVisibility ? renderSolution : renderMessage;
   }
 }
