@@ -40,8 +40,8 @@ $code-font-size: 100% !default;
 $code-color: darken($purple, 28%) !default;
 
 // Fonts
-$font-family-monospace: 'Fira Mono', 'Courier New', monospace !default;
-$font-family-base: $font-family-monospace !default;
+$font-family-monospace: "Ubuntu Mono", monospace;
+$font-family-base: $font-family-monospace;
 
 // Boxes and borders
 $enable-rounded: false;
@@ -61,7 +61,7 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 
 @import "~bootstrap/scss/bootstrap";
 // @import "~font-awesome/scss/font-awesome";
-@import "~highlight.js/styles/atom-one-light";
+@import "~highlight.js/styles/vs";
 
 // Custom utils
 .x-100vh {
