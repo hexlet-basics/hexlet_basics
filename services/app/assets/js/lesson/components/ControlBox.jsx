@@ -27,10 +27,14 @@ class ControlBox extends React.Component {
   }
 
   render() {
-    const { checkInfo, finished, t, userFinishedLesson } = this.props;
+    const {
+      checkInfo,
+      finished,
+      t,
+      userFinishedLesson,
+    } = this.props;
     const { lesson } = this.context;
 
-    // console.log('asdf')
     const runButtonClasses = cn({
       'btn btn-primary x-no-focus-outline x-cursor-pointer px-4 mr-3': true,
       disabled: checkInfo.processing,
@@ -42,7 +46,7 @@ class ControlBox extends React.Component {
       'btn-success': finished || userFinishedLesson,
     });
 
-    // TODO move to  js routes
+    // TODO move to js routes
     const nextLessonUrl = `/lessons/${lesson.id}/redirect-to-next`;
 
 
