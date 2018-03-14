@@ -71,10 +71,40 @@ const checkInfo = handleActions({
   },
 }, { processing: false, output: '' });
 
+const countdown = handleActions({
+  [actions.startCountdown]: (state, { payload }) => {
+    const newState = { ...state, ...payload };
+    return newState;
+  },
+  [actions.changeCountdown]: (state, { payload }) => {
+    const { curTime } = payload;
+    const { prevTime, remainingTime } = state;
+    const elapsedTime = curTime - prevTime;
+    const newRemainingTime = remainingTime - elapsedTime;
+    const newState = (newRemainingTime > 0) ?
+      { prevTime: curTime, remainingTime: newRemainingTime } :
+      { prevTime: null, remainingTime: 0, canShowSolution: true };
+    return { ...state, ...newState };
+  },
+}, {
+  remainingTime: 1800000, // 30 минут
+  prevTime: null,
+  canShowSolution: false,
+});
+
+const showedSolution = handleActions({
+  [actions.setUserWantsToSeeSolution]: (state) => {
+    const newState = { ...state, userWantsToSeeSolution: true };
+    return newState;
+  },
+}, { userWantsToSeeSolution: false });
+
 export default combineReducers({
   finished,
   code,
   currentTabInfo,
   notification,
   checkInfo,
+  countdown,
+  showedSolution,
 });

@@ -28,3 +28,20 @@ export const runCheck = ({ lesson, code }) => async (dispatch) => {
     dispatch(runCheckFailure());
   }
 };
+
+export const startCountdown = createAction('START_COUNTDOWN', () => ({ prevTime: Date.now() }));
+export const changeCountdown = createAction('CHANGE_COUNTDOWN', () => ({ curTime: Date.now() }));
+
+const checkingInterval = 1000;
+
+export const changeCountdownTimer = () => (dispatch) => {
+  dispatch(changeCountdown());
+  setTimeout(() => dispatch(changeCountdownTimer()), checkingInterval);
+};
+
+export const startCountdownTimer = () => (dispatch) => {
+  dispatch(startCountdown());
+  setTimeout(() => dispatch(changeCountdownTimer()), checkingInterval);
+};
+
+export const setUserWantsToSeeSolution = createAction('SET_USER_WANTS_TO_SEE_SOLUTION');
