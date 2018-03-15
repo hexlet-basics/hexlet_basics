@@ -29,8 +29,8 @@ export const runCheck = ({ lesson, code }) => async (dispatch) => {
   }
 };
 
-export const startCountdown = createAction('START_COUNTDOWN', () => ({ prevTime: Date.now() }));
-export const changeCountdown = createAction('CHANGE_COUNTDOWN', () => ({ curTime: Date.now() }));
+export const startCountdown = createAction('COUNTDOWN_START', () => ({ startTime: Date.now() }));
+export const changeCountdown = createAction('COUNTDOWN_CHANGE', () => ({ currentTime: Date.now() }));
 
 const checkingInterval = 1000;
 
@@ -44,4 +44,4 @@ export const startCountdownTimer = () => (dispatch) => {
   setTimeout(() => dispatch(changeCountdownTimer()), checkingInterval);
 };
 
-export const setUserWantsToSeeSolution = createAction('SET_USER_WANTS_TO_SEE_SOLUTION');
+export const setUserWantsToSeeSolution = createAction('SOLUTION_SET_USER_WANTS_TO_SEE');

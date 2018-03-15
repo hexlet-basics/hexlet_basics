@@ -7,15 +7,15 @@ import connect from '../connect';
 const mapStateToProps = (state) => {
   const {
     code,
-    finished,
-    countdown,
-    showedSolution,
+    solution: { lessonFinished, userWantsToSeeSolution },
+    countdown: { remainingTime, canShowSolution },
   } = state;
   const props = {
     code,
-    finished,
-    countdown,
-    showedSolution,
+    lessonFinished,
+    userWantsToSeeSolution,
+    remainingTime,
+    canShowSolution,
   };
   return props;
 };
@@ -30,13 +30,14 @@ export default class Editor extends React.Component {
   render() {
     const {
       code,
+      lessonFinished,
+      userWantsToSeeSolution,
+      remainingTime,
+      canShowSolution,
       userFinishedLesson,
-      finished,
       defaultValue,
       language,
       t,
-      countdown: { remainingTime, canShowSolution },
-      showedSolution: { userWantsToSeeSolution },
     } = this.props;
 
     const d = new Date(remainingTime);
@@ -87,6 +88,6 @@ export default class Editor extends React.Component {
       </div>
     );
 
-    return finished || userFinishedLesson || userWantsToSeeSolution ? renderSolution : renderMessage;
+    return lessonFinished || userFinishedLesson || userWantsToSeeSolution ? renderSolution : renderMessage;
   }
 }
