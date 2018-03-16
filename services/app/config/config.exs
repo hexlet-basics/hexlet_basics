@@ -12,10 +12,10 @@ config :ueberauth, Ueberauth,
     github: {Ueberauth.Strategy.Github, [default_scope: "read:user,user:email"]}
   ]
 
-config :rollbax,
-  access_token: System.get_env("ROLLBAR_ACCESS_TOKEN"),
-  environment: "production"
-  # enabled: true
+# config :rollbax,
+#   access_token: System.get_env("ROLLBAR_ACCESS_TOKEN"),
+#   environment: "production"
+#   # enabled: true
 
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
   client_id: System.get_env("GITHUB_CLIENT_ID_RU"),
