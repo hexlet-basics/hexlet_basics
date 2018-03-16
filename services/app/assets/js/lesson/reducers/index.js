@@ -10,13 +10,6 @@ const code = handleActions({
   },
 }, '');
 
-const finished = handleActions({
-  [actions.runCheckSuccess]: (state, { payload }) => {
-    const { check: { data: { attributes } } } = payload;
-    return attributes.status === 0;
-  },
-}, false);
-
 const currentTabInfo = handleActions({
   [actions.runCheckRequest]: (state) => {
     const newState = { ...state, current: 'console' };
@@ -73,38 +66,47 @@ const checkInfo = handleActions({
 
 const countdown = handleActions({
   [actions.startCountdown]: (state, { payload }) => {
-    const newState = { ...state, ...payload };
+    const { startTime } = payload;
+    const newState = { ...state, previousTime: startTime };
     return newState;
   },
   [actions.changeCountdown]: (state, { payload }) => {
-    const { curTime } = payload;
-    const { prevTime, remainingTime } = state;
-    const elapsedTime = curTime - prevTime;
+    const { currentTime } = payload;
+    const { previousTime, remainingTime } = state;
+    const elapsedTime = currentTime - previousTime;
     const newRemainingTime = remainingTime - elapsedTime;
-    const newState = (newRemainingTime > 0) ?
-      { prevTime: curTime, remainingTime: newRemainingTime } :
-      { prevTime: null, remainingTime: 0, canShowSolution: true };
-    return { ...state, ...newState };
+    const newState = {
+      previousTime: currentTime,
+      remainingTime: newRemainingTime,
+      canShowSolution: newRemainingTime <= 0,
+    };
+    return newState;
   },
 }, {
-  remainingTime: 1800000, // 30 минут
-  prevTime: null,
+  // TODO
+  // remainingTime: 1800000, // 30 минут
+  remainingTime: 10000, // 10 секунд
+  previousTime: null,
   canShowSolution: false,
 });
 
-const showedSolution = handleActions({
+const solution = handleActions({
+  [actions.runCheckSuccess]: (state, { payload }) => {
+    const { check: { data: { attributes } } } = payload;
+    const newState = { ...state, lessonFinished: attributes.status === 0 };
+    return newState;
+  },
   [actions.setUserWantsToSeeSolution]: (state) => {
     const newState = { ...state, userWantsToSeeSolution: true };
     return newState;
   },
-}, { userWantsToSeeSolution: false });
+}, { lessonFinished: false, userWantsToSeeSolution: false });
 
 export default combineReducers({
-  finished,
   code,
   currentTabInfo,
   notification,
   checkInfo,
   countdown,
-  showedSolution,
+  solution,
 });

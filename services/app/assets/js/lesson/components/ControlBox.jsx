@@ -8,8 +8,8 @@ import Hotkeys from 'react-hot-keys';
 import connect from '../connect';
 
 const mapStateToProps = (state) => {
-  const { checkInfo, code, finished } = state;
-  const props = { checkInfo, code, finished };
+  const { checkInfo, code, solution: { lessonFinished } } = state;
+  const props = { checkInfo, code, lessonFinished };
   return props;
 };
 
@@ -29,7 +29,7 @@ class ControlBox extends React.Component {
   render() {
     const {
       checkInfo,
-      finished,
+      lessonFinished,
       t,
       userFinishedLesson,
     } = this.props;
@@ -42,8 +42,8 @@ class ControlBox extends React.Component {
 
     const nextButtonClasses = cn({
       btn: true,
-      'btn-outline-secondary disabled': !finished && !userFinishedLesson,
-      'btn-success': finished || userFinishedLesson,
+      'btn-outline-secondary disabled': !lessonFinished && !userFinishedLesson,
+      'btn-success': lessonFinished || userFinishedLesson,
     });
 
     // TODO move to js routes
