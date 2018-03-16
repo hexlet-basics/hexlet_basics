@@ -52,7 +52,7 @@ config :hexlet_basics,
   ga_ru: "ruGtag",
   ga_en: "enGtag"
 
-config :rollbax, enabled: :log
+# config :rollbax, enabled: :log
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

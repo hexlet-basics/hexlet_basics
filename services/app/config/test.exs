@@ -14,7 +14,7 @@ config :hexlet_basics,
   ga_ru: "ruGtag",
   ga_en: "enGtag"
 
-config :rollbax, enabled: false
+# config :rollbax, enabled: false
 
 # Print only warnings and errors during test
 # config :logger, level: :warn
