@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
+import dateFns from 'date-fns';
 
 import * as actions from '../actions';
 
@@ -8,7 +9,7 @@ const code = handleActions({
     const { content } = payload;
     return content;
   },
-}, '');
+}, null);
 
 const currentTabInfo = handleActions({
   [actions.runCheckRequest]: (state) => {
@@ -37,7 +38,7 @@ const notification = handleActions({
   },
   [actions.runCheckSuccess]: (_, { payload }) => {
     const { check: { data: { attributes } } } = payload;
-    if (attributes.status === 0) {
+    if (attributes.passed) {
       return { type: 'success', headline: 'alert.passed.headline', message: 'alert.passed.message' };
     }
 
@@ -65,42 +66,55 @@ const checkInfo = handleActions({
 }, { processing: false, output: '' });
 
 const countdown = handleActions({
-  [actions.startCountdown]: (state, { payload }) => {
+  [actions.init]: (state, { payload }) => {
     const { startTime } = payload;
-    const newState = { ...state, previousTime: startTime };
-    return newState;
+    const finishTime = dateFns.addMinutes(startTime, 30);
+    // const finishTime = dateFns.addSeconds(startTime, 10);
+    return { ...state, startTime, finishTime };
   },
-  [actions.changeCountdown]: (state, { payload }) => {
+  [actions.updateCountdown]: (state, { payload }) => {
     const { currentTime } = payload;
-    const { previousTime, remainingTime } = state;
-    const elapsedTime = currentTime - previousTime;
-    const newRemainingTime = remainingTime - elapsedTime;
-    const newState = {
-      previousTime: currentTime,
-      remainingTime: newRemainingTime,
-      canShowSolution: newRemainingTime <= 0,
-    };
+    return { ...state, currentTime };
+  },
+}, {
+  currentTime: null,
+  startTime: null,
+  finishTime: null,
+});
+
+const lessonState = handleActions({
+  [actions.init]: (state, { payload }) => {
+    const { userFinishedLesson } = payload;
+    return { finished: !!userFinishedLesson };
+  },
+  [actions.runCheckSuccess]: (state, { payload }) => {
+    const { check: { data: { attributes } } } = payload;
+    const newState = { ...state, finished: attributes.passed };
     return newState;
   },
 }, {
-  // TODO
-  // remainingTime: 1800000, // 30 минут
-  remainingTime: 10000, // 10 секунд
-  previousTime: null,
-  canShowSolution: false,
+  finished: null,
 });
 
-const solution = handleActions({
-  [actions.runCheckSuccess]: (state, { payload }) => {
+const solutionState = handleActions({
+  [actions.init]: (state, { payload }) => {
+    const { userFinishedLesson } = payload;
+    const lessonFinished = !!userFinishedLesson;
+    return { canBeShown: lessonFinished, shown: lessonFinished };
+  },
+  [actions.showSolution]: (state) => {
+    const newState = { ...state, shown: true };
+    return newState;
+  },
+  [actions.makeSolutionAvailable]: (state) => {
+    const newState = { ...state, canBeShown: true };
+    return newState;
+  },
+  [actions.runCheckSuccess]: (_, { payload }) => {
     const { check: { data: { attributes } } } = payload;
-    const newState = { ...state, lessonFinished: attributes.status === 0 };
-    return newState;
+    return { canBeShown: attributes.passed, shown: attributes.passed };
   },
-  [actions.setUserWantsToSeeSolution]: (state) => {
-    const newState = { ...state, userWantsToSeeSolution: true };
-    return newState;
-  },
-}, { lessonFinished: false, userWantsToSeeSolution: false });
+}, { canBeShown: false, shown: false });
 
 export default combineReducers({
   code,
@@ -108,5 +122,6 @@ export default combineReducers({
   notification,
   checkInfo,
   countdown,
-  solution,
+  lessonState,
+  solutionState,
 });

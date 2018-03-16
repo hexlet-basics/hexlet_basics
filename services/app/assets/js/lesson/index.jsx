@@ -9,7 +9,7 @@ import configureStore from '../lib/configureStore';
 import App from './components/App.jsx';
 import reducers from './reducers';
 
-import { startCountdownTimer } from './actions';
+import * as actions from './actions';
 
 const currentUser = gon.getAsset('current_user');
 const lesson = gon.getAsset('lesson');
@@ -18,9 +18,15 @@ const description = gon.getAsset('lesson_description');
 const userFinishedLesson = gon.getAsset('user_finished_lesson');
 
 const run = () => {
-  const store = configureStore(reducers, { code: lesson.prepared_code });
+  const store = configureStore(reducers, {
+    code: lesson.prepared_code,
+  });
 
-  store.dispatch(startCountdownTimer());
+  store.dispatch(actions.init({
+    startTime: Date.now(),
+    userFinishedLesson,
+  }));
+  actions.updateCountdownTimer(store);
 
   ReactDOM.render(
     <Provider store={store}>

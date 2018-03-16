@@ -2,14 +2,17 @@ import { createAction } from 'redux-actions';
 // import Routes from 'routes';
 import axios from 'axios';
 
-export const runCheckRequest = createAction('CHECK_RUN_REQUEST');
-export const runCheckSuccess = createAction('CHECK_RUN_SUCCESS');
-export const runCheckFailure = createAction('CHECK_RUN_FAILURE');
+export const init = createAction('INIT');
+export const makeSolutionAvailable = createAction('SOLUTION/MAKE/AVAILABLE');
 
-export const changeCode = createAction('CODE_CHANGE');
-export const selectTab = createAction('TAB_SELECT');
+export const runCheckRequest = createAction('CHECK/RUN/REQUEST');
+export const runCheckSuccess = createAction('CHECK/RUN/SUCCESS');
+export const runCheckFailure = createAction('CHECK/RUN/FAILURE');
 
-export const dismissNotification = createAction('NOTIFICATION_DISMISS');
+export const changeCode = createAction('CODE/CHANGE');
+export const selectTab = createAction('TAB/SELECT');
+
+export const dismissNotification = createAction('NOTIFICATION/DISMISS');
 
 export const runCheck = ({ lesson, code }) => async (dispatch) => {
   dispatch(runCheckRequest());
@@ -29,19 +32,18 @@ export const runCheck = ({ lesson, code }) => async (dispatch) => {
   }
 };
 
-export const startCountdown = createAction('COUNTDOWN_START', () => ({ startTime: Date.now() }));
-export const changeCountdown = createAction('COUNTDOWN_CHANGE', () => ({ currentTime: Date.now() }));
+export const updateCountdown = createAction('COUNTDOWN/UPDATE', () => ({ currentTime: Date.now() }));
 
 const checkingInterval = 1000;
 
-export const changeCountdownTimer = () => (dispatch) => {
-  dispatch(changeCountdown());
-  setTimeout(() => dispatch(changeCountdownTimer()), checkingInterval);
+export const updateCountdownTimer = (store) => {
+  const { countdown: { currentTime, finishTime } } = store.getState();
+  if (currentTime >= finishTime) {
+    store.dispatch(makeSolutionAvailable());
+    return;
+  }
+  store.dispatch(updateCountdown());
+  setTimeout(() => updateCountdownTimer(store), checkingInterval);
 };
 
-export const startCountdownTimer = () => (dispatch) => {
-  dispatch(startCountdown());
-  setTimeout(() => dispatch(changeCountdownTimer()), checkingInterval);
-};
-
-export const setUserWantsToSeeSolution = createAction('SOLUTION_SET_USER_WANTS_TO_SEE');
+export const showSolution = createAction('SOLUTION/SHOW');

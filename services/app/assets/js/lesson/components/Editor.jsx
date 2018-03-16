@@ -23,7 +23,7 @@ export default class Editor extends React.Component {
     const requireConfig = {
       url: 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js',
       paths: {
-        vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.10.1/min/vs/',
+        vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.11.1/min/vs/',
       },
     };
 

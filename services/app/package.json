@@ -48,6 +48,7 @@
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
     "tether": "*",
+    "date-fns": "*",
     "url-loader": "^0.6.2"
   },
   "devDependencies": {
