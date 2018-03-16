@@ -24,11 +24,6 @@ config :hexlet_basics,
   ga_ru: "UA-1360700-63",
   ga_en: "UA-1360700-64"
 
-config :rollbax,
-  access_token: System.get_env("ROLLBAR_ACCESS_TOKEN"),
-  environment: "production",
-  enabled: true
-
 # Do not print debug messages in production
 config :logger, level: :debug
 
