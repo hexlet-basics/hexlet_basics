@@ -9,12 +9,7 @@ defmodule HexletBasicsWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/", from: :hexlet_basics, gzip: false,
-    only: ~w(locales assets fonts images robots.txt favicon.ico
-      apple-touch-icon-57x57.png apple-touch-icon-60x60.png apple-touch-icon-72x72.png
-      apple-touch-icon-76x76.png apple-touch-icon-114x114.png apple-touch-icon-120x120.png
-      apple-touch-icon-144x144.png apple-touch-icon-152x152.png favicon-16x16.png favicon-32x32.png
-      favicon-96x96.png favicon-128.png favicon-196x196.png mstile-70x70.png mstile-144x144.png
-      mstile-150x150.png mstile-310x150.png mstile-310x310.png)
+    only: ~w(locales assets fonts images robots.txt favicon.ico)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
