@@ -30,7 +30,7 @@ html lang="#{@locale}"
 
       footer.footer.mb-3
         .row.d-flex.flex-row.justify-content-between
-          .col-12.col-md-6.mt-3
+          .col-12.col-md-7.mt-3
             span.text-muted.h4.mb-2 &copy; Hexlet, 2018
             br
             small.text-muted.small
