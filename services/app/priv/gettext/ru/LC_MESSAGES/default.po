@@ -131,7 +131,7 @@ msgstr "Все уроки завершены!"
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Description"
-msgstr "Бесплатные практические уроки по программированию для новичков, начинающих с нуля."
+msgstr "Бесплатные практические уроки по программированию для тех, кто начинает с нуля"
 
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Author"
