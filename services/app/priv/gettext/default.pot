@@ -130,6 +130,7 @@ msgstr ""
 
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Code Basics Description"
 msgstr ""
 
@@ -140,4 +141,14 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Title"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "From the creators of Hexlet (end)"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "From the creators of Hexlet (start)"
 msgstr ""

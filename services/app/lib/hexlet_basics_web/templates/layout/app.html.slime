@@ -31,15 +31,26 @@ html lang="#{@locale}"
       footer.footer.mb-3
         .row.d-flex.flex-row.justify-content-between
           .col-12.col-md-7.mt-3
-            span.text-muted.h4.mb-2 &copy; Hexlet, 2018
-            br
-            small.text-muted.small
-              = gettext "Credits"
-            br
-            small.text-muted.small
-              a.text-muted target="_blank" href="https://github.com/hexlet-basics"
-                = gettext "Source code"
-                span.fas.fa-link.ml-2
+            span vocab="http://schema.org/" typeof="Organization"
+              span.text-muted.h4.mb-2
+                | &copy; Hexlet,&nbsp;
+                = Date.utc_today().year
+              br
+              span.text-muted.small
+                span property="legalName" Hexlet Ltd.
+                span property="address" &nbsp;Puolikkotie 8, 02230 Espoo, Finland.
+                span property="vatID" &nbsp;VAT ID: FI26641607
+              br
+              small.text-muted.small
+                = gettext "Credits"
+              br
+              small.text-muted.small
+                i.fas.fa-github aria-hidden="true"
+                a.text-muted target="_blank" href="https://github.com/hexlet-basics"
+                  = gettext "Source code"
+                  span.fas.fa-link.ml-2
+              br
+              a.small[href="mailto:support@hexlet.io" property="email" typeof="Text"] support@hexlet.io
 
           .col-12.col-md-5.mt-3.text-right
             ul.list-unstyled

@@ -122,7 +122,7 @@ msgstr "Определения"
 
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Credits"
-msgstr "Уроки: Кирилл Мокевнин, Рахим Давлеткалиев, Наталия Басс. При поддержке сообщества Хекслет."
+msgstr "При поддержке сообщества Хекслет."
 
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "All lessons completed!"
@@ -130,6 +130,7 @@ msgstr "Все уроки завершены!"
 
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Code Basics Description"
 msgstr "Бесплатные практические уроки по программированию для тех, кто начинает с нуля"
 
@@ -141,3 +142,13 @@ msgstr "Кирилл Мокевнин, Рахим Давлеткалиев, На
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Title"
 msgstr "Code Basics: основы программирования"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "From the creators of Hexlet (end)"
+msgstr "Хекслета"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "From the creators of Hexlet (start)"
+msgstr "От создателей "

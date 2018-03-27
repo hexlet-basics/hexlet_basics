@@ -2,6 +2,13 @@
   .col-12.col-md-9.text-center
     h1.h3
       = gettext("Code Basics Description")
+      br
+      small.h6
+        = gettext("From the creators of Hexlet (start)")
+      a[href="https://hexlet.io"]
+        small.h6
+          = gettext("From the creators of Hexlet (end)")
+      small.h6 .
 
 .row.d-flex.align-items-stretch
   .col-12.col-sm-6.col-lg-3.mb-4
