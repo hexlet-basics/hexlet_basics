@@ -147,3 +147,8 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "From the creators of Hexlet"
 msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/about/index.html.slime:1
+msgid "About"
+msgstr ""

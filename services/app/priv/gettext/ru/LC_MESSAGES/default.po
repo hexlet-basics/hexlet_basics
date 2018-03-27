@@ -143,7 +143,12 @@ msgstr "Кирилл Мокевнин, Рахим Давлеткалиев, На
 msgid "Code Basics Title"
 msgstr "Code Basics: основы программирования"
 
-#, elixir-format, fuzzy
+#, elixir-format
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "From the creators of Hexlet"
 msgstr "От создателей Хекслета."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/about/index.html.slime:1
+msgid "About"
+msgstr "О проекте"

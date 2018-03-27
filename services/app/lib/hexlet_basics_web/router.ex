@@ -49,6 +49,8 @@ defmodule HexletBasicsWeb.Router do
     resources "/lessons", LessonController, include: [] do
       get "/redirect-to-next", LessonController, :next, as: :member
     end
+
+    get "/about", AboutController, :index
   end
 
   # Other scopes may use custom stacks.
