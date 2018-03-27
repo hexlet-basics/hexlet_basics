@@ -143,12 +143,7 @@ msgstr "Kirill Mokevnin, Rakhim Davletkaliyev, Natalia Bass"
 msgid "Code Basics Title"
 msgstr "Code Basics: basics of programming"
 
-#, elixir-format
+#, elixir-format, fuzzy
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
-msgid "From the creators of Hexlet (end)"
-msgstr "Hexlet"
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-msgid "From the creators of Hexlet (start)"
-msgstr "From the creators of "
+msgid "From the creators of Hexlet"
+msgstr "From the creators of Hexlet."
