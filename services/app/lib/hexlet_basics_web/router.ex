@@ -39,6 +39,8 @@ defmodule HexletBasicsWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/pages", PageController
+
     resources "/session", SessionController, singleton: true
     resources "/languages", LanguageController do
       resources "/modules", Language.ModuleController do
@@ -50,7 +52,6 @@ defmodule HexletBasicsWeb.Router do
       get "/redirect-to-next", LessonController, :next, as: :member
     end
 
-    get "/about", AboutController, :index
   end
 
   # Other scopes may use custom stacks.

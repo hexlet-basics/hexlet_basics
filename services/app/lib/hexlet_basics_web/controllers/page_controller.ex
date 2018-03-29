@@ -9,4 +9,14 @@ defmodule HexletBasicsWeb.PageController do
     end)
     render conn, language_by_slug
   end
+
+  def show(conn, %{"id" => id}) do
+    pages = ["about"]
+    unless id in pages do
+      message = "Cannot find page '#{id}'"
+      raise Phoenix.Router.NoRouteError, conn: conn, router: conn.private.phoenix_router, message: message
+    else
+      render conn, :"#{id}"
+    end
+  end
 end
