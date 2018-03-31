@@ -1,10 +1,10 @@
 ---
 - hosts: all
-  gather_facts: no
+  gather_facts: false
   vars_prompt:
     - name: "hexlet_basics_image_tag"
       prompt: "Hexlet Basics image tag"
-      private: no
+      private: false
 
   tasks:
     - set_fact: hexlet_basics_image_tag={{ hexlet_basics_image_tag }}
@@ -18,11 +18,11 @@
         msg: "Hexlet Basics deploy started: {{ hexlet_basics_mix_env }}:{{ hexlet_basics_image_tag }}"
         channel: "#operation"
         username: "{{ ansible_ssh_user }}"
-      run_once: yes
+      run_once: true
 
 - hosts: webservers
-  gather_facts: no
-  # become: yes
+  gather_facts: false
+  # become: true
   # become_user: "{{ hexlet_basics_run_user }}"
 
   tasks:
@@ -35,12 +35,12 @@
     - name: download image
       docker_image:
         name: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
-        force: yes
+        force: true
 
     - name: run migrations
       docker_container:
-        recreate: yes
-        detach: no
+        recreate: true
+        detach: false
         name: hexlet-basics-migrations
         command: "mix ecto.migrate"
         image: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
@@ -51,12 +51,12 @@
         volumes:
           - "/tmp:/tmp"
           - "/var/tmp:/var/tmp"
-      run_once: yes
+      run_once: true
       tags: [webserver]
 
     - name: start application
       docker_container:
-        recreate: yes
+        recreate: true
         name: hexlet-basics-web
         image: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
         state: started
@@ -83,12 +83,12 @@
         regexp: "HEXLET_BASICS_VERSION"
         line: "HEXLET_BASICS_VERSION={{ hexlet_basics_image_tag }}"
         dest: /etc/environment
-        backup: yes
+        backup: true
         state: present
-      become: yes
+      become: true
 
 - hosts: all
-  gather_facts: no
+  gather_facts: false
   tasks:
 
     - name: "Send deploy hook to Rollbar"
@@ -97,7 +97,7 @@
           -F environment="{{ hexlet_basics_mix_env }}" \
           -F revision="{{ hexlet_basics_image_tag }}" \
           -F local_username="{{ ansible_ssh_user }}"
-      run_once: yes
+      run_once: true
 
     - name: notify slack
       local_action:
@@ -107,4 +107,4 @@
         msg: "Hexlet Basics deploy completed ({{ hexlet_basics_mix_env }})"
         channel: "#operation"
         username: "{{ ansible_ssh_user }}"
-      run_once: yes
+      run_once: true

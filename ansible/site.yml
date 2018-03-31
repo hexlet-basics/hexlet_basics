@@ -1,12 +1,14 @@
+---
 - hosts: all
 
   pre_tasks:
     - apt:
-        update_cache: yes
+        update_cache: true
         name: "{{ item }}"
       with_items:
-        - python3-pip
-      become: yes
+        # - python3-pip
+        - python-pip
+      become: true
 
     - block:
       - name: generate locale
@@ -15,25 +17,26 @@
         tags: [locale]
 
       - name: set locale
-        become: yes
+        become: true
         shell: update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8
         tags: [locale]
 
       - meta: reset_connection
     - pip:
         name: docker
-      become: yes
+      become: true
 
   roles:
-    - { role: geerlingguy.docker, become: yes }
+    - role: geerlingguy.docker
+      become: true
 
   post_tasks:
 
     - user:
         name: "{{ hexlet_basics_run_user }}"
         groups: docker
-        append: yes
-      become: yes
+        append: true
+      become: true
 
     - meta: reset_connection
 
@@ -43,4 +46,3 @@
         hour: "3"
         job: "docker system prune -a"
       tags: [cron]
-
