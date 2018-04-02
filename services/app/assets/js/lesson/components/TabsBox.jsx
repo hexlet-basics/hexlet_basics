@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import { translate } from 'react-i18next';
-import Editor from './Editor.jsx';
-import Console from './Console.jsx';
-import Solution from './Solution.jsx';
-import withActive from '../hoc/withActive.jsx';
+import Editor from './Editor';
+import Console from './Console';
+import Solution from './Solution';
+import withActive from '../hoc/withActive';
 import connect from '../connect';
 
 const mapStateToProps = (state) => {

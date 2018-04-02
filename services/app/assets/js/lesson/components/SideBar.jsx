@@ -2,7 +2,7 @@ import React from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import ReactDisqusComments from 'react-disqus-comments';
 import { translate } from 'react-i18next';
-import withActive from '../hoc/withActive.jsx';
+import withActive from '../hoc/withActive';
 import md from '../../lib/markdown';
 
 const SideBar = ({ lesson, activeClass, active, t, setActive }) => {

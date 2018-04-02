@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Alert, AlertContainer } from 'react-bs-notifier';
 import { translate } from 'react-i18next';
 import connect from '../connect';
-import TabsBox from '../components/TabsBox.jsx';
-import ControlBox from '../components/ControlBox.jsx';
+import TabsBox from '../components/TabsBox';
+import ControlBox from '../components/ControlBox';
 
 const mapStateToProps = (state) => {
   const { notification, checkInfo, currentTabInfo } = state;

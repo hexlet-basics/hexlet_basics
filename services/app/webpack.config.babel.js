@@ -25,6 +25,9 @@ export default {
     aggregateTimeout: 300,
     poll: 1000,
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   plugins: [
     // new CleanWebpackPlugin(['priv/static']),
     new ExtractTextPlugin({
