@@ -9,7 +9,9 @@ html lang="#{@locale}"
     .container.x-100vh.d-flex.flex-column
       header.header
         nav.navbar.navbar-expand-md.navbar-light.bg-light role="navigation"
-          a.navbar-brand href="/"= gettext("Code Basics")
+          a.navbar-brand href="/"
+            img.hexlet-basics-navbar-logo.mr-3(src=static_path(@conn, "/images/logo.png") alt="Code Basics Logo")
+            = gettext("Code Basics")
           button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation")
             span.navbar-toggler-icon
           #navbarText.collapse.navbar-collapse
