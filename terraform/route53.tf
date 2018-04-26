@@ -31,11 +31,44 @@ resource "aws_route53_record" "hexlet-basics-ru-a" {
   zone_id = "${aws_route53_zone.hexlet-basics-ru.zone_id}"
   name    = "code-basics.ru"
   type    = "A"
+	set_identifier = "live"
+	failover_routing_policy {
+		type = "PRIMARY"
+	}
+  health_check_id = "${aws_route53_health_check.code-basics-ru.id}"
 
   alias {
     name                   = "${aws_lb.hexlet-basics.dns_name}"
     zone_id                = "${aws_lb.hexlet-basics.zone_id}"
     evaluate_target_health = true
+  }
+}
+
+resource "aws_route53_record" "code-basics-ru-static-site" {
+	zone_id = "${aws_route53_zone.hexlet-basics-ru.zone_id}"
+	name = "code-basics.ru"
+	set_identifier = "static"
+	type = "A"
+	alias {
+		name = "${aws_s3_bucket.hexlet-basics-static-site.website_domain}"
+		zone_id = "${aws_s3_bucket.hexlet-basics-static-site.hosted_zone_id}"
+		evaluate_target_health = false
+	}
+	failover_routing_policy {
+		type = "SECONDARY"
+	}
+}
+
+resource "aws_route53_health_check" "code-basics-ru" {
+  fqdn = "code-basics.ru"
+  port = "80"
+  type = "HTTP"
+  resource_path = "/"
+  failure_threshold = "3"
+  request_interval = "30"
+
+  tags = {
+    Name = "code-basics.ru health check"
   }
 }
 
