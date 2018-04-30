@@ -1,3 +1,4 @@
+include make-compose.mk
 include make-app.mk
 include make-static.mk
 include make-development.mk

@@ -1,8 +1,24 @@
-version: '3.3'
+version: '3.6'
 
 services:
   db:
     image: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  nginx:
+    build:
+      context: services/nginx
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ".bashrc:/root/.bashrc:cached"
+      - "./services/nginx/hexlet-basics.conf:/etc/nginx/conf.d/hexlet-basics.conf"
+      - "./services/nginx/maintenance.html:/etc/nginx/html/maintenance.html"
+    depends_on:
+      - app
+
   app:
     build:
       context: services/app
@@ -21,3 +37,6 @@ services:
       - "/tmp:/tmp:cached"
     depends_on:
       - db
+
+volumes:
+  pgdata:
