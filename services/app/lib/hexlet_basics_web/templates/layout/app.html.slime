@@ -66,5 +66,5 @@ html lang="#{@locale}"
               li
                 a.text-muted target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSr58Xg4DVX2WdmAkv3hE2ITJ3fPeNUmRFe0Ekro53U-ACFrhcUkV8PlUm4ddcn53Uh-5UIezZtZZgc/pubhtml"= gettext "Matrix"
 
-    script src="#{static_path(@conn, "/assets/vendors.js")}"
+    script src="#{static_path(@conn, "/assets/vendors~main.js")}"
     script src="#{static_path(@conn, "/assets/main.js")}"

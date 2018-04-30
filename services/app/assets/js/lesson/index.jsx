@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import gon from 'gon';
 import React from 'react';
 import ReactDOM from 'react-dom';

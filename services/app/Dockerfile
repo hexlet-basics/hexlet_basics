@@ -1,4 +1,4 @@
-FROM elixir:1.6.3
+FROM elixir:1.6.4
 
 WORKDIR /app
 
@@ -16,7 +16,7 @@ RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
 RUN apt-get update && apt-get install -y nodejs
 
 ENV DOCKER_CHANNEL edge
-ENV DOCKER_VERSION 17.12.1-ce
+ENV DOCKER_VERSION 18.03.1-ce
 RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_64/docker-${DOCKER_VERSION}.tgz" \
   | tar -xzC /usr/local/bin --strip=1 docker/docker
 
@@ -36,7 +36,7 @@ RUN mix deps.compile
 
 COPY . .
 
-RUN NODE_ENV=production npm run deploy
+RUN NODE_ENV=production npm run webpack
 RUN MIX_ENV=prod mix compile
 RUN MIX_ENV=prod mix phx.digest
 
