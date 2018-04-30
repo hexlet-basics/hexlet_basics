@@ -26,15 +26,23 @@
   # become_user: "{{ hexlet_basics_run_user }}"
 
   tasks:
+    - name: Create a network
+      docker_network:
+        name: "{{ hexlet_basics_docker_network }}"
 
     - template:
         src: environment.j2
         dest: "{{ hexlet_basics_env_file }}"
       tags: env
 
-    - name: download image
+    - name: download app image
       docker_image:
         name: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
+        force: true
+
+    - name: download nginx image
+      docker_image:
+        name: "{{ hexlet_basics_nginx_image_name }}:{{ hexlet_basics_image_tag }}"
         force: true
 
     - name: run migrations
@@ -52,6 +60,24 @@
           - "/tmp:/tmp"
           - "/var/tmp:/var/tmp"
       run_once: true
+      tags: [webserver]
+
+    - name: start nginx
+      docker_container:
+        # recreate: true
+        name: hexlet-basics-nginx
+        image: "{{ hexlet_basics_nginx_image_name }}:{{ hexlet_basics_image_tag }}"
+        state: started
+        # log_driver: awslogs
+        # log_options:
+        #   awslogs-group: "{{ hexlet_basics_aws_logs_group }}"
+        #   awslogs-stream: "{{ hexlet_basics_aws_logs_stream_web }}"
+        #   awslogs-region: '{{ hexlet_basics_aws_region }}'
+        restart_policy: always
+        ports:
+          - "8080:8080{{ hexlet_basics_port }}"
+        networks:
+          - "{{ hexlet_basics_docker_network }}"
       tags: [webserver]
 
     - name: start application
@@ -77,6 +103,8 @@
           - "/tmp:/tmp"
           - "/opt:/opt"
           - "/var/tmp:/var/tmp"
+        networks:
+          - "{{ hexlet_basics_docker_network }}"
       tags: [webserver]
 
     - lineinfile:
