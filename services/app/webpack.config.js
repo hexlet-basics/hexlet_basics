@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // import CleanObsoleteChunks from 'webpack-clean-obsolete-chunks';
 // import CleanWebpackPlugin from 'clean-webpack-plugin';
 
-// const isProduction = process.env.NODE_ENV === 'production';
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 const apps = {
   main: ['./js/app.js', './css/app.scss'],
@@ -23,7 +23,7 @@ module.exports = {
     // chunkFilename: '[id].chunk.js',
     publicPath: '/assets/',
   },
-  watch: true,
+  watch: isDevelopment,
   watchOptions: {
     // aggregateTimeout: 300,
     poll: 1000,
