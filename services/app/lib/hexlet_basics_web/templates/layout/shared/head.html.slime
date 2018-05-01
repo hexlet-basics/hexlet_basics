@@ -5,17 +5,17 @@ meta content="#{gettext("Code Basics Description")}" name="description"
 meta content="#{gettext("Code Basics Author")}" name="author"
 meta content=("#{gettext("Code Basics Title")}") property="og:title"
 meta content=("#{gettext("Code Basics Description")}") property="og:description"
-meta content="/images/smm_cover.jpg" property="og:image"
+meta content="/assets/images/smm_cover.jpg" property="og:image"
 meta content="webiste" property="og:type"
 
-link href="/images/favicons/apple-touch-icon.png?v=wAOwnpqmJP" rel="apple-touch-icon" sizes="180x180" /
-link href="/images/favicons/favicon-32x32.png?v=wAOwnpqmJP" rel="icon" sizes="32x32" type="image/png" /
-link href="/images/favicons/favicon-16x16.png?v=wAOwnpqmJP" rel="icon" sizes="16x16" type="image/png" /
-link href="/images/favicons/site.webmanifest?v=wAOwnpqmJP" rel="manifest" /
-link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg?v=wAOwnpqmJP" rel="mask-icon" /
-link href="/images/favicons/favicon.ico?v=wAOwnpqmJP" rel=("shortcut icon") /
+link href="/assets/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" /
+link href="/assets/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" /
+link href="/assets/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" /
+link href="/assets/images/favicons/site.webmanifest" rel="manifest" /
+link color="#5bbad5" href="/assets/images/favicons/safari-pinned-tab.svg" rel="mask-icon" /
+link href="/assets/images/favicons/favicon.ico" rel=("shortcut icon") /
 meta content="#b91d47" name="msapplication-TileColor" /
-meta content="/images/favicons/browserconfig.xml?v=wAOwnpqmJP" name="msapplication-config" /
+meta content="/assets/images/favicons/browserconfig.xml" name="msapplication-config" /
 meta content="#ffffff" name="theme-color" /
 
 

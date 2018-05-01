@@ -64,7 +64,7 @@
 
     - name: start nginx
       docker_container:
-        # recreate: true
+        recreate: true
         name: hexlet-basics-nginx
         image: "{{ hexlet_basics_nginx_image_name }}:{{ hexlet_basics_image_tag }}"
         state: started
@@ -74,16 +74,16 @@
         #   awslogs-stream: "{{ hexlet_basics_aws_logs_stream_web }}"
         #   awslogs-region: '{{ hexlet_basics_aws_region }}'
         restart_policy: always
-        ports:
-          - "8080:8080{{ hexlet_basics_port }}"
+        published_ports:
+          - "80:8080"
         networks:
-          - "{{ hexlet_basics_docker_network }}"
+          - name: "{{ hexlet_basics_docker_network }}"
       tags: [webserver]
 
     - name: start application
       docker_container:
         recreate: true
-        name: hexlet-basics-web
+        name: app
         image: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
         state: started
         log_driver: awslogs
@@ -96,15 +96,15 @@
         env:
           MIX_ENV: prod
           NODE_ENV: production
-        ports:
-          - "80:{{ hexlet_basics_port }}"
+        # published_ports:
+        #   - "80:{{ hexlet_basics_port }}"
         volumes:
           - "/var/run/docker.sock:/var/run/docker.sock"
           - "/tmp:/tmp"
           - "/opt:/opt"
           - "/var/tmp:/var/tmp"
         networks:
-          - "{{ hexlet_basics_docker_network }}"
+          - name: "{{ hexlet_basics_docker_network }}"
       tags: [webserver]
 
     - lineinfile:
