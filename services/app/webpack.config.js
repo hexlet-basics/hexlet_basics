@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const WebpackAssetsManifest = require('webpack-manifest-plugin');
 // import CleanObsoleteChunks from 'webpack-clean-obsolete-chunks';
-// import CleanWebpackPlugin from 'clean-webpack-plugin';
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -32,29 +32,14 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   plugins: [
+    new CleanWebpackPlugin(['./priv/static/*.*']),
     new CopyWebpackPlugin([
       { from: './locales', to: 'locales' },
       { from: './static' },
     ]),
-    // new WebpackAssetsManifest({
-    //   writeToDisk: true,
-    //   publicPath: true,
-    // }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
       // chunkFilename: '[id].chunk.css',
-    }),
-    // new CleanObsoleteChunks({ verbose: true, deep: true }),
-    // new webpack.HashedModuleIdsPlugin(),
-    // new ManifestPlugin({ basePath: '/assets/' }),
-    new webpack.ProvidePlugin({
-      // $: 'jquery',
-      // jQuery: 'jquery',
-      // 'window.jQuery': 'jquery',
-      // React: 'react',
-      // ReactDOM: 'react-dom',
-      // Tether: 'tether',
-      // Popper: ['popper.js', 'default'],
     }),
   ],
   externals: {
