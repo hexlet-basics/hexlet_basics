@@ -11,23 +11,23 @@
     .card
       .card-body
         h2.h4.card-title.text-center PHP
-        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/assets/images/php.png") alt="php programming lessons")
+        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/php.png") alt="php programming lessons")
         = link gettext("Start"), to: language_path(@conn, :show, "php"), class: "btn btn-primary btn-block"
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.hexlet-basics-indigo-card
       .card-body
         h2.h4.card-title.text-center JavaScript
-        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/assets/images/js.png") alt="JavaScript programming lessons")
+        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/js.png") alt="JavaScript programming lessons")
         .btn.btn-dark.disabled.btn-block coming soon
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.hexlet-basics-purple-card
       .card-body
         h2.h4.card-title.text-center Python
-        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/assets/images/python.png") alt="Python programming lessons")
+        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/python.png") alt="Python programming lessons")
         .btn.btn-dark.disabled.btn-block coming soon
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.hexlet-basics-orange-card
       .card-body
         h2.h4.card-title.text-center Racket
-        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/assets/images/racket.png") alt="Racket programming lessons")
+        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/racket.png") alt="Racket programming lessons")
         .btn.btn-dark.disabled.btn-block coming soon

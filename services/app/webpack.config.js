@@ -18,8 +18,8 @@ module.exports = {
   entry: apps,
   mode: process.env.NODE_ENV || 'development',
   output: {
-    path: `${__dirname}/priv/static/assets`,
-    filename: '[name].js',
+    path: `${__dirname}/priv/static`,
+    filename: 'assets/[name].js',
     // chunkFilename: '[id].chunk.js',
     publicPath: '/assets/',
   },
@@ -41,7 +41,7 @@ module.exports = {
     //   publicPath: true,
     // }),
     new MiniCssExtractPlugin({
-      // filename: '[name].css',
+      filename: 'assets/[name].css',
       // chunkFilename: '[id].chunk.css',
     }),
     // new CleanObsoleteChunks({ verbose: true, deep: true }),
