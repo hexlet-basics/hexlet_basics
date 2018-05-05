@@ -42,7 +42,11 @@ const notification = handleActions({
       return { type: 'success', headline: 'alert.passed.headline', message: 'alert.passed.message' };
     }
 
-    return { type: 'warning', headline: 'alert.failed.headline', message: 'alert.failed.message' };
+    return {
+      type: 'warning',
+      headline: `alert.${attributes.result}.headline`,
+      message: `alert.${attributes.result}.message`,
+    };
   },
 }, null);
 

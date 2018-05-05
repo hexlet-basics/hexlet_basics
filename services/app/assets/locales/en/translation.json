@@ -25,6 +25,10 @@
       "failed": {
         "message": "Fix errros and run again",
         "headline": "Tests Failed"
+      },
+      "failed-infinity": {
+        "message": "Code was running too long. Check it for infinity loops.",
+        "headline": "Tests Failed (Infinity Loop!)"
       }
     }
 }

@@ -31,7 +31,7 @@ h1.text-center.display-2= @language.slug
                 = if finished_lesson do
                   .card.hexlet-basics-card.hexlet-basics-lesson-card.hexlet-basics-finished-lesson-card
                     .card-body.py-2
-                      img.img-fluid.hexlet-basics-finished-lesson-sticker(src=static_path(@conn, "/assets/images/finished_lesson_pin.png"))
+                      img.img-fluid.hexlet-basics-finished-lesson-sticker(src=static_path(@conn, "/images/finished_lesson_pin.png"))
                       .card-text
                         = lesson.natural_order
                         | .&nbsp;

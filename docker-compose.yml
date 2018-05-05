@@ -28,7 +28,7 @@ services:
       - "${PORT}:${PORT}"
     env_file: '.env'
     volumes:
-      - "./services/app:/app:cached"
+      - "./services/app:/app"
       - "~/.bash_history:/root/.bash_history:cached"
       - "./tmp/exercises-php:/exercises-php"
       - ".bashrc:/root/.bashrc:cached"

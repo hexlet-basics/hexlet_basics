@@ -30,7 +30,12 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckController do
     Logger.debug command
     %Porcelain.Result{out: output, status: status} = Porcelain.shell(command)
 
-    passed = status == 0
+    result = case status do
+      0 -> "passed"
+      124 -> "failed-infinity"
+      _ -> "failed"
+    end
+    passed = result == "passed"
     if passed do
       may_be_user_finished_lesson = Repo.get_by(User.FinishedLesson, user_id: current_user.id, language_module_lesson_id: lesson.id)
       unless may_be_user_finished_lesson do
@@ -43,6 +48,7 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckController do
       data: %{
         attributes: %{
           passed: passed,
+          result: result,
           status: status,
           output: output
         }
