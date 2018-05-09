@@ -1,7 +1,8 @@
 const path = require('path');
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 // const WebpackAssetsManifest = require('webpack-manifest-plugin');
 // import CleanObsoleteChunks from 'webpack-clean-obsolete-chunks';
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -18,8 +19,8 @@ module.exports = {
   entry: apps,
   mode: process.env.NODE_ENV || 'development',
   output: {
-    path: `${__dirname}/priv/static`,
-    filename: 'assets/[name].js',
+    path: `${__dirname}/priv/static/assets`,
+    filename: '[name].js',
     // chunkFilename: '[id].chunk.js',
     publicPath: '/assets/',
   },
@@ -31,14 +32,19 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  // node: {
+  //   fs: 'empty',
+  // },
   plugins: [
-    new CleanWebpackPlugin(['./priv/static/*.*']),
+    new CleanWebpackPlugin(['./priv/static']),
+    new MonacoWebpackPlugin(),
     new CopyWebpackPlugin([
-      { from: './locales', to: 'locales' },
-      { from: './static' },
+      { from: './locales', to: '../locales' },
+      { from: './images', to: '../images' },
+      { from: './favicon.ico', to: '../favicon.ico' },
     ]),
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].css',
+      filename: '[name].css',
       // chunkFilename: '[id].chunk.css',
     }),
   ],
@@ -70,7 +76,8 @@ module.exports = {
             // plugins: ['@babel/plugin-transform-runtime'],
           },
         },
-      }, {
+      },
+      {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -78,7 +85,16 @@ module.exports = {
           'postcss-loader',
           'sass-loader',
         ],
-      }, {
+      },
+      {
+        test: /\.css/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader'
+        ],
+      },
+      {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         use: 'url-loader',
       },

@@ -12,7 +12,7 @@ import hljs from 'highlight.js';
 import fontawesome from '@fortawesome/fontawesome';
 import brands from '@fortawesome/fontawesome-free-brands';
 import solid from '@fortawesome/fontawesome-free-solid';
-
+import 'bootstrap';
 // Import dependencies
 //
 // If you no longer want to use a dependency, remember

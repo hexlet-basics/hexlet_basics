@@ -9,6 +9,7 @@ export default defaultActive => Component => class Active extends React.Componen
   state = { value: defaultActive };
 
   handleSetActive = value => () => {
+    console.log('handleSetActive', value)
     this.setState({ value });
     this.props.onSelectActive(value);
   };

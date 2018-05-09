@@ -1,6 +1,7 @@
 doctype html
 html lang="#{@locale}"
   head
+    link rel="stylesheet" href="#{static_path(@conn, "/assets/vendors~lesson.css")}"
     link rel="stylesheet" href="#{static_path(@conn, "/assets/main.css")}"
     title= page_title(@conn)
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
@@ -24,7 +25,7 @@ html lang="#{@locale}"
         = render @view_module, @view_template, assigns
 
     script src="#{static_path(@conn, "/assets/vendors~main.js")}"
-    script src="#{static_path(@conn, "/assets/vendors~lesson.js")}"
-    script src="#{static_path(@conn, "/assets/vendors~lesson~main.js")}"
     script src="#{static_path(@conn, "/assets/main.js")}"
+    script src="#{static_path(@conn, "/assets/vendors~lesson~main.js")}"
+    script src="#{static_path(@conn, "/assets/vendors~lesson.js")}"
     script src="#{static_path(@conn, "/assets/lesson.js")}"

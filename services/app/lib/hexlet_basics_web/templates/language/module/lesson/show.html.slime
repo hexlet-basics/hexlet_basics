@@ -32,7 +32,7 @@
 
   .col-7.no-gutters.pl-0.d-flex.flex-column.x-flex-1
     = if current_user(@conn).guest do
-      p.lead= gettext "Exercise available only for signed in users"
+      p.lead= gettext "Exercise available only for signed users"
     - else
       #basics-lesson-container.d-flex.flex-column.x-flex-1
 
