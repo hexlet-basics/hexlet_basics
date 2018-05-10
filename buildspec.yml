@@ -5,7 +5,7 @@ phases:
   pre_build:
     commands:
       - docker version
-      # - $(aws ecr get-login --no-include-email)
+      - $(aws ecr get-login --no-include-email)
       - docker pull $CONTAINER_REPOSITORY_URL:$REF_NAME || true
     build:
       commands:
