@@ -9,8 +9,8 @@ phases:
       - docker pull $CONTAINER_REPOSITORY_URL:$REF_NAME || true
   build:
     commands:
-      # - docker build --cache-from $CONTAINER_REPOSITORY_URL:$REF_NAME --tag $CONTAINER_REPOSITORY_URL:$REF_NAME --tag $CONTAINER_REPOSITORY_URL:ref-$CODEBUILD_RESOLVED_SOURCE_VERSION .
-      - docker build --tag $CONTAINER_REPOSITORY_URL:$REF_NAME services/app
+      - docker build --cache-from $CONTAINER_REPOSITORY_URL:$REF_NAME --tag $CONTAINER_REPOSITORY_URL:$REF_NAME --tag $CONTAINER_REPOSITORY_URL:ref-$CODEBUILD_RESOLVED_SOURCE_VERSION services/app
+      # - docker build --tag $CONTAINER_REPOSITORY_URL:$REF_NAME services/app
   post_build:
     commands:
       - docker push $CONTAINER_REPOSITORY_URL
