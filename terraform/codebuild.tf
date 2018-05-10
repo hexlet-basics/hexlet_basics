@@ -64,7 +64,7 @@ resource "aws_iam_policy_attachment" "codebuild_policy_attachment" {
 resource "aws_codebuild_project" "hexlet_basics" {
   name         = "hexlet-basics"
   description  = "Hexlet Basics"
-  build_timeout      = "5"
+  build_timeout      = "20"
   service_role = "${aws_iam_role.codebuild_role.arn}"
 
   artifacts {
