@@ -1,0 +1,15 @@
+---
+
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - docker version
+      - $(aws ecr get-login --no-include-email)
+      - docker pull $CONTAINER_REPOSITORY_URL:$REF_NAME || true
+    build:
+      commands:
+        - docker build --cache-from $CONTAINER_REPOSITORY_URL:$REF_NAME --tag $CONTAINER_REPOSITORY_URL:$REF_NAME --tag $CONTAINER_REPOSITORY_URL:ref-$CODEBUILD_RESOLVED_SOURCE_VERSION .
+      post_build:
+        commands:
+          - docker push $CONTAINER_REPOSITORY_URL
