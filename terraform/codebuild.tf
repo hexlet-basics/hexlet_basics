@@ -46,6 +46,7 @@ resource "aws_iam_policy" "codebuild_policy" {
         "ecr:PutImage",
         "ecr:InitiateLayerUpload",
         "ecr:UploadLayerPart",
+        "ecr:GetAuthorizationToken",
         "ecr:CompleteLayerUpload"
       ]
     }
