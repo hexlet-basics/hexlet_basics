@@ -4,6 +4,7 @@ use Mix.Config
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
+  secret_key_base: "secret-key-base",
   http: [port: 4001],
   server: false
 
