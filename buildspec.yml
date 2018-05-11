@@ -15,5 +15,5 @@ phases:
       - docker network create shared
       - docker push $CONTAINER_REPOSITORY_URL:$REF_NAME
       - docker run --network shared --name db -d postgres
-      - docker run --network shared $CONTAINER_REPOSITORY_URL bash -c "cd services/app && mix test"
+      - docker run --network shared $CONTAINER_REPOSITORY_URL mix test
       - docker push $CONTAINER_REPOSITORY_URL:v$CODEBUILD_RESOLVED_SOURCE_VERSION
