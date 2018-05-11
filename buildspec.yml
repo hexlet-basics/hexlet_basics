@@ -12,7 +12,8 @@ phases:
       - docker build --cache-from $CONTAINER_REPOSITORY_URL:$REF_NAME --tag $CONTAINER_REPOSITORY_URL:$REF_NAME --tag $CONTAINER_REPOSITORY_URL:v$CODEBUILD_RESOLVED_SOURCE_VERSION services/app
   post_build:
     commands:
+      - docker network create shared
       - docker push $CONTAINER_REPOSITORY_URL:$REF_NAME
-      - docker run -d postgres
-      - docker run $CONTAINER_REPOSITORY_URL mix test
+      - docker run --network shared --name db -d postgres
+      - docker run --network shared $CONTAINER_REPOSITORY_URL mix test
       - docker push $CONTAINER_REPOSITORY_URL:v$CODEBUILD_RESOLVED_SOURCE_VERSION
