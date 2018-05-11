@@ -22,8 +22,27 @@ resource "aws_iam_role" "codebuild_role" {
 EOF
 }
 
-resource "aws_iam_policy" "codebuild_policy" {
-  name        = "hexlet-basics-codebuild-policy"
+resource "aws_iam_role" "codebuild" {
+  name = "hexlet-basics-codebuild"
+
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "codebuild.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_policy" "codebuild" {
+  name        = "hexlet-basics-codebuild"
   path        = "/service-role/"
   description = "Policy used in trust relationship with CodeBuild"
 
@@ -47,7 +66,11 @@ resource "aws_iam_policy" "codebuild_policy" {
         "ecr:InitiateLayerUpload",
         "ecr:UploadLayerPart",
         "ecr:GetAuthorizationToken",
-        "ecr:CompleteLayerUpload"
+        "ecr:CompleteLayerUpload",
+        "s3:CreateBucket",
+        "s3:GetObject",
+        "s3:List*",
+        "s3:PutObject"
       ]
     }
   ]
@@ -55,17 +78,17 @@ resource "aws_iam_policy" "codebuild_policy" {
 POLICY
 }
 
-resource "aws_iam_policy_attachment" "codebuild_policy_attachment" {
-  name       = "hexlet-basics-codebuild-policy-attachment"
-  policy_arn = "${aws_iam_policy.codebuild_policy.arn}"
-  roles      = ["${aws_iam_role.codebuild_role.id}"]
+resource "aws_iam_policy_attachment" "codebuild" {
+  name       = "hexlet-basics-codebuild"
+  policy_arn = "${aws_iam_policy.codebuild.arn}"
+  roles      = ["${aws_iam_role.codebuild.id}"]
 }
 
-resource "aws_codebuild_project" "hexlet_basics" {
-  name         = "hexlet-basics"
+resource "aws_codebuild_project" "app" {
+  name         = "hexlet-basics-app"
   description  = "Hexlet Basics"
   build_timeout      = "20"
-  service_role = "${aws_iam_role.codebuild_role.arn}"
+  service_role = "${aws_iam_role.codebuild.arn}"
 
   artifacts {
     type = "NO_ARTIFACTS"

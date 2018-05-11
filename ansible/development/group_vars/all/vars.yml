@@ -1,3 +1,5 @@
+---
+
 hexlet_basics_mix_env: dev
 hexlet_basics_run_user: "{{ ansible_ssh_user }}"
 hexlet_basics_run_user_home: "{{ lookup('env','HOME') }}"

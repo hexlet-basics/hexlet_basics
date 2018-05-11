@@ -1,3 +1,5 @@
+---
+
 - hosts: all
   gather_facts: no
   vars:
@@ -5,4 +7,4 @@
   tasks:
     - template:
         src: secrets.auto.tfvars.j2
-        dest: '../terraform/aws/production/secrets.auto.tfvars'
+        dest: '../terraform/secrets.auto.tfvars'

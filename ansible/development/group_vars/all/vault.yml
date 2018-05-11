@@ -1,4 +1,5 @@
 # -*- mode: yaml; vault: true; -*-
+---
 
 hexlet_basics_vault_github_client_id_ru: "779d61cefad06c93d3b8"
 hexlet_basics_vault_github_secret_ru: "d0392b2c07b8c078e6c6b38ddadd21a2b24135c4"
