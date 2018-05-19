@@ -34,7 +34,7 @@ export default class Editor extends React.Component {
       options={options}
       language={this.props.language}
       editorDidMount={this.editorDidMount}
-      value={this.props.defaultValue}
+      defaultValue={this.props.defaultValue}
       onChange={this.handleChange}
     />);
   }
