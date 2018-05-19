@@ -42,7 +42,7 @@ export default class Editor extends React.Component {
 
   renderSolution() {
     const { t } = this.props;
-    return (<div className="p-3 pt-2" id="basics-solution">
+    return (<div className="p-3 pt-2 x-overflow-y-scroll" id="basics-solution">
       <p className="mb-0">{t('teacher_solution')}</p>
       <Highlight languages={[this.props.language]}>
         {this.props.defaultValue}
