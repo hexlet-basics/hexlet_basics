@@ -52,6 +52,10 @@ module.exports = {
     gon: 'Gon',
   },
 
+  node: {
+    fs: 'empty',
+  },
+
   optimization: {
     splitChunks: {
       chunks: 'all',
