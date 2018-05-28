@@ -8,7 +8,7 @@
 ### Install
 
 ```sh
-$ make app-setup
+$ make compose-setup
 ```
 
 ### Load content
@@ -20,7 +20,7 @@ $ make app-exercises-load
 ### Run
 
 ```sh
-$ make app
+$ make compose
 ```
 
 Go to [http://localhost:4000/](http://localhost:4000/)
