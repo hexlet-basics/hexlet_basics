@@ -104,7 +104,8 @@ const solutionState = handleActions({
   [actions.init]: (state, { payload }) => {
     const { userFinishedLesson } = payload;
     const lessonFinished = !!userFinishedLesson;
-    return { canBeShown: lessonFinished, shown: lessonFinished };
+    const newState = lessonFinished ? { canBeShown: true, shown: true } : { ...state };
+    return newState;
   },
   [actions.showSolution]: (state) => {
     const newState = { ...state, shown: true };
@@ -116,7 +117,8 @@ const solutionState = handleActions({
   },
   [actions.runCheckSuccess]: (_, { payload }) => {
     const { check: { data: { attributes } } } = payload;
-    return { canBeShown: attributes.passed, shown: attributes.passed };
+    const newState = attributes.passed ? { canBeShown: true, shown: true } : { ..._ };
+    return newState;
   },
 }, { canBeShown: false, shown: false });
 
