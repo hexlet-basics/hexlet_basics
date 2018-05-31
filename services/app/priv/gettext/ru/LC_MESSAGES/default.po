@@ -22,6 +22,9 @@ msgstr "Ошибка аутентификации"
 msgid "Require auth"
 msgstr "Требуется аутентификация"
 
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
 msgid "Sign In"
 msgstr "Войти"
@@ -149,6 +152,20 @@ msgid "From the creators of Hexlet"
 msgstr "От создателей Хекслета"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/about/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
 msgid "About"
 msgstr "О проекте"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "Only for signed users"
+msgstr "Упражнение доступно только авторизованным пользователям."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "Please Sign In"
+msgstr "Пожалуйста, авторизуйтесь с помощью учётной записи GitHub, это необходимо для отслеживания прогресса выполнения уроков. Если у вас ещё нет учётной записи, то сейчас самое время создать аккаунт на GitHub."

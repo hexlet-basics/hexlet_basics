@@ -22,6 +22,9 @@ msgstr ""
 msgid "Require auth"
 msgstr ""
 
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
 msgid "Sign In"
 msgstr ""
@@ -149,6 +152,20 @@ msgid "From the creators of Hexlet"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/about/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
 msgid "About"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "Only for signed users"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "Please Sign In"
 msgstr ""

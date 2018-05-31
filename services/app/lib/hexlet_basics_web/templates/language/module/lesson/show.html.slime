@@ -32,7 +32,13 @@
 
   .col-7.no-gutters.pl-0.d-flex.flex-column.x-flex-1
     = if current_user(@conn).guest do
-      p.lead= gettext "Exercise available only for signed users"
+      p.lead= gettext "Only for signed users"
+      p= gettext "Please Sign In"
+      .text-center
+        = link to: auth_path(@conn, :request, :github), class: "btn btn-lg btn-success" do
+          strong
+            i.fab.fa-github.mr-2
+            =gettext("Sign In")
     - else
       #basics-lesson-container.d-flex.flex-column.x-flex-1
 

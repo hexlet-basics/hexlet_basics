@@ -22,6 +22,9 @@ msgstr ""
 msgid "Require auth"
 msgstr ""
 
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
 msgid "Sign In"
 msgstr ""
@@ -149,6 +152,20 @@ msgid "From the creators of Hexlet"
 msgstr "From the creators of Hexlet"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/about/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
 msgid "About"
 msgstr "About"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "Only for signed users"
+msgstr "Exercise available only for signed users."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "Please Sign In"
+msgstr "Please sign in with your GitHub account, this is necessary to track the progress of the lessons. If you do not have an account yet, now is the time to create an account on Github."
