@@ -21,6 +21,7 @@
     "bootstrap": "^4.1.1",
     "classnames": "^2.2.5",
     "date-fns": "*",
+    "eslint-plugin-jest": "^21.17.0",
     "file-loader": "^1.1.11",
     "highlight.js": "^9.12.0",
     "i18next": "^10.6.0",

@@ -3,6 +3,9 @@ USER = "$(shell id -u):$(shell id -g)"
 app-test:
 	docker-compose run app mix test
 
+app-lint:
+	docker-compose run app npm run lint -- --ext js --ext jsx .
+
 app-locales-build:
 	docker-compose run app mix gettext.extract --merge
 	docker-compose run app mix gettext.merge priv/gettext --locale ru

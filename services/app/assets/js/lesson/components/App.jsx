@@ -36,21 +36,36 @@ class App extends React.Component {
     if (!notification) {
       return null;
     }
-    return (<div className="hexlet-ide-notifications"><AlertContainer>
-      <Alert timeout={5000} onDismiss={this.props.dismissNotification} type={notification.type} headline={t(notification.headline)}>
-        {t(notification.message)}
-      </Alert>
-    </AlertContainer></div>);
+    return (
+      <div className="hexlet-ide-notifications">
+        <AlertContainer>
+          <Alert
+            timeout={5000}
+            onDismiss={this.props.dismissNotification}
+            type={notification.type}
+            headline={t(notification.headline)}
+          >
+            {t(notification.message)}
+          </Alert>
+        </AlertContainer>
+      </div>
+    );
   }
 
   render() {
     const { currentTabInfo, userFinishedLesson } = this.props;
 
-    return (<React.Fragment>
-      {this.renderAlert()}
-      <TabsBox onSelectActive={this.handleSelectTab} active={currentTabInfo.current} userFinishedLesson={userFinishedLesson} />
-      <ControlBox userFinishedLesson={userFinishedLesson} />
-    </React.Fragment>);
+    return (
+      <React.Fragment>
+        {this.renderAlert()}
+        <TabsBox
+          onSelectActive={this.handleSelectTab}
+          active={currentTabInfo.current}
+          userFinishedLesson={userFinishedLesson}
+        />
+        <ControlBox userFinishedLesson={userFinishedLesson} />
+      </React.Fragment>
+    );
   }
 }
 

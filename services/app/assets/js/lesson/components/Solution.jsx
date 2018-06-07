@@ -32,23 +32,26 @@ export default class Editor extends React.Component {
     if (!code) {
       return <p className="mt-3">{t('user_code_instructions')}</p>;
     }
-    return (<div>
-      <p className="mt-3 mb-0">{t('user_code')}</p>
-      <Highlight languages={[this.props.language]}>
-        {code}
-      </Highlight>
-    </div>);
+    return (
+      <div>
+        <p className="mt-3 mb-0">{t('user_code')}</p>
+        <Highlight languages={[this.props.language]}>
+          {code}
+        </Highlight>
+      </div>
+    );
   }
 
   renderSolution() {
     const { t } = this.props;
-    return (<div className="p-3 pt-2 x-overflow-y-scroll" id="basics-solution">
-      <p className="mb-0">{t('teacher_solution')}</p>
-      <Highlight languages={[this.props.language]}>
-        {this.props.defaultValue}
-      </Highlight>
-      {this.renderUserCode()}
-    </div>
+    return (
+      <div className="p-3 pt-2 x-overflow-y-scroll" id="basics-solution">
+        <p className="mb-0">{t('teacher_solution')}</p>
+        <Highlight languages={[this.props.language]}>
+          {this.props.defaultValue}
+        </Highlight>
+        {this.renderUserCode()}
+      </div>
     );
   }
 
@@ -58,24 +61,31 @@ export default class Editor extends React.Component {
       'btn btn-primary x-no-focus-outline x-cursor-pointer px-4 mr-3': true,
       disabled: !solutionState.canBeShown,
     });
-    return (<p>
-      {t('solution_notice')}
-      <button className={showButtonClasses} onClick={this.handleShowSolution}>{t('show_solution')}</button>
-    </p>);
+    return (
+      <p>
+        {t('solution_notice')}
+        <button className={showButtonClasses} onClick={this.handleShowSolution}>{t('show_solution')}</button>
+      </p>
+    );
   }
 
   renderCountdownTimer() {
     const { countdown, t } = this.props;
-    return (<p>{t('solution_instructions', {
-      remainingTime: dateFns.distanceInWordsStrict(countdown.currentTime, countdown.finishTime, { locale: dateFnsLocale }),
-    })}</p>);
+    const remainingTime = dateFns.distanceInWordsStrict(
+      countdown.currentTime,
+      countdown.finishTime,
+      { locale: dateFnsLocale },
+    );
+    return <p>{t('solution_instructions', { remainingTime })}</p>;
   }
 
   renderMessage() {
     const { solutionState } = this.props;
-    return (<div className="p-3 pt-2" id="basics-solution">
-      {solutionState.canBeShown ? this.renderShowButton() : this.renderCountdownTimer() }
-    </div>);
+    return (
+      <div className="p-3 pt-2" id="basics-solution">
+        {solutionState.canBeShown ? this.renderShowButton() : this.renderCountdownTimer() }
+      </div>
+    );
   }
 
   render() {
