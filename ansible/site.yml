@@ -44,5 +44,5 @@
         name: "docker system prune"
         minute: "0"
         hour: "3"
-        job: "docker system prune -a"
+        job: "docker system prune -f"
       tags: [cron]
