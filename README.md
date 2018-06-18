@@ -1,3 +1,7 @@
+![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/hexletguides.github.io/master/images/hexlet_logo128.png)
+
+This repository is created and maintained by the team and the community of the educational project _Hexlet_. [Read more about Hexlet](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=hexlet-basics).
+
 ### Requirements
 
 * Mac / Linux
