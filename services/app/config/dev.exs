@@ -53,6 +53,7 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
 config :hexlet_basics,
   code_directory: "/tmp/hexlet-basics/code",
   langs: %{"ru.hexlet-basics.test" => "ru", "en.hexlet-basics.test" => "en"},
+  docker_command_template: "docker run ~s ~s timeout 3 make --silent -C ~s test",
   ga_ru: "ruGtag",
   ga_en: "enGtag"
 
