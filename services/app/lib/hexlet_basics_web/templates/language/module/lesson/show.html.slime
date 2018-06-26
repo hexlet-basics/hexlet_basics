@@ -1,5 +1,5 @@
 .row
-  .col-5
+  .col-12.col-md-5
     .card.hexlet-basics-theory-card
       .card-header.py-0
         ul.nav.nav-pills.card-header-pills.justify-content-center
@@ -30,15 +30,16 @@
           .tab-pane#discuss
             #disqus_thread
 
-  .col-7.no-gutters.pl-0.d-flex.flex-column.x-flex-1
+  .col-12.col-md-7.d-flex.flex-column.x-flex-1.hexlet-basics-editor-container.py-4.py-md-0.pl-md-0
     = if current_user(@conn).guest do
-      p.lead= gettext "Only for signed users"
-      p= gettext "Please Sign In"
-      .text-center
-        = link to: auth_path(@conn, :request, :github), class: "btn btn-lg btn-success" do
-          strong
-            i.fab.fa-github.mr-2
-            =gettext("Sign In")
+      .p-4.p-md-0
+        p.lead= gettext "Only for signed users"
+        p= gettext "Please Sign In"
+        .text-center
+          = link to: auth_path(@conn, :request, :github), class: "btn btn-lg btn-success" do
+            strong
+              i.fab.fa-github.mr-2
+              =gettext("Sign In")
     - else
       #basics-lesson-container.d-flex.flex-column.x-flex-1
 

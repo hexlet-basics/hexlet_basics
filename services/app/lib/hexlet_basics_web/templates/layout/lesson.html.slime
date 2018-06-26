@@ -6,18 +6,20 @@ html lang="#{@locale}"
     title= page_title(@conn)
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
-  body.x-100vh.x-overflow-hidden
+  body.x-md-100vh.x-md-overflow-hidden
     .container-fluid
       header.header
-        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark role="navigation"
-          a.navbar-brand href="/"= gettext "Code Basics"
-          .navbar-text.mx-auto.pr-5
+        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.d-flex.justify-content-between.py-0 role="navigation"
+          .navbar-text.pr-3
+            a href="/"
+              i.fas.fa-home
+            = " → "
             = link @language.slug, to: language_path(@conn, :show, @language.slug)
             = " → "
             = @module_description.name
             | &nbsp;
             = @lesson.natural_order
-            | &nbsp;/&nbsp;
+            | /
             = @lessons_count
           = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 

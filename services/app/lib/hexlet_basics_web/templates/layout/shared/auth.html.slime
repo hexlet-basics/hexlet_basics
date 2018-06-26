@@ -1,7 +1,8 @@
-ul.navbar-nav.ml-auto
+.navbar-text
   = unless @current_user.guest do
-    li.nav-item.navbar-text= @current_user.nickname
-  li.nav-item
+    .navbar-text= @current_user.nickname
+
+  .navbar-text
     = if @current_user.guest do
       = link to: auth_path(@conn, :request, :github), class: "nav-link" do
         strong

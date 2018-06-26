@@ -76,6 +76,22 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
   overflow: hidden;
 }
 
+@include media-breakpoint-up(md) {
+  .x-md-100vh {
+    height: 100vh;
+  }
+
+  .x-md-overflow-hidden {
+    overflow: hidden;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .monaco-editor, .hexlet-basics-editor-container {
+    height: 600px;
+  }
+}
+
 .x-overflow {
   overflow: auto;
 }
