@@ -50,6 +50,7 @@
     "redux-logger": "^3.0.6",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.3.0",
+    "sanitize-html": "^1.18.2",
     "tether": "^1.4.4",
     "url-loader": "^0.6.2"
   },
