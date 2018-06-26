@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
-import dateFns from 'date-fns';
+import { addMinutes } from 'date-fns';
 
 import * as actions from '../actions';
 
@@ -72,7 +72,7 @@ const checkInfo = handleActions({
 const countdown = handleActions({
   [actions.init]: (state, { payload }) => {
     const { startTime } = payload;
-    const finishTime = dateFns.addMinutes(startTime, 30);
+    const finishTime = addMinutes(startTime, 30);
     // const finishTime = dateFns.addSeconds(startTime, 10);
     return { ...state, startTime, finishTime };
   },
