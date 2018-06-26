@@ -29,6 +29,7 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckController do
     command = String.Chars.to_string(command)
     Logger.debug command
     %Porcelain.Result{out: output, status: status} = Porcelain.shell(command)
+    Logger.debug output
 
     result = case status do
       0 -> "passed"
