@@ -26,8 +26,14 @@ app-db-prepare:
 	docker-compose run app mix ecto.create
 	docker-compose run app mix ecto.migrate
 
-app-exercises-load:
+app-exercises-load-php:
 	docker pull hexlet/hexlet-basics-exercises-php
 	rm -rf tmp/exercises-php
 	docker run --rm -v $(CURDIR)/tmp/exercises-php:/out hexlet/hexlet-basics-exercises-php bash -c "cp -r /exercises-php/* /out"
 	docker-compose run --rm app mix x.exercises.load php
+
+app-exercises-load-javascript:
+	docker pull hexlet/hexlet-basics-exercises-javascript
+	rm -rf tmp/exercises-javascript
+	docker run --rm -v $(CURDIR)/tmp/exercises-javascript:/out hexlet/hexlet-basics-exercises-javascript bash -c "cp -r /exercises-javascript/* /out"
+	docker-compose run --rm app mix x.exercises.load javascript
