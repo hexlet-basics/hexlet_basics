@@ -18,7 +18,7 @@
       .card-body
         h2.h4.card-title.text-center JavaScript
         img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/js.png") alt="JavaScript programming lessons")
-        .btn.btn-dark.disabled.btn-block coming soon
+        = link gettext("Start"), to: language_path(@conn, :show, "javascript"), class: "btn btn-primary btn-block"
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.hexlet-basics-purple-card
       .card-body

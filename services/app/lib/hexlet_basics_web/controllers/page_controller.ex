@@ -12,11 +12,11 @@ defmodule HexletBasicsWeb.PageController do
 
   def show(conn, %{"id" => id}) do
     pages = ["about"]
-    unless id in pages do
+    if id in pages do
+      render conn, :"#{id}"
+    else
       message = "Cannot find page '#{id}'"
       raise Phoenix.Router.NoRouteError, conn: conn, router: conn.private.phoenix_router, message: message
-    else
-      render conn, :"#{id}"
     end
   end
 end
