@@ -90,6 +90,10 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
   .monaco-editor, .hexlet-basics-editor-container {
     height: 600px;
   }
+
+  .hexlet-basics-theory-card {
+    height: auto !important;
+  }
 }
 
 .x-overflow {
