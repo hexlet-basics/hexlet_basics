@@ -11,6 +11,7 @@ msgid ""
 msgstr ""
 
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Start"
 msgstr ""
 
@@ -71,7 +72,6 @@ msgid "lesson"
 msgstr ""
 
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/lesson.html.slime:1
 msgid "Code Basics"
 msgstr ""
 
@@ -168,4 +168,14 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "Please Sign In"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Donate"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Support Code Basics"
 msgstr ""

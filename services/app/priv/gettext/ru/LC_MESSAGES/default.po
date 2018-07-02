@@ -11,6 +11,7 @@ msgstr ""
 "Language: ru_RU\n"
 
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Start"
 msgstr "Начать"
 
@@ -71,7 +72,6 @@ msgid "lesson"
 msgstr "Урок"
 
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/lesson.html.slime:1
 msgid "Code Basics"
 msgstr "Основы программирования"
 
@@ -169,3 +169,13 @@ msgstr "Упражнение доступно только авторизова�
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "Please Sign In"
 msgstr "Пожалуйста, авторизуйтесь с помощью учётной записи GitHub, это необходимо для отслеживания прогресса выполнения уроков. Если у вас ещё нет учётной записи, то сейчас самое время создать аккаунт на GitHub."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Donate"
+msgstr "Поддержать проект"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Support Code Basics"
+msgstr "Цель Code Basics — предоставить качественные интерактивные уроки по основам программирования бесплатно, для всех. Вы можете поддержать проект и помочь нам развивать его, создавать новые уроки и курсы."

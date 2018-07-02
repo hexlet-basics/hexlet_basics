@@ -48,3 +48,10 @@ h1.text-center.display-2= @language.slug
           p.lead property="description"= module_description.description
 
   hr.mt-4.mb-5
+
+.my-4.text-center
+
+  p.lead.mt-5.mb-4= gettext "Support Code Basics"
+
+  script paypalexpress="false" src="https://donorbox.org/widget.js"
+  iframe allowpaymentrequest="" frameborder="0" height="685px" name="donorbox" scrolling="no" seamless="seamless" src="https://donorbox.org/embed/code-basics-ru" style=("max-width:500px; min-width:310px; max-height:none!important") width="100%"

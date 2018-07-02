@@ -20,6 +20,10 @@ html lang="#{@locale}"
                 a.nav-link target="_blank" href="http://guides.hexlet.io"= gettext "Guides"
               li.nav-item
                 a.nav-link target="_blank" href="https://ru.hexlet.io/projects"= gettext "Projects"
+              li.nav-item
+                a.nav-link.font-weight-bold target="_blank" href="https://donorbox.org/code-basics-ru"
+                  = gettext "Donate"
+                  span.ml-1.small= "❤️"
             = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
       = for name <- [:info, :error] do
