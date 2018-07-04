@@ -109,6 +109,31 @@ resource "aws_security_group" "hexlet-basics-http" {
 	}
 }
 
+resource "aws_security_group" "hexlet-basics-https" {
+  name        = "hexlet-basics-https"
+  description = "allow https"
+  vpc_id      = "${aws_vpc.hexlet-basics.id}"
+
+  ingress {
+    from_port   = 443
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+
+	tags {
+		Name = "hexlet-basics-https"
+    Project = "hexlet-basics"
+	}
+}
+
 resource "aws_main_route_table_association" "hexlet-basics" {
   vpc_id = "${aws_vpc.hexlet-basics.id}"
   route_table_id = "${aws_route_table.hexlet-basics.id}"

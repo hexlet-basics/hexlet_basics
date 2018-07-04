@@ -23,7 +23,10 @@ resource "aws_lb" "hexlet-basics" {
   name            = "hexlet-basics"
   internal        = false
 
-  security_groups = ["${aws_security_group.hexlet-basics-http.id}"]
+  security_groups = [
+    "${aws_security_group.hexlet-basics-http.id}",
+    "${aws_security_group.hexlet-basics-https.id}"
+  ]
   subnets = ["${aws_subnet.hexlet-basics-app-a.id}", "${aws_subnet.hexlet-basics-app-b.id}"]
   tags {
     Name = "hexlet-basics"
