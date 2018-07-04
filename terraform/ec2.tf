@@ -45,7 +45,7 @@ resource "aws_lb_target_group_attachment" "hexlet-basics" {
 }
 
 resource "aws_acm_certificate" "hexlet-basics-lb-cert" {
-  domain_name   = "code-basics.ru"
+  domain_name   = "${var.domain_name}"
   validation_method = "DNS"
 
   lifecycle {
