@@ -20,7 +20,7 @@ resource "aws_instance" "hexlet-basics-web2" {
 }
 
 resource "aws_lb" "hexlet-basics" {
-  name               = "hexlet-basics"
+  name            = "hexlet-basics"
   internal        = false
 
   security_groups = ["${aws_security_group.hexlet-basics-http.id}"]
@@ -44,6 +44,15 @@ resource "aws_lb_target_group_attachment" "hexlet-basics" {
   port             = 80
 }
 
+resource "aws_acm_certificate" "hexlet-basics-lb-cert" {
+  domain_name   = "code-basics.ru"
+  validation_method = "DNS"
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
 resource "aws_lb_listener" "hexlet-basics" {
   load_balancer_arn = "${aws_lb.hexlet-basics.arn}"
   port              = "80"
@@ -53,4 +62,20 @@ resource "aws_lb_listener" "hexlet-basics" {
     target_group_arn = "${aws_lb_target_group.hexlet-basics.arn}"
     type             = "forward"
   }
+}
+
+resource "aws_lb_listener" "hexlet-basics-443" {
+  load_balancer_arn = "${aws_lb.hexlet-basics.arn}"
+  port              = "443"
+  protocol          = "HTTPS"
+
+  default_action {
+    target_group_arn = "${aws_lb_target_group.hexlet-basics.arn}"
+    type             = "forward"
+  }
+}
+
+resource "aws_lb_listener_certificate" "hexlet-basics-listener-cert" {
+  listener_arn    = "${aws_lb_listener.hexlet-basics-443.arn}"
+  certificate_arn = "${aws_acm_certificate.hexlet-basics-lb-cert.arn}"
 }
