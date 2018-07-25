@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 // const WebpackAssetsManifest = require('webpack-manifest-plugin');
 // import CleanObsoleteChunks from 'webpack-clean-obsolete-chunks';
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -20,7 +20,7 @@ module.exports = {
   mode: process.env.NODE_ENV || 'development',
   output: {
     path: `${__dirname}/priv/static/assets`,
-    filename: '[name].js',
+    filename: '[name].[chunkhash].js',
     // chunkFilename: '[id].chunk.js',
     publicPath: '/assets/',
   },
@@ -36,7 +36,8 @@ module.exports = {
   //   fs: 'empty',
   // },
   plugins: [
-    new CleanWebpackPlugin(['./priv/static']),
+    // new CleanWebpackPlugin(['./priv/static']),
+    // new webpack.HashedModuleIdsPlugin(),
     new MonacoWebpackPlugin(),
     new CopyWebpackPlugin([
       { from: './locales', to: '../locales' },
@@ -57,8 +58,15 @@ module.exports = {
   },
 
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
-      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
     },
   },
 
@@ -67,19 +75,22 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true,
-            presets: [
-              '@babel/env',
-              ['@babel/stage-0', { decoratorsLegacy: true }],
-              '@babel/flow',
-              '@babel/react',
-            ],
-            // plugins: ['@babel/plugin-transform-runtime'],
+        use: [
+          'cache-loader',
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              presets: [
+                '@babel/env',
+                ['@babel/stage-0', { decoratorsLegacy: true }],
+                '@babel/flow',
+                '@babel/react',
+              ],
+              // plugins: ['@babel/plugin-transform-runtime'],
+            },
           },
-        },
+        ],
       },
       {
         test: /\.scss$/,
