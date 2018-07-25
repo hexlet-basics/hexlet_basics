@@ -1,4 +1,4 @@
-FROM elixir:1.6.4
+FROM elixir:1.6.6
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ RUN mix archive.install --force https://github.com/phoenixframework/archives/raw
 
 RUN apt-get update && apt-get install -y inotify-tools
 
-RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
 RUN apt-get update && apt-get install -y nodejs
 
