@@ -83,11 +83,17 @@ module.exports = {
               cacheDirectory: true,
               presets: [
                 '@babel/env',
-                ['@babel/stage-0', { decoratorsLegacy: true }],
                 '@babel/flow',
                 '@babel/react',
               ],
-              // plugins: ['@babel/plugin-transform-runtime'],
+              plugins: [
+                ['@babel/plugin-proposal-optional-chaining', { loose: false }],
+                ['@babel/plugin-proposal-nullish-coalescing-operator', { loose: false }],
+
+                ['@babel/plugin-proposal-decorators', { legacy: true }],
+                '@babel/plugin-syntax-dynamic-import',
+                ['@babel/plugin-proposal-class-properties', { loose: false }],
+              ],
             },
           },
         ],

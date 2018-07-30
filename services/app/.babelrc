@@ -4,9 +4,6 @@
       "targets": { "node": "current" },
       "ignoreBrowserslistConfig": true
     }],
-    ["@babel/stage-0", {
-      "decoratorsLegacy": true
-    }],
     "@babel/react"
   ]
 }
