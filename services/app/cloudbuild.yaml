@@ -12,6 +12,11 @@ steps:
       'services/app'
     ]
   - name: 'docker/compose:1.15.0'
-    args: ['--project-directory', 'services/app', 'run', 'sut']
+    args: [
+      '--project-directory', 'services/app',
+      '-f', 'services/app/docker-compose.yml',
+      'run',
+      'sut'
+    ]
 
 images: ['gcr.io/$PROJECT_ID/app:latest']
