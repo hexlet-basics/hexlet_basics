@@ -1,0 +1,12 @@
+---
+
+version: '2'
+
+services:
+  db:
+    image: postgres
+  sut:
+    image: gcr.io/hexlet-basics/app
+    command: mix test
+    depends_on:
+      - db

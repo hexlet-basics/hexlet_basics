@@ -10,4 +10,7 @@ steps:
       '--cache-from', 'gcr.io/$PROJECT_ID/app:latest',
       '.'
     ]
+  - name: 'docker/compose:1.15.0'
+    args: ['run', 'sut']
+
 images: ['gcr.io/$PROJECT_ID/app:latest']
