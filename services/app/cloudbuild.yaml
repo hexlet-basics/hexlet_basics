@@ -8,6 +8,7 @@ steps:
       'build',
       '-t', 'gcr.io/$PROJECT_ID/app:latest',
       '--cache-from', 'gcr.io/$PROJECT_ID/app:latest',
+      '--file', 'services/app/Dockerfile',
       '.'
     ]
   - name: 'docker/compose:1.15.0'
