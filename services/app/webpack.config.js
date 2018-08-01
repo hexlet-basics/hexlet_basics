@@ -3,11 +3,11 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
-// const WebpackAssetsManifest = require('webpack-manifest-plugin');
+// const WebpackAssetsManifest = require('webpack-assets-manifest');
 // import CleanObsoleteChunks from 'webpack-clean-obsolete-chunks';
 // const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const isDevelopment = process.env.NODE_ENV === 'development';
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const apps = {
   main: ['./js/app.js', './css/app.scss'],
@@ -20,13 +20,13 @@ module.exports = {
   mode: process.env.NODE_ENV || 'development',
   output: {
     path: `${__dirname}/priv/static/assets`,
-    filename: '[name].[chunkhash].js',
+    filename: '[name].js',
     // chunkFilename: '[id].chunk.js',
     publicPath: '/assets/',
   },
   watch: isDevelopment,
   watchOptions: {
-    // aggregateTimeout: 300,
+    aggregateTimeout: 300,
     poll: 1000,
   },
   resolve: {
@@ -38,6 +38,7 @@ module.exports = {
   plugins: [
     // new CleanWebpackPlugin(['./priv/static']),
     // new webpack.HashedModuleIdsPlugin(),
+    // new WebpackAssetsManifest({ writeToDisc: true }),
     new MonacoWebpackPlugin(),
     new CopyWebpackPlugin([
       { from: './locales', to: '../locales' },

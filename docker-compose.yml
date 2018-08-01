@@ -30,16 +30,24 @@ services:
       - "${PORT}:${PORT}"
     env_file: '.env'
     volumes:
+      - "app_node_modules:/app/node_modules"
+      - "app_static:/app/priv/static"
+      - "app_build:/app/_build"
+      - "app_deps:/app/deps"
       - "./services/app:/app"
       - "~/.bash_history:/root/.bash_history:cached"
       - "./tmp/exercises-php:/exercises-php"
       - "./tmp/exercises-javascript:/exercises-javascript"
       - ".bashrc:/root/.bashrc:cached"
       - '/var/run/docker.sock:/var/run/docker.sock'
-      - "/var/tmp:/var/tmp:cached"
+      # - "/var/tmp:/var/tmp:cached"
       - "/tmp:/tmp:cached"
     depends_on:
       - db
 
 volumes:
   pgdata:
+  app_node_modules:
+  app_static:
+  app_build:
+  app_deps:
