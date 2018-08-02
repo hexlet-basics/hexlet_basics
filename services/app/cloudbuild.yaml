@@ -19,4 +19,5 @@ steps:
       'sut'
     ]
 
+timeout: "1200s"
 images: ['gcr.io/$PROJECT_ID/app:latest']
