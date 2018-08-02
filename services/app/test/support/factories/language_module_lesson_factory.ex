@@ -4,9 +4,11 @@ defmodule HexletBasics.LanguageModuleLessonFactory do
       def language_module_lesson_factory do
         module = insert(:language_module)
         language = module.language
+
         %HexletBasics.Language.Module.Lesson{
-          slug: Faker.Internet.slug,
+          slug: Faker.Internet.slug(),
           order: 100,
+          natural_order: 100,
           module: module,
           language: language,
           upload: module.upload,
