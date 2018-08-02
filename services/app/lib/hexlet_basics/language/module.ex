@@ -3,16 +3,17 @@ defmodule HexletBasics.Language.Module do
   import Ecto.Changeset
   alias HexletBasics.Language.Module
 
+  @derive {Poison.Encoder, only: [:id, :slug]}
 
   schema "language_modules" do
-    field :slug, :string
-    field :state, :string
-    field :order, :integer
+    field(:slug, :string)
+    field(:state, :string)
+    field(:order, :integer)
 
-    belongs_to :upload, HexletBasics.Upload
-    belongs_to :language, HexletBasics.Language
-    has_many :descriptions, Module.Description
-    has_many :lessons, Module.Lesson
+    belongs_to(:upload, HexletBasics.Upload)
+    belongs_to(:language, HexletBasics.Language)
+    has_many(:descriptions, Module.Description)
+    has_many(:lessons, Module.Lesson)
 
     timestamps()
   end

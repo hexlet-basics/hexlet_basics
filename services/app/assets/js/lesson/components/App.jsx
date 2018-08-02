@@ -5,6 +5,7 @@ import { translate } from 'react-i18next';
 import connect from '../connect';
 import TabsBox from '../components/TabsBox';
 import ControlBox from '../components/ControlBox';
+import EntityContext from '../EntityContext';
 
 const mapStateToProps = (state) => {
   const { notification, checkInfo, currentTabInfo } = state;
@@ -15,18 +16,6 @@ const mapStateToProps = (state) => {
 @connect(mapStateToProps)
 @translate()
 class App extends React.Component {
-  static childContextTypes = {
-    lesson: PropTypes.object,
-    language: PropTypes.object,
-  };
-
-  getChildContext() {
-    return {
-      language: this.props.language,
-      lesson: this.props.lesson,
-    };
-  }
-
   handleSelectTab = (current) => {
     this.props.selectTab({ current });
   }
@@ -58,12 +47,18 @@ class App extends React.Component {
     return (
       <React.Fragment>
         {this.renderAlert()}
-        <TabsBox
-          onSelectActive={this.handleSelectTab}
-          active={currentTabInfo.current}
-          userFinishedLesson={userFinishedLesson}
-        />
-        <ControlBox userFinishedLesson={userFinishedLesson} />
+        <EntityContext.Consumer>
+          {({ lesson, language }) => (<TabsBox
+            lesson={lesson}
+            language={language}
+            onSelectActive={this.handleSelectTab}
+            active={currentTabInfo.current}
+            userFinishedLesson={userFinishedLesson}
+          />)}
+        </EntityContext.Consumer>
+        <EntityContext.Consumer>
+          {entities => <ControlBox {...entities} userFinishedLesson={userFinishedLesson} />}
+        </EntityContext.Consumer>
       </React.Fragment>
     );
   }

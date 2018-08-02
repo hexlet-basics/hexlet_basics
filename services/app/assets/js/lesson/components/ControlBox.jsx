@@ -6,6 +6,7 @@ import { faSpinner, faPlayCircle } from '@fortawesome/fontawesome-free-solid';
 import { translate } from 'react-i18next';
 import Hotkeys from 'react-hot-keys';
 import connect from '../connect';
+import routes from '../routes';
 
 const mapStateToProps = (state) => {
   const { checkInfo, code, lessonState } = state;
@@ -16,13 +17,8 @@ const mapStateToProps = (state) => {
 @connect(mapStateToProps)
 @translate()
 class ControlBox extends React.Component {
-  static contextTypes = {
-    lesson: PropTypes.object,
-  };
-
   handleRunCheck = () => {
-    const { code } = this.props;
-    const { lesson } = this.context;
+    const { code, lesson } = this.props;
     this.props.runCheck({ lesson, code });
   }
 
@@ -31,11 +27,13 @@ class ControlBox extends React.Component {
       checkInfo,
       lessonState,
       t,
+      language,
+      lesson,
+      prevLesson,
     } = this.props;
-    const { lesson } = this.context;
 
     const runButtonClasses = cn({
-      'btn btn-primary x-no-focus-outline x-cursor-pointer px-4 mr-3': true,
+      'btn btn-primary x-no-focus-outline px-4 mx-3': true,
       disabled: checkInfo.processing,
     });
 
@@ -45,14 +43,24 @@ class ControlBox extends React.Component {
       'btn-success': lessonState.finished,
     });
 
+    const prevButtonClasses = cn({
+      btn: true,
+      'btn-outline-secondary disabled': !prevLesson,
+      'btn-success': prevLesson,
+    });
+
     // TODO move to js routes
-    const nextLessonUrl = `/lessons/${lesson.id}/redirect-to-next`;
+    const nextLessonPath = routes.nextLessonPath(lesson);
+    const prevLessonPath = prevLesson ? routes.languageModuleLessonPath(language, prevLesson.module, prevLesson) : '#';
 
 
     return (
       <Hotkeys keyName="ctrl+Enter" onKeyUp={this.handleRunCheck}>
         <div className="row">
-          <div className="col x-font-sans-serif">
+          <div className="col x-font-sans-serif text-center">
+            <a className={prevButtonClasses} href={prevLessonPath}>
+              {t('prev_lesson')}
+            </a>
             <button className={runButtonClasses} onClick={this.handleRunCheck}>
               <span className="text-secondary x-1em-inline-block mr-2">
                 { checkInfo.processing && <FontAwesomeIcon icon={faSpinner} spin /> }
@@ -60,7 +68,7 @@ class ControlBox extends React.Component {
               </span>
               {t('run')}
             </button>
-            <a className={nextButtonClasses} href={nextLessonUrl}>
+            <a className={nextButtonClasses} href={nextLessonPath}>
               {t('next_lesson')}
             </a>
           </div>

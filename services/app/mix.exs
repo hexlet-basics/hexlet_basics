@@ -6,9 +6,10 @@ defmodule HexletBasics.Mixfile do
       app: :hexlet_basics,
       version: "0.0.1",
       elixir: "~> 1.7",
-      elixirc_paths: elixirc_paths(Mix.env),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers, # ++ [:jsroutes],
-      start_permanent: Mix.env == :prod,
+      elixirc_paths: elixirc_paths(Mix.env()),
+      # ++ [:jsroutes],
+      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
     ]
@@ -34,7 +35,7 @@ defmodule HexletBasics.Mixfile do
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "test/support"]
-  defp elixirc_paths(_),     do: ["lib"]
+  defp elixirc_paths(_), do: ["lib"]
 
   # Specifies your project dependencies.
   #
@@ -43,6 +44,7 @@ defmodule HexletBasics.Mixfile do
     [
       {:phoenix, "~> 1.3.0"},
       {:plug, "~> 1.5.0"},
+      {:remodel, "~> 0.0.4"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
@@ -61,7 +63,8 @@ defmodule HexletBasics.Mixfile do
       {:yaml_elixir, "~> 1.3.1"},
       # {:rollbax, github: "elixir-addicts/rollbax"},
       {:phoenix_gon, github: "khusnetdinov/phoenix_gon"},
-      # {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
+      {:credo, "~> 0.10", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false},
       {:git_cli, "~> 0.2"},
       {:porcelain, "~> 2.0"},
       {:ueberauth_github, "~> 0.6"},
@@ -79,8 +82,8 @@ defmodule HexletBasics.Mixfile do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      "test": ["ecto.create --quiet", "ecto.migrate", "test"],
-      "compile": ["compile --warnings-as-errors"]
+      test: ["ecto.create --quiet", "ecto.migrate", "test"],
+      compile: ["compile --warnings-as-errors"]
     ]
   end
 end

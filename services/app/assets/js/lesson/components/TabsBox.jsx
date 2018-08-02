@@ -18,13 +18,7 @@ const mapStateToProps = (state) => {
 @translate()
 @withActive()
 class TabsBox extends React.Component {
-  static contextTypes = {
-    lesson: PropTypes.object,
-    language: PropTypes.object,
-  };
-
   render() {
-    const { lesson, language } = this.context;
     const {
       checkInfo,
       currentTabInfo,
@@ -32,6 +26,8 @@ class TabsBox extends React.Component {
       setActive,
       changeCode,
       userFinishedLesson,
+      lesson,
+      language,
     } = this.props;
 
     const activateNavLink = this.props.activeClass('active d-flex x-flex-1');

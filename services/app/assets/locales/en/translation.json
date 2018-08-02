@@ -13,6 +13,7 @@
     "discuss": "Discussion",
     "instructions": "Instructions",
     "next_lesson": "Next Lesson",
+    "prev_lesson": "Previous Lesson",
     "alert": {
       "error": {
         "message": "something went wrong, try one more time, please",
