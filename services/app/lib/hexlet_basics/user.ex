@@ -30,7 +30,7 @@ defmodule HexletBasics.User do
     |> String.pad_leading(6, "0")
     |> String.reverse
     |> String.to_charlist
-    |> Enum.chunk(3)
+    |> Enum.chunk_every(3)
     |> Path.join
   end
 end

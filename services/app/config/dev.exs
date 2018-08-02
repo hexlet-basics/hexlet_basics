@@ -17,8 +17,8 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   code_reloader: true,
   check_origin: false,
   watchers: [
-    node: [
-      "./node_modules/.bin/webpack", "--watch-stdin", "--progress", "--color",
+    npx: [
+      "webpack", "--watch-stdin", "--progress", "--color",
       cd: Path.expand("..", __DIR__)
     ]
   ]

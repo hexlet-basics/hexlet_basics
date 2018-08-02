@@ -17,12 +17,12 @@
             == @lesson_instructions_html
             = if (Enum.count(@lesson_description.tips) + Enum.count(@lesson_description.definitions)) > 0 do
               hr.my-4
-            = if Enum.count(@lesson_description.tips) > 0 do
+            = if !Enum.empty?(@lesson_description.tips) do
               h6.mt-4= gettext "tips"
               ul.pl-4
                 = for tip <- @lesson_description.tips do
                   li== Earmark.as_html!(tip)
-            = if Enum.count(@lesson_description.definitions) > 0 do
+            = if !Enum.empty?(@lesson_description.definitions) do
               h6= gettext "definitions"
               ul.pl-4
                 = for definition <- @lesson_description.definitions do
