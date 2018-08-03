@@ -1,0 +1,12 @@
+---
+
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build',
+      '-t', 'gcr.io/$PROJECT_ID/nginx:latest',
+      '--cache-from', 'gcr.io/$PROJECT_ID/nginx:latest',
+      'services/nginx'
+    ]
+
+images: ['gcr.io/$PROJECT_ID/nginx:latest']
