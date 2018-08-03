@@ -11,6 +11,10 @@ variable "region" {
   default = "europe-west3"
 }
 
+variable "repository" {
+  default = "github-hexlet-basics-hexlet_basics"
+}
+
 provider "google" {
  region = "${var.region}"
 }

@@ -33,3 +33,4 @@ node_modules
 .terraform
 secrets.auto.tfvars
 .cache-loader
+*.tfstate
