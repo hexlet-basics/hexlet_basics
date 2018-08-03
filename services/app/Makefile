@@ -1,0 +1,2 @@
+console:
+	iex -S mix

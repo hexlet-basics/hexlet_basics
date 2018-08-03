@@ -12,13 +12,15 @@
       .card-body
         h2.h4.card-title.text-center PHP
         img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/php.png") alt="php programming lessons")
-        = link gettext("Start"), to: language_path(@conn, :show, "php"), class: "btn btn-primary btn-block"
+        - phpAnchor = if Enum.member?(@started_languages_by_slug, "php"), do: gettext("Continue"), else: gettext("Start")
+        = link phpAnchor, to: language_path(@conn, :show, "php"), class: "btn btn-primary btn-block"
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.hexlet-basics-indigo-card
       .card-body
         h2.h4.card-title.text-center JavaScript
         img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/js.png") alt="JavaScript programming lessons")
-        = link gettext("Start"), to: language_path(@conn, :show, "javascript"), class: "btn btn-primary btn-block"
+        - jsAnchor = if Enum.member?(@started_languages_by_slug, "javascript"), do: gettext("Continue"), else: gettext("Start")
+        = link jsAnchor, to: language_path(@conn, :show, "javascript"), class: "btn btn-primary btn-block"
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.hexlet-basics-purple-card
       .card-body

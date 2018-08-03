@@ -38,7 +38,7 @@ msgstr "Выйти"
 msgid "Successfully authenticated."
 msgstr "Вы авторизовались"
 
-#: lib/hexlet_basics_web/controllers/lesson_controller.ex:24
+#: lib/hexlet_basics_web/controllers/lesson_controller.ex:27
 msgid "You did it!"
 msgstr "Вы прошли все доступные упражнения. Скоро появятся новые."
 
@@ -179,3 +179,9 @@ msgstr "Поддержать проект"
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "Support Code Basics"
 msgstr "Цель Code Basics — предоставить качественные интерактивные уроки по основам программирования бесплатно, для всех. Вы можете поддержать проект и помочь нам развивать его, создавать новые уроки и курсы."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Continue"
+msgstr "Продолжить"

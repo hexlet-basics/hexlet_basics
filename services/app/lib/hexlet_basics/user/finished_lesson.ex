@@ -6,8 +6,8 @@ defmodule HexletBasics.User.FinishedLesson do
   @derive {Poison.Encoder, only: [:id]}
 
   schema "user_finished_lessons" do
-    belongs_to :user, HexletBasics.User
-    belongs_to :language_module_lesson, HexletBasics.Language.Module.Lesson
+    belongs_to(:user, HexletBasics.User)
+    belongs_to(:language_module_lesson, HexletBasics.Language.Module.Lesson)
     # field :language_module_lesson_id, :id
 
     timestamps()

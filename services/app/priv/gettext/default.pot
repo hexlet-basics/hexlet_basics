@@ -38,7 +38,7 @@ msgstr ""
 msgid "Successfully authenticated."
 msgstr ""
 
-#: lib/hexlet_basics_web/controllers/lesson_controller.ex:24
+#: lib/hexlet_basics_web/controllers/lesson_controller.ex:27
 msgid "You did it!"
 msgstr ""
 
@@ -178,4 +178,10 @@ msgstr ""
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "Support Code Basics"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Continue"
 msgstr ""
