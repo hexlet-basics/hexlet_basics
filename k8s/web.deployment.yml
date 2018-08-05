@@ -24,7 +24,7 @@ spec:
 
       containers:
 
-        - name: nginxx
+        - name: nginx
           imagePullPolicy: Always
           image: gcr.io/hexlet-basics/nginx
           ports:

@@ -1,0 +1,10 @@
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: frontend-ingress
+spec:
+  backend:
+    serviceName: frontend-service
+    servicePort: 8080
