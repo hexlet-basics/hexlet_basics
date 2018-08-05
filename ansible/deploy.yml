@@ -21,24 +21,29 @@
       run_once: true
 
 - hosts: webservers
-  gather_facts: false
+  # gather_facts: false
   # become: true
   # become_user: "{{ hexlet_basics_run_user }}"
+  environment:
+    PATH: "/snap/bin:{{ ansible_env.PATH }}"
 
   tasks:
-    - name: Create a network
-      docker_network:
-        name: "{{ hexlet_basics_docker_network }}"
 
-    - template:
-        src: environment.j2
-        dest: "{{ hexlet_basics_env_file }}"
-      tags: env
+    # - name: Create a network
+    #   docker_network:
+    #     name: "{{ hexlet_basics_docker_network }}"
+
+    # - template:
+    #     src: environment.j2
+    #     dest: "{{ hexlet_basics_env_file }}"
+    #   tags: env
+    #
 
     - name: download app image
-      docker_image:
-        name: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
-        force: true
+      shell: gcloud docker -- pull "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
+      # docker_image:
+      #   name: "{{ hexlet_basics_image_name }}:{{ hexlet_basics_image_tag }}"
+      #   force: true
 
     - name: download nginx image
       docker_image:

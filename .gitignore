@@ -34,3 +34,4 @@ node_modules
 secrets.auto.tfvars
 .cache-loader
 *.tfstate
+*.secret.yml

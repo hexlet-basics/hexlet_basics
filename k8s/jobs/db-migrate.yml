@@ -1,0 +1,55 @@
+---
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migrate
+spec:
+  completions: 1
+  template:
+    metadata:
+      name: db-migrate
+    spec:
+      containers:
+        - name: db-migrate
+          image: gcr.io/hexlet-basics/app
+          imagePullPolicy: Always
+          args: ["mix", "ecto.migrate"]
+          env:
+            - name: DB_HOSTNAME
+              value: localhost
+            #   - name: DB_USER
+            #     valueFrom:
+            #       secretKeyRef:
+            #         name: cloudsql-db-credentials
+            #         key: username
+            #   - name: DB_PASS
+            #     valueFrom:
+            #       secretKeyRef:
+            #         name: cloudsql-db-credentials
+            #         key: password
+            # - name: DB_PORT
+            #   value: "3306"
+        - name: cloudsql-proxy
+          image: gcr.io/cloudsql-docker/gce-proxy:1.11
+          command: ["/cloud_sql_proxy", "--dir=/cloudsql",
+                    "-instances=${CONNECTION_NAME}=tcp:3306",
+                    "-credential_file=/secrets/cloudsql/credentials.json"]
+          volumeMounts:
+            - name: cloudsql-instance-credentials
+              mountPath: /secrets/cloudsql
+              readOnly: true
+            - name: ssl-certs
+              mountPath: /etc/ssl/certs
+            - name: cloudsql
+              mountPath: /cloudsql
+          volumes:
+            - name: cloudsql-instance-credentials
+              secret:
+                secretName: cloudsql-instance-credentials
+            - name: cloudsql
+              emptyDir:
+            - name: ssl-certs
+              hostPath:
+                path: /etc/ssl/certs
+          restartPolicy: Never

@@ -1,9 +1,9 @@
 ---
-ansible_python_interpreter: "/usr/bin/env python3"
+# ansible_python_interpreter: "/usr/bin/env python3"
 
 hexlet_basics_repository: "git@github.com:hexlet-basics/hexlet_basics.git"
 hexlet_basics_directory_to_clone: /var/tmp/hexlet_basics
-hexlet_basics_image_name: "hexlet/hexlet-basics"
+hexlet_basics_image_name: "gcr.io/hexlet-basics/app"
 hexlet_basics_nginx_image_name: "hexlet/hexlet-basics-nginx"
 hexlet_basics_port: 4000
 hexlet_basics_aws_region: eu-central-1

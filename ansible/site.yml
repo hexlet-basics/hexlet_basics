@@ -37,6 +37,7 @@
         groups: docker
         append: true
       become: true
+    - shell: "gcloud --quite auth configure-docker"
 
     - meta: reset_connection
 
