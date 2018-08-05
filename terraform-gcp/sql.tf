@@ -1,6 +1,6 @@
 resource "google_sql_database_instance" "master" {
   project  = "${var.project_name}"
-  name = "${var.db_name}"
+  name = "master"
   database_version = "POSTGRES_9_6"
   region = "${var.region}"
 
@@ -18,8 +18,6 @@ resource "google_sql_user" "hexlet_basics" {
 
 resource "google_sql_database" "hexlet_basics_prod" {
   project  = "${var.project_name}"
-  name      = "${var.db_username}"
+  name      = "${var.db_name}"
   instance  = "${google_sql_database_instance.master.name}"
-  # charset   = "latin1"
-  # collation = "latin1_swedish_ci"
 }

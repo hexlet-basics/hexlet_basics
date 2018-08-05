@@ -1,0 +1,71 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+
+    spec:
+
+      volumes:
+        - name: cloudsql-instance-credentials
+          secret:
+            secretName: cloudsql-instance-credentials
+
+      containers:
+
+        - name: nginxx
+          imagePullPolicy: Always
+          image: gcr.io/hexlet-basics/nginx
+          ports:
+            - containerPort: 8080
+
+        - name: phoenix
+          imagePullPolicy: Always
+          image: gcr.io/hexlet-basics/app
+          ports:
+            - containerPort: 4000
+          env:
+            - name: MIX_ENV
+              value: prod
+            - name: PORT
+              value: '4000'
+            - name: NODE_ENV
+              value: production
+            - name: DB_HOSTNAME
+              value: localhost
+            - name: DB_NAME
+              value: hexlet_basics_prod
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: cloudsql-db-credentials
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: cloudsql-db-credentials
+                  key: password
+
+        - name: cloudsql-proxy
+          image: gcr.io/cloudsql-docker/gce-proxy:1.11
+          command: [
+            "/cloud_sql_proxy",
+            "--dir=/cloudsql",
+            "-instances=hexlet-basics:europe-west3:master=tcp:5432",
+            "-credential_file=/secrets/cloudsql/credentials.json"
+          ]
+          volumeMounts:
+            - name: cloudsql-instance-credentials
+              mountPath: /secrets/cloudsql
+              readOnly: true
