@@ -1,0 +1,2 @@
+* 2 nodes
+* dns

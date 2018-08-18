@@ -1,11 +1,16 @@
 resource "google_sql_database_instance" "master" {
-  project  = "${var.project_name}"
-  name = "master"
+  project          = "${var.project_name}"
+  name             = "master"
   database_version = "POSTGRES_9_6"
-  region = "${var.region}"
+  region           = "${var.region}"
 
   settings {
-    tier = "db-f1-micro"
+    tier              = "db-f1-micro"
+    availability_type = "REGIONAL"
+
+    backup_configuration {
+      enabled = true
+    }
   }
 }
 
@@ -18,6 +23,6 @@ resource "google_sql_user" "hexlet_basics" {
 
 resource "google_sql_database" "hexlet_basics_prod" {
   project  = "${var.project_name}"
-  name      = "${var.db_name}"
-  instance  = "${google_sql_database_instance.master.name}"
+  name     = "${var.db_name}"
+  instance = "${google_sql_database_instance.master.name}"
 }

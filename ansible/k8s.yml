@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  gather_facts: false
+  vars:
+    ansible_connection: local
+  tasks:
+    - template:
+        src: db.secret.yml.j2
+        dest: "../k8s/db.secret.yml"

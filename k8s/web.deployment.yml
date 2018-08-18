@@ -33,6 +33,8 @@ spec:
         - name: phoenix
           imagePullPolicy: Always
           image: gcr.io/hexlet-basics/app
+          command:
+            - make start
           ports:
             - containerPort: 4000
           env:
@@ -59,12 +61,11 @@ spec:
 
         - name: cloudsql-proxy
           image: gcr.io/cloudsql-docker/gce-proxy:1.11
-          command: [
-            "/cloud_sql_proxy",
-            "--dir=/cloudsql",
-            "-instances=hexlet-basics:europe-west3:master=tcp:5432",
-            "-credential_file=/secrets/cloudsql/credentials.json"
-          ]
+          command:
+            - "/cloud_sql_proxy"
+            - "--dir=/cloudsql"
+            - "-instances=hexlet-basics:europe-west3:master=tcp:5432"
+            - "-credential_file=/secrets/cloudsql/credentials.json"
           volumeMounts:
             - name: cloudsql-instance-credentials
               mountPath: /secrets/cloudsql
