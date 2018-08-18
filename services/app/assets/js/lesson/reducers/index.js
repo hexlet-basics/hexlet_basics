@@ -92,6 +92,9 @@ const lessonState = handleActions({
     return { finished: !!userFinishedLesson };
   },
   [actions.runCheckSuccess]: (state, { payload }) => {
+    if (state.finished) {
+      return state;
+    }
     const { check: { data: { attributes } } } = payload;
     const newState = { ...state, finished: attributes.passed };
     return newState;
