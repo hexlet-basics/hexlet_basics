@@ -1,4 +1,5 @@
 resource "kubernetes_secret" "cloudsql_db_credentials" {
+  depends_on = ["google_container_cluster.hexlet_basics"]
    "metadata" {
        name = "cloudsql-db-credentials"
    }
@@ -12,6 +13,7 @@ resource "kubernetes_secret" "cloudsql_db_credentials" {
 
 
 resource "kubernetes_secret" "cloudsql_instance_credentials" {
+  depends_on = ["google_container_cluster.hexlet_basics"]
 	metadata {
 		name = "cloudsql-instance-credentials"
 	}

@@ -17,11 +17,6 @@ spec:
 
     spec:
 
-      volumes:
-        - name: cloudsql-instance-credentials
-          secret:
-            secretName: cloudsql-instance-credentials
-
       containers:
 
         - name: nginx
@@ -34,7 +29,8 @@ spec:
           imagePullPolicy: Always
           image: gcr.io/hexlet-basics/app
           command:
-            - make start
+            - make
+            - start
           ports:
             - containerPort: 4000
           env:
@@ -48,6 +44,8 @@ spec:
               value: localhost
             - name: DB_NAME
               value: hexlet_basics_prod
+            - name: FORCE
+              value: '3'
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
@@ -58,15 +56,3 @@ spec:
                 secretKeyRef:
                   name: cloudsql-db-credentials
                   key: password
-
-        - name: cloudsql-proxy
-          image: gcr.io/cloudsql-docker/gce-proxy:1.11
-          command:
-            - "/cloud_sql_proxy"
-            - "--dir=/cloudsql"
-            - "-instances=hexlet-basics:europe-west3:master=tcp:5432"
-            - "-credential_file=/secrets/cloudsql/credentials.json"
-          volumeMounts:
-            - name: cloudsql-instance-credentials
-              mountPath: /secrets/cloudsql
-              readOnly: true

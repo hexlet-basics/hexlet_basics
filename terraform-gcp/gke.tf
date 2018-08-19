@@ -17,7 +17,7 @@ resource "google_container_cluster" "hexlet_basics" {
       "https://www.googleapis.com/auth/monitoring",
     ]
 
-    machine_type = "g1-small"
+    machine_type = "n1-standard-1"
     disk_size_gb = 50
   }
 }

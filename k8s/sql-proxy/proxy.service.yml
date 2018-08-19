@@ -1,0 +1,13 @@
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: sql-proxy-service
+spec:
+  selector:
+    app: sql-proxy
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
