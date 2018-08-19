@@ -24,6 +24,9 @@ spec:
             - "--dir=/cloudsql"
             - "-instances=hexlet-basics:europe-west3:master=tcp:0.0.0.0:5432"
             - "-credential_file=/secrets/cloudsql/credentials.json"
+          resources:
+            requests:
+              cpu: 10m
           volumeMounts:
             - name: cloudsql-instance-credentials
               mountPath: /secrets/cloudsql

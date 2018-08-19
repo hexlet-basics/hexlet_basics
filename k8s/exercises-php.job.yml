@@ -40,12 +40,16 @@ spec:
           env:
             - name: MIX_ENV
               value: prod
+            - name: DB_POOL_SIZE
+              value: 1
             - name: DB_HOSTNAME
-              value: localhost
+              value: sql-proxy-service
             - name: DB_NAME
               value: hexlet_basics_prod
             - name: FORCE
-              value: '1'
+              value: "1"
+            - name: PORT
+              value: "4000"
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
