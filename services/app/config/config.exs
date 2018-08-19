@@ -28,14 +28,13 @@ config :hexlet_basics,
   disqus_ru: "hexlet-basics",
   disqus_en: "hexlet-basics-en"
 
-
 config :hexlet_basics, HexletBasics.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: System.get_env("DB_USERNAME"),
   password: System.get_env("DB_PASSWORD"),
   database: System.get_env("DB_NAME"),
   hostname: System.get_env("DB_HOSTNAME"),
-  pool_size: System.get_env("DB_POOL_SIZE"),
+  pool_size: System.get_env("DB_POOL_SIZE")
 
 # config :playfair, Playfair.Gettext, default_locale: "ru_RU"
 
@@ -44,8 +43,7 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: HexletBasicsWeb.ErrorView, accepts: ~w(html json)],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
-  pubsub: [name: HexletBasics.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: HexletBasics.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -58,4 +56,4 @@ config :phoenix, :template_engines,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"
