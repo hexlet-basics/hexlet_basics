@@ -43,3 +43,25 @@ resource "kubernetes_secret" "cloudflare_credentials" {
 	}
 }
 
+resource "kubernetes_secret" "github_credentials" {
+  depends_on = ["google_container_cluster.hexlet_basics"]
+	metadata {
+		name = "github-credentials"
+	}
+	data {
+		client_id = "${var.github_client_id}"
+		client_secret = "${var.github_client_secret}"
+	}
+}
+
+
+resource "kubernetes_secret" "hexlet_basics_secrets" {
+  depends_on = ["google_container_cluster.hexlet_basics"]
+	metadata {
+		name = "hexlet-basics-secrets"
+	}
+	data {
+		secret_key_base = "${var.secret_key_base}"
+	}
+}
+

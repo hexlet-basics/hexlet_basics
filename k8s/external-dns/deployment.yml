@@ -24,7 +24,7 @@ spec:
           image: registry.opensource.zalan.do/teapot/external-dns:v0.5.5
           args:
             - --source=service
-            # - --source=ingress
+            - --source=ingress
             - --provider=cloudflare
             # (optional) enable the proxy feature of Cloudflare (DDOS protection, CDN...)
             - --log-level=debug

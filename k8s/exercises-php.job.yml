@@ -13,6 +13,7 @@ spec:
       volumes:
         - name: pod-data
           emptyDir: {}
+
       initContainers:
         - name: exercises-php
           image: hexlet/hexlet-basics-exercises-php

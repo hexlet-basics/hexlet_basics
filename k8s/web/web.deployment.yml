@@ -17,6 +17,20 @@ spec:
 
     spec:
 
+      volumes:
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock
+        # - name: users-code
+        #   hostPath:
+        #     path: /opt
+        - name: users-code
+          persistentVolumeClaim:
+            claimName: users-code
+
+      # securityContext:
+      #   fsGroup: 1000
+
       containers:
 
         - name: nginx
@@ -39,6 +53,13 @@ spec:
             - start
           ports:
             - containerPort: 4000
+          volumeMounts:
+            - mountPath: /opt
+              name: users-code
+            - mountPath: /var/run/docker.sock
+              name: docker-sock
+            # - mountPath: /opt
+            #   name: users-code
           env:
             - name: MIX_ENV
               value: prod
@@ -53,7 +74,7 @@ spec:
             - name: DB_NAME
               value: hexlet_basics_prod
             - name: FORCE
-              value: '5'
+              value: '7'
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
@@ -64,3 +85,18 @@ spec:
                 secretKeyRef:
                   name: cloudsql-db-credentials
                   key: password
+            - name: GITHUB_CLIENT_ID_RU
+              valueFrom:
+                secretKeyRef:
+                  name: github-credentials
+                  key: client_id
+            - name: GITHUB_CLIENT_SECRET_RU
+              valueFrom:
+                secretKeyRef:
+                  name: github-credentials
+                  key: client_secret
+            - name: SECRET_KEY_BASE
+              valueFrom:
+                secretKeyRef:
+                  name: hexlet-basics-secrets
+                  key: secret_key_base
