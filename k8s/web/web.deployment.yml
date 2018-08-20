@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: web-deployment
 spec:
 
   replicas: 1
@@ -49,11 +49,11 @@ spec:
             - name: DB_HOSTNAME
               value: sql-proxy-service
             - name: DB_POOL_SIZE
-              value: 10
+              value: "10"
             - name: DB_NAME
               value: hexlet_basics_prod
             - name: FORCE
-              value: '4'
+              value: '5'
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:

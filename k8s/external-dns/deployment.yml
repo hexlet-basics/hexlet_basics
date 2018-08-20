@@ -1,0 +1,58 @@
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: external-dns-deployment
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: external-dns
+    spec:
+      # volumes:
+      #   - name: external-dns-credentials
+      #     secret:
+      #       secretName: external-dns-credentials
+      # create this service account with needed permissions
+      serviceAccountName: external-dns
+      automountServiceAccountToken: true
+      containers:
+        - name: external-dns
+          image: registry.opensource.zalan.do/teapot/external-dns:v0.5.5
+          args:
+            - --source=service
+            # - --source=ingress
+            - --provider=cloudflare
+            # (optional) enable the proxy feature of Cloudflare (DDOS protection, CDN...)
+            - --log-level=debug
+            # - --cloudflare-proxied
+            # - --policy=upsert-only
+            - --registry=txt
+            # - --domain-filter=code-basics.com
+            # - --txt-owner-id=external-dns
+            # make sure to turn off the debug on prod
+          resources:
+            requests:
+              cpu: 10m
+          # volumeMounts:
+          #   - mountPath: /external-dns-credentials
+          #     name: external-dns-credentials
+          #     readOnly: true
+          env:
+            - name: FOO
+              value: "3"
+            # - name: GOOGLE_APPLICATION_CREDENTIALS
+            #   value: /external-dns-credentials/credentials.json
+            - name: CF_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: cloudflare-credentials
+                  key: api_key
+            - name: CF_API_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: cloudflare-credentials
+                  key: email

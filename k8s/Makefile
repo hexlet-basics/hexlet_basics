@@ -1,5 +1,13 @@
+all: apply-sql-proxy apply-web apply-external-dns
+
+apply-sql-proxy:
+	kubectl apply -f sql-proxy
+
 apply-web:
 	kubectl apply -f web
+
+apply-external-dns:
+	kubectl apply -f external-dns
 
 get-pods:
 	kubectl get pod -w
@@ -12,3 +20,7 @@ log-web:
 
 delete-web:
 	kubectl delete pods -l web
+
+start-bash:
+	kubectl delete pods alpine || true
+	kubectl run -i --tty alpine --image=alpine --restart=Never -- sh

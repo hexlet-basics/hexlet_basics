@@ -3,7 +3,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: exercises-php
+  name: exercises-php-job
 spec:
 
   template:
@@ -18,9 +18,9 @@ spec:
           image: hexlet/hexlet-basics-exercises-php
           command:
             - cp
-            - -r
-            - /exercises-php
-            - /out
+            - "-r"
+            - "/exercises-php/."
+            - "/out"
           volumeMounts:
             - mountPath: /out
               name: pod-data
@@ -41,7 +41,7 @@ spec:
             - name: MIX_ENV
               value: prod
             - name: DB_POOL_SIZE
-              value: 1
+              value: "1"
             - name: DB_HOSTNAME
               value: sql-proxy-service
             - name: DB_NAME
