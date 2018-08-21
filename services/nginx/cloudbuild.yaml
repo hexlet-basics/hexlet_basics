@@ -9,4 +9,13 @@ steps:
       'services/nginx'
     ]
 
+  - name: 'technosophos/slack-notify'
+    args: [
+    ]
+    env:
+      - 'SLACK_WEBHOOK=${_SLACK_WEBHOOK}'
+      - 'SLACK_MESSAGE=Service was built'
+      - 'SLACK_TITLE="${REPO_NAME}:${BRANCH_NAME}"'
+      - 'SLACK_USERNAME=cloudbuild'
+
 images: ['gcr.io/$PROJECT_ID/nginx:latest']
