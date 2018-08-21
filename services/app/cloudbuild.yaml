@@ -1,5 +1,8 @@
 ---
 
+substitutions:
+  _SLACK_WEBHOOK_: null
+
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['pull', 'gcr.io/$PROJECT_ID/app:latest']
@@ -18,6 +21,14 @@ steps:
       'run',
       'sut'
     ]
+  - name: 'technosophos/slack-notify'
+    args: [
+      '-e', 'SLACK_WEBHOOK=${_SLACK_WEBHOOK}',
+      '-e', 'SLACK_MESSAGE=hello',
+      '-e', 'SLACK_TITLE="title"',
+      '-e', 'SLACK_USERNAME=cloudbuild'
+    ]
+    env:
 
 timeout: "1200s"
 images: ['gcr.io/$PROJECT_ID/app:latest']

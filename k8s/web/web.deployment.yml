@@ -24,15 +24,6 @@ spec:
         - name: docker-sock
           hostPath:
             path: /var/run/docker.sock
-        # - name: users-code
-        #   hostPath:
-        #     path: /opt
-        # - name: users-code
-        #   persistentVolumeClaim:
-        #     claimName: users-code
-
-      # securityContext:
-      #   fsGroup: 1000
 
       containers:
 
