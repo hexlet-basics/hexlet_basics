@@ -1,7 +1,7 @@
 ---
 
 substitutions:
-  _SLACK_WEBHOOK_: null
+  _SLACK_WEBHOOK: 'key'
 
 steps:
   - name: 'gcr.io/cloud-builders/docker'
@@ -23,12 +23,12 @@ steps:
     ]
   - name: 'technosophos/slack-notify'
     args: [
-      '-e', 'SLACK_WEBHOOK=${_SLACK_WEBHOOK}',
-      '-e', 'SLACK_MESSAGE=hello',
-      '-e', 'SLACK_TITLE="title"',
-      '-e', 'SLACK_USERNAME=cloudbuild'
     ]
     env:
+      - 'SLACK_WEBHOOK=${_SLACK_WEBHOOK}'
+      - 'SLACK_MESSAGE=Service was built'
+      - 'SLACK_TITLE="${REPO_NAME}:${BRANCH_NAME}"'
+      - 'SLACK_USERNAME=cloudbuild'
 
 timeout: "1200s"
 images: ['gcr.io/$PROJECT_ID/app:latest']
