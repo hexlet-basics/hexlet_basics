@@ -18,15 +18,18 @@ spec:
     spec:
 
       volumes:
+        - name: users-code-path
+          hostPath:
+            path: /tmp/hexlet-basics
         - name: docker-sock
           hostPath:
             path: /var/run/docker.sock
         # - name: users-code
         #   hostPath:
         #     path: /opt
-        - name: users-code
-          persistentVolumeClaim:
-            claimName: users-code
+        # - name: users-code
+        #   persistentVolumeClaim:
+        #     claimName: users-code
 
       # securityContext:
       #   fsGroup: 1000
@@ -43,6 +46,8 @@ spec:
               cpu: 10m
 
         - name: phoenix
+          securityContext:
+            privileged: true
           imagePullPolicy: Always
           image: gcr.io/hexlet-basics/app
           resources:
@@ -54,8 +59,8 @@ spec:
           ports:
             - containerPort: 4000
           volumeMounts:
-            - mountPath: /opt
-              name: users-code
+            - mountPath: /tmp/hexlet-basics
+              name: users-code-path
             - mountPath: /var/run/docker.sock
               name: docker-sock
             # - mountPath: /opt

@@ -20,7 +20,7 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
 # url: [host: "localhost", port: 3000]
 
 config :hexlet_basics,
-  code_directory: "/opt/hexlet-basics/code",
+  code_directory: "/tmp/hexlet-basics/code",
   langs: %{"code-basics.ru" => "ru", "code-basics.com" => "en"},
   ga_ru: "UA-1360700-63",
   ga_en: "UA-1360700-64"

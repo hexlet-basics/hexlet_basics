@@ -1,16 +1,16 @@
----
+# ---
 
-kind: PersistentVolume
-apiVersion: v1
-metadata:
-  name: users-code
-  labels:
-    type: local
-spec:
-  storageClassName: manual
-  capacity:
-    storage: 1Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/opt"
+# kind: PersistentVolume
+# apiVersion: v1
+# metadata:
+#   name: users-code
+#   labels:
+#     type: local
+# spec:
+#   storageClassName: manual
+#   capacity:
+#     storage: 1Gi
+#   accessModes:
+#     - ReadWriteOnce
+#   hostPath:
+#     path: "/opt"
