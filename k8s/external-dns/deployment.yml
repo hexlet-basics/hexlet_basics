@@ -28,8 +28,8 @@ spec:
             - --provider=cloudflare
             # (optional) enable the proxy feature of Cloudflare (DDOS protection, CDN...)
             - --log-level=debug
-            # - --cloudflare-proxied
-            # - --policy=upsert-only
+            - --cloudflare-proxied
+            - --policy=upsert-only
             - --registry=txt
             # - --domain-filter=code-basics.com
             # - --txt-owner-id=external-dns
