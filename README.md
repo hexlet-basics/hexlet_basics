@@ -19,7 +19,7 @@ $ make compose-setup
 ### Load content
 
 ```sh
-$ make app-exercises-load
+$ make app-exercises-load-php
 ```
 
 ### Run
@@ -29,9 +29,3 @@ $ make compose
 ```
 
 Go to [http://localhost:4000/](http://localhost:4000/)
-
-### Useful
-
-    brew install git-secrets
-    git secrets --install
-    git secrets --register-aws
