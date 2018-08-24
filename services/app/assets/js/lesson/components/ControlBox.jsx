@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cn from 'classnames';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { faSpinner, faPlayCircle } from '@fortawesome/fontawesome-free-solid';
+import { faSpinner, faPlayCircle, faSyncAlt } from '@fortawesome/fontawesome-free-solid';
 import { translate } from 'react-i18next';
 import Hotkeys from 'react-hot-keys';
 import connect from '../connect';
@@ -58,6 +57,14 @@ class ControlBox extends React.Component {
       <Hotkeys keyName="ctrl+Enter" onKeyUp={this.handleRunCheck}>
         <div className="row">
           <div className="col x-font-sans-serif text-center">
+            <a
+              className="btn btn-outline-primary mr-3"
+              href={window.location}
+              title={t('reset_code')}
+              data-confirm={t('confirm')}
+            >
+              <FontAwesomeIcon icon={faSyncAlt} />
+            </a>
             <a className={prevButtonClasses} href={prevLessonPath}>
               {t('prev_lesson')}
             </a>
