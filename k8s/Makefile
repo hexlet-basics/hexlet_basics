@@ -1,5 +1,4 @@
 all: apply-sql-proxy apply-web apply-external-dns
-	kubectl apply -f code.persistent-volume-claim.yml
 
 apply-sql-proxy:
 	kubectl apply -f sql-proxy

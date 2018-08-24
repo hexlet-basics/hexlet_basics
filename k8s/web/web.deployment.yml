@@ -35,6 +35,9 @@ spec:
           resources:
             requests:
               cpu: 10m
+          env:
+            - name: NGINX_SERVER_ADDRESS
+              value: localhost
 
         - name: phoenix
           securityContext:

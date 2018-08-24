@@ -22,7 +22,7 @@ spec:
           command:
             - "/cloud_sql_proxy"
             - "--dir=/cloudsql"
-            - "-instances=hexlet-basics:europe-west3:master=tcp:0.0.0.0:5432"
+            - "-instances=hexlet-basics:europe-west3:master3=tcp:0.0.0.0:5432"
             - "-credential_file=/secrets/cloudsql/credentials.json"
           resources:
             requests:

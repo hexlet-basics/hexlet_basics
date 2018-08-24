@@ -1,14 +1,16 @@
 ---
 
-version: '3.6'
+version: '3'
 
 services:
+
   db:
     image: postgres
     volumes:
       - pgdata:/var/lib/postgresql/data
 
   nginx:
+    # image: gcr.io/hexlet-basics/nginx
     build:
       context: services/nginx
       dockerfile: Dockerfile
@@ -16,12 +18,15 @@ services:
       - "8080:8080"
     volumes:
       - ".bashrc:/root/.bashrc:cached"
-      - "./services/nginx/hexlet-basics.conf:/etc/nginx/conf.d/hexlet-basics.conf"
+      - "./services/nginx/hexlet-basics.conf.template:/hexlet-basics.conf.template"
       - "./services/nginx/maintenance.html:/etc/nginx/html/maintenance.html"
+    environment:
+      NGINX_SERVER_ADDRESS: 'app'
     depends_on:
       - app
 
   app:
+    # image: gcr.io/hexlet-basics/app
     build:
       context: services/app
       dockerfile: Dockerfile

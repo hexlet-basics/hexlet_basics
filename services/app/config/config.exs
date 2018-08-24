@@ -9,7 +9,12 @@ config :porcelain, :driver, Porcelain.Driver.Basic
 
 config :ueberauth, Ueberauth,
   providers: [
-    github: {Ueberauth.Strategy.Github, [default_scope: "read:user,user:email"]}
+    github:
+      {Ueberauth.Strategy.Github,
+       [
+         default_scope: "read:user,user:email",
+         send_redirect_uri: false
+       ]}
   ]
 
 # config :rollbax,

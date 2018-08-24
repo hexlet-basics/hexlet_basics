@@ -3,7 +3,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: exercises-php-job
+  name: exercises-javascript-job
 spec:
 
   template:
@@ -15,12 +15,12 @@ spec:
           emptyDir: {}
 
       initContainers:
-        - name: exercises-php
-          image: hexlet/hexlet-basics-exercises-php
+        - name: exercises-javascript
+          image: hexlet/hexlet-basics-exercises-javascript
           command:
             - cp
             - "-r"
-            - "/exercises-php/."
+            - "/exercises-javascript/."
             - "/out"
           volumeMounts:
             - mountPath: /out
@@ -34,9 +34,9 @@ spec:
           command:
             - mix
             - x.exercises.load
-            - php
+            - javascript
           volumeMounts:
-            - mountPath: /exercises-php
+            - mountPath: /exercises-javascript
               name: pod-data
           resources:
             requests:
