@@ -49,6 +49,10 @@ module.exports = {
       filename: '[name].css',
       // chunkFilename: '[id].chunk.css',
     }),
+    // new webpack.ProvidePlugin({
+    //   $: 'jquery',
+    //   jQuery: 'jquery',
+    // }),
   ],
   externals: {
     gon: 'Gon',

@@ -28,7 +28,7 @@ export const runCheck = ({ lesson, code }) => async (dispatch) => {
     dispatch(runCheckSuccess({ check: response.data }));
   } catch (e) {
     console.log(e);
-    dispatch(runCheckFailure());
+    dispatch(runCheckFailure({ code: e.response.status }));
   }
 };
 

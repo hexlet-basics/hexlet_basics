@@ -7,12 +7,14 @@
 // in vendor, which are never wrapped in imports and
 // therefore are always executed.
 
+// import 'jquery';
 import hljs from 'highlight.js';
 // import '@fortawesome/react-fontawesome';
 import fontawesome from '@fortawesome/fontawesome';
 import brands from '@fortawesome/fontawesome-free-brands';
 import solid from '@fortawesome/fontawesome-free-solid';
 import 'bootstrap';
+// import 'jquery-ujs';
 // Import dependencies
 //
 // If you no longer want to use a dependency, remember

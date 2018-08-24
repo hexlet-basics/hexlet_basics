@@ -28,6 +28,7 @@
     "i18next-xhr-backend": "^1.5.1",
     "jq-console": "^2.13.2",
     "jquery": "^3.3.1",
+    "jquery-ujs": "^1.2.2",
     "markdown-it": "^8.4.2",
     "monaco-editor": "^0.13.1",
     "popper.js": "^1.14.4",

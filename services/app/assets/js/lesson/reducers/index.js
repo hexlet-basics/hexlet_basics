@@ -28,8 +28,17 @@ const notification = handleActions({
     const info = null;
     return info;
   },
-  [actions.runCheckFailure]: () => {
-    const msg = { type: 'danger', headline: 'alert.error.headline', message: 'alert.error.message' };
+  [actions.runCheckFailure]: (state, { payload }) => {
+    let message;
+    switch (payload.code) {
+      case 403:
+        message = 'alert.error.forbidden';
+        break;
+      default:
+        message = 'alert.error.message';
+        break;
+    }
+    const msg = { type: 'danger', headline: 'alert.error.headline', message };
     return msg;
   },
   [actions.runCheckRequest]: () => {

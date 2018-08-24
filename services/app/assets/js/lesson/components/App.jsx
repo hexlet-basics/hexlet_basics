@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Alert, AlertContainer } from 'react-bs-notifier';
 import { translate } from 'react-i18next';
 import connect from '../connect';
