@@ -14,7 +14,7 @@ steps:
     ]
     env:
       - 'SLACK_WEBHOOK=${_SLACK_WEBHOOK}'
-      - 'SLACK_MESSAGE=Service was built (${SHORT_SHA})'
+      - 'SLACK_MESSAGE=Nginx was built (${SHORT_SHA})'
       - 'SLACK_TITLE="${PROJECT_ID}:${BRANCH_NAME}"'
       - 'SLACK_USERNAME=cloudbuild'
 
