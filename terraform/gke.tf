@@ -9,6 +9,12 @@ resource "google_container_cluster" "hexlet_basics" {
 
   # additional_zones = "${var.additional_zones}"
 
+  node_pool {
+    management {
+      auto_repair  = true
+    }
+  }
+
   node_config {
     oauth_scopes = [
       "https://www.googleapis.com/auth/compute",

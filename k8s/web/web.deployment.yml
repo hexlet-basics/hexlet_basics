@@ -10,6 +10,11 @@ spec:
   selector:
     matchLabels:
       app: web
+  strategy:
+    # type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
   template:
     metadata:
       labels:
@@ -30,6 +35,13 @@ spec:
         - name: nginx
           imagePullPolicy: Always
           image: gcr.io/hexlet-basics/nginx
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
           ports:
             - containerPort: 8080
           resources:
@@ -44,6 +56,13 @@ spec:
             privileged: true
           imagePullPolicy: Always
           image: gcr.io/hexlet-basics/app
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 4000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
           resources:
             requests:
               cpu: 10m
