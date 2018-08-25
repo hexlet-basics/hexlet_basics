@@ -51,7 +51,7 @@ spec:
             - name: DB_NAME
               value: hexlet_basics_prod
             - name: FORCE
-              value: "1"
+              value: "2"
             - name: PORT
               value: "4000"
             - name: DB_USERNAME

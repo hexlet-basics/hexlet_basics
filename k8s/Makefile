@@ -6,6 +6,14 @@ apply-sql-proxy:
 apply-web:
 	kubectl apply -f web
 
+apply-exercises-js:
+	kubectl delete jobs exercises-javascript-job
+	kubectl apply -f exercises-javascript.job.yml
+
+apply-exercises-php:
+	kubectl delete jobs exercises-php-job
+	kubectl apply -f exercises-php.job.yml
+
 apply-external-dns:
 	kubectl apply -f external-dns
 
