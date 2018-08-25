@@ -11,10 +11,9 @@ resource "google_container_cluster" "hexlet_basics" {
 
   node_pool {
     management {
-      auto_repair  = true
+      auto_repair = true
     }
   }
-
   node_config {
     oauth_scopes = [
       "https://www.googleapis.com/auth/compute",
@@ -22,11 +21,10 @@ resource "google_container_cluster" "hexlet_basics" {
       "https://www.googleapis.com/auth/logging.write",
       "https://www.googleapis.com/auth/monitoring",
       "https://www.googleapis.com/auth/ndev.clouddns.readwrite",
-      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform",
     ]
 
     machine_type = "n1-standard-1"
     disk_size_gb = 50
   }
 }
-

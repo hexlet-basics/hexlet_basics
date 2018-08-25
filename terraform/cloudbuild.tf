@@ -10,8 +10,8 @@ resource "google_cloudbuild_trigger" "app" {
 
   filename = "services/app/cloudbuild.yaml"
 
-	# substitutions = {
-    # _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
+  # substitutions = {
+  # _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
   # }
 }
 
