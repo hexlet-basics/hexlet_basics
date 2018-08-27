@@ -1,6 +1,6 @@
 defmodule HexletBasicsWeb.Plugs.ApiRequireAuth do
   import Plug.Conn
-  import Phoenix.Controller
+  # import Phoenix.Controller
   # import HexletBasicsWeb.Gettext
   # alias HexletBasicsWeb.Router.Helpers, as: RouteHelpers
 
