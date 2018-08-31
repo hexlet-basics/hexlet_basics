@@ -17,6 +17,7 @@ const apps = {
 module.exports = {
   context: path.resolve(__dirname, 'assets'),
   entry: apps,
+  devtool: 'source-map',
   mode: process.env.NODE_ENV || 'development',
   output: {
     path: `${__dirname}/priv/static/assets`,
@@ -58,9 +59,9 @@ module.exports = {
     gon: 'Gon',
   },
 
-  node: {
-    fs: 'empty',
-  },
+  // node: {
+  //   fs: 'empty',
+  // },
 
   optimization: {
     runtimeChunk: 'single',

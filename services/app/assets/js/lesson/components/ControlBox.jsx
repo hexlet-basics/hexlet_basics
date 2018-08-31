@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faPlayCircle, faSyncAlt } from '@fortawesome/fontawesome-free-solid';
 import { translate } from 'react-i18next';
 import Hotkeys from 'react-hot-keys';

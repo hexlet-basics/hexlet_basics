@@ -15,8 +15,10 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
 RUN apt-get update && apt-get install -y nodejs
 
+RUN npm install -g npm-check-updates
+
 ENV DOCKER_CHANNEL edge
-ENV DOCKER_VERSION 18.06.0-ce
+ENV DOCKER_VERSION 18.06.1-ce
 RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_64/docker-${DOCKER_VERSION}.tgz" \
   | tar -xzC /usr/local/bin --strip=1 docker/docker
 
