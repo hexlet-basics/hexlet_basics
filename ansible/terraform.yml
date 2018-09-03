@@ -7,4 +7,4 @@
   tasks:
     - template:
         src: secrets.auto.tfvars.j2
-        dest: '../terraform-gcp/secrets.auto.tfvars'
+        dest: '../terraform/secrets.auto.tfvars'
