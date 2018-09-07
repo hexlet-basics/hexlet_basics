@@ -1,4 +1,5 @@
+export GOOGLE_CREDENTIALS=~/.config/gcloud/terraform-admin.json
 init:
-	export GOOGLE_CREDENTIALS=~/.config/gcloud/terraform-admin.json
+	@echo $(GOOGLE_CREDENTIALS)
 
 PHONY: init
