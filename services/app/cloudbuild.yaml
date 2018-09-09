@@ -5,12 +5,10 @@ substitutions:
 
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['pull', 'gcr.io/$PROJECT_ID/app:latest']
-  - name: 'gcr.io/cloud-builders/docker'
     args: [
       'build',
-      '-t', 'gcr.io/$PROJECT_ID/app:latest',
-      '--cache-from', 'gcr.io/$PROJECT_ID/app:${TAG_NAME}${BRANCH_NAME}',
+      '-t', 'gcr.io/$PROJECT_ID/app:${TAG_NAME}${BRANCH_NAME}',
+      '--cache-from', 'gcr.io/$PROJECT_ID/app:latest',
       # '--file', 'services/app/Dockerfile',
       'services/app'
     ]
