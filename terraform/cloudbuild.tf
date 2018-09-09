@@ -25,6 +25,10 @@ resource "google_cloudbuild_trigger" "nginx" {
     repo_name   = "${google_sourcerepo_repository.hexlet_basics.name}"
   }
 
+  substitutions = {
+    _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
+  }
+
   filename = "services/nginx/cloudbuild.yaml"
 }
 
@@ -36,6 +40,10 @@ resource "google_cloudbuild_trigger" "exercises_php" {
     branch_name = "master"
     project     = "${var.project_name}"
     repo_name   = "${google_sourcerepo_repository.exercises_php.name}"
+  }
+
+  substitutions = {
+    _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
   }
 
   filename = "cloudbuild.yaml"
