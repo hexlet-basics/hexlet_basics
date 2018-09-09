@@ -22,10 +22,6 @@ variable "additional_zones" {
   default = ["europe-west3-a", "europe-west3-c"]
 }
 
-variable "repository" {
-  default = "github-hexlet-basics-hexlet_basics"
-}
-
 variable "db_name" {}
 variable "db_username" {}
 variable "db_password" {}
