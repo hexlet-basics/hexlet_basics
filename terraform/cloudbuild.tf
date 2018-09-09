@@ -37,7 +37,7 @@ resource "google_cloudbuild_trigger" "nginx" {
   description = "nginx"
 
   trigger_template {
-    branch_name = "master"
+    tag_name  = "v\\d.*"
     project     = "${var.project_name}"
     repo_name   = "${google_sourcerepo_repository.hexlet_basics.name}"
   }
