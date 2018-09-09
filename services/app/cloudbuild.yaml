@@ -28,4 +28,4 @@ steps:
       - 'SLACK_USERNAME=cloudbuild'
 
 timeout: "1200s"
-images: ['gcr.io/$PROJECT_ID/app:latest']
+images: ['gcr.io/$PROJECT_ID/app:$TAG_NAME']
