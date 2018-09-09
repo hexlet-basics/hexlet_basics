@@ -24,7 +24,7 @@ steps:
     env:
       - 'SLACK_WEBHOOK=${_SLACK_WEBHOOK}'
       - 'SLACK_MESSAGE=App was built (${SHORT_SHA})'
-      - 'SLACK_TITLE="${PROJECT_ID}:${BRANCH_NAME}"'
+      - 'SLACK_TITLE="${PROJECT_ID}:${TAG_NAME}${BRANCH_NAME}"'
       - 'SLACK_USERNAME=cloudbuild'
 
 timeout: "1200s"
