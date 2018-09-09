@@ -1,9 +1,5 @@
 ---
 
-substitutions:
-  _SLACK_WEBHOOK: 'key'
-
-
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
