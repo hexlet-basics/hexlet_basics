@@ -18,4 +18,4 @@ steps:
       - 'SLACK_TITLE="${PROJECT_ID}:${TAG_NAME}${BRANCH_NAME}"'
       - 'SLACK_USERNAME=cloudbuild'
 
-images: ['gcr.io/$PROJECT_ID/nginx::$TAG_NAME${BRANCH_NAME}']
+images: ['gcr.io/$PROJECT_ID/nginx::${TAG_NAME}${BRANCH_NAME}']
