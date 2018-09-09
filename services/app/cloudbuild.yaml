@@ -1,8 +1,11 @@
 ---
 
+substitutions:
+  _SLACK_WEBHOOK: 'key'
+
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['pull', 'gcr.io/$PROJECT_ID/app:latest']
+    args: ['pull', 'gcr.io/$PROJECT_ID/app:${TAG_NAME}${BRANCH_NAME}']
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'build',

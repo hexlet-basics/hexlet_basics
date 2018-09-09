@@ -1,10 +1,13 @@
 ---
 
+substitutions:
+  _SLACK_WEBHOOK: 'key'
+
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'build',
-      '-t', 'gcr.io/$PROJECT_ID/nginx:latest',
+      '-t', 'gcr.io/$PROJECT_ID/nginx:${TAG_NAME}${BRANCH_NAME}',
       '--cache-from', 'gcr.io/$PROJECT_ID/nginx:latest',
       'services/nginx'
     ]
