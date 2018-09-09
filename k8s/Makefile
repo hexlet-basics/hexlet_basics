@@ -24,7 +24,7 @@ describe-web:
 	kubectl describe pod web
 
 log-web:
-	kubectl logs web phoenix
+	kubectl logs -lapp=web -c phoenix
 
 delete-web:
 	kubectl delete pods -l web
