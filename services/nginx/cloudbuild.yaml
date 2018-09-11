@@ -8,7 +8,7 @@ steps:
     args: [
       'build',
       '-t', 'gcr.io/$PROJECT_ID/nginx:${TAG_NAME}${BRANCH_NAME}',
-      '--cache-from', 'gcr.io/$PROJECT_ID/nginx:latest',
+      '--cache-from', 'gcr.io/$PROJECT_ID/nginx:master',
       'services/nginx'
     ]
 
