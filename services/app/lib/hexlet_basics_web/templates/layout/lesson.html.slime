@@ -27,4 +27,5 @@ html lang="#{@locale}"
       main.mt-3 role="main"
         = render @view_module, @view_template, assigns
 
+    script src="#{static_path(@conn, "/assets/main.js")}"
     script src="#{static_path(@conn, "/assets/lesson.js")}"
