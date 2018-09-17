@@ -1,5 +1,6 @@
-FROM elixir:1.7.2
+FROM elixir:1.7.3
 
+ENV HOME /home/shared
 WORKDIR /app
 
 # Install hex (Elixir package manager)
