@@ -30,7 +30,7 @@ spec:
 
         - name: app
           imagePullPolicy: Always
-          image: gcr.io/hexlet-basics/app
+          image: gcr.io/hexlet-basics/app:v93
           command:
             - mix
             - x.exercises.load
@@ -64,3 +64,8 @@ spec:
                 secretKeyRef:
                   name: cloudsql-db-credentials
                   key: password
+            - name: ROLLBAR_ACCESS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: hexlet-basics-secrets
+                  key: rollbar_access_token

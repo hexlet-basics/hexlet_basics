@@ -7,11 +7,11 @@ apply-web:
 	kubectl apply -f web
 
 apply-exercises-js:
-	kubectl delete jobs exercises-javascript-job
+	kubectl delete jobs exercises-javascript-job || true
 	kubectl apply -f exercises-javascript.job.yml
 
 apply-exercises-php:
-	kubectl delete jobs exercises-php-job
+	kubectl delete jobs exercises-php-job || true
 	kubectl apply -f exercises-php.job.yml
 
 apply-external-dns:
