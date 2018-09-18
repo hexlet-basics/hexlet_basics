@@ -18,7 +18,7 @@ config :ueberauth, Ueberauth,
   ]
 
 config :rollbax,
-  access_token: System.get_env("ROLLBAR_API_KEY"),
+  access_token: System.get_env("ROLLBAR_ACCESS_TOKEN"),
   environment: "production"
 
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,

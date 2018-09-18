@@ -34,7 +34,7 @@ spec:
 
         - name: nginx
           imagePullPolicy: Always
-          image: gcr.io/hexlet-basics/nginx:v90
+          image: gcr.io/hexlet-basics/nginx:v91
           readinessProbe:
             httpGet:
               path: /
@@ -55,7 +55,7 @@ spec:
           securityContext:
             privileged: true
           imagePullPolicy: Always
-          image: gcr.io/hexlet-basics/app:v90
+          image: gcr.io/hexlet-basics/app:v91
           readinessProbe:
             httpGet:
               path: /
@@ -118,3 +118,8 @@ spec:
                 secretKeyRef:
                   name: hexlet-basics-secrets
                   key: secret_key_base
+            - name: ROLLBAR_ACCESS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: hexlet-basics-secrets
+                  key: rollbar_access_token
