@@ -21,7 +21,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
       })
 
     # up_repo(lang_name, repo_dest)
-    language = upsert_language(lang_name, repo_dest)
+    language = upsert_language(upload, lang_name, repo_dest)
 
     modules_with_meta = get_modules(module_dest)
 
@@ -197,7 +197,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
     |> Repo.insert_or_update!()
   end
 
-  def upsert_language(lang_name, repo_dest) do
+  def upsert_language(upload, lang_name, repo_dest) do
     spec_filepath = Path.join(repo_dest, "spec.yml")
     %{"language" => language_info} = YamlElixir.read_from_file(spec_filepath)
 
@@ -209,6 +209,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
 
     language
     |> Language.changeset(%{
+      upload_id: upload.id,
       name: lang_name,
       docker_image: language_info["docker_image"],
       extension: language_info["extension"],
