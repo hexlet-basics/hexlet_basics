@@ -1,2 +1,4 @@
 import Ecto.Query
-alias HexletBasics
+alias HexletBasics.Repo
+alias HexletBasics.Language
+alias HexletBasics.User

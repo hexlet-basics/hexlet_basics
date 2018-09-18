@@ -12,7 +12,7 @@ defmodule HexletBasics.User do
     field(:github_uid, :integer)
     field(:nickname, :string)
     field(:guest, :boolean, virtual: true, default: false)
-    has_many(:finished_lessons, User.FinishedLesson)
+    has_many(:finished_lessons, User.FinishedLesson, on_delete: :delete_all)
 
     has_many(:finished_lesson_lessons, through: [:finished_lessons, :language_module_lesson])
     has_many(:finished_lesson_modules, through: [:finished_lesson_lessons, :module])

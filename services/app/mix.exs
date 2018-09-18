@@ -25,7 +25,7 @@ defmodule HexletBasics.Mixfile do
         :logger,
         :runtime_tools,
         :yaml_elixir,
-        # :rollbax,
+        :rollbax,
         :ueberauth_github,
         :ueberauth,
         :porcelain
@@ -61,7 +61,7 @@ defmodule HexletBasics.Mixfile do
       {:earmark, github: "pragdave/earmark"},
       {:faker, "~> 0.9", only: :test},
       {:yaml_elixir, "~> 1.3.1"},
-      # {:rollbax, github: "elixir-addicts/rollbax"},
+      {:rollbax, ">= 0.0.0"},
       {:phoenix_gon, github: "khusnetdinov/phoenix_gon"},
       {:credo, "~> 0.10", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false},
