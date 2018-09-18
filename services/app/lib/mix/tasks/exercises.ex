@@ -37,12 +37,6 @@ defmodule Mix.Tasks.X.Exercises.Load do
     end)
     |> Enum.with_index()
     |> Enum.each(&upsert_lesson_with_descriptions/1)
-
-    language
-    |> Language.changeset(%{
-      upload_id: upload.id
-    })
-    |> Repo.insert_or_update!()
   end
 
   def get_lessons(dest, module, language) do
