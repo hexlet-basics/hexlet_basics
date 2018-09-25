@@ -65,3 +65,37 @@ resource "google_cloudbuild_trigger" "exercises_php" {
 
   filename = "cloudbuild.yaml"
 }
+
+resource "google_cloudbuild_trigger" "exercises_javascript" {
+  project     = "${var.project_name}"
+  description = "exercises_javascript"
+
+  trigger_template {
+    branch_name = "master"
+    project     = "${var.project_name}"
+    repo_name   = "${google_sourcerepo_repository.exercises_javascript.name}"
+  }
+
+  substitutions = {
+    _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
+  }
+
+  filename = "cloudbuild.yaml"
+}
+
+resource "google_cloudbuild_trigger" "exercises_python" {
+  project     = "${var.project_name}"
+  description = "exercises_python"
+
+  trigger_template {
+    branch_name = "master"
+    project     = "${var.project_name}"
+    repo_name   = "${google_sourcerepo_repository.exercises_python.name}"
+  }
+
+  substitutions = {
+    _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
+  }
+
+  filename = "cloudbuild.yaml"
+}
