@@ -16,7 +16,7 @@ spec:
 
       initContainers:
         - name: exercises-php
-          image: hexlet/hexlet-basics-exercises-php
+          image: gcr.io/hexlet-basics/exercises-php
           command:
             - cp
             - "-r"

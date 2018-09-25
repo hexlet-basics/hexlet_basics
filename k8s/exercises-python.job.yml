@@ -3,7 +3,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: exercises-javascript-job
+  name: exercises-python-job
 spec:
 
   template:
@@ -15,12 +15,12 @@ spec:
           emptyDir: {}
 
       initContainers:
-        - name: exercises-javascript
-          image: gcr.io/hexlet-basics/exercises-javascript
+        - name: exercises-python
+          image: gcr.io/hexlet-basics/exercises-python
           command:
             - cp
             - "-r"
-            - "/exercises-javascript/."
+            - "/exercises-python/."
             - "/out"
           volumeMounts:
             - mountPath: /out
@@ -34,9 +34,9 @@ spec:
           command:
             - mix
             - x.exercises.load
-            - javascript
+            - php
           volumeMounts:
-            - mountPath: /exercises-javascript
+            - mountPath: /exercises-php
               name: pod-data
           resources:
             requests:
@@ -51,7 +51,7 @@ spec:
             - name: DB_NAME
               value: hexlet_basics_prod
             - name: FORCE
-              value: "2"
+              value: "1"
             - name: PORT
               value: "4000"
             - name: DB_USERNAME
