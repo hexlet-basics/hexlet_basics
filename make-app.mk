@@ -29,8 +29,8 @@ app-db-prepare:
 app-exercises-load-python:
 	docker pull gcr.io/hexlet-basics/exercises-python
 	rm -rf tmp/exercises-python
-	docker run --rm -v $(CURDIR)/tmp/exercises-python:/out gcr.io/hexlet-basics/exercises-python bash -c "cp -r /exercises-php/* /out"
-	docker-compose run --rm app mix x.exercises.load php
+	docker run --rm -v $(CURDIR)/tmp/exercises-python:/out gcr.io/hexlet-basics/exercises-python bash -c "cp -r /exercises-python/* /out"
+	docker-compose run --rm app mix x.exercises.load python
 
 
 app-exercises-load-php:
