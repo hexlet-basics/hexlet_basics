@@ -1,6 +1,11 @@
 provider "google" {
-  version = "~> 1.18"
+  version = "~> 1.17"
   region = "${var.region}"
+}
+
+provider "kubernetes" {
+  version = "~> 1.2"
+  # region = "${var.region}"
 }
 
 resource "google_project" "hexlet_basics" {

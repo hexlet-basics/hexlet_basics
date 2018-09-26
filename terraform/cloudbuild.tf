@@ -5,7 +5,7 @@ resource "google_cloudbuild_trigger" "app" {
   trigger_template {
     branch_name = "master"
     project     = "${var.project_name}"
-    repo_name   = "${google_sourcerepo_repository.hexlet_basics.name}"
+    repo_name   = "${var.repositories["hexlet_basics"]}"
   }
 
   filename = "services/app/cloudbuild.yaml"
@@ -22,7 +22,7 @@ resource "google_cloudbuild_trigger" "app-tag" {
   trigger_template {
     tag_name  = "v\\d.*"
     project     = "${var.project_name}"
-    repo_name   = "${google_sourcerepo_repository.hexlet_basics.name}"
+    repo_name   = "${var.repositories["hexlet_basics"]}"
   }
 
   filename = "services/app/cloudbuild.yaml"
@@ -39,7 +39,7 @@ resource "google_cloudbuild_trigger" "nginx" {
   trigger_template {
     tag_name  = "v\\d.*"
     project     = "${var.project_name}"
-    repo_name   = "${google_sourcerepo_repository.hexlet_basics.name}"
+    repo_name   = "${var.repositories["hexlet_basics"]}"
   }
 
   substitutions = {
@@ -56,7 +56,7 @@ resource "google_cloudbuild_trigger" "exercises_php" {
   trigger_template {
     branch_name = "master"
     project     = "${var.project_name}"
-    repo_name   = "${google_sourcerepo_repository.exercises_php.name}"
+    repo_name   = "${var.repositories["exercises_php"]}"
   }
 
   substitutions = {
@@ -73,7 +73,7 @@ resource "google_cloudbuild_trigger" "exercises_javascript" {
   trigger_template {
     branch_name = "master"
     project     = "${var.project_name}"
-    repo_name   = "${google_sourcerepo_repository.exercises_javascript.name}"
+    repo_name   = "${var.repositories["exercises_javascript"]}"
   }
 
   substitutions = {
@@ -90,7 +90,7 @@ resource "google_cloudbuild_trigger" "exercises_java" {
   trigger_template {
     branch_name = "master"
     project     = "${var.project_name}"
-    repo_name   = "${google_sourcerepo_repository.exercises_java.name}"
+    repo_name   = "${var.repositories["exercises_java"]}"
   }
 
   substitutions = {
@@ -107,7 +107,7 @@ resource "google_cloudbuild_trigger" "exercises_python" {
   trigger_template {
     branch_name = "master"
     project     = "${var.project_name}"
-    repo_name   = "${google_sourcerepo_repository.exercises_python.name}"
+    repo_name   = "${var.repositories["exercises_python"]}"
   }
 
   substitutions = {

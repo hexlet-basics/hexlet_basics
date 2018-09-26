@@ -33,3 +33,14 @@ variable "github_client_secret" {}
 variable "secret_key_base" {}
 variable "slack_codebuild_webhook" {}
 variable "rollbar_access_token" {}
+
+variable "repositories" {
+  type = "map"
+  default = {
+    "exercises_php" = "github_hexlet-basics_exercises-php"
+    "exercises_java" = "github_hexlet-basics_exercises-java"
+    "exercises_javascript" = "github_hexlet-basics_exercises-javascript"
+    "exercises_python" = "github_hexlet-basics_exercises-python"
+    "hexlet_basics" = "github_hexlet-basics_hexlet_5Fbasics"
+  }
+}
