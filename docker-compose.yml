@@ -43,6 +43,7 @@ services:
       - "~/.bash_history:/root/.bash_history:cached"
       - "./tmp/exercises-php:/exercises-php"
       - "./tmp/exercises-javascript:/exercises-javascript"
+      - "./tmp/exercises-python:/exercises-python"
       - ".bashrc:/root/.bashrc:cached"
       - '/var/run/docker.sock:/var/run/docker.sock'
       # - "/var/tmp:/var/tmp:cached"

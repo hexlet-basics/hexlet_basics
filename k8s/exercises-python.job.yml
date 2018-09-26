@@ -34,9 +34,9 @@ spec:
           command:
             - mix
             - x.exercises.load
-            - php
+            - python
           volumeMounts:
-            - mountPath: /exercises-php
+            - mountPath: /exercises-python
               name: pod-data
           resources:
             requests:

@@ -14,6 +14,10 @@ apply-exercises-php:
 	kubectl delete jobs exercises-php-job || true
 	kubectl apply -f exercises-php.job.yml
 
+apply-exercises-python:
+	kubectl delete jobs exercises-python-job || true
+	kubectl apply -f exercises-python.job.yml
+
 apply-external-dns:
 	kubectl apply -f external-dns
 
