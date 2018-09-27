@@ -1,0 +1,24 @@
+
+localhost {
+    gzip
+    proxy / app:4000 {
+        transparent
+        websocket
+    }
+}
+
+http://code-basics.ru {
+    redir https://code-basics.ru
+}
+
+http://code-basics.com {
+    redir https://code-basics.com
+}
+
+code-basics.ru, code-basics.com {
+    tls off
+    gzip
+    proxy / localhost:4000 {
+        transparent
+    }
+}

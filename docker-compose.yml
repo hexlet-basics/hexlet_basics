@@ -9,19 +9,14 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-  nginx:
-    # image: gcr.io/hexlet-basics/nginx
+  caddy:
     build:
-      context: services/nginx
+      context: services/caddy
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8080:2015"
     volumes:
-      - ".bashrc:/root/.bashrc:cached"
-      - "./services/nginx/hexlet-basics.conf.template:/hexlet-basics.conf.template"
-      - "./services/nginx/maintenance.html:/etc/nginx/html/maintenance.html"
-    environment:
-      NGINX_SERVER_ADDRESS: 'app'
+      - "./services/caddy/Caddyfile:/etc/Caddyfile"
     depends_on:
       - app
 
