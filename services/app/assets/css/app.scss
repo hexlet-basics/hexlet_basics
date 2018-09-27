@@ -161,6 +161,7 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
   }
 }
 
+// TODO: generate lesson cards dynamically
 .hexlet-basics-lesson-card-php {
   background-color: $hexlet-basics-php-color;
 
@@ -174,6 +175,14 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 
   &:hover {
     background-color: lighten($hexlet-basics-javascript-color, 10%);
+  }
+}
+
+.hexlet-basics-lesson-card-python {
+  background-color: $hexlet-basics-python-color;
+
+  &:hover {
+    background-color: lighten($hexlet-basics-python-color, 10%);
   }
 }
 
