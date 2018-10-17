@@ -35,3 +35,4 @@ secrets.auto.tfvars
 .cache-loader
 *.tfstate
 *.secret.yml
+.elixir_ls
