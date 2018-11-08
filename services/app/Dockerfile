@@ -36,7 +36,7 @@ RUN mix deps.compile
 
 COPY . .
 
-RUN NODE_ENV=production npm run webpack
+RUN NODE_ENV=production npx webpack
 RUN MIX_ENV=prod mix compile
 RUN MIX_ENV=prod mix phx.digest
 
