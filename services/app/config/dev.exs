@@ -17,7 +17,7 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   code_reloader: true,
   check_origin: false,
   watchers: [
-    node: [
+    npx: [
       "webpack",
       "--watch-stdin",
       "--progress",

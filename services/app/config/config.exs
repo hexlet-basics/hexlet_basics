@@ -37,7 +37,7 @@ config :hexlet_basics, HexletBasics.Repo,
   password: System.get_env("DB_PASSWORD"),
   database: System.get_env("DB_NAME"),
   hostname: System.get_env("DB_HOSTNAME"),
-  pool_size: System.get_env("DB_POOL_SIZE")
+  pool_size: 2
 
 # config :playfair, Playfair.Gettext, default_locale: "ru_RU"
 
