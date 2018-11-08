@@ -23,7 +23,7 @@ RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_6
 # Copy all dependencies files
 COPY mix.* ./
 
-Install all production dependencies
+# Install all production dependencies
 RUN mix deps.get
 
 COPY package.json ./
