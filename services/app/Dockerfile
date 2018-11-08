@@ -1,22 +1,19 @@
-FROM elixir:1.7.3
+FROM elixir:1.7.4
 
 ENV HOME /home/shared
 WORKDIR /app
+
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
+
+RUN apt-get update && apt-get install -y inotify-tools
+RUN apt-get update && apt-get install -y nodejs
+RUN npm install -g npm-check-updates
 
 # Install hex (Elixir package manager)
 RUN mix local.hex --force
 # Install rebar (Erlang build tool)
 RUN mix local.rebar --force
-
-RUN mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
-
-RUN apt-get update && apt-get install -y inotify-tools
-
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-
-RUN apt-get update && apt-get install -y nodejs
-
-RUN npm install -g npm-check-updates
+RUN mix archive.install hex phx_new 1.4.0
 
 ENV DOCKER_CHANNEL edge
 ENV DOCKER_VERSION 18.06.1-ce
@@ -27,24 +24,24 @@ RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_6
 COPY mix.* ./
 
 # Install all production dependencies
-RUN mix deps.get
+# RUN mix deps.get
 
-COPY package.json ./
-COPY package-lock.json ./
+# COPY package.json ./
+# COPY package-lock.json ./
 
-RUN npm install
+# RUN npm install
 
-# Compile all dependencies
-RUN mix deps.compile
+# # Compile all dependencies
+# RUN mix deps.compile
 
-COPY . .
+# COPY . .
 
-RUN NODE_ENV=production npm run webpack
-RUN MIX_ENV=prod mix compile
-RUN MIX_ENV=prod mix phx.digest
+# RUN NODE_ENV=production npm run webpack
+# RUN MIX_ENV=prod mix compile
+# RUN MIX_ENV=prod mix phx.digest
 
-# RUN MIX_ENV=prod mix release.init
-# RUN MIX_ENV=prod mix release
+# # RUN MIX_ENV=prod mix release.init
+# # RUN MIX_ENV=prod mix release
 
-# CMD _build/prod/rel/hexlet_basics/bin/hexlet_basics foreground
-CMD ["mix", "phx.server"]
+# # CMD _build/prod/rel/hexlet_basics/bin/hexlet_basics foreground
+# CMD ["mix", "phx.server"]

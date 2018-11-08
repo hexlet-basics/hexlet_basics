@@ -21,16 +21,17 @@ defmodule HexletBasicsWeb do
     quote do
       use Phoenix.Controller, namespace: HexletBasicsWeb
       import Plug.Conn
-      import HexletBasicsWeb.Router.Helpers
+      alias HexletBasicsWeb.Router.Helpers, as: Routes
       import HexletBasicsWeb.Gettext
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/hexlet_basics_web/templates",
-                        namespace: HexletBasicsWeb,
-                        pattern: "**/*"
+      use Phoenix.View,
+        root: "lib/hexlet_basics_web/templates",
+        namespace: HexletBasicsWeb,
+        pattern: "**/*"
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]

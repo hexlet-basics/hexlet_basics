@@ -6,8 +6,7 @@
     "last 2 versions"
   ],
   "scripts": {
-    "lint": "eslint",
-    "webpack": "webpack"
+    "lint": "eslint"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",

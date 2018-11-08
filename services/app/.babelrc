@@ -1,9 +1,0 @@
-{
-  presets: [
-    ["@babel/env", {
-      "targets": { "node": "current" },
-      "ignoreBrowserslistConfig": true
-    }],
-    "@babel/react"
-  ]
-}
