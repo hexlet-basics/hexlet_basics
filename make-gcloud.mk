@@ -9,3 +9,6 @@ gcloud-builds:
 
 gcloud-compute-ssh:
 	gcloud compute ssh ${I}
+
+gcloud-docker-init:
+	gcloud auth configure-docker

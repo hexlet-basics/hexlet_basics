@@ -14,7 +14,7 @@ services:
       context: services/caddy
       dockerfile: Dockerfile
     ports:
-      - "8080:2015"
+      - "80:2015"
     volumes:
       - "./services/caddy/Caddyfile:/etc/Caddyfile"
     depends_on:

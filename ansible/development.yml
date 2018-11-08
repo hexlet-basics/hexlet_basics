@@ -15,6 +15,7 @@
         dest: '../.env'
       tags: env
 
+    # TODO: add https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu
     # - lineinfile:
     #     path: /etc/hosts
     #     regexp: 'hexlet-basics'

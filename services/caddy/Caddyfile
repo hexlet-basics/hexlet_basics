@@ -1,5 +1,6 @@
 
-localhost {
+localhost, code-basics.test {
+    tls off
     gzip
     proxy / app:4000 {
         transparent
