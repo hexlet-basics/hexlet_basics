@@ -53,7 +53,7 @@ defmodule HexletBasics.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:plug_cowboy, "~> 2.0"},
-      {:phoenix_slime, github: "slime-lang/phoenix_slime"},
+      {:phoenix_slime, github: "scarfacedeb/phoenix_slime", branch: "phoenix_1.4"},
       {:ecto_state_machine, "~> 0.1.0"},
       {:phoenix_jsroutes, "~> 0.0.4"},
       {:ex_machina, github: "thoughtbot/ex_machina", only: :test},

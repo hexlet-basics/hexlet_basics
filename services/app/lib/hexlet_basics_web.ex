@@ -22,6 +22,8 @@ defmodule HexletBasicsWeb do
       use Phoenix.Controller, namespace: HexletBasicsWeb
       import Plug.Conn
       alias HexletBasicsWeb.Router.Helpers, as: Routes
+      # TODO: remove after switching to Routes
+      import HexletBasicsWeb.Router.Helpers
       import HexletBasicsWeb.Gettext
     end
   end

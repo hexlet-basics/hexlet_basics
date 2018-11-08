@@ -33,7 +33,6 @@ config :hexlet_basics,
   disqus_en: "hexlet-basics-en"
 
 config :hexlet_basics, HexletBasics.Repo,
-  adapter: Ecto.Adapters.Postgres,
   username: System.get_env("DB_USERNAME"),
   password: System.get_env("DB_PASSWORD"),
   database: System.get_env("DB_NAME"),
@@ -56,7 +55,7 @@ config :logger, :console,
 
 config :phoenix, :template_engines,
   slim: PhoenixSlime.Engine,
-  slime: PhoenixSlime.Engine
+  slime: PhoenixSlime.Engine,
   json_library: Jason
 
 # Import environment specific config. This must remain at the bottom
