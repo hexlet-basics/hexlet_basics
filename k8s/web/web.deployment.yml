@@ -80,6 +80,10 @@ spec:
           envFrom:
             - secretRef:
                 name: hexlet-basics-secrets
+            - secretRef:
+                name: cloudsql-db-credentials
+            - secretRef:
+                name: github-credentials
           env:
             - name: MIX_ENV
               value: prod
@@ -95,23 +99,3 @@ spec:
               value: hexlet_basics_prod
             - name: FORCE
               value: '11'
-            - name: DB_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: cloudsql-db-credentials
-                  key: username
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: cloudsql-db-credentials
-                  key: password
-            - name: GITHUB_CLIENT_ID_RU
-              valueFrom:
-                secretKeyRef:
-                  name: github-credentials
-                  key: client_id
-            - name: GITHUB_CLIENT_SECRET_RU
-              valueFrom:
-                secretKeyRef:
-                  name: github-credentials
-                  key: client_secret

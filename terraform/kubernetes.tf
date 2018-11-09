@@ -6,8 +6,8 @@ resource "kubernetes_secret" "cloudsql_db_credentials" {
   }
 
   data {
-    username = "${var.db_username}"
-    password = "${var.db_password}"
+    DB_USERNAME = "${var.db_username}"
+    DB_PASSWORD = "${var.db_password}"
   }
 }
 
@@ -44,8 +44,8 @@ resource "kubernetes_secret" "github_credentials" {
   }
 
   data {
-    client_id     = "${var.github_client_id}"
-    client_secret = "${var.github_client_secret}"
+    GITHUB_CLIENT_ID_RU = "${var.github_client_id}"
+    GITHUB_CLIENT_SECRET_RU = "${var.github_client_secret}"
   }
 }
 
@@ -57,8 +57,6 @@ resource "kubernetes_secret" "hexlet_basics_secrets" {
   }
 
   data {
-    secret_key_base = "${var.secret_key_base}"
-    rollbar_access_token = "${var.rollbar_access_token}"
     SECRET_KEY_BASE = "${var.secret_key_base}"
     ROLLBAR_ACCESS_TOKEN = "${var.rollbar_access_token}"
   }
