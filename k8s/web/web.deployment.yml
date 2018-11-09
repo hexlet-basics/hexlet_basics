@@ -79,7 +79,7 @@ spec:
             #   name: users-code
           envFrom:
             - secretRef:
-              name: hexlet-basics-secrets
+                name: hexlet-basics-secrets
           env:
             - name: MIX_ENV
               value: prod
