@@ -5,10 +5,9 @@
   tasks:
     - pip:
         executable: pip3
-        name: "{{ item }}"
-      with_items:
-        - docker
-        - docker-py
+        name:
+          - docker
+          - docker-py
 
     - template:
         src: environment.j2
