@@ -84,18 +84,5 @@ spec:
                 name: cloudsql-db-credentials
             - secretRef:
                 name: github-credentials
-          env:
-            - name: MIX_ENV
-              value: prod
-            - name: PORT
-              value: "4000"
-            - name: NODE_ENV
-              value: production
-            - name: DB_HOSTNAME
-              value: sql-proxy-service
-            - name: DB_POOL_SIZE
-              value: "10"
-            - name: DB_NAME
-              value: hexlet_basics_prod
-            - name: FORCE
-              value: '11'
+            - configMapRef:
+                name: hexlet-basics-config-map

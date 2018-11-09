@@ -61,3 +61,20 @@ resource "kubernetes_secret" "hexlet_basics_secrets" {
     ROLLBAR_ACCESS_TOKEN = "${var.rollbar_access_token}"
   }
 }
+
+resource "kubernetes_config_map" "hexlet_basics_config_map" {
+  metadata {
+    name = "hexlet-basics-config-map"
+  }
+
+  data {
+    MIX_ENV = "prod"
+    PORT  = "4000"
+    NODE_ENV  = "production"
+    DB_HOSTNAME  = "sql-proxy-service"
+    DB_POOL_SIZE  = "10"
+    DB_NAME  = "hexlet_basics_prod"
+    FORCE  = "11"
+  }
+}
+
