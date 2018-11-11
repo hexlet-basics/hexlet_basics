@@ -30,7 +30,7 @@ spec:
 
         - name: app
           imagePullPolicy: Always
-          image: gcr.io/hexlet-basics/app:v94
+          image: gcr.io/hexlet-basics/app:v98
           command:
             - mix
             - x.exercises.load
