@@ -41,31 +41,12 @@ spec:
           resources:
             requests:
               cpu: 10m
-          env:
-            - name: MIX_ENV
-              value: prod
-            - name: DB_POOL_SIZE
-              value: "1"
-            - name: DB_HOSTNAME
-              value: sql-proxy-service
-            - name: DB_NAME
-              value: hexlet_basics_prod
-            - name: FORCE
-              value: "2"
-            - name: PORT
-              value: "4000"
-            - name: DB_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: cloudsql-db-credentials
-                  key: username
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: cloudsql-db-credentials
-                  key: password
-            - name: ROLLBAR_ACCESS_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: hexlet-basics-secrets
-                  key: rollbar_access_token
+          envFrom:
+            - secretRef:
+                name: hexlet-basics-secrets
+            - secretRef:
+                name: cloudsql-db-credentials
+            - secretRef:
+                name: github-credentials
+            - configMapRef:
+                name: hexlet-basics-config-map
