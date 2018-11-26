@@ -28,3 +28,25 @@ resource "google_container_cluster" "hexlet_basics" {
     disk_size_gb = 50
   }
 }
+
+resource "kubernetes_cluster_role_binding" "cluster-admin" {
+  metadata {
+    name = "users-cluster-admin"
+  }
+
+  role_ref {
+    api_group = "rbac.authorization.k8s.io"
+    kind = "ClusterRole"
+    name = "cluster-admin"
+  }
+
+  subject {
+    kind = "User"
+    name = "alexander.v@hexlet.io"
+  }
+  
+  subject {
+    kind = "User"
+    name = "kirill.m@hexlet.io"
+  }
+}
