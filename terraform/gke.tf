@@ -27,6 +27,10 @@ resource "google_container_cluster" "hexlet_basics" {
     machine_type = "n1-standard-1"
     disk_size_gb = 50
   }
+  
+  provisioner "local-exec" {
+    command = "gcloud container clusters get-credentials --region ${var.zone} ${var.project_name}"
+  }
 }
 
 resource "kubernetes_cluster_role_binding" "cluster-admin" {
