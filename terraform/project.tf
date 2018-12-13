@@ -1,10 +1,10 @@
 provider "google" {
-  version = "~> 1.17"
+  version = "~> 1.19.1"
   region = "${var.region}"
 }
 
 provider "kubernetes" {
-  version = "~> 1.2"
+  version = "~> 1.4"
   # region = "${var.region}"
 }
 

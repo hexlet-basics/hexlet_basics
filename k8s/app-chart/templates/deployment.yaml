@@ -3,13 +3,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-deployment
+  name: app-deployment
 spec:
 
   replicas: 1
   selector:
     matchLabels:
-      app: web
+      app: app
   strategy:
     # type: RollingUpdate
     rollingUpdate:
@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: web
+        app: app
 
     spec:
 
@@ -48,7 +48,7 @@ spec:
               cpu: 10m
           env:
             - name: NGINX_SERVER_ADDRESS
-              value: localhost
+              value: 127.0.0.1
 
         - name: phoenix
           securityContext:

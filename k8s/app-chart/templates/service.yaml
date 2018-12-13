@@ -6,7 +6,7 @@ metadata:
   name: frontend-service
 spec:
   selector:
-    app: web
+    app: app
   type: NodePort
   ports:
     - protocol: TCP

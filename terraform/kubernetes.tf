@@ -1,5 +1,5 @@
 resource "kubernetes_secret" "cloudsql_db_credentials" {
-  depends_on = ["google_container_cluster.hexlet_basics"]
+  depends_on = ["google_container_cluster.hexlet_basics-3"]
 
   "metadata" {
     name = "cloudsql-db-credentials"
@@ -12,7 +12,7 @@ resource "kubernetes_secret" "cloudsql_db_credentials" {
 }
 
 resource "kubernetes_secret" "cloudsql_instance_credentials" {
-  depends_on = ["google_container_cluster.hexlet_basics"]
+  depends_on = ["google_container_cluster.hexlet_basics-3"]
 
   metadata {
     name = "cloudsql-instance-credentials"
@@ -24,7 +24,7 @@ resource "kubernetes_secret" "cloudsql_instance_credentials" {
 }
 
 resource "kubernetes_secret" "cloudflare_credentials" {
-  depends_on = ["google_container_cluster.hexlet_basics"]
+  depends_on = ["google_container_cluster.hexlet_basics-3"]
 
   metadata {
     name = "cloudflare-credentials"
@@ -37,7 +37,7 @@ resource "kubernetes_secret" "cloudflare_credentials" {
 }
 
 resource "kubernetes_secret" "github_credentials" {
-  depends_on = ["google_container_cluster.hexlet_basics"]
+  depends_on = ["google_container_cluster.hexlet_basics-3"]
 
   metadata {
     name = "github-credentials"
@@ -50,7 +50,7 @@ resource "kubernetes_secret" "github_credentials" {
 }
 
 resource "kubernetes_secret" "hexlet_basics_secrets" {
-  depends_on = ["google_container_cluster.hexlet_basics"]
+  depends_on = ["google_container_cluster.hexlet_basics-3"]
 
   metadata {
     name = "hexlet-basics-secrets"
@@ -71,10 +71,34 @@ resource "kubernetes_config_map" "hexlet_basics_config_map" {
     MIX_ENV = "prod"
     PORT  = "4000"
     NODE_ENV  = "production"
-    DB_HOSTNAME  = "sql-proxy-service"
+    DB_HOSTNAME  = "pg-sqlproxy-gcloud-sqlproxy.default"
     DB_POOL_SIZE  = "10"
     DB_NAME  = "hexlet_basics_prod"
     FORCE  = "11"
   }
 }
 
+
+resource "kubernetes_cluster_role_binding" "cluster-admin" {
+  depends_on = ["google_container_cluster.hexlet_basics-3"]
+
+  metadata {
+    name = "users-cluster-admin"
+  }
+
+  role_ref {
+    api_group = "rbac.authorization.k8s.io"
+    kind = "ClusterRole"
+    name = "cluster-admin"
+  }
+
+  subject {
+    kind = "User"
+    name = "alexander.v@hexlet.io"
+  }
+
+  subject {
+    kind = "User"
+    name = "kirill.m@hexlet.io"
+  }
+}

@@ -1,11 +1,3 @@
-all: apply-sql-proxy apply-web apply-external-dns
-
-apply-sql-proxy:
-	kubectl apply -f sql-proxy
-
-apply-web:
-	kubectl apply -f web
-
 apply-exercises-js:
 	kubectl delete jobs exercises-javascript-job || true
 	kubectl apply -f exercises-javascript.job.yml
@@ -18,20 +10,26 @@ apply-exercises-python:
 	kubectl delete jobs exercises-python-job || true
 	kubectl apply -f exercises-python.job.yml
 
-apply-external-dns:
-	kubectl apply -f external-dns
+# helm install --name app ./app-chart
+helm-upgrade-app:
+	helm upgrade app ./app-chart
+
+# helm install -f ./values-external-dns.yml --name external-dns stable/external-dns
+helm-upgrade-external-dns:
+	helm upgrade -f ./values-external-dns.yml external-dns stable/external-dns
+
+# helm install -f ./values-gcloud-proxy.yml --name pg-sqlproxy rimusz/gcloud-sqlproxy
+helm-upgrade-gcloud-sqlproxy:
+	helm upgrade -f ./values-gcloud-proxy.yml pg-sqlproxy rimusz/gcloud-sqlproxy
 
 get-pods:
 	kubectl get pod -w
 
-describe-web:
-	kubectl describe pod web
+describe-app:
+	kubectl describe pod app
 
-log-web:
-	kubectl logs -lapp=web -c phoenix
-
-delete-web:
-	kubectl delete pods -l web
+log-app:
+	kubectl logs -lapp=app -c phoenix
 
 start-bash:
 	kubectl delete pods alpine || true

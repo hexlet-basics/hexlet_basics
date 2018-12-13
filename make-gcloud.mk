@@ -1,8 +1,7 @@
 S := app
 
 gcloud-cluster-init:
-	gcloud container clusters get-credentials hexlet-basics
-	kubectl create clusterrolebinding cluster-admin-binding-$U --clusterrole cluster-admin --user $U
+	gcloud container clusters get-credentials hexlet-basics-4
 
 gcloud-builds:
 	gcloud builds submit --config services/${S}/cloudbuild.yaml .

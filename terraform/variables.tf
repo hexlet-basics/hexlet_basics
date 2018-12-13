@@ -15,7 +15,7 @@ variable "region" {
 }
 
 variable "zone" {
-  default = "europe-west3-b"
+  default = "europe-west3-a"
 }
 
 variable "additional_zones" {
