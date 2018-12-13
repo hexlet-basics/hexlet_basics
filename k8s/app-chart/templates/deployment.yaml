@@ -1,0 +1,88 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+spec:
+
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  strategy:
+    # type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: web
+
+    spec:
+
+      volumes:
+        - name: users-code-path
+          hostPath:
+            path: /tmp/hexlet-basics
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock
+
+      containers:
+        - name: nginx
+          imagePullPolicy: Always
+          image: {{ .Values.nginx.image.repository }}:{{ .Values.version }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: 10m
+          env:
+            - name: NGINX_SERVER_ADDRESS
+              value: localhost
+
+        - name: phoenix
+          securityContext:
+            privileged: true
+          imagePullPolicy: Always
+          image: {{ .Values.app.image.repository }}:{{ .Values.version }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 4000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+          resources:
+            requests:
+              cpu: 10m
+          command:
+            - make
+            - start
+          ports:
+            - containerPort: 4000
+          volumeMounts:
+            - mountPath: /tmp/hexlet-basics
+              name: users-code-path
+            - mountPath: /var/run/docker.sock
+              name: docker-sock
+            # - mountPath: /opt
+            #   name: users-code
+          envFrom:
+            - secretRef:
+                name: hexlet-basics-secrets
+            - secretRef:
+                name: cloudsql-db-credentials
+            - secretRef:
+                name: github-credentials
+            - configMapRef:
+                name: hexlet-basics-config-map
