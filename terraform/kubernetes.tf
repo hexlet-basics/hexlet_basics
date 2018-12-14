@@ -30,6 +30,18 @@ resource "kubernetes_secret" "cloudflare_credentials" {
   }
 }
 
+resource "kubernetes_secret" "cloudflare_credentials_kube_system" {
+  metadata {
+    name = "cloudflare-credentials"
+    namespace = "kube-system"
+  }
+
+  data {
+    CF_API_KEY = "${var.cloudflare_api_key}"
+    CF_API_EMAIL = "${var.cloudflare_email}"
+  }
+}
+
 resource "kubernetes_secret" "github_credentials" {
   metadata {
     name = "github-credentials"

@@ -4,9 +4,9 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: frontend-ingress
-  annotations:
+  # annotations:
     # kubernetes.io/ingress.global-static-ip-name: "web-static-ip"
-    external-dns.alpha.kubernetes.io/hostname: "code-basics.com., code-basics.ru."
+    # external-dns.alpha.kubernetes.io/hostname: "code-basics.com., code-basics.ru."
 spec:
   backend:
     serviceName: frontend-service
