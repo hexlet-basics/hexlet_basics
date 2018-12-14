@@ -8,13 +8,16 @@ resources:
     cpu: 10m
 
 extraEnv:
+  # - envFrom:
+  #     - secretRef:
+  #         name: cloudflare-credentials
   - name: CF_API_KEY
     valueFrom:
       secretKeyRef:
         name: cloudflare-credentials
-        key: api_key
+        key: CF_API_KEY
   - name: CF_API_EMAIL
     valueFrom:
       secretKeyRef:
         name: cloudflare-credentials
-        key: email
+        key: CF_API_EMAIL

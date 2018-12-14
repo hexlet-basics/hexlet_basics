@@ -2,6 +2,10 @@ variable "project_name" {
   default = "hexlet-basics"
 }
 
+variable "gke_cluster_name" {
+  default = "hexlet-basics-5"
+}
+
 variable "billing_account" {
   default = "01730C-0A5BE7-686C51"
 }

@@ -1,6 +1,4 @@
 resource "kubernetes_secret" "cloudsql_db_credentials" {
-  depends_on = ["google_container_cluster.hexlet_basics-3"]
-
   "metadata" {
     name = "cloudsql-db-credentials"
   }
@@ -12,8 +10,6 @@ resource "kubernetes_secret" "cloudsql_db_credentials" {
 }
 
 resource "kubernetes_secret" "cloudsql_instance_credentials" {
-  depends_on = ["google_container_cluster.hexlet_basics-3"]
-
   metadata {
     name = "cloudsql-instance-credentials"
   }
@@ -24,21 +20,17 @@ resource "kubernetes_secret" "cloudsql_instance_credentials" {
 }
 
 resource "kubernetes_secret" "cloudflare_credentials" {
-  depends_on = ["google_container_cluster.hexlet_basics-3"]
-
   metadata {
     name = "cloudflare-credentials"
   }
 
   data {
-    api_key = "${var.cloudflare_api_key}"
-    email   = "${var.cloudflare_email}"
+    CF_API_KEY = "${var.cloudflare_api_key}"
+    CF_API_EMAIL = "${var.cloudflare_email}"
   }
 }
 
 resource "kubernetes_secret" "github_credentials" {
-  depends_on = ["google_container_cluster.hexlet_basics-3"]
-
   metadata {
     name = "github-credentials"
   }
@@ -50,8 +42,6 @@ resource "kubernetes_secret" "github_credentials" {
 }
 
 resource "kubernetes_secret" "hexlet_basics_secrets" {
-  depends_on = ["google_container_cluster.hexlet_basics-3"]
-
   metadata {
     name = "hexlet-basics-secrets"
   }
@@ -80,8 +70,6 @@ resource "kubernetes_config_map" "hexlet_basics_config_map" {
 
 
 resource "kubernetes_cluster_role_binding" "cluster-admin" {
-  depends_on = ["google_container_cluster.hexlet_basics-3"]
-
   metadata {
     name = "users-cluster-admin"
   }
@@ -102,3 +90,37 @@ resource "kubernetes_cluster_role_binding" "cluster-admin" {
     name = "kirill.m@hexlet.io"
   }
 }
+
+resource "kubernetes_service_account" "tiller" {
+    # depends_on = ["google_container_cluster.hexlet"]
+
+    metadata {
+      name = "tiller"
+      namespace = "kube-system"
+    }
+  }
+
+resource "kubernetes_cluster_role_binding" "tiller-cluster-rule" {
+    # depends_on = ["kubernetes_service_account.tiller"]
+
+    metadata {
+      name = "tiller-cluster-rule"
+    }
+
+    role_ref {
+      kind = "ClusterRole"
+      name = "cluster-admin"
+      api_group = "rbac.authorization.k8s.io"
+    }
+
+    subject {
+      kind = "ServiceAccount"
+      namespace = "kube-system"
+      name = "tiller"
+      api_group = ""
+    }
+
+    provisioner "local-exec" {
+      command = "helm init --service-account tiller"
+    }
+  }

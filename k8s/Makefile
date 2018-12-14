@@ -1,3 +1,8 @@
+init:
+	brew install helm-?
+	helm repo add rimusz https://charts.rimusz.net
+	helm repo update
+
 apply-exercises-js:
 	kubectl delete jobs exercises-javascript-job || true
 	kubectl apply -f exercises-javascript.job.yml
