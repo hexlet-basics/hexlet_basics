@@ -4,3 +4,5 @@ kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"templat
 
 helm repo add rimusz https://charts.rimusz.net
 helm repo update
+
+https://medium.com/@at_ishikawa/enable-https-by-cert-manager-on-gke-3996f84fffe5
