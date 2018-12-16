@@ -9,17 +9,13 @@ version: v98
 nginx:
   image:
     repository: gcr.io/hexlet-basics/nginx
+    imagePullPolicy: Always
 
 app:
   image:
     repository: gcr.io/hexlet-basics/app
-# image:
-#   repository: nginx
-#   tag: stable
-#   pullPolicy: IfNotPresent
+    imagePullPolicy: Always
 
-# nameOverride: ""
-# fullnameOverride: ""
 
 # service:
 #   type: NodePort
