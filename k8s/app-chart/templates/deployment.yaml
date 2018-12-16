@@ -1,15 +1,20 @@
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app-deployment
+  labels:
+    app.kubernetes.io/name: "{{ .Chart.Name }}"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+    app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
+    app.kubernetes.io/managed-by: "{{ .Release.Service }}"
+    helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
-
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: app
+      app.kubernetes.io/name: "{{ .Chart.Name }}"
+      app.kubernetes.io/instance: "{{ .Release.Name }}"
   strategy:
     # type: RollingUpdate
     rollingUpdate:
@@ -18,10 +23,9 @@ spec:
   template:
     metadata:
       labels:
-        app: app
-
+        app.kubernetes.io/name: "{{ .Chart.Name }}"
+        app.kubernetes.io/instance: "{{ .Release.Name }}"
     spec:
-
       volumes:
         - name: users-code-path
           hostPath:
@@ -29,11 +33,10 @@ spec:
         - name: docker-sock
           hostPath:
             path: /var/run/docker.sock
-
       containers:
         - name: nginx
-          imagePullPolicy: Always
-          image: {{ .Values.nginx.image.repository }}:{{ .Values.version }}
+          imagePullPolicy: "{{ .Values.nginx.image.imagePullPolicy }}"
+          image: "{{ .Values.nginx.image.repository }}:{{ .Values.version }}"
           readinessProbe:
             httpGet:
               path: /
@@ -49,12 +52,11 @@ spec:
           env:
             - name: NGINX_SERVER_ADDRESS
               value: 127.0.0.1
-
         - name: phoenix
           securityContext:
             privileged: true
-          imagePullPolicy: Always
-          image: {{ .Values.app.image.repository }}:{{ .Values.version }}
+          imagePullPolicy: "{{ .Values.app.image.imagePullPolicy }}"
+          image: "{{ .Values.app.image.repository }}:{{ .Values.version }}"
           readinessProbe:
             httpGet:
               path: /
