@@ -1,13 +1,18 @@
 ---
-
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: frontend-ingress
+  name: {{ .Release.Name }}-frontend
+  labels:
+    app.kubernetes.io/name: "{{ .Chart.Name }}"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+    app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
+    app.kubernetes.io/managed-by: "{{ .Release.Service }}"
+    helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
   # annotations:
     # kubernetes.io/ingress.global-static-ip-name: "web-static-ip"
     # external-dns.alpha.kubernetes.io/hostname: "code-basics.com., code-basics.ru."
 spec:
   backend:
-    serviceName: frontend-service
+    serviceName: {{ .Release.Name }}-frontend
     servicePort: 8080
