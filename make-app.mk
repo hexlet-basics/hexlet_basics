@@ -27,20 +27,20 @@ app-db-prepare:
 	docker-compose run app mix ecto.migrate
 
 app-exercises-load-python:
-	docker pull gcr.io/hexlet-basics/exercises-python
+	docker pull hexletbasics/exercises-python
 	rm -rf tmp/exercises-python
-	docker run --rm -v $(CURDIR)/tmp/exercises-python:/out gcr.io/hexlet-basics/exercises-python bash -c "cp -r /exercises-python/* /out"
+	docker run --rm -v $(CURDIR)/tmp/exercises-python:/out hexletbasics/exercises-python bash -c "cp -r /exercises-python/* /out"
 	docker-compose run --rm app mix x.exercises.load python
 
 
 app-exercises-load-php:
-	docker pull gcr.io/hexlet-basics/exercises-php
+	docker pull hexletbasics/exercises-php
 	rm -rf tmp/exercises-php
-	aocker run --rm -v $(CURDIR)/tmp/exercises-php:/out gcr.io/hexlet-basics/exercises-php bash -c "cp -r /exercises-php/* /out"
+	docker run --rm -v $(CURDIR)/tmp/exercises-php:/out hexletbasics/exercises-php bash -c "cp -r /exercises-php/* /out"
 	docker-compose run --rm app mix x.exercises.load php
 
 app-exercises-load-javascript:
-	docker pull gcr.io/hexlet-basics/exercises-javascript
+	docker pull hexletbasics/exercises-javascript
 	rm -rf tmp/exercises-javascript
-	docker run --rm -v $(CURDIR)/tmp/exercises-javascript:/out gcr.io/hexlet-basics/exercises-javascript bash -c "cp -r /exercises-javascript/* /out"
+	docker run --rm -v $(CURDIR)/tmp/exercises-javascript:/out hexletbasics/exercises-javascript bash -c "cp -r /exercises-javascript/* /out"
 	docker-compose run --rm app mix x.exercises.load javascript

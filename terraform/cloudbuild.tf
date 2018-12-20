@@ -49,70 +49,70 @@ resource "google_cloudbuild_trigger" "nginx" {
   filename = "services/nginx/cloudbuild.yaml"
 }
 
-resource "google_cloudbuild_trigger" "exercises_php" {
-  project     = "${var.project_name}"
-  description = "exercises_php"
+# resource "google_cloudbuild_trigger" "exercises_php" {
+#   project     = "${var.project_name}"
+#   description = "exercises_php"
 
-  trigger_template {
-    branch_name = "master"
-    project     = "${var.project_name}"
-    repo_name   = "${var.repositories["exercises_php"]}"
-  }
+#   trigger_template {
+#     branch_name = "master"
+#     project     = "${var.project_name}"
+#     repo_name   = "${var.repositories["exercises_php"]}"
+#   }
 
-  substitutions = {
-    _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
-  }
+#   substitutions = {
+#     _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
+#   }
 
-  filename = "cloudbuild.yaml"
-}
+#   filename = "cloudbuild.yaml"
+# }
 
-resource "google_cloudbuild_trigger" "exercises_javascript" {
-  project     = "${var.project_name}"
-  description = "exercises_javascript"
+# resource "google_cloudbuild_trigger" "exercises_javascript" {
+#   project     = "${var.project_name}"
+#   description = "exercises_javascript"
 
-  trigger_template {
-    branch_name = "master"
-    project     = "${var.project_name}"
-    repo_name   = "${var.repositories["exercises_javascript"]}"
-  }
+#   trigger_template {
+#     branch_name = "master"
+#     project     = "${var.project_name}"
+#     repo_name   = "${var.repositories["exercises_javascript"]}"
+#   }
 
-  substitutions = {
-    _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
-  }
+#   substitutions = {
+#     _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
+#   }
 
-  filename = "cloudbuild.yaml"
-}
+#   filename = "cloudbuild.yaml"
+# }
 
-resource "google_cloudbuild_trigger" "exercises_java" {
-  project     = "${var.project_name}"
-  description = "exercises_java"
+# resource "google_cloudbuild_trigger" "exercises_java" {
+#   project     = "${var.project_name}"
+#   description = "exercises_java"
 
-  trigger_template {
-    branch_name = "master"
-    project     = "${var.project_name}"
-    repo_name   = "${var.repositories["exercises_java"]}"
-  }
+#   trigger_template {
+#     branch_name = "master"
+#     project     = "${var.project_name}"
+#     repo_name   = "${var.repositories["exercises_java"]}"
+#   }
 
-  substitutions = {
-    _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
-  }
+#   substitutions = {
+#     _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
+#   }
 
-  filename = "cloudbuild.yaml"
-}
+#   filename = "cloudbuild.yaml"
+# }
 
-resource "google_cloudbuild_trigger" "exercises_python" {
-  project     = "${var.project_name}"
-  description = "exercises_python"
+# resource "google_cloudbuild_trigger" "exercises_python" {
+#   project     = "${var.project_name}"
+#   description = "exercises_python"
 
-  trigger_template {
-    branch_name = "master"
-    project     = "${var.project_name}"
-    repo_name   = "${var.repositories["exercises_python"]}"
-  }
+#   trigger_template {
+#     branch_name = "master"
+#     project     = "${var.project_name}"
+#     repo_name   = "${var.repositories["exercises_python"]}"
+#   }
 
-  substitutions = {
-    _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
-  }
+#   substitutions = {
+#     _SLACK_WEBHOOK = "${var.slack_codebuild_webhook}"
+#   }
 
-  filename = "cloudbuild.yaml"
-}
+#   filename = "cloudbuild.yaml"
+# }

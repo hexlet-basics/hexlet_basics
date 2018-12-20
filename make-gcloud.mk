@@ -1,7 +1,7 @@
 S := app
 
 gcloud-cluster-init:
-	gcloud container clusters get-credentials hexlet-basics-4 --region europe-west3-a
+	gcloud container clusters get-credentials hexlet-basics-5 --region europe-west3-a
 
 gcloud-builds:
 	gcloud builds submit --config services/${S}/cloudbuild.yaml .
