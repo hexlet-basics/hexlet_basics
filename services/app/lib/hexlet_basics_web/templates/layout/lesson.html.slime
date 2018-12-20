@@ -3,7 +3,7 @@ html lang="#{@locale}"
   head
     link rel="stylesheet" href="#{static_path(@conn, "/assets/vendors.css")}"
     link rel="stylesheet" href="#{static_path(@conn, "/assets/main.css")}"
-    link rel="stylesheet" href="#{static_path(@conn, "/assets/lesson.css")}"
+    / link rel="stylesheet" href="#{static_path(@conn, "/assets/lesson.css")}"
     title= page_title(@conn)
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 

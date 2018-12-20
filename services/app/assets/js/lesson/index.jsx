@@ -4,8 +4,7 @@ import gon from 'gon';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { I18nextProvider } from 'react-i18next';
-import i18n from '../lib/i18n';
+import '../lib/i18n';
 
 import configureStore from '../lib/configureStore';
 import App from './components/App';
@@ -42,13 +41,11 @@ const run = () => {
 
   ReactDOM.render(
     <Provider store={store}>
-      <I18nextProvider i18n={i18n}>
-        <EntityContext.Provider value={entities}>
-          <App
-            userFinishedLesson={userFinishedLesson}
-          />
-        </EntityContext.Provider>
-      </I18nextProvider>
+      <EntityContext.Provider value={entities}>
+        <App
+          userFinishedLesson={userFinishedLesson}
+        />
+      </EntityContext.Provider>
     </Provider>,
     document.getElementById('basics-lesson-container'),
   );

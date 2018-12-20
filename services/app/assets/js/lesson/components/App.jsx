@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert, AlertContainer } from 'react-bs-notifier';
-import { translate } from 'react-i18next';
+import { withI18n } from 'react-i18next';
 import connect from '../connect';
 import TabsBox from '../components/TabsBox';
 import ControlBox from '../components/ControlBox';
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 };
 
 @connect(mapStateToProps)
-@translate()
+@withI18n()
 class App extends React.Component {
   handleSelectTab = (current) => {
     this.props.selectTab({ current });

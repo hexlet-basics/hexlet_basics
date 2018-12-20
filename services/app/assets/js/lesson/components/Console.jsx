@@ -10,7 +10,7 @@ const Console = ({ output, className }) => {
   return (
     <div className={className}>
       <pre>
-        <code className="x-wrap-word">
+        <code className="nohighlight x-wrap-word">
           <div dangerouslySetInnerHTML={{ __html: html }} />
         </code>
       </pre>

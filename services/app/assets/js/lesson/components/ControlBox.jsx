@@ -1,9 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner, faPlayCircle, faSyncAlt } from '@fortawesome/free-solid-svg-icons';
-import { translate } from 'react-i18next';
+import { withI18n } from 'react-i18next';
 import Hotkeys from 'react-hot-keys';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import connect from '../connect';
 import routes from '../routes';
 
@@ -14,7 +13,7 @@ const mapStateToProps = (state) => {
 };
 
 @connect(mapStateToProps)
-@translate()
+@withI18n()
 class ControlBox extends React.Component {
   handleRunCheck = () => {
     const { code, lesson } = this.props;
@@ -63,15 +62,15 @@ class ControlBox extends React.Component {
               title={t('reset_code')}
               data-confirm={t('confirm')}
             >
-              <FontAwesomeIcon icon={faSyncAlt} />
+              <FontAwesomeIcon icon="sync-alt" />
             </a>
             <a className={prevButtonClasses} href={prevLessonPath}>
               {t('prev_lesson')}
             </a>
             <button className={runButtonClasses} onClick={this.handleRunCheck}>
               <span className="text-secondary x-1em-inline-block mr-2">
-                { checkInfo.processing && <FontAwesomeIcon icon={faSpinner} spin /> }
-                { !checkInfo.processing && <FontAwesomeIcon icon={faPlayCircle} /> }
+                { checkInfo.processing && <FontAwesomeIcon icon="spinner" /> }
+                { !checkInfo.processing && <FontAwesomeIcon icon="play-circle" /> }
               </span>
               {t('run')}
             </button>

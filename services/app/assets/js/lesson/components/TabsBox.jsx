@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
-import { translate } from 'react-i18next';
+import { withI18n } from 'react-i18next';
 import Editor from './Editor';
 import Console from './Console';
 import Solution from './Solution';
@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
 };
 
 @connect(mapStateToProps)
-@translate()
+@withI18n()
 @withActive()
 class TabsBox extends React.Component {
   render() {

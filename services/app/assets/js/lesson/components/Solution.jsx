@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { Highlight } from 'react-fast-highlight';
-import { translate } from 'react-i18next';
+import { withI18n } from 'react-i18next';
 import dateFns from 'date-fns';
 import dateFnsLocale from '../../lib/data-fns-locale';
 import connect from '../connect';
@@ -21,7 +21,7 @@ const mapStateToProps = (state) => {
 };
 
 @connect(mapStateToProps)
-@translate()
+@withI18n()
 export default class Editor extends React.Component {
   handleShowSolution = () => {
     this.props.showSolution();

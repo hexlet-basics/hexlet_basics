@@ -44,7 +44,6 @@ module.exports = {
       languages: ['javascript', 'php', 'java', 'python'],
     }),
     new CopyWebpackPlugin([
-      { from: './locales', to: '../locales' },
       { from: './images', to: '../images' },
       { from: './favicon.ico', to: '../favicon.ico' },
     ]),

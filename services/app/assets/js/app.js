@@ -10,7 +10,7 @@
 // import 'jquery';
 import hljs from 'highlight.js';
 // import '@fortawesome/react-fontawesome';
-// import fontawesome from '@fortawesome/fontawesome';
+import '@fortawesome/fontawesome-free/js/all';
 // import brands from '@fortawesome/fontawesome-free-brands';
 // import solid from '@fortawesome/fontawesome-free-solid';
 import 'bootstrap';
