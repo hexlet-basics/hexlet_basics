@@ -36,7 +36,7 @@ app-exercises-load-python:
 app-exercises-load-php:
 	docker pull gcr.io/hexlet-basics/exercises-php
 	rm -rf tmp/exercises-php
-	docker run --rm -v $(CURDIR)/tmp/exercises-php:/out gcr.io/hexlet-basics/exercises-php bash -c "cp -r /exercises-php/* /out"
+	aocker run --rm -v $(CURDIR)/tmp/exercises-php:/out gcr.io/hexlet-basics/exercises-php bash -c "cp -r /exercises-php/* /out"
 	docker-compose run --rm app mix x.exercises.load php
 
 app-exercises-load-javascript:

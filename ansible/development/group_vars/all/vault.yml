@@ -1,8 +1,8 @@
 # -*- mode: yaml; vault: true; -*-
 ---
 
-hexlet_basics_vault_github_client_id_ru: "779d61cefad06c93d3b8"
-hexlet_basics_vault_github_client_secret_ru: "d0392b2c07b8c078e6c6b38ddadd21a2b24135c4"
+hexlet_basics_vault_github_client_id_ru: "4c8040727fface68d59a"
+hexlet_basics_vault_github_client_secret_ru: "3bd561a6859ba09b4427d6960a89e4a9060cf605"
 hexlet_basics_vault_db_hostname: "db"
 hexlet_basics_vault_db_username: "postgres"
 hexlet_basics_vault_db_pool_size: 2

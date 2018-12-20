@@ -3,6 +3,7 @@ FROM elixir:1.7.4
 ENV HOME /home/shared
 WORKDIR /app
 
+ENV VERSION 19122018
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
 
 RUN apt-get update && apt-get install -y inotify-tools
@@ -16,7 +17,7 @@ RUN mix local.rebar --force
 RUN mix archive.install hex phx_new 1.4.0
 
 ENV DOCKER_CHANNEL edge
-ENV DOCKER_VERSION 18.06.1-ce
+ENV DOCKER_VERSION 18.09.0
 RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_64/docker-${DOCKER_VERSION}.tgz" \
   | tar -xzC /usr/local/bin --strip=1 docker/docker
 
@@ -26,8 +27,7 @@ COPY mix.* ./
 # Install all production dependencies
 RUN mix deps.get
 
-COPY package.json ./
-COPY package-lock.json ./
+COPY package* ./
 
 RUN npm install
 
@@ -36,9 +36,9 @@ RUN mix deps.compile
 
 COPY . .
 
-RUN NODE_ENV=production npx webpack
-RUN MIX_ENV=prod mix compile
-RUN MIX_ENV=prod mix phx.digest
+# RUN NODE_ENV=production npx webpack
+# RUN MIX_ENV=prod mix compile
+# RUN MIX_ENV=prod mix phx.digest
 
 # RUN MIX_ENV=prod mix release.init
 # RUN MIX_ENV=prod mix release
