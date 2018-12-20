@@ -1,7 +1,7 @@
 doctype html
 html lang="#{@locale}"
   head
-    / link rel="stylesheet" href="#{static_path(@conn, "/assets/vendors.css")}"
+    link rel="stylesheet" href="#{static_path(@conn, "/assets/vendors.css")}"
     link rel="stylesheet" href="#{static_path(@conn, "/assets/main.css")}"
     link rel="stylesheet" href="#{static_path(@conn, "/assets/lesson.css")}"
     title= page_title(@conn)
@@ -27,5 +27,6 @@ html lang="#{@locale}"
       main.mt-3 role="main"
         = render @view_module, @view_template, assigns
 
+    script src="#{static_path(@conn, "/assets/vendors.js")}"
     script src="#{static_path(@conn, "/assets/main.js")}"
     script src="#{static_path(@conn, "/assets/lesson.js")}"

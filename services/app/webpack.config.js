@@ -40,7 +40,9 @@ module.exports = {
     // new CleanWebpackPlugin(['./priv/static']),
     // new webpack.HashedModuleIdsPlugin(),
     // new WebpackAssetsManifest({ writeToDisc: true }),
-    new MonacoWebpackPlugin(),
+    new MonacoWebpackPlugin({
+      languages: ['javascript', 'php', 'java', 'python'],
+    }),
     new CopyWebpackPlugin([
       { from: './locales', to: '../locales' },
       { from: './images', to: '../images' },
@@ -63,18 +65,18 @@ module.exports = {
   //   fs: 'empty',
   // },
 
-  // optimization: {
-  //   runtimeChunk: 'single',
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       vendor: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         name: 'vendors',
-  //         chunks: 'all',
-  //       },
-  //     },
-  //   },
-  // },
+  optimization: {
+    // runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
 
   module: {
     rules: [
