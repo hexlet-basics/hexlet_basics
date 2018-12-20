@@ -143,7 +143,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
       filename = Path.basename(filepath)
       [_, locale, _] = String.split(filename, ".")
       Logger.debug(filepath)
-      data = YamlElixir.read_from_file(filepath)
+      {:ok, data} = YamlElixir.read_from_file(filepath)
       {locale, data}
     end)
   end
@@ -193,7 +193,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
 
   def upsert_language(upload, lang_name, repo_dest) do
     spec_filepath = Path.join(repo_dest, "spec.yml")
-    %{"language" => language_info} = YamlElixir.read_from_file(spec_filepath)
+    {:ok, %{"language" => language_info}} = YamlElixir.read_from_file(spec_filepath)
 
     language =
       case Repo.get_by(Language, slug: lang_name) do
