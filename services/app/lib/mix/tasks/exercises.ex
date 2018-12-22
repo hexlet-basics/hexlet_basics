@@ -31,12 +31,16 @@ defmodule Mix.Tasks.X.Exercises.Load do
         upsert_module_with_descriptions(language, data)
       end)
 
+    # TODO: remove old modules
+
     modules
     |> Enum.flat_map(fn module ->
       get_lessons(module_dest, module, language)
     end)
     |> Enum.with_index()
     |> Enum.each(&upsert_lesson_with_descriptions/1)
+
+    # TODO: remove old lessons
   end
 
   def get_lessons(dest, module, language) do
