@@ -16,7 +16,7 @@ spec:
 
       initContainers:
         - name: exercises-python
-          image: gcr.io/hexlet-basics/exercises-python
+          image: hexletbasics/exercises-python
           command:
             - cp
             - "-r"

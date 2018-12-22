@@ -16,7 +16,7 @@ spec:
 
       initContainers:
         - name: exercises-javascript
-          image: gcr.io/hexlet-basics/exercises-javascript
+          image: hexletbasics/exercises-javascript
           command:
             - cp
             - "-r"
@@ -30,7 +30,7 @@ spec:
 
         - name: app
           imagePullPolicy: Always
-          image: gcr.io/hexlet-basics/app:v104
+          image: gcr.io/hexlet-basics/app:v105
           command:
             - mix
             - x.exercises.load
