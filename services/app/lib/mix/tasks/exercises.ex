@@ -93,6 +93,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
         upload_id: language.upload_id,
         original_code: original_code,
         prepared_code: prepared_code,
+        module_id: module.id,
         test_code: test_code
       })
       |> Repo.insert_or_update!()
