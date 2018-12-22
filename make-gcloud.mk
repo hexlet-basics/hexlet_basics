@@ -11,3 +11,6 @@ gcloud-compute-ssh:
 
 gcloud-docker-init:
 	gcloud auth configure-docker
+
+gcloud-sql-connect:
+	gcloud beta sql connect master3 --user=hexlet_basics --database=hexlet_basics_prod
