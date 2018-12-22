@@ -21,7 +21,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
       })
 
     # up_repo(lang_name, repo_dest)
-    language = upsert_language(upload, lang_name, repo_dest)
+    {:ok, language} = upsert_language(upload, lang_name, repo_dest)
 
     modules_with_meta = get_modules(module_dest)
 
@@ -135,6 +135,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
     |> Enum.map(&Path.basename/1)
     |> Enum.map(fn directory ->
       [order, slug] = String.split(directory, "-", parts: 2)
+      Logger.debug("parsed module: #{slug}")
       descriptions = get_descriptions(Path.join(dest, directory))
       %{order: order, slug: slug, descriptions: descriptions}
     end)
@@ -164,13 +165,12 @@ defmodule Mix.Tasks.X.Exercises.Load do
         module -> module
       end
 
-    module =
-      module
+    {:ok, _} = module
       |> Language.Module.changeset(%{
         order: order,
         upload_id: language.upload_id
       })
-      |> Repo.insert_or_update!()
+      |> Repo.insert_or_update()
 
     if Enum.empty?(descriptions) do
       raise "Module '#{module.slug}' does not have descriptions"
@@ -189,11 +189,11 @@ defmodule Mix.Tasks.X.Exercises.Load do
         module -> module
       end
 
-    description
+    {:ok, _} = description
     |> Language.Module.Description.changeset(
       Map.merge(data, %{"language_id" => module.language_id})
     )
-    |> Repo.insert_or_update!()
+    |> Repo.insert_or_update()
   end
 
   def upsert_language(upload, lang_name, repo_dest) do
@@ -215,7 +215,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
       exercise_filename: language_info["exercise_filename"],
       exercise_test_filename: language_info["exercise_test_filename"]
     })
-    |> Repo.insert_or_update!()
+    |> Repo.insert_or_update()
   end
 
   def up_repo(lang_name, dest) do
