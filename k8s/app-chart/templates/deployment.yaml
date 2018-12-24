@@ -2,9 +2,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: "{{ .Release.Name }}-deployment"
   labels:
-    app.kubernetes.io/name: "{{ .Chart.Name }}"
+    app.kubernetes.io/name: "{{ .Release.Name }}-web-deployment"
     app.kubernetes.io/instance: "{{ .Release.Name }}"
     app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
     app.kubernetes.io/managed-by: "{{ .Release.Service }}"
@@ -13,7 +13,7 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: "{{ .Chart.Name }}"
+      app.kubernetes.io/name: "{{ .Release.Name }}-web-pod"
       app.kubernetes.io/instance: "{{ .Release.Name }}"
   strategy:
     # type: RollingUpdate
@@ -23,7 +23,7 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: "{{ .Chart.Name }}"
+        app.kubernetes.io/name: "{{ .Release.Name }}-web-pod"
         app.kubernetes.io/instance: "{{ .Release.Name }}"
     spec:
       volumes:

@@ -11,7 +11,7 @@ metadata:
     helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
   selector:
-    app.kubernetes.io/name: "{{ .Chart.Name }}"
+    app.kubernetes.io/name: "{{ .Release.Name }}-web-pod"
     app.kubernetes.io/instance: "{{ .Release.Name }}"
   type: NodePort
   ports:
