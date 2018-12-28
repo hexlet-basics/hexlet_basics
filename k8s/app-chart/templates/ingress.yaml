@@ -9,9 +9,9 @@ metadata:
     app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
     app.kubernetes.io/managed-by: "{{ .Release.Service }}"
     helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
-  # annotations:
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: "code-basics.com., code-basics.ru."
     # kubernetes.io/ingress.global-static-ip-name: "web-static-ip"
-    # external-dns.alpha.kubernetes.io/hostname: "code-basics.com., code-basics.ru."
 spec:
   backend:
     serviceName: "{{ .Release.Name }}-frontend"
