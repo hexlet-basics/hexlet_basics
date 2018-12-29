@@ -5,7 +5,7 @@ compose:
 	docker-compose up
 
 compose-down:
-	docker-compose down -v
+	docker-compose down -v || true
 
 compose-setup: compose-down development-setup compose-build app-install app-db-prepare
 	docker-compose run app npm install
