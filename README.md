@@ -8,7 +8,6 @@ This repository is created and maintained by the team and the community of Hexle
 * Mac / Linux
 * Docker
 * Docker Compose
-* Ansible (installed using pip3)
 
 ### Install
 

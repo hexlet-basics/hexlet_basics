@@ -4,7 +4,6 @@
   gather_facts: no
   tasks:
     - pip:
-        executable: pip3
         name:
           - docker
           - docker-py
