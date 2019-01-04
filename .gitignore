@@ -4,7 +4,6 @@ db
 deps
 *.ez
 tmp
-.env
 *.retry
 
 # Generated on crash by the VM

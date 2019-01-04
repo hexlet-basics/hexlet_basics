@@ -4,20 +4,25 @@ substitutions:
   _SLACK_WEBHOOK: 'key'
 
 steps:
+
   - name: 'gcr.io/cloud-builders/docker'
     args: [
-      'build',
-      '-t', 'gcr.io/$PROJECT_ID/app:${TAG_NAME}${BRANCH_NAME}',
-      '--cache-from', 'gcr.io/$PROJECT_ID/app:master',
-      # '--file', 'services/app/Dockerfile',
-      'services/app'
+      'pull',
+      'gcr.io/$PROJECT_ID/app:master'
     ]
-  - name: 'docker/compose:1.15.0'
+
+  - name: 'gcr.io/cloud-builders/docker'
     args: [
-      '--project-directory', 'services/app',
-      '-f', 'services/app/docker-compose.yml',
+      'tag',
+      'gcr.io/$PROJECT_ID/app:master',
+      'app'
+    ]
+
+  - name: 'docker/compose:1.19.0'
+    args: [
+      '-f', 'services/app/docker-compose.test.yml',
       'run',
-      'sut'
+      'test'
     ]
   - name: 'technosophos/slack-notify'
     args: [

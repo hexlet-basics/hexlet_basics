@@ -4,9 +4,9 @@ version: '2'
 
 services:
   db:
-    image: postgres
-  sut:
-    image: gcr.io/hexlet-basics/app
+    image: postgres:11
+  test:
+    image: app
     command: mix test
     depends_on:
       - db
