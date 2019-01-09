@@ -32,6 +32,11 @@ app-exercises-load-python:
 	docker run --rm -v $(CURDIR)/tmp/exercises-python:/out hexletbasics/exercises-python bash -c "cp -r /exercises-python/* /out"
 	docker-compose run --rm app mix x.exercises.load python
 
+app-exercises-load-ruby:
+	docker pull hexletbasics/exercises-ruby
+	rm -rf tmp/exercises-ruby
+	docker run --rm -v $(CURDIR)/tmp/exercises-ruby:/out hexletbasics/exercises-ruby bash -c "cp -r /exercises-ruby/* /out"
+	docker-compose run --rm app mix x.exercises.load ruby
 
 app-exercises-load-php:
 	docker pull hexletbasics/exercises-php
