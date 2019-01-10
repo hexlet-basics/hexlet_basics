@@ -46,13 +46,11 @@ html lang="#{@locale}"
               span.text-muted.small
                 span property="legalName" Hexlet Ltd.
                 span property="address" &nbsp;Puolikkotie 8, 02230 Espoo, Finland.
-                span property="vatID" &nbsp;VAT ID: FI26641607
               br
               small.text-muted.small
                 = gettext "Credits"
               br
               small.text-muted.small
-                i.fas.fa-github aria-hidden="true"
                 a.text-muted target="_blank" href="https://github.com/hexlet-basics"
                   = gettext "Source code"
                   span.fas.fa-link.ml-2
