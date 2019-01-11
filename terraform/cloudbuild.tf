@@ -1,5 +1,5 @@
 resource "google_cloudbuild_trigger" "app" {
-  project     = "${var.project_name}"
+  project     = "${google_project.hexlet_basics.project_id}"
   description = "app"
 
   trigger_template {
