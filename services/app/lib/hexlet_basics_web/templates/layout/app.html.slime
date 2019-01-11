@@ -60,6 +60,8 @@ html lang="#{@locale}"
           .col-12.col-md-5.mt-3.text-right
             ul.list-unstyled
               li
+                a.text-muted target="_blank" href="<%= page_path(@conn, :show, 'about') %>"= gettext "About"
+              li
                 a.text-muted target="_blank" href="https://ru.hexlet.io/blog"= gettext "Blog"
               li
                 a.text-muted target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Chat"

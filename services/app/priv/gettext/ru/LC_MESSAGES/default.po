@@ -109,6 +109,7 @@ msgid "Recommended Books"
 msgstr "Рекомендуемые книги"
 
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
 msgid "Source code"
 msgstr "Исходный код"
 
@@ -153,6 +154,7 @@ msgid "From the creators of Hexlet"
 msgstr "От создателей Хекслета"
 
 #, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 #: lib/hexlet_basics_web/templates/page/about.html.slime:1
 msgid "About"
 msgstr "О проекте"

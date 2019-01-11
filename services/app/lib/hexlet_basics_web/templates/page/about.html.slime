@@ -8,4 +8,4 @@
       p.lead
         = gettext "Contributions"
         a.text-muted target="_blank" href="https://github.com/hexlet-basics"
-          = gettext "github.com/hexlet-basics"
+          = gettext "Source code"
