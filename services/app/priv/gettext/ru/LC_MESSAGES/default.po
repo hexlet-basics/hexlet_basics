@@ -126,7 +126,7 @@ msgstr "Определения"
 
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Credits"
-msgstr "При поддержке сообщества Хекслет"
+msgstr "При поддержке сообщества Хекслет."
 
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "All lessons completed!"
@@ -194,3 +194,18 @@ msgstr "Продолжить"
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "issues"
 msgstr "Нашли ошибку? Есть что добавить? Пулреквесты приветствуются"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Contributions"
+msgstr "Исзодный код платформы Code Basics, всех уроков и упражнений доступен на Github. Вы можете поучаствовать в процессе улучшения уроков, исправления неточностей и расширения курсов на другие языки программирования."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Extended credits"
+msgstr "Идея, учебный план, платформа: Кирилл Мокевнин. Уроки (9 базовых модулей): Рахим Давлеткалиев и Наталия Басс. Расширения и адаптация: Кирилл Мокевнин, Улугбек Туйчиев, Алексей Пыльцын и другие участники сообщества Хекслет."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Projects goal"
+msgstr "Цель Code Basics — предоставить качественные интерактивные уроки по основам программирования бесплатно, для всех."

@@ -1,4 +1,11 @@
 .row.justify-content-center.mt-3.mb-5
-  .col-12.col-md-9.text-center
-    h1.h3
+  .col
+    h1.h3.text-center.mb-4
       = gettext("About")
+
+      p.lead= gettext "Projects goal"
+      p.lead= gettext "Extended credits"
+      p.lead
+        = gettext "Contributions"
+        a.text-muted target="_blank" href="https://github.com/hexlet-basics"
+          = gettext "github.com/hexlet-basics"

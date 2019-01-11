@@ -126,7 +126,7 @@ msgstr ""
 
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Credits"
-msgstr "With the help of Hexlet Community"
+msgstr "With the help of Hexlet Community."
 
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "All lessons completed!"
@@ -181,7 +181,7 @@ msgstr ""
 msgid "Support Code Basics"
 msgstr ""
 
-#, elixir-format, fuzzy
+#, elixir-format
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
@@ -194,3 +194,18 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "issues"
 msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Contributions"
+msgstr "Source code of Code Basics platform, all lessons and exercisees is available on Github. You can contribute by improving lessons, fixing mistakes and extending the content to cover more programming languages."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Extended credits"
+msgstr "Idea, syllabus, platform: Kirill Mokevnin. Core lessons: Rakhim Davletkaliyev, Natalia Bass. Extensions and adaptation: Kirill Mokevnin, Ulugbek Tuychiev, Aleksey Pyltsyn and other Hexlet community members."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Projects goal"
+msgstr "The goal of Code Basics is to provide quality interactive lessons on the basics of programming, free of charge, available to everybody."

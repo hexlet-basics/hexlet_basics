@@ -194,3 +194,18 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "issues"
 msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Contributions"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Extended credits"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Projects goal"
+msgstr ""
