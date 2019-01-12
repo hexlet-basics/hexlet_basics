@@ -24,6 +24,14 @@ steps:
       'run',
       'test'
     ]
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'tag',
+      'app',
+      'gcr.io/$PROJECT_ID/app:${TAG_NAME}${BRANCH_NAME}'
+    ]
+
   - name: 'technosophos/slack-notify'
     args: [
     ]
