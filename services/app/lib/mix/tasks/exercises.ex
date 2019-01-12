@@ -165,7 +165,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
         module -> module
       end
 
-    {:ok, _} = module
+    {:ok, module} = module
       |> Language.Module.changeset(%{
         order: order,
         upload_id: language.upload_id

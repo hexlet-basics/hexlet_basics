@@ -1,17 +1,19 @@
 KUBE_CONTEXT := gke_hexlet-basics_europe-west3-a_hexlet-basics-5
 
+# kubectl exec app-deployment-5b566d5fb5-q9kdr -c phoenix -- docker pull hexletbasics/exercises-php
+
 init:
 	brew install helm-?
 	helm repo add rimusz https://charts.rimusz.net
 	helm repo update
 
 apply-exercises-js:
-	kubectl delete --kube-context=$(KUBE_CONTEXT) jobs exercises-javascript-job || true
-	kubectl apply --kube-context=$(KUBE_CONTEXT) -f exercises-javascript.job.yml
+	kubectl delete jobs exercises-javascript-job || true
+	kubectl apply -f exercises-javascript.job.yml
 
 apply-exercises-php:
-	kubectl delete --kube-context=$(KUBE_CONTEXT) jobs exercises-php-job || true
-	kubectl apply --kube-context=$(KUBE_CONTEXT) -f exercises-php.job.yml
+	kubectl delete jobs exercises-php-job || true
+	kubectl apply -f exercises-php.job.yml
 
 apply-exercises-python:
 	kubectl delete --kube-context=$(KUBE_CONTEXT) jobs exercises-python-job || true
