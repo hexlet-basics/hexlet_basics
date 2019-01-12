@@ -1,35 +1,37 @@
+KUBE_CONTEXT := gke_hexlet-basics_europe-west3-a_hexlet-basics-5
+
 init:
 	brew install helm-?
 	helm repo add rimusz https://charts.rimusz.net
 	helm repo update
 
 apply-exercises-js:
-	kubectl delete jobs exercises-javascript-job || true
-	kubectl apply -f exercises-javascript.job.yml
+	kubectl delete --kube-context=$(KUBE_CONTEXT) jobs exercises-javascript-job || true
+	kubectl apply --kube-context=$(KUBE_CONTEXT) -f exercises-javascript.job.yml
 
 apply-exercises-php:
-	kubectl delete jobs exercises-php-job || true
-	kubectl apply -f exercises-php.job.yml
+	kubectl delete --kube-context=$(KUBE_CONTEXT) jobs exercises-php-job || true
+	kubectl apply --kube-context=$(KUBE_CONTEXT) -f exercises-php.job.yml
 
 apply-exercises-python:
-	kubectl delete jobs exercises-python-job || true
-	kubectl apply -f exercises-python.job.yml
+	kubectl delete --kube-context=$(KUBE_CONTEXT) jobs exercises-python-job || true
+	kubectl apply --kube-context=$(KUBE_CONTEXT) -f exercises-python.job.yml
 
 # helm install --name app ./app-chart
 helm-upgrade-app:
-	helm upgrade app ./app-chart
+	helm upgrade --kube-context=$(KUBE_CONTEXT) app ./app-chart
 
 # helm install -f ./values-external-dns.yml --name external-dns stable/external-dns
 helm-upgrade-external-dns:
-	helm upgrade -f ./values-external-dns.yml external-dns stable/external-dns
+	helm upgrade --kube-context=$(KUBE_CONTEXT) -f ./values-external-dns.yml external-dns stable/external-dns
 
 # helm install -f ./values-cert-manager.yml --name cert-manager --namespace kube-system stable/cert-manager
 helm-upgrade-cert-manager:
-	helm upgrade -f ./values-cert-manager.yml cert-manager stable/cert-manager
+	helm upgrade --kube-context=$(KUBE_CONTEXT) -f ./values-cert-manager.yml cert-manager stable/cert-manager
 
 # helm install -f ./values-gcloud-proxy.yml --name pg-sqlproxy rimusz/gcloud-sqlproxy
 helm-upgrade-gcloud-sqlproxy:
-	helm upgrade -f ./values-gcloud-proxy.yml pg-sqlproxy rimusz/gcloud-sqlproxy
+	helm upgrade --kube-context=$(KUBE_CONTEXT) -f ./values-gcloud-proxy.yml pg-sqlproxy rimusz/gcloud-sqlproxy
 
 get-pods:
 	kubectl get pod -w
