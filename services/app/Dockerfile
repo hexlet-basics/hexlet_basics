@@ -21,9 +21,10 @@ ENV DOCKER_VERSION 18.09.0
 RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_64/docker-${DOCKER_VERSION}.tgz" \
   | tar -xzC /usr/local/bin --strip=1 docker/docker
 
-COPY mix.* ./
+COPY mix.exs mix.lock ./
 RUN mix deps.get
-RUN MIX_ENV=prod mix deps.compile
+COPY config .
+RUN mix deps.compile
 
 COPY package* ./
 
@@ -32,8 +33,8 @@ RUN npm install
 COPY . .
 
 RUN NODE_ENV=production npx webpack
-RUN MIX_ENV=prod mix compile
-RUN MIX_ENV=prod mix phx.digest
+RUN mix compile
+RUN mix phx.digest
 
 # RUN MIX_ENV=prod mix release.init
 # RUN MIX_ENV=prod mix release
