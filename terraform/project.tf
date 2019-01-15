@@ -1,6 +1,7 @@
 provider "google" {
   version = "~> 1.19.1"
   region = "${var.region}"
+  credentials = "${file("google.key.json")}"
 }
 
 provider "kubernetes" {

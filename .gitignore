@@ -35,3 +35,4 @@ secrets.auto.tfvars
 *.tfstate
 *.secret.yml
 .elixir_ls
+google.key.json
