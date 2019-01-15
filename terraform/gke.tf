@@ -26,9 +26,8 @@ resource "google_container_cluster" "hexlet_basics" {
 
     machine_type = "n1-standard-1"
     disk_size_gb = 50
-    disk_type = "pd-ssd"
+    disk_type    = "pd-ssd"
   }
-
   provisioner "local-exec" {
     command = "gcloud container clusters get-credentials --region ${var.zone} ${var.gke_cluster_name}"
   }
