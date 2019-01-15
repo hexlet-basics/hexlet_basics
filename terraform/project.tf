@@ -5,7 +5,7 @@ provider "google" {
 }
 
 provider "kubernetes" {
-  version = "~> 1.4"
+  version = "~> 1.5"
   # region = "${var.region}"
 }
 
