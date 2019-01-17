@@ -6,10 +6,6 @@ variable "gke_cluster_name" {
   default = "hexlet-basics-5"
 }
 
-variable "gke_cluster_name_2" {
-  default = "hexlet-basics-6"
-}
-
 variable "billing_account" {
   default = "01730C-0A5BE7-686C51"
 }
