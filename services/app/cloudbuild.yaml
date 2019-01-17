@@ -31,7 +31,7 @@ steps:
     args: [
       'tag',
       'app',
-      'gcr.io/hexlet-basics/app:${TAG_NAME}${BRANCH_NAME}'
+      'gcr.io/$PROJECT_ID/app:${TAG_NAME}${BRANCH_NAME}'
     ]
 
   - name: 'technosophos/slack-notify'
@@ -40,8 +40,8 @@ steps:
     env:
       - 'SLACK_WEBHOOK=${_SLACK_WEBHOOK}'
       - 'SLACK_MESSAGE=App was built (${SHORT_SHA})'
-      - 'SLACK_TITLE="hexlet-basics:${TAG_NAME}${BRANCH_NAME}"'
+      - 'SLACK_TITLE="$PROJECT_ID:${TAG_NAME}${BRANCH_NAME}"'
       - 'SLACK_USERNAME=cloudbuild'
 
 timeout: "1200s"
-images: ['gcr.io/hexlet-basics/app:${TAG_NAME}${BRANCH_NAME}']
+images: ['gcr.io/$PROJECT_ID/app:${TAG_NAME}${BRANCH_NAME}']
