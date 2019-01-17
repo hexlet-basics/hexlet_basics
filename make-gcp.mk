@@ -9,3 +9,8 @@ gcp-sql-connect:
 
 gcp-setup:
 	cd terraform && terraform apply
+
+# gcloud auth application-default login
+# gcloud config set project hexlet-basics
+gcloud-cluster-init:
+	gcloud container clusters get-credentials hexlet-basics-5 --region europe-west3-a --project ${PROJECT}
