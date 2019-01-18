@@ -27,10 +27,6 @@ helm-upgrade-app:
 helm-upgrade-external-dns:
 	helm upgrade --kube-context=$(KUBE_CONTEXT) -f ./values-external-dns.yml external-dns stable/external-dns
 
-# helm install -f ./values-cert-manager.yml --name cert-manager --namespace kube-system stable/cert-manager
-helm-upgrade-cert-manager:
-	helm upgrade --kube-context=$(KUBE_CONTEXT) -f ./values-cert-manager.yml cert-manager stable/cert-manager
-
 # helm install -f ./values-gcloud-proxy.yml --name pg-sqlproxy rimusz/gcloud-sqlproxy
 helm-upgrade-gcloud-sqlproxy:
 	helm upgrade --kube-context=$(KUBE_CONTEXT) -f ./values-gcloud-proxy.yml pg-sqlproxy rimusz/gcloud-sqlproxy
