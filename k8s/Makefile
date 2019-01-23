@@ -16,8 +16,8 @@ apply-exercises-php:
 	kubectl apply -f exercises-php.job.yml
 
 apply-exercises-python:
-	kubectl delete --kube-context=$(KUBE_CONTEXT) jobs exercises-python-job || true
-	kubectl apply --kube-context=$(KUBE_CONTEXT) -f exercises-python.job.yml
+	kubectl delete jobs exercises-python-job || true
+	kubectl apply -f exercises-python.job.yml
 
 # helm install --name app ./app-chart
 helm-upgrade-app:
