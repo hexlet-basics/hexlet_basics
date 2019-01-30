@@ -51,9 +51,17 @@ class ControlBox extends React.Component {
     const nextLessonPath = routes.nextLessonPath(lesson);
     const prevLessonPath = prevLesson ? routes.languageModuleLessonPath(language, prevLesson.module, prevLesson) : '#';
 
+    const handleKeyPress = (keyName) => {
+      const handlers = {
+        'ctrl+Enter': this.handleRunCheck,
+        'ctrl+right': () => lessonState.finished ? window.location.href = nextLessonPath : null,
+        'ctrl+left': () => prevLesson ? window.location.href = prevLessonPath : null
+      }
+      handlers[keyName]();
+    }
 
     return (
-      <Hotkeys keyName="ctrl+Enter" onKeyUp={this.handleRunCheck}>
+      <Hotkeys keyName="ctrl+Enter,ctrl+right,ctrl+left" onKeyUp={handleKeyPress}>
         <div className="row">
           <div className="col x-font-sans-serif text-center">
             <a
