@@ -28,13 +28,13 @@ RUN mix deps.compile
 
 COPY package* ./
 
-RUN npm install
+RUN npm ci
 
 COPY . .
 
-RUN NODE_ENV=production npx webpack
 RUN mix compile
-RUN mix phx.digest
+# RUN mix phx.digest
+RUN NODE_ENV=production npx webpack
 
 # RUN MIX_ENV=prod mix release.init
 # RUN MIX_ENV=prod mix release
