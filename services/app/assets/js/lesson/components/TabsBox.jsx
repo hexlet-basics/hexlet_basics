@@ -46,7 +46,7 @@ class TabsBox extends React.Component {
             <NavLink href="#" onClick={setActive('solution')} className={activateNavLink('solution')}>{t('solution')}</NavLink>
           </NavItem>
         </Nav>
-        <TabContent className="d-flex x-flex-1" activeTab={this.props.active}>
+        <TabContent className="d-flex x-flex-1 overflow-hidden" activeTab={this.props.active}>
           <TabPane tabId="editor" className={activateTabPane('editor')}>
             <Editor
               defaultValue={lesson.prepared_code}
