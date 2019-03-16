@@ -1,4 +1,4 @@
-FROM elixir:1.7.4
+FROM elixir:1.8.1
 
 ENV HOME /home/shared
 WORKDIR /app
@@ -14,10 +14,10 @@ RUN npm install -g npm-check-updates
 RUN mix local.hex --force
 # Install rebar (Erlang build tool)
 RUN mix local.rebar --force
-RUN mix archive.install hex phx_new 1.4.0
+RUN mix archive.install hex phx_new 1.4.2
 
 ENV DOCKER_CHANNEL edge
-ENV DOCKER_VERSION 18.09.0
+ENV DOCKER_VERSION 18.09.3
 RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_64/docker-${DOCKER_VERSION}.tgz" \
   | tar -xzC /usr/local/bin --strip=1 docker/docker
 
