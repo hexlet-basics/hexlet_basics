@@ -9,6 +9,7 @@ export default class Editor extends React.Component {
   }
 
   handleResize = () => this.editor.layout();
+
   handleChange = content => this.props.onCodeChange({ content });
 
   editorDidMount = (editor) => {
@@ -29,14 +30,15 @@ export default class Editor extends React.Component {
         enabled: false,
       },
     };
-    return (<MonacoEditor
-      theme="vs-dark"
-      options={options}
-      language={this.props.language}
-      editorDidMount={this.editorDidMount}
-      defaultValue={this.props.defaultValue}
-      onChange={this.handleChange}
-    />);
+    return (
+      <MonacoEditor
+        theme="vs-dark"
+        options={options}
+        language={this.props.language}
+        editorDidMount={this.editorDidMount}
+        defaultValue={this.props.defaultValue}
+        onChange={this.handleChange}
+      />
+    );
   }
 }
-

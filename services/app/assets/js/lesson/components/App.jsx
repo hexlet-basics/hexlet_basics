@@ -1,9 +1,9 @@
 import React from 'react';
 import { Alert, AlertContainer } from 'react-bs-notifier';
-import { withI18n } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import connect from '../connect';
-import TabsBox from '../components/TabsBox';
-import ControlBox from '../components/ControlBox';
+import TabsBox from './TabsBox';
+import ControlBox from './ControlBox';
 import EntityContext from '../EntityContext';
 
 const mapStateToProps = (state) => {
@@ -13,14 +13,15 @@ const mapStateToProps = (state) => {
 };
 
 @connect(mapStateToProps)
-@withI18n()
+@withTranslation()
 class App extends React.Component {
   handleSelectTab = (current) => {
-    this.props.selectTab({ current });
+    const { selectTab } = this.props;
+    selectTab({ current });
   }
 
   renderAlert() {
-    const { notification, t } = this.props;
+    const { notification, dismissNotification, t } = this.props;
     if (!notification) {
       return null;
     }
@@ -29,7 +30,7 @@ class App extends React.Component {
         <AlertContainer>
           <Alert
             timeout={5000}
-            onDismiss={this.props.dismissNotification}
+            onDismiss={dismissNotification}
             type={notification.type}
             headline={t(notification.headline)}
           >
@@ -47,13 +48,15 @@ class App extends React.Component {
       <React.Fragment>
         {this.renderAlert()}
         <EntityContext.Consumer>
-          {({ lesson, language }) => (<TabsBox
-            lesson={lesson}
-            language={language}
-            onSelectActive={this.handleSelectTab}
-            active={currentTabInfo.current}
-            userFinishedLesson={userFinishedLesson}
-          />)}
+          {({ lesson, language }) => (
+            <TabsBox
+              lesson={lesson}
+              language={language}
+              onSelectActive={this.handleSelectTab}
+              active={currentTabInfo.current}
+              userFinishedLesson={userFinishedLesson}
+            />
+          )}
         </EntityContext.Consumer>
         <EntityContext.Consumer>
           {entities => <ControlBox {...entities} userFinishedLesson={userFinishedLesson} />}

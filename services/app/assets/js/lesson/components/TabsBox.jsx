@@ -1,7 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
-import { withI18n } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
+import {
+  TabContent, TabPane, Nav, NavItem, NavLink,
+} from 'reactstrap';
 import Editor from './Editor';
 import Console from './Console';
 import Solution from './Solution';
@@ -15,23 +16,25 @@ const mapStateToProps = (state) => {
 };
 
 @connect(mapStateToProps)
-@withI18n()
 @withActive()
+@withTranslation()
 class TabsBox extends React.Component {
   render() {
     const {
       checkInfo,
       currentTabInfo,
-      t,
       setActive,
       changeCode,
       userFinishedLesson,
       lesson,
       language,
+      active,
+      activeClass,
+      t,
     } = this.props;
 
-    const activateNavLink = this.props.activeClass('active d-flex x-flex-1');
-    const activateTabPane = this.props.activeClass('d-flex x-flex-1');
+    const activateNavLink = activeClass('active d-flex x-flex-1');
+    const activateTabPane = activeClass('d-flex x-flex-1');
 
     return (
       <div className="d-flex flex-column x-flex-1 h-100 mb-2">
@@ -46,7 +49,7 @@ class TabsBox extends React.Component {
             <NavLink href="#" onClick={setActive('solution')} className={activateNavLink('solution')}>{t('solution')}</NavLink>
           </NavItem>
         </Nav>
-        <TabContent className="d-flex x-flex-1 overflow-hidden" activeTab={this.props.active}>
+        <TabContent className="d-flex x-flex-1 overflow-hidden" activeTab={active}>
           <TabPane tabId="editor" className={activateTabPane('editor')}>
             <Editor
               defaultValue={lesson.prepared_code}

@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { withI18n } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import Hotkeys from 'react-hot-keys';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import connect from '../connect';
@@ -13,21 +13,21 @@ const mapStateToProps = (state) => {
 };
 
 @connect(mapStateToProps)
-@withI18n()
+@withTranslation()
 class ControlBox extends React.Component {
   handleRunCheck = () => {
-    const { code, lesson } = this.props;
-    this.props.runCheck({ lesson, code });
+    const { code, lesson, runCheck } = this.props;
+    runCheck({ lesson, code });
   }
 
   render() {
     const {
       checkInfo,
       lessonState,
-      t,
       language,
       lesson,
       prevLesson,
+      t,
     } = this.props;
 
     const runButtonClasses = cn({
