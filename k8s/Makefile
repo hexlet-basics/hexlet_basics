@@ -3,7 +3,7 @@ KUBE_CONTEXT := gke_hexlet-basics_europe-west3-a_hexlet-basics-5
 # kubectl exec app-deployment-5b566d5fb5-q9kdr -c phoenix -- docker pull hexletbasics/exercises-php
 
 init:
-	brew install helm-?
+	brew install kubernetes-helm
 	helm repo add rimusz https://charts.rimusz.net
 	helm repo update
 
