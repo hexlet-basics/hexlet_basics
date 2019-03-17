@@ -30,7 +30,7 @@ spec:
 
         - name: app
           imagePullPolicy: Always
-          image: gcr.io/hexlet-basics/app:v113
+          image: gcr.io/hexlet-basics/app:v115
           command:
             - mix
             - x.exercises.load
@@ -49,4 +49,4 @@ spec:
             - secretRef:
                 name: github-credentials
             - configMapRef:
-                name: hexlet-basics-config-map
+                : hexlet-basics-config-map

@@ -5,7 +5,7 @@
 
 replicaCount: 1
 
-version: v113
+version: v115
 
 nginx:
   image:
