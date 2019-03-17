@@ -44,6 +44,12 @@ app-exercises-load-php:
 	docker run --rm -v $(CURDIR)/tmp/exercises-php:/out hexletbasics/exercises-php bash -c "cp -r /exercises-php/* /out"
 	docker-compose run --rm app mix x.exercises.load php
 
+app-exercises-load-racket:
+	docker pull hexletbasics/exercises-racket
+	rm -rf tmp/exercises-racket
+	docker run --rm -v $(CURDIR)/tmp/exercises-racket:/out hexletbasics/exercises-racket bash -c "cp -r /exercises-racket/* /out"
+	docker-compose run --rm app mix x.exercises.load racket
+
 app-exercises-load-javascript:
 	docker pull hexletbasics/exercises-javascript
 	rm -rf tmp/exercises-javascript
