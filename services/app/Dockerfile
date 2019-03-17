@@ -22,7 +22,7 @@ RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_6
   | tar -xzC /usr/local/bin --strip=1 docker/docker
 
 COPY mix.exs mix.lock ./
-RUN mix deps.get
+RUN mix deps.get --only prod
 COPY config .
 RUN mix deps.compile
 
@@ -32,9 +32,10 @@ RUN npm ci
 
 COPY . .
 
-RUN mix compile
+MIX_ENV=prod RUN mix compile
 # RUN mix phx.digest
 RUN NODE_ENV=production npx webpack
+RUN mix phx.digest
 
 # RUN MIX_ENV=prod mix release.init
 # RUN MIX_ENV=prod mix release
