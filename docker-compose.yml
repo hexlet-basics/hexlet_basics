@@ -40,6 +40,7 @@ services:
       - "./tmp/exercises-javascript:/exercises-javascript"
       - "./tmp/exercises-python:/exercises-python"
       - "./tmp/exercises-ruby:/exercises-ruby"
+      - "./tmp/exercises-racket:/exercises-racket"
       - ".bashrc:/root/.bashrc:cached"
       - '/var/run/docker.sock:/var/run/docker.sock'
       # - "/var/tmp:/var/tmp:cached"

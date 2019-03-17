@@ -15,7 +15,7 @@ $cyan:    #89DDF3 !default;
 $hexlet-basics-php-color: $teal;
 $hexlet-basics-javascript-color: $indigo;
 $hexlet-basics-python-color: $purple;
-$hexlet-basics-racket-color: darken($orange, 10%);
+$hexlet-basics-racket-color: $blue;
 
 // App colors
 $hexlet-basics-font-color: #f8f8f2;
@@ -183,6 +183,14 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 
   &:hover {
     background-color: lighten($hexlet-basics-python-color, 10%);
+  }
+}
+
+.hexlet-basics-lesson-card-racket {
+  background-color: $hexlet-basics-racket-color;
+
+  &:hover {
+    background-color: lighten($hexlet-basics-racket-color, 10%);
   }
 }
 

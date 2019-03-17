@@ -198,6 +198,8 @@ defmodule Mix.Tasks.X.Exercises.Load do
 
   def upsert_language(upload, lang_name, repo_dest) do
     spec_filepath = Path.join(repo_dest, "spec.yml")
+
+    Logger.debug(spec_filepath)
     {:ok, %{"language" => language_info}} = YamlElixir.read_from_file(spec_filepath)
 
     language =
