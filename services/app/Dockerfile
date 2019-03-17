@@ -32,7 +32,7 @@ RUN npm ci
 
 COPY . .
 
-MIX_ENV=prod RUN mix compile
+RUN MIX_ENV=prod mix compile
 # RUN mix phx.digest
 RUN NODE_ENV=production npx webpack
 RUN mix phx.digest
