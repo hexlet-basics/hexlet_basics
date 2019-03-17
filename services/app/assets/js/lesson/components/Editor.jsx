@@ -1,5 +1,10 @@
+import { get } from 'lodash';
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
+
+const languageMapping = {
+  racket: 'scheme',
+};
 
 export default class Editor extends React.Component {
   componentDidUpdate() {
@@ -30,13 +35,16 @@ export default class Editor extends React.Component {
         enabled: false,
       },
     };
+
+    const { language, defaultvalue } = this.props;
+    const monacoLanguage = get(languageMapping, language, language);
     return (
       <MonacoEditor
         theme="vs-dark"
         options={options}
-        language={this.props.language}
+        language={monacoLanguage}
         editorDidMount={this.editorDidMount}
-        defaultValue={this.props.defaultValue}
+        defaultValue={defaultValue}
         onChange={this.handleChange}
       />
     );
