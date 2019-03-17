@@ -24,7 +24,7 @@ RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_6
 COPY mix.exs mix.lock ./
 RUN mix deps.get --only prod
 COPY config .
-RUN mix deps.compile
+RUN MIX_ENV=prod mix deps.compile
 
 COPY package* ./
 
