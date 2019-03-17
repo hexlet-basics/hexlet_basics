@@ -22,7 +22,7 @@ RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_6
   | tar -xzC /usr/local/bin --strip=1 docker/docker
 
 COPY mix.exs mix.lock ./
-RUN mix deps.get --only prod
+RUN mix deps.get
 COPY config .
 RUN MIX_ENV=prod mix deps.compile
 
@@ -33,12 +33,7 @@ RUN npm ci
 COPY . .
 
 RUN MIX_ENV=prod mix compile
-# RUN mix phx.digest
 RUN NODE_ENV=production npx webpack
 RUN MIX_ENV=prod mix phx.digest
 
-# RUN MIX_ENV=prod mix release.init
-# RUN MIX_ENV=prod mix release
-
-# CMD _build/prod/rel/hexlet_basics/bin/hexlet_basics foreground
 CMD ["mix", "phx.server"]
