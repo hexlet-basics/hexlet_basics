@@ -49,4 +49,4 @@ spec:
             - secretRef:
                 name: github-credentials
             - configMapRef:
-                : hexlet-basics-config-map
+                name: hexlet-basics-config-map
