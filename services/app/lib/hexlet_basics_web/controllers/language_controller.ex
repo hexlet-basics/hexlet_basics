@@ -78,6 +78,19 @@ defmodule HexletBasicsWeb.LanguageController do
 
     next_lesson = next_lesson |> Repo.preload(:module)
 
+    meta_attrs = [%{property: "og:type", content: 'article'},
+      %{property: "og:title", content: Gettext.gettext(HexletBasicsWeb.Gettext, "OG title #{language.slug}")},
+      %{property: "og:description", content: Gettext.gettext(HexletBasicsWeb.Gettext, "OG description #{language.slug}")},
+      %{property: "og:image", content: static_url(conn, "/images/#{language.slug}.png")},
+      %{property: "og:url", content: language_url(conn, :show, language.slug)},
+      %{property: "name", content: Gettext.gettext(HexletBasicsWeb.Gettext, "OG title #{language.slug}")},
+      %{property: "description", content: Gettext.gettext(HexletBasicsWeb.Gettext, "OG description #{language.slug}")},
+      %{property: "image", content: static_url(conn, "/images/#{language.slug}.png")}
+    ]
+    link_attrs = [%{rel: "canonical", href: language_url(conn, :show, language.slug)},
+      %{rel: 'image_src', href: static_url(conn, "/images/#{language.slug}.png")}
+    ]
+
     render(conn,
       language: language,
       descriptions_by_module: descriptions_by_module,
@@ -85,7 +98,9 @@ defmodule HexletBasicsWeb.LanguageController do
       next_lesson: next_lesson,
       first_lesson: first_lesson,
       user_finished_lessons_by_lesson: user_finished_lessons_by_lesson,
-      descriptions_by_lesson: descriptions_by_lesson
+      descriptions_by_lesson: descriptions_by_lesson,
+      meta_attrs: meta_attrs,
+      link_attrs: link_attrs
     )
   end
 end

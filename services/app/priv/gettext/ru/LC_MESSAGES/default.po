@@ -211,3 +211,43 @@ msgstr "Идея, учебный план, платформа: Кирилл Мо
 #: lib/hexlet_basics_web/templates/page/about.html.slime:1
 msgid "Projects goal"
 msgstr "Цель Code Basics — предоставить качественные интерактивные уроки по основам программирования бесплатно, для всех."
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:94
+msgid "OG title php"
+msgstr "Code Basics: основы программирования на PHP"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:95
+msgid "OG description php"
+msgstr "Изучение программирования — непростой и длительный процесс. Изучение синтаксиса языка — самая простая и короткая часть в пути, но без неё невозможно начать. Этот курс посвящен азам написания программ на PHP. Он готовит плацдарм для написания осмысленных программ"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:94
+msgid "OG title javascript"
+msgstr "Code Basics: основы программирования на Javascript"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:95
+msgid "OG description javascript"
+msgstr "Изучение программирования — непростой и длительный процесс. Изучение синтаксиса языка — самая простая и короткая часть в пути, но без неё невозможно начать. Этот курс посвящен азам написания программ на Javascript. Он готовит плацдарм для написания осмысленных программ"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:94
+msgid "OG title python"
+msgstr "Code Basics: основы программирования на Python"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:95
+msgid "OG description python"
+msgstr "Изучение программирования — непростой и длительный процесс. Изучение синтаксиса языка — самая простая и короткая часть в пути, но без неё невозможно начать. Этот курс посвящен азам написания программ на Python. Он готовит плацдарм для написания осмысленных программ"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:94
+msgid "OG title racket"
+msgstr "Code Basics: основы программирования на Racket"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:95
+msgid "OG description racket"
+msgstr "Изучение программирования — непростой и длительный процесс. Изучение синтаксиса языка — самая простая и короткая часть в пути, но без неё невозможно начать. Этот курс посвящен азам написания программ на Racket. Он готовит плацдарм для написания осмысленных программ"
