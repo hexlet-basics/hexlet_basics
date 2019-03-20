@@ -25,6 +25,8 @@ defmodule HexletBasicsWeb.Plugs.AssignGlobals do
     conn
     |> put_gon(configuration)
     |> assign(:ga, configuration1.ga)
+    |> assign(:meta_attrs, [])
+    |> assign(:link_attrs, [])
   end
 end
 

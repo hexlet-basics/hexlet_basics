@@ -4,6 +4,8 @@ html lang="#{@locale}"
     link rel="stylesheet" href="#{static_path(@conn, "/assets/vendors.css")}"
     link rel="stylesheet" href="#{static_path(@conn, "/assets/main.css")}"
     title= gettext("Code Basics Title")
+    = meta_tags(@meta_attrs)
+    = link_tags(@link_attrs)
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
   body.x-100vh
