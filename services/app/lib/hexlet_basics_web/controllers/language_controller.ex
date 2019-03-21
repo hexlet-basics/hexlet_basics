@@ -100,7 +100,8 @@ defmodule HexletBasicsWeb.LanguageController do
       user_finished_lessons_by_lesson: user_finished_lessons_by_lesson,
       descriptions_by_lesson: descriptions_by_lesson,
       meta_attrs: meta_attrs,
-      link_attrs: link_attrs
+      link_attrs: link_attrs,
+      title: language.slug
     )
   end
 end
