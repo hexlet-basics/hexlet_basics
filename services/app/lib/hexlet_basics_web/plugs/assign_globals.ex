@@ -27,6 +27,7 @@ defmodule HexletBasicsWeb.Plugs.AssignGlobals do
     |> assign(:ga, configuration1.ga)
     |> assign(:meta_attrs, [])
     |> assign(:link_attrs, [])
+    |> assign(:title, Gettext.gettext(HexletBasicsWeb.Gettext, "Code Basics Title"))
   end
 end
 
