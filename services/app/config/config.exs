@@ -43,7 +43,7 @@ config :hexlet_basics, HexletBasics.Repo,
 
 # Configures the endpoint
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
-  url: [host: "localhost"],
+  # url: [host: "localhost"],
   render_errors: [view: HexletBasicsWeb.ErrorView, accepts: ~w(html json)],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
   pubsub: [name: HexletBasics.PubSub, adapter: Phoenix.PubSub.PG2]

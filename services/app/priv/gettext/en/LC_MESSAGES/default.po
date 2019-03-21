@@ -250,4 +250,4 @@ msgstr "Code Basics: basics of programming on Racket"
 #, elixir-format
 #: lib/hexlet_basics_web/controllers/language_controller.ex:95
 msgid "OG description racket"
-msgstr "The study of programming is a difficult and lengthy process. Learning the syntax of the language - it is impossible to start without it. This The course is devoted to the basics of writing programs for a Racket. He is preparing a springboard for writing meaningful programs."
+msgstr "The racket belongs to the Lisp-language family. These programmers should learn them from the very beginning. This module is about introducing the syntax and concepts underlying any lisp."
