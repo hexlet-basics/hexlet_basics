@@ -12,7 +12,7 @@ This repository is created and maintained by the team and the community of Hexle
 ### Install
 
 ```sh
-$ make compose-setup
+$ make project-setup
 ```
 
 ### Load content

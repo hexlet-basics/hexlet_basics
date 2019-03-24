@@ -6,9 +6,13 @@ include make-compose.mk
 include make-services-app.mk
 include make-gcp.mk
 
-setup:
+project-setup: project-files-touch project-env-generate compose-setup
+
+project-files-touch:
 	mkdir -p tmp
 	touch tmp/ansible-vault-password
+
+project-env-generate:
 	docker run -v $(CURDIR):/app -w /app williamyeh/ansible:ubuntu18.04 ansible-playbook ansible/development.yml -i ansible/development -vv -K
 
 docker-init:

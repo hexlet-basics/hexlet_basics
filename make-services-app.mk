@@ -18,6 +18,7 @@ app-bash-root:
 
 app-install:
 	docker-compose run app mix deps.get
+	docker-compose run app npm install
 
 app-db-drop:
 	docker-compose run app mix ecto.drop
