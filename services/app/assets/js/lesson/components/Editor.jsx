@@ -1,27 +1,45 @@
-import { get } from 'lodash';
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
+import { registerRulesForLanguage } from 'monaco-ace-tokenizer';
 
-const languageMapping = {
+
+export const languageMapping = {
   racket: 'scheme',
 };
 
 export default class Editor extends React.Component {
   componentDidUpdate() {
-    if (this.editor && this.props.current) {
+    const { current } = this.props;
+    if (this.editor && current) {
       this.editor.focus();
     }
   }
 
+  loadHightLightForNotIncludeSyntax = async (syntax) => {
+    const { default: HighlightRules } = await import(`monaco-ace-tokenizer/lib/ace/definitions/${syntax}`);
+    this.monaco.languages.register({
+      id: syntax,
+    });
+    registerRulesForLanguage(syntax, new HighlightRules());
+  }
+
+
   handleResize = () => this.editor.layout();
 
-  handleChange = content => this.props.onCodeChange({ content });
+  handleChange = (content) => {
+    const { onCodeChange } = this.props;
+    onCodeChange({ content });
+  }
 
-  editorDidMount = (editor) => {
+  editorDidMount = (editor, monaco) => {
+    const { language } = this.props;
     this.editor = editor;
+    this.monaco = monaco;
     this.editor.focus();
     // this.editor.getModel().updateOptions({ tabSize: this.tabSize });
-
+    if (language === 'racket') {
+      this.loadHightLightForNotIncludeSyntax(language);
+    }
     window.addEventListener('resize', this.handleResize);
   }
 
@@ -37,13 +55,12 @@ export default class Editor extends React.Component {
     };
 
     const { language, defaultValue } = this.props;
-    const monacoLanguage = get(languageMapping, language, language);
-    // console.log(languageMapping, language, monacoLanguage)
+
     return (
       <MonacoEditor
         theme="vs-dark"
         options={options}
-        language={monacoLanguage}
+        language={language}
         editorDidMount={this.editorDidMount}
         defaultValue={defaultValue}
         onChange={this.handleChange}

@@ -1,10 +1,15 @@
 import React from 'react';
 import cn from 'classnames';
 import { Highlight } from 'react-fast-highlight';
+import { get } from 'lodash';
 import { withTranslation } from 'react-i18next';
 import dateFns from 'date-fns';
 import dateFnsLocale from '../../lib/data-fns-locale';
 import connect from '../connect';
+
+const languageMapping = {
+  racket: 'scheme',
+};
 
 const mapStateToProps = (state) => {
   const {
@@ -33,10 +38,13 @@ class Editor extends React.Component {
     if (!code) {
       return <p className="mt-3">{t('user_code_instructions')}</p>;
     }
+
+    const mappedLanguage = get(languageMapping, language, language);
+
     return (
       <div>
         <p className="mt-3 mb-0">{t('user_code')}</p>
-        <Highlight languages={[language]}>
+        <Highlight languages={[mappedLanguage]}>
           {code}
         </Highlight>
       </div>
@@ -45,10 +53,12 @@ class Editor extends React.Component {
 
   renderSolution(t) {
     const { language, defaultValue } = this.props;
+    const mappedLanguage = get(languageMapping, language, language);
+
     return (
       <div className="p-3 pt-2 x-overflow-y-scroll" id="basics-solution">
         <p className="mb-0">{t('teacher_solution')}</p>
-        <Highlight languages={[language]}>
+        <Highlight languages={[mappedLanguage]}>
           {defaultValue}
         </Highlight>
         {this.renderUserCode(t)}
@@ -90,7 +100,7 @@ class Editor extends React.Component {
     const { solutionState } = this.props;
     return (
       <div className="p-3 pt-2" id="basics-solution">
-        {solutionState.canBeShown ? this.renderShowButton(t) : this.renderCountdownTimer(t) }
+        {solutionState.canBeShown ? this.renderShowButton(t) : this.renderCountdownTimer(t)}
       </div>
     );
   }
