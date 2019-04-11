@@ -37,9 +37,10 @@ defmodule HexletBasicsWeb.AuthController do
            })
            |> Repo.insert_or_update!
 
+
     conn
       |> put_flash(:info, gettext "Successfully authenticated.")
       |> put_session(:current_user, user)
-      |> redirect(to: page_path(conn, :index))
+      |> redirect to: HexletBasicsWeb.Plugs.Navigation.previous_path(conn, default: "/")
   end
 end
