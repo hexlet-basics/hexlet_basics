@@ -3,7 +3,7 @@ FROM elixir:1.8.1
 ENV HOME /home/shared
 WORKDIR /app
 
-ENV VERSION 19122018
+ENV VERSION 23042019
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
 
 RUN apt-get update && apt-get install -y inotify-tools
@@ -17,7 +17,7 @@ RUN mix local.rebar --force
 RUN mix archive.install hex phx_new 1.4.2
 
 ENV DOCKER_CHANNEL edge
-ENV DOCKER_VERSION 18.09.3
+ENV DOCKER_VERSION 18.09.5
 RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_64/docker-${DOCKER_VERSION}.tgz" \
   | tar -xzC /usr/local/bin --strip=1 docker/docker
 
