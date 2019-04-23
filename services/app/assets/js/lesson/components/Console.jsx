@@ -1,12 +1,12 @@
 import React from 'react';
-import sanitizeHtml from 'sanitize-html';
+// import sanitizeHtml from 'sanitize-html';
 import ansiUp from '../../lib/ansi_up';
 
 const Console = ({ output, className }) => {
-  const sanitizedOutput = sanitizeHtml(output, {
-    textFilter: text => text.replace(/&quot;/g, '\''),
-  });
-  const html = ansiUp(sanitizedOutput);
+  // const sanitizedOutput = sanitizeHtml(output, {
+  //   textFilter: text => text.replace(/&quot;/g, '\''),
+  // });
+  const html = ansiUp(output);
   return (
     <div className={className}>
       <pre>
