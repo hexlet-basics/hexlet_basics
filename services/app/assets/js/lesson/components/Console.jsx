@@ -1,5 +1,5 @@
 import React from 'react';
-import { escape } from 'lodash'
+// import { escape } from 'lodash';
 // import sanitizeHtml from 'sanitize-html';
 import ansiUp from '../../lib/ansi_up';
 
@@ -7,7 +7,7 @@ const Console = ({ output, className }) => {
   // const sanitizedOutput = sanitizeHtml(output, {
   //   textFilter: text => text.replace(/&quot;/g, '\''),
   // });
-  const html = ansiUp(escape(output));
+  const html = ansiUp(output);
   return (
     <div className={className}>
       <pre>
