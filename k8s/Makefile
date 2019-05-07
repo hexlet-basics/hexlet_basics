@@ -11,6 +11,10 @@ apply-exercises-js:
 	kubectl delete jobs exercises-javascript-job || true
 	kubectl apply -f exercises-javascript.job.yml
 
+apply-exercises-java:
+	kubectl delete jobs exercises-java-job || true
+	kubectl apply -f exercises-java.job.yml
+
 apply-exercises-racket:
 	kubectl delete jobs exercises-racket-job || true
 	kubectl apply -f exercises-racket.job.yml
