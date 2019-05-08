@@ -9,69 +9,73 @@ html lang="#{@locale}"
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
   body.vh-100
-    .container.vh-100.d-flex.flex-column
-      header.header
-        nav.navbar.navbar-expand-md.navbar-light.bg-light role="navigation"
-          a.navbar-brand href="/"
-            img.hexlet-basics-navbar-logo.mr-3(src=static_path(@conn, "/images/logo.png") alt="Code Basics Logo")
-            span.d-none.d-sm-inline-block= gettext("Code Basics")
-          button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation")
-            span.navbar-toggler-icon
-          #navbarToggler.collapse.navbar-collapse
-            ul.navbar-nav.mr-auto
-              li.nav-item
-                a.nav-link target="_blank" href="http://guides.hexlet.io"= gettext "Guides"
-              li.nav-item
-                a.nav-link target="_blank" href="https://ru.hexlet.io/projects"= gettext "Projects"
-              li.nav-item
-                a.nav-link.font-weight-bold target="_blank" href="https://donorbox.org/code-basics-ru"
-                  = gettext "Donate"
-                  span.ml-1.small= "❤️"
-            = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
+    .vh-100.d-flex.flex-column
+      header.header.bg-light
+        .container.p-0
+          nav.navbar.navbar-expand-md.navbar-light role="navigation"
+            a.navbar-brand href="/"
+              img.hexlet-basics-navbar-logo.mr-3(src=static_path(@conn, "/images/logo.png") alt="Code Basics Logo")
+              span.d-none.d-sm-inline-block= gettext("Code Basics")
+            button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation")
+              span.navbar-toggler-icon
+            #navbarToggler.collapse.navbar-collapse
+              ul.navbar-nav.mr-auto
+                li.nav-item
+                  a.nav-link target="_blank" href="http://guides.hexlet.io"= gettext "Guides"
+                li.nav-item
+                  a.nav-link target="_blank" href="https://ru.hexlet.io/projects"= gettext "Projects"
+                li.nav-item
+                  a.nav-link.font-weight-bold target="_blank" href="https://donorbox.org/code-basics-ru"
+                    = gettext "Donate"
+                    span.ml-1.small= "❤️"
+              = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
       = for name <- [:info, :error] do
         - message = get_flash(@conn, name)
         = if message do
-          .alert (class="alert-#{alert_name_by_flash(name)}" role="alert")= message
+          .alert.px-0 (class="alert-#{alert_name_by_flash(name)}" role="alert")
+            .container= message
 
       main.mt-3.x-flex-1 role="main"
-        = render @view_module, @view_template, assigns
+        .container
+          = render @view_module, @view_template, assigns
 
       footer.footer.mb-3
-        .row.d-flex.flex-row.justify-content-between
-          .col-12.col-md-7.mt-3
-            span vocab="http://schema.org/" typeof="Organization"
-              span.text-muted.h4.mb-2
-                | &copy; Hexlet,&nbsp;
-                = Date.utc_today().year
-              br
-              span.text-muted.small
-                span property="legalName" Hexlet Ltd.
-                span property="address" &nbsp;Puolikkotie 8, 02230 Espoo, Finland.
-              br
-              small.text-muted.small
-                = gettext "Credits"
-              br
-              small.text-muted.small
-                a.text-muted target="_blank" href="https://github.com/hexlet-basics"
-                  = gettext "Source code"
-                  span.fas.fa-link.ml-2
-              br
-              a.small[href="mailto:support@hexlet.io" property="email" typeof="Text"] support@hexlet.io
+        .container
+          .row.d-flex.flex-row.justify-content-between
+            .col-12.col-md-7.mt-3
+              span vocab="http://schema.org/" typeof="Organization"
+                span.text-muted.h4.mb-2
+                  | &copy; Hexlet,&nbsp;
+                  = Date.utc_today().year
+                br
+                span.text-muted.small
+                  span property="legalName" Hexlet Ltd.
+                  span property="address" &nbsp;Puolikkotie 8, 02230 Espoo, Finland.
+                br
+                small.text-muted.small
+                  = gettext "Credits"
+                br
+                small.text-muted.small
+                  a.text-muted target="_blank" href="https://github.com/hexlet-basics"
+                    = gettext "Source code"
+                    span.fas.fa-link.ml-2
+                br
+                a.small[href="mailto:support@hexlet.io" property="email" typeof="Text"] support@hexlet.io
 
-          .col-12.col-md-5.mt-3.text-right
-            ul.list-unstyled
-              li
-                a.text-muted target="_blank" href="#{page_path(@conn, :show, "about")}"= gettext "About"
-              li
-                a.text-muted target="_blank" href="https://ru.hexlet.io/blog"= gettext "Blog"
-              li
-                a.text-muted target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Chat"
+            .col-12.col-md-5.mt-3.text-right
+              ul.list-unstyled
+                li
+                  a.text-muted target="_blank" href="#{page_path(@conn, :show, "about")}"= gettext "About"
+                li
+                  a.text-muted target="_blank" href="https://ru.hexlet.io/blog"= gettext "Blog"
+                li
+                  a.text-muted target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Chat"
 
-              li
-                a.text-muted target="_blank" href="https://ru.hexlet.io/pages/recommended-books"= gettext "Recommended Books"
-              li
-                a.text-muted target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSr58Xg4DVX2WdmAkv3hE2ITJ3fPeNUmRFe0Ekro53U-ACFrhcUkV8PlUm4ddcn53Uh-5UIezZtZZgc/pubhtml"= gettext "Matrix"
+                li
+                  a.text-muted target="_blank" href="https://ru.hexlet.io/pages/recommended-books"= gettext "Recommended Books"
+                li
+                  a.text-muted target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSr58Xg4DVX2WdmAkv3hE2ITJ3fPeNUmRFe0Ekro53U-ACFrhcUkV8PlUm4ddcn53Uh-5UIezZtZZgc/pubhtml"= gettext "Matrix"
 
     script src="#{static_path(@conn, "/assets/vendors.js")}"
     script src="#{static_path(@conn, "/assets/main.js")}"
