@@ -251,3 +251,13 @@ msgstr "Code Basics: основы программирования на Racket"
 #: lib/hexlet_basics_web/controllers/language_controller.ex:95
 msgid "OG description racket"
 msgstr "Racket относится к семейству Lisp-языков. Эти языки настолько не похожи на все остальное, что даже опытным программистам приходится изучать их с самых основ. Этот модуль посвящен знакомству с синтаксисом и концепциями лежащими в основе любого лиспа."
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:94
+msgid "OG title java"
+msgstr "Code Basics: основы программирования на Java"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:95
+msgid "OG description java"
+msgstr "Изучение программирования — непростой и длительный процесс. Изучение синтаксиса языка — самая простая и короткая часть в пути, но без неё невозможно начать. Этот курс посвящен азам написания программ на Java. Он готовит плацдарм для написания осмысленных программ"

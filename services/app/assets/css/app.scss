@@ -16,6 +16,7 @@ $hexlet-basics-php-color: $teal;
 $hexlet-basics-javascript-color: $indigo;
 $hexlet-basics-python-color: $purple;
 $hexlet-basics-racket-color: $blue;
+$hexlet-basics-java-color: $cyan;
 
 // App colors
 $hexlet-basics-font-color: #f8f8f2;
@@ -64,16 +65,8 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 @import "~highlight.js/styles/vs";
 
 // Custom utils
-.x-100vh {
-  height: 100vh;
-}
-
 .x-overflow-y-scroll {
   overflow-y: scroll;
-}
-
-.x-overflow-hidden {
-  overflow: hidden;
 }
 
 @include media-breakpoint-up(md) {
@@ -94,10 +87,6 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
   .hexlet-basics-theory-card {
     height: auto !important;
   }
-}
-
-.x-overflow {
-  overflow: auto;
 }
 
 .x-wrap-word {
@@ -194,6 +183,14 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
   }
 }
 
+.hexlet-basics-lesson-card-java {
+  background-color: $hexlet-basics-java-color;
+
+  &:hover {
+    background-color: lighten($hexlet-basics-java-color, 10%);
+  }
+}
+
 .hexlet-basics-finished-lesson-card {
   background-color: gray;
 
@@ -217,6 +214,10 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 
 .hexlet-basics-orange-card {
   background-color: $orange;
+}
+
+.hexlet-basics-cyan-card {
+  background-color: $cyan;
 }
 
 .hexlet-basics-disabled-card {
