@@ -64,16 +64,8 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
 @import "~highlight.js/styles/vs";
 
 // Custom utils
-.x-100vh {
-  height: 100vh;
-}
-
 .x-overflow-y-scroll {
   overflow-y: scroll;
-}
-
-.x-overflow-hidden {
-  overflow: hidden;
 }
 
 @include media-breakpoint-up(md) {
@@ -94,10 +86,6 @@ $nav-tabs-link-active-bg: $hexlet-basics-active-bg;
   .hexlet-basics-theory-card {
     height: auto !important;
   }
-}
-
-.x-overflow {
-  overflow: auto;
 }
 
 .x-wrap-word {

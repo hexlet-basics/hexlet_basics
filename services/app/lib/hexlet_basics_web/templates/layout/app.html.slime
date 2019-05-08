@@ -8,8 +8,8 @@ html lang="#{@locale}"
     = link_tags(@link_attrs)
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
-  body.x-100vh
-    .container.x-100vh.d-flex.flex-column
+  body.vh-100
+    .container.vh-100.d-flex.flex-column
       header.header
         nav.navbar.navbar-expand-md.navbar-light.bg-light role="navigation"
           a.navbar-brand href="/"
