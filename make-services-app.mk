@@ -56,3 +56,9 @@ app-exercises-load-javascript:
 	rm -rf tmp/exercises-javascript
 	docker run --rm -v $(CURDIR)/tmp/exercises-javascript:/out hexletbasics/exercises-javascript bash -c "cp -r /exercises-javascript/* /out"
 	docker-compose run --rm app mix x.exercises.load javascript
+
+app-exercises-load-java:
+	docker pull hexletbasics/exercises-java
+	rm -rf tmp/exercises-java
+	docker run --rm -v $(CURDIR)/tmp/exercises-java:/out hexletbasics/exercises-java bash -c "cp -r /exercises-java/* /out"
+	docker-compose run --rm app mix x.exercises.load java
