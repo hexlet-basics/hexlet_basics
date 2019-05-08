@@ -38,6 +38,7 @@ services:
       - "~/.bash_history:/root/.bash_history:cached"
       - "./tmp/exercises-php:/exercises-php"
       - "./tmp/exercises-javascript:/exercises-javascript"
+      - "./tmp/exercises-java:/exercises-java"
       - "./tmp/exercises-python:/exercises-python"
       - "./tmp/exercises-ruby:/exercises-ruby"
       - "./tmp/exercises-racket:/exercises-racket"
