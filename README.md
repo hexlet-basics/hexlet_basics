@@ -15,6 +15,10 @@ This repository is created and maintained by the team and the community of Hexle
 $ make project-setup
 ```
 
+Add to _/etc/hosts_:
+
+    127.0.0.1 code-basics.test
+
 ### Load content
 
 ```sh
@@ -27,4 +31,4 @@ $ make app-exercises-load-php
 $ make compose
 ```
 
-Go to [http://localhost:4000/](http://localhost:4000/)
+Go to [http://code-basics.test:4000](code-basics.test:4000)
