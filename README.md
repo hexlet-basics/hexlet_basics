@@ -17,7 +17,7 @@ $ make project-setup
 
 Add to _/etc/hosts_:
 
-    127.0.0.1 code-basics.test
+    127.0.0.1 ru.code-basics.test en.code-basics.test
 
 ### Load content
 
@@ -31,4 +31,5 @@ $ make app-exercises-load-php
 $ make compose
 ```
 
-Go to [http://code-basics.test:4000](code-basics.test:4000)
+Go to [http://ru.code-basics.test:4000](ru.code-basics.test:4000)
+Go to [http://en.code-basics.test:4000](en.code-basics.test:4000)
