@@ -27,8 +27,8 @@ config :ueberauth, Ueberauth.Strategy.Github.OAuth,
   client_secret: System.get_env("GITHUB_CLIENT_SECRET_RU")
 
 config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
-  client_id: System.get_env("FACEBOOK_CLIENT_ID_RU"),
-  client_secret: System.get_env("FACEBOOK_CLIENT_SECRET_RU")
+  client_id: System.get_env("FACEBOOK_CLIENT_ID_EN"),
+  client_secret: System.get_env("FACEBOOK_CLIENT_SECRET_EN")
 
 # General application configuration
 config :hexlet_basics,
