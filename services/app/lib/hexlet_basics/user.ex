@@ -10,6 +10,7 @@ defmodule HexletBasics.User do
     field(:first_name, :string)
     field(:last_name, :string)
     field(:github_uid, :integer)
+    field(:facebook_uid, :string)
     field(:nickname, :string)
     field(:guest, :boolean, virtual: true, default: false)
     has_many(:finished_lessons, User.FinishedLesson, on_delete: :delete_all)
@@ -23,8 +24,8 @@ defmodule HexletBasics.User do
 
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:github_uid, :nickname, :email])
-    |> validate_required([:github_uid, :nickname, :email])
+    |> cast(attrs, [:nickname, :email])
+    |> validate_required([:nickname, :email])
   end
 
   def directory_for_code(current_user) do
