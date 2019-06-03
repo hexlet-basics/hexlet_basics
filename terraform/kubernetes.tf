@@ -1,9 +1,9 @@
 resource "kubernetes_secret" "cloudsql_db_credentials" {
-  "metadata" {
+  metadata {
     name = "cloudsql-db-credentials"
   }
 
-  data {
+  data = {
     DB_USERNAME = "${var.db_username}"
     DB_PASSWORD = "${var.db_password}"
   }
@@ -14,8 +14,8 @@ resource "kubernetes_secret" "cloudsql_instance_credentials" {
     name = "cloudsql-instance-credentials"
   }
 
-  data {
-    credentials.json = "${base64decode(google_service_account_key.cloudsql_proxy.private_key)}"
+  data = {
+    "credentials.json" = "${base64decode(google_service_account_key.cloudsql_proxy.private_key)}"
   }
 }
 
@@ -24,7 +24,7 @@ resource "kubernetes_secret" "cloudflare_credentials" {
     name = "cloudflare-credentials"
   }
 
-  data {
+  data = {
     CF_API_KEY   = "${var.cloudflare_api_key}"
     CF_API_EMAIL = "${var.cloudflare_email}"
   }
@@ -36,7 +36,7 @@ resource "kubernetes_secret" "cloudflare_credentials_kube_system" {
     namespace = "kube-system"
   }
 
-  data {
+  data = {
     CF_API_KEY   = "${var.cloudflare_api_key}"
     CF_API_EMAIL = "${var.cloudflare_email}"
   }
@@ -47,7 +47,7 @@ resource "kubernetes_secret" "github_credentials" {
     name = "github-credentials"
   }
 
-  data {
+  data = {
     GITHUB_CLIENT_ID_RU     = "${var.github_client_id}"
     GITHUB_CLIENT_SECRET_RU = "${var.github_client_secret}"
   }
@@ -58,7 +58,7 @@ resource "kubernetes_secret" "facebook_credentials" {
     name = "facebook"
   }
 
-  data {
+  data = {
     FACEBOOK_CLIENT_ID_EN     = "${var.facebook_client_id}"
     FACEBOOK_CLIENT_SECRET_EN = "${var.facebook_client_secret}"
   }
@@ -69,7 +69,7 @@ resource "kubernetes_secret" "hexlet_basics_secrets" {
     name = "hexlet-basics-secrets"
   }
 
-  data {
+  data = {
     SECRET_KEY_BASE      = "${var.secret_key_base}"
     ROLLBAR_ACCESS_TOKEN = "${var.rollbar_access_token}"
   }
@@ -80,7 +80,7 @@ resource "kubernetes_config_map" "hexlet_basics_config_map" {
     name = "hexlet-basics-config-map"
   }
 
-  data {
+  data = {
     MIX_ENV      = "prod"
     PORT         = "4000"
     NODE_ENV     = "production"

@@ -4,7 +4,7 @@ resource "google_cloudbuild_trigger" "app" {
 
   trigger_template {
     branch_name = "master"
-    project     = "${var.project_name}"
+    # project     = "${var.project_name}"
     repo_name   = "${var.repositories["hexlet_basics"]}"
   }
 
@@ -21,7 +21,7 @@ resource "google_cloudbuild_trigger" "app-tag" {
 
   trigger_template {
     tag_name  = "v\\d.*"
-    project   = "${var.project_name}"
+    # project   = "${var.project_name}"
     repo_name = "${var.repositories["hexlet_basics"]}"
   }
 
@@ -38,7 +38,7 @@ resource "google_cloudbuild_trigger" "nginx" {
 
   trigger_template {
     tag_name  = "v\\d.*"
-    project   = "${var.project_name}"
+    # project   = "${var.project_name}"
     repo_name = "${var.repositories["hexlet_basics"]}"
   }
 
