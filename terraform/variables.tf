@@ -34,6 +34,8 @@ variable "cloudflare_api_key" {}
 variable "cloudflare_email" {}
 variable "github_client_id" {}
 variable "github_client_secret" {}
+variable "facebook_client_id" {}
+variable "facebook_client_secret" {}
 variable "secret_key_base" {}
 variable "slack_codebuild_webhook" {}
 variable "rollbar_access_token" {}

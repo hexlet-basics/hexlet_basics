@@ -53,6 +53,17 @@ resource "kubernetes_secret" "github_credentials" {
   }
 }
 
+resource "kubernetes_secret" "facebook_credentials" {
+  metadata {
+    name = "facebook"
+  }
+
+  data {
+    FACEBOOK_CLIENT_ID_EN     = "${var.facebook_client_id}"
+    FACEBOOK_CLIENT_SECRET_EN = "${var.facebook_client_secret}"
+  }
+}
+
 resource "kubernetes_secret" "hexlet_basics_secrets" {
   metadata {
     name = "hexlet-basics-secrets"

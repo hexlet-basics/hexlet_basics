@@ -27,6 +27,7 @@ defmodule HexletBasics.Mixfile do
         :yaml_elixir,
         :rollbax,
         :ueberauth_github,
+        :ueberauth_facebook,
         :ueberauth,
         :porcelain
       ]
@@ -67,6 +68,7 @@ defmodule HexletBasics.Mixfile do
       {:git_cli, "~> 0.2"},
       {:porcelain, "~> 2.0"},
       {:ueberauth_github, "~> 0.6"},
+      {:ueberauth_facebook, "~> 0.8"},
       {:ueberauth, "~> 0.4"}
     ]
   end
