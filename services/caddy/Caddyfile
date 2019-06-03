@@ -1,25 +1,23 @@
-
-localhost, code-basics.test {
-    tls off
+localhost, ru.code-basics.test, en.code-basics.test {
     gzip
+    tls self_signed
     proxy / app:4000 {
         transparent
         websocket
     }
 }
 
-http://code-basics.ru {
-    redir https://code-basics.ru
-}
+# http://code-basics.ru {
+#     redir https://code-basics.ru
+# }
 
-http://code-basics.com {
-    redir https://code-basics.com
-}
+# http://code-basics.com {
+#     redir https://code-basics.com
+# }
 
-code-basics.ru, code-basics.com {
-    tls off
-    gzip
-    proxy / localhost:4000 {
-        transparent
-    }
-}
+# code-basics.ru, code-basics.com {
+#     gzip
+#     proxy / localhost:4000 {
+#         transparent
+#     }
+# }

@@ -31,5 +31,5 @@ $ make app-exercises-load-php
 $ make compose
 ```
 
-Go to [http://ru.code-basics.test:4000](ru.code-basics.test:4000)
-Go to [http://en.code-basics.test:4000](en.code-basics.test:4000)
+Go to [https://ru.code-basics.test:9000](ru.code-basics.test:9000)
+Go to [https://en.code-basics.test:9000](en.code-basics.test:9000)
