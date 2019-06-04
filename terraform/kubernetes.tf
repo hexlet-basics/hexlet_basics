@@ -55,7 +55,7 @@ resource "kubernetes_secret" "github_credentials" {
 
 resource "kubernetes_secret" "facebook_credentials" {
   metadata {
-    name = "facebook"
+    name = "facebook-credentials"
   }
 
   data = {
