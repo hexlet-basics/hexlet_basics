@@ -12,4 +12,4 @@ resources:
   requests:
     cpu: 10m
 
-existingSecretKey: cloudsql-instance-credentials
+existingSecret: cloudsql-instance-credentials
