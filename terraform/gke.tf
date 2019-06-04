@@ -66,6 +66,6 @@ resource "google_container_cluster" "hexlet_basics_2" {
 
 
   provisioner "local-exec" {
-    command = "gcloud container clusters get-credentials --region ${var.zone} ${var.gke_cluster_name_2}"
+    command = "gcloud container clusters get-credentials --project ${var.project_name} --region ${var.zone} ${var.gke_cluster_name_2}"
   }
 }
