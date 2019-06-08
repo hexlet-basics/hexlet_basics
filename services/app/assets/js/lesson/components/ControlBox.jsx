@@ -69,7 +69,7 @@ class ControlBox extends React.Component {
             </a>
             <button className={runButtonClasses} onClick={this.handleRunCheck}>
               <span className="text-secondary x-1em-inline-block mr-2">
-                { checkInfo.processing && <FontAwesomeIcon icon="spinner" /> }
+                { checkInfo.processing && <FontAwesomeIcon icon="spinner" pulse /> }
                 { !checkInfo.processing && <FontAwesomeIcon icon="play-circle" /> }
               </span>
               {t('run')}
