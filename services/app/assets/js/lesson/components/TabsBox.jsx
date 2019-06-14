@@ -37,7 +37,7 @@ class TabsBox extends React.Component {
     const activateTabPane = activeClass('d-flex x-flex-1');
 
     return (
-      <div className="d-flex flex-column x-flex-1 h-100 mb-2">
+      <div className="d-flex flex-column x-flex-1 mb-2">
         <Nav tabs>
           <NavItem>
             <NavLink href="#" onClick={setActive('editor')} className={activateNavLink('editor')}>{t('editor')}</NavLink>
