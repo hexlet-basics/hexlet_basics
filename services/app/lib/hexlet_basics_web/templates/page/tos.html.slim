@@ -1,0 +1,116 @@
+.row.justify-content-center.mt-3.mb-5
+  .col
+    h1
+      = gettext("Terms of Service")
+
+    p
+      = gettext("ToS Agree")
+
+  
+    h3
+      = gettext("ToS Rules title")
+
+    h4
+      = gettext("ToS Rules community")
+
+    ol
+      li= gettext("ToS Rules question")
+      li= gettext("ToS Rules discuss")
+      li= gettext("ToS Rules copyright")
+      li= gettext("ToS Rules abuse")
+
+    h4
+      = gettext("ToS Rules slack")
+
+    ol
+      li= gettext("ToS Rules slack general")
+      li= gettext("ToS Rules slack specific question")
+
+    hr
+
+    h3
+      = gettext("ToS Account title")
+    ol
+      li= gettext("ToS Account age")
+
+      li= gettext("ToS Account be a human")
+
+      li= gettext("ToS Account valid email")
+
+      li= gettext("ToS Account uniq")
+
+      li= gettext("ToS Account security")
+
+      li= gettext("ToS Account responsibility")
+
+      li= gettext("ToS Account single account")
+
+      li= gettext("ToS Account illegaly")
+
+    h3
+      = gettext("ToS Termination Account title")
+    ol
+      li= gettext("ToS Termination Account responsibility")
+
+      li
+        = gettext("ToS Termination Account ban reasons")
+        ul
+          li= gettext("ToS Termination Account ban reason violation of conditions")
+          li= gettext("ToS Termination Account ban reason cheating")
+      li= gettext("ToS Termination Account ban")
+
+    h3
+      = gettext("ToS Change services and price title")
+
+    ol
+      li= gettext("ToS Change services and price changes")
+
+      li= gettext("ToS Change services and price no responsibility")
+
+
+    h3= gettext("ToS Copyright title")
+
+    ol
+      li= gettext("ToS Copyright design")
+
+      li= gettext("ToS Copyright lessons")
+
+      li= gettext("ToS Copyright authors")
+
+      li= gettext("ToS Copyright permission")
+
+    h3= gettext("ToS General title")
+
+    ol
+      li= gettext("ToS General using")
+
+      li= gettext("ToS General support")
+
+      li= gettext("ToS General fishing")
+
+      li= gettext("ToS General threats")
+
+      li= gettext("ToS General spam")
+
+      li= gettext("ToS General malicious code")
+
+      li= gettext("ToS General using services")
+
+      li= gettext("ToS General ide")
+
+      li= gettext("ToS General traffic")
+
+      li= gettext("ToS General does not guarantee")
+
+      li= gettext("ToS General agree")
+
+      li
+        = gettext("ToS General questions")
+        ' 
+        = link("info@hexlet.io", to: "mailto:info@hexlet.io", class: "text-muted")
+        ' 
+        = gettext("ToS General questions languages")
+
+    p
+      = gettext("ToS last update")
+      = link(gettext("ToS last update conditions") , to: "https://help.github.com/articles/github-terms-of-service/" , class: "text-muted", target: "_blank")

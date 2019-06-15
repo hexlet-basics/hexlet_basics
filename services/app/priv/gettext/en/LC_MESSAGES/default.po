@@ -261,3 +261,460 @@ msgstr "Code Basics: basics of programming on Java"
 #: lib/hexlet_basics_web/controllers/language_controller.ex:95
 msgid "OG description java"
 msgstr "The study of programming is a difficult and lengthy process. Learning the syntax of the language - it is impossible to start without it. This The course is devoted to the basics of writing programs for a Java. He is preparing a springboard for writing meaningful programs."
+
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "Terms of Service"
+msgstr "Terms of Service"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Agree"
+msgstr "By accessing and using our products and services, you agree to comply with the Terms of Use listed here."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Rules title"
+msgstr "Rules"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Rules community"
+msgstr "Courses, community and communication "
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Rules question"
+msgstr "The «questions» section in the lessons is intended for questions on the content of a lesson, exercise or test."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Rules discuss"
+msgstr "All users can participate in the discussions, not only mentors.  "
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Rules copyright"
+msgstr "In forums and chats prohibited the promotion of piracy and the distribution of content that violates copyright."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Rules abuse"
+msgstr "Direct or indirect insults are prohibited in forums and chat."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Rules slack"
+msgstr "Chat"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Rules slack general"
+msgstr "The main channel of the chat #general is designed for general topics related to programming, training and career."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Rules slack specific question"
+msgstr "Thematic channels are used to discuss specific issues related to the specifics of languages and technologies."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Account title"
+msgstr "Account terms"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Account age"
+msgstr "You must be 13 years or older to use this Service."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Account be a human"
+msgstr "You must be a human. Accounts registered by `bots` or other automated methods are not permitted."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Account valid email"
+msgstr "You must provide a valid email address and any other information requested in order to complete the signup process."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Account uniq"
+msgstr "Your login may only be used by one person - a single login shared by multiple people is not permitted. You may create separate logins for as many people as your plan allows."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Account security"
+msgstr "You are responsible for maintaining the security of your account and password. Hexlet cannot and will not be liable for any loss or damage from your failure to comply with this security obligation."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Account responsibility"
+msgstr "You are responsible for all Content posted and activity that occurs under your account (even when Content is posted by others who have accounts under your account)."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Account single account"
+msgstr "One person or legal entity may not maintain more than one free account."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Account illegaly"
+msgstr "You may not use the Service for any illegal or unauthorized purpose. You must not, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright or trademark laws)."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Termination Account title"
+msgstr "Cancellation and Termination "
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Termination Account responsibility"
+msgstr "You are solely responsible for properly canceling your account. You can request the cancellation of your account at any time by emailing the support."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Termination Account ban reasons"
+msgstr "Hexlet may terminate or suspend with immediate effect and without notice your access to and use of the Serive if:"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Termination Account ban reason violation of conditions"
+msgstr "It reasonably believes that you have breached any of these Terms and Conditions; "
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Termination Account ban reason cheating"
+msgstr "Or it suspects fraudulent, abusive or illegal activity by you."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Termination Account ban"
+msgstr "Hexlet may terminate or suspend with immediate effect and without notice your access to and use of the Serive with full refund."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Change services and price title"
+msgstr "Modifications to the Service and Prices "
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Change services and price changes"
+msgstr "Hexlet reserves the right at any time to modify or discontinue, temporarily or permanently, the Service (or any part thereof) with or without notice. For instance, the Service may temporarily be disabled for occasional maintenance."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Change services and price no responsibility"
+msgstr "Hexlet shall not be liable to you or to any third party for any modification, price change, suspension or discontinuance of the Service."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Copyright title"
+msgstr "Copyright"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Copyright design"
+msgstr "The look and feel of the Service is Copyright ©2014 Hexlet Ltd. All rights reserved. You may not duplicate, copy, or reuse any portion of the HTML/CSS, Javascript, or visual design elements or concepts without the express written permission from Hexlet."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Copyright lessons"
+msgstr "The copyright status of each lesson on Hexlet, created by third party authors, including video, text and code, is determined on case by case basis by the authors and administration of Hexlet."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Copyright authors"
+msgstr "The Company holds the copyright for each lesson on Hexlet, created by Hexlet employees or contracted authors, including video, text and code."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS Copyright permission"
+msgstr "You acknowledge and agree that all Content provided on the Website or through the Services is protected by copyrights, trademarks, service marks, patents, or other proprietary rights and laws. You shall abide by all copyright notices, trademark rules, information, and restrictions contained in any Content accessed through the Services, and except as expressly permitted herein, shall not use, copy, reproduce, modify, translate, publish, broadcast, transmit, distribute, perform, upload, display, license, sell or otherwise exploit for any purposes whatsoever any Content without the express prior written consent of the respective owners."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General title"
+msgstr "General Conditions "
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General using"
+msgstr "Your use of the Service is at your sole risk. The service is provided on an `as is` and `as available` basis."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General support"
+msgstr "Support for Hexlet services is only available in English and Russian, via email."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General fishing"
+msgstr "You must not modify, adapt or hack the Service or modify another website so as to falsely imply that it is associated with the Service, Hexlet, or any other Hexlet service."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General threats"
+msgstr "Verbal, physical, written or other abuse (including threats of abuse or retribution) of any Hexlet customer, employee, member, or officer will result in immediate account termination."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General spam"
+msgstr "You must not upload, post, host, or transmit unsolicited email, SMSs, or `spam` messages."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General malicious code"
+msgstr "You must not transmit any worms or viruses or any code of a destructive nature."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General using services"
+msgstr "You understand that Hexlet uses third party vendors and hosting partners to provide the necessary hardware, software, networking, storage, and related technology required to run the Service."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General ide"
+msgstr "Code Basics programming and application development exercises are intended to be used within the environment defined by the author of the course. If your solution to an exercise includes unauthorized third party components, Hexlet does not guarantee the functionality of such an approach and therefore does not offer support in this case."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General traffic"
+msgstr "If your bandwidth usage significantly exceeds the average bandwidth usage (as determined solely by Hexlet) of other Hexlet customers, we reserve the right to immediately disable your account or throttle your file hosting until you can reduce your bandwidth consumption."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General does not guarantee"
+msgstr "Hexlet does not warrant that (i) the service will meet your specific requirements, (ii) the service will be uninterrupted, timely, secure, or error-free, (iii) the results that may be obtained from the use of the service will be accurate or reliable, (iv) the quality of any products, services, information, or other material purchased or obtained by you through the service will meet your expectations, and (v) any errors in the Service will be corrected."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General agree"
+msgstr "You expressly understand and agree that Hexlet shall not be liable for any direct, indirect, incidental, special or consequential damages, including but not limited to, damages for loss of profits, goodwill, use, data or other intangible losses (even if Hexlet has been advised of the possibility of such damages)."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General questions"
+msgstr "Questions about the Terms of Service or any other matter should be sent to"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS General questions languages"
+msgstr "in English or Russian language."
+
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS last update"
+msgstr "Last updated on June 15th, 2019. Based on the "
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/tos.html.slime:1
+msgid "ToS last update conditions"
+msgstr "GitHub Terms of Service."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy"
+msgstr "Privacy Policy"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy about"
+msgstr "This Privacy Policy describes how your personal information is collected, used, and shared when you visit https://code-basics.com (the “Site”)."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Personal title"
+msgstr "Personal information we collect"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Personal visit"
+msgstr "When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. Additionally, as you browse the Site, we collect information about the individual web pages or products that you view, what websites or search terms referred you to the Site, and information about how you interact with the Site. We refer to this automatically-collected information as “Device Information.”"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Personal device"
+msgstr "We collect Device Information using the following technologies: "
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Personal cookies"
+msgstr "“Cookies” are data files that are placed on your device or computer and often include an anonymous unique identifier. For more information about cookies, and how to disable cookies, visit"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Personal logs"
+msgstr "“Log files” track actions occurring on the Site, and collect data including your IP address, browser type, Internet service provider, referring/exit pages, and date/time stamps."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Personal beacons"
+msgstr "“Web beacons,” “tags,” and “pixels” are electronic files used to record information about how you browse the Site."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Personal about"
+msgstr "When we talk about “Personal Information” in this Privacy Policy, we are talking both about Device Information and Order Information."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Storage title"
+msgstr "Where we store your information"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Storage countries"
+msgstr "We store your information on our servers within PostgreSQL databases and other data storages. We rent servers from Amazon and Microsoft. Servers are located in the United States of America and Germany."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Storage personal"
+msgstr "Your information is also stored within backups. Backups are also stored on the servers we rent from Amazon and Microsoft. Servers are located in the United States of America and Germany."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Collect title"
+msgstr "How do we use your personal information?"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Collect device"
+msgstr "We use the Device Information that we collect to help us screen for potential risk and fraud (in particular, your IP address), and more generally to improve and optimize our Site (for example, by generating analytics about how our customers browse and interact with the Site, and to assess the success of our marketing and advertising campaigns)."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Sharing title"
+msgstr "Sharing your personal information"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Sharing third person"
+msgstr "We share your Personal Information with third parties to help us use your Personal Information, as described above. Rollbar to track website availability and errors. You can read more about how Rollbar uses your Personal Information here:"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Sharing pass"
+msgstr "Finally, we may also share your Personal Information to comply with applicable laws and regulations, to respond to a subpoena, search warrant or other lawful request for information we receive, or to otherwise protect our rights."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Adword title"
+msgstr "Behavioural advertising "
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Adword info"
+msgstr "We use your Personal Information to provide you with targeted advertisements or marketing communications we believe may be of interest to you. For more information about how targeted advertising works, you can visit the Network Advertising Initiative’s (“NAI”) educational page at"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Adword decline"
+msgstr "You can opt out of targeted advertising by:"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Adword decline services"
+msgstr "Additionally, you can opt out of some of these services by visiting the Digital Advertising Alliance’s opt-out portal at: "
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Do not track"
+msgstr "Do not track"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Do not track methods"
+msgstr "Please note that we do not alter our Site’s data collection and use practices when we see a Do Not Track signal from your browser."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Your Rights title"
+msgstr "Your Rights"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Your Rights european"
+msgstr "If you are a European resident, you have the right to access personal information we hold about you and to ask that your personal information be corrected, updated, or deleted. If you would like to exercise this right, please contact us through the contact information below."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Your Rights european additional"
+msgstr "Additionally, if you are a European resident we note that we are processing your information in order to fulfill contracts we might have with you (for example if you make an order through the Site), or otherwise to pursue our legitimate business interests listed above. Additionally, please note that your information will be transferred outside of Europe, including to Canada and the United States."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Modifications"
+msgstr "Changes"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Modifications updates"
+msgstr "We may update this privacy policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal or regulatory reasons."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Contact title"
+msgstr "Contact us"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Contact info"
+msgstr "For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Contact info additional"
+msgstr "or by mail using the details provided below:"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Addres"
+msgstr "Puolikkotie 8, Espoo, 18, 02230, Finland"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Hexlet"
+msgstr "c/o Hexlet"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/privacy.html.slime:1
+msgid "Privacy Last update"
+msgstr "Last update: 15.06.2019"

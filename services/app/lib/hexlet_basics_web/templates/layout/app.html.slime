@@ -76,6 +76,11 @@ html lang="#{@locale}"
                   a.text-muted target="_blank" href="https://ru.hexlet.io/pages/recommended-books"= gettext "Recommended Books"
                 li
                   a.text-muted target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSr58Xg4DVX2WdmAkv3hE2ITJ3fPeNUmRFe0Ekro53U-ACFrhcUkV8PlUm4ddcn53Uh-5UIezZtZZgc/pubhtml"= gettext "Matrix"
+                li
+                  a.text-muted target="_blank" href="#{page_path(@conn, :show, "tos")}"= gettext "Terms of Service"
+                li
+                  a.text-muted target="_blank" href="#{page_path(@conn, :show, "privacy")}"= gettext "Privacy"
+
 
     script src="#{static_path(@conn, "/assets/vendors.js")}"
     script src="#{static_path(@conn, "/assets/main.js")}"

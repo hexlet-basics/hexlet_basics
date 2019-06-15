@@ -1,0 +1,91 @@
+.row.justify-content-center.mt-3.mb-5
+  .col
+    h1
+      = gettext("Privacy")
+
+    p= gettext("Privacy about")
+
+    h3= gettext("Privacy Personal title")
+
+    p= gettext("Privacy Personal visit")
+
+    p= gettext("Privacy Personal device")
+
+    ol
+      li
+        = gettext("Privacy Personal cookies")
+        = link('http://www.allaboutcookies.org', to: 'http://www.allaboutcookies.org', class: 'text-break', target: "_blank")
+
+      li= gettext("Privacy Personal logs")
+      li= gettext("Privacy Personal beacons")
+
+    p= gettext("Privacy Personal about")
+
+    h3= gettext("Privacy Storage title")
+
+    p= gettext("Privacy Storage countries")
+
+    p= gettext("Privacy Storage personal")
+
+    h3= gettext("Privacy Collect title")
+
+    p= gettext("Privacy Collect device")
+
+    h3= gettext("Privacy Sharing title")
+    p
+      = gettext("Privacy Sharing third person")
+      = link('https://docs.rollbar.com/docs/privacy-policy', to: 'https://docs.rollbar.com/docs/privacy-policy', class: 'text-break')
+
+    p= gettext("Privacy Sharing pass")
+
+    h3= gettext("Privacy Adword title")
+
+    p
+      = gettext("Privacy Adword info") 
+      = link('http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work', to: 'http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work', class: 'text-break', target: "_blank")
+
+    p= gettext("Privacy Adword decline")
+
+    p
+      | FACEBOOK -
+      = link('https://www.facebook.com/settings/?tab=ads', to: 'https://www.facebook.com/settings/?tab=ads', class: 'text-break', target: "_blank")
+    p
+      | GOOGLE -
+      = link('https://www.google.com/settings/ads/anonymous', to: 'https://www.google.com/settings/ads/anonymous', class: 'text-break', target: "_blank")
+    p
+      | BING -
+      = link('https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads', to: 'https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads', class: 'text-break', target: "_blank")
+
+    p
+      = gettext("Privacy Adword decline services")
+      = link('http://optout.aboutads.info/', to: 'http://optout.aboutads.info/', class: 'text-break', target: "_blank")
+
+    h3= gettext("Privacy Do not track")
+
+    p= gettext("Privacy Do not track methods")
+
+    p= gettext("Privacy Do not track european")
+
+    p= gettext("Privacy Do not track european additional")
+
+
+    h3= gettext("Privacy Modifications")
+
+    p= gettext("Privacy Modifications updates")
+
+    h3= gettext("Privacy Contact title")
+
+    p
+      = gettext("Privacy Contact info")
+      ' 
+      = link('info@hexlet.io', to: "mailto:info@hexlet.io", class: "text-break")
+      ' 
+      = gettext("Privacy Contact info additional")
+
+    p
+      = gettext("Privacy Address")
+      br
+      = gettext("Privacy Hexlet")
+
+    p= gettext("Privacy Last update")
+
