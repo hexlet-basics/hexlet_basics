@@ -1,4 +1,4 @@
-KUBE_CONTEXT := gke_hexlet-basics_europe-west3-a_hexlet-basics-5
+KUBE_CONTEXT := gke_hexlet-basics_europe-west3-a_hexlet-basics-6
 
 # kubectl exec app-deployment-5b566d5fb5-q9kdr -c phoenix -- docker pull hexletbasics/exercises-php
 
