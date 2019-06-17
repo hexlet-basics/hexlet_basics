@@ -28,10 +28,11 @@ defmodule HexletBasicsWeb.PageController do
   end
 
   def show(conn, %{"id" => id}) do
-    pages = ["about"]
+    pages = ["about", "privacy", "tos"]
 
+    link_attrs = [%{rel: "canonical", href: url(conn, page_path(conn, :show, id))}]
     if id in pages do
-      render(conn, :"#{id}")
+      render(conn, :"#{id}", link_attrs: link_attrs)
     else
       message = "Cannot find page '#{id}'"
 
@@ -40,5 +41,9 @@ defmodule HexletBasicsWeb.PageController do
         router: conn.private.phoenix_router,
         message: message
     end
+  end
+
+ def url(conn, path) do
+    "#{conn.scheme}://#{conn.host}#{path}"
   end
 end
