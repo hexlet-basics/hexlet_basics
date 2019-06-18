@@ -42,7 +42,7 @@ module.exports = {
     // new webpack.HashedModuleIdsPlugin(),
     // new WebpackAssetsManifest({ writeToDisc: true }),
     new MonacoWebpackPlugin({
-      languages: ['javascript', 'php', 'java', 'python'],
+      languages: ['javascript', 'php', 'java', 'python', 'html'],
     }),
     new CopyWebpackPlugin([
       { from: './images', to: '../images' },
