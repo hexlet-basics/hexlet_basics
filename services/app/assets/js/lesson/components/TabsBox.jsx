@@ -1,3 +1,5 @@
+// @ts-check
+
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 import {
@@ -8,6 +10,7 @@ import Console from './Console';
 import Solution from './Solution';
 import withActive from '../hoc/withActive';
 import connect from '../connect';
+import EntityContext from '../EntityContext';
 
 const mapStateToProps = (state) => {
   const { checkInfo, currentTabInfo } = state;
@@ -19,6 +22,8 @@ const mapStateToProps = (state) => {
 @withActive()
 @withTranslation()
 class TabsBox extends React.Component {
+  static contextType = EntityContext;
+
   render() {
     const {
       checkInfo,
@@ -26,12 +31,15 @@ class TabsBox extends React.Component {
       setActive,
       changeCode,
       userFinishedLesson,
-      lesson,
-      language,
       active,
       activeClass,
       t,
     } = this.props;
+
+    const {
+      lesson,
+      language,
+    } = this.context;
 
     const activateNavLink = activeClass('active d-flex x-flex-1');
     const activateTabPane = activeClass('d-flex x-flex-1');

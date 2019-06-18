@@ -1,3 +1,5 @@
+// @ts-check
+
 import React from 'react';
 import { Alert, AlertContainer } from 'react-bs-notifier';
 import { withTranslation } from 'react-i18next';
@@ -47,20 +49,12 @@ class App extends React.Component {
     return (
       <React.Fragment>
         {this.renderAlert()}
-        <EntityContext.Consumer>
-          {({ lesson, language }) => (
-            <TabsBox
-              lesson={lesson}
-              language={language}
-              onSelectActive={this.handleSelectTab}
-              active={currentTabInfo.current}
-              userFinishedLesson={userFinishedLesson}
-            />
-          )}
-        </EntityContext.Consumer>
-        <EntityContext.Consumer>
-          {entities => <ControlBox {...entities} userFinishedLesson={userFinishedLesson} />}
-        </EntityContext.Consumer>
+        <TabsBox
+          onSelectActive={this.handleSelectTab}
+          active={currentTabInfo.current}
+          userFinishedLesson={userFinishedLesson}
+        />
+        <ControlBox userFinishedLesson={userFinishedLesson} />
       </React.Fragment>
     );
   }

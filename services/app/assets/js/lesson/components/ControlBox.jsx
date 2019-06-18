@@ -1,3 +1,5 @@
+// @ts-check
+
 import React from 'react';
 import cn from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -5,6 +7,7 @@ import Hotkeys from 'react-hot-keys';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import connect from '../connect';
 import routes from '../routes';
+import EntityContext from '../EntityContext';
 
 const mapStateToProps = (state) => {
   const { checkInfo, code, lessonState } = state;
@@ -15,8 +18,11 @@ const mapStateToProps = (state) => {
 @connect(mapStateToProps)
 @withTranslation()
 class ControlBox extends React.Component {
+  static contextType = EntityContext;
+
   handleRunCheck = () => {
-    const { code, lesson, runCheck } = this.props;
+    const { code, runCheck } = this.props;
+    const { lesson } = this.context;
     runCheck({ lesson, code });
   }
 
@@ -24,11 +30,14 @@ class ControlBox extends React.Component {
     const {
       checkInfo,
       lessonState,
-      language,
-      lesson,
       prevLesson,
       t,
     } = this.props;
+
+    const {
+      language,
+      lesson,
+    } = this.context;
 
     const runButtonClasses = cn({
       'btn btn-primary x-no-focus-outline px-4 mx-3': true,
@@ -67,10 +76,10 @@ class ControlBox extends React.Component {
             <a className={prevButtonClasses} href={prevLessonPath}>
               {t('prev_lesson')}
             </a>
-            <button className={runButtonClasses} onClick={this.handleRunCheck}>
+            <button type="button" className={runButtonClasses} onClick={this.handleRunCheck}>
               <span className="text-secondary x-1em-inline-block mr-2">
-                { checkInfo.processing && <FontAwesomeIcon icon="spinner" pulse /> }
-                { !checkInfo.processing && <FontAwesomeIcon icon="play-circle" /> }
+                {checkInfo.processing && <FontAwesomeIcon icon="spinner" pulse />}
+                {!checkInfo.processing && <FontAwesomeIcon icon="play-circle" />}
               </span>
               {t('run')}
             </button>

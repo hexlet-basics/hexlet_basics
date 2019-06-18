@@ -1,11 +1,12 @@
+// @ts-check
+
 const path = require('path');
 // const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
-// const WebpackAssetsManifest = require('webpack-assets-manifest');
-// import CleanObsoleteChunks from 'webpack-clean-obsolete-chunks';
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -60,12 +61,11 @@ module.exports = {
     gon: 'Gon',
   },
 
-  // node: {
-  //   fs: 'empty',
-  // },
-
   optimization: {
-    // runtimeChunk: 'single',
+    minimizer: [
+      new TerserPlugin({ cache: true, parallel: true, sourceMap: false }),
+      new OptimizeCSSAssetsPlugin({})
+    ],
     splitChunks: {
       cacheGroups: {
         vendor: {
@@ -90,7 +90,6 @@ module.exports = {
               cacheDirectory: true,
               presets: [
                 '@babel/env',
-                '@babel/flow',
                 '@babel/react',
               ],
               plugins: [

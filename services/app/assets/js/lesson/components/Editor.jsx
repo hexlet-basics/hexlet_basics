@@ -1,3 +1,5 @@
+// @ts-check
+
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
 import { registerRulesForLanguage } from 'monaco-ace-tokenizer';

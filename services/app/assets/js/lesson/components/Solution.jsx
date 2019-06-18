@@ -1,3 +1,5 @@
+// @ts-check
+
 import React from 'react';
 import cn from 'classnames';
 import { Highlight } from 'react-fast-highlight';

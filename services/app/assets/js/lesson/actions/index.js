@@ -1,3 +1,5 @@
+// @ts-check
+
 import { createAction } from 'redux-actions';
 // import Routes from 'routes';
 import axios from 'axios';

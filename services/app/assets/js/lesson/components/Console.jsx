@@ -1,3 +1,5 @@
+// @ts-check
+
 import React from 'react';
 // import { escape } from 'lodash';
 // import sanitizeHtml from 'sanitize-html';

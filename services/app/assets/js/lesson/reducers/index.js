@@ -1,3 +1,5 @@
+// @ts-check
+
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
 import { addMinutes } from 'date-fns';
@@ -5,7 +7,7 @@ import { addMinutes } from 'date-fns';
 import * as actions from '../actions';
 
 const code = handleActions({
-  [actions.changeCode]: (state, { payload }) => {
+  [actions.changeCode]: (_state, { payload }) => {
     const { content } = payload;
     return content;
   },
@@ -28,7 +30,7 @@ const notification = handleActions({
     const info = null;
     return info;
   },
-  [actions.runCheckFailure]: (state, { payload }) => {
+  [actions.runCheckFailure]: (_state, { payload }) => {
     let message;
     switch (payload.code) {
       case 403:
@@ -96,7 +98,7 @@ const countdown = handleActions({
 });
 
 const lessonState = handleActions({
-  [actions.init]: (state, { payload }) => {
+  [actions.init]: (_state, { payload }) => {
     const { userFinishedLesson } = payload;
     return { finished: !!userFinishedLesson };
   },
@@ -113,7 +115,7 @@ const lessonState = handleActions({
 });
 
 const solutionState = handleActions({
-  [actions.init]: (state, { payload }) => {
+  [actions.init]: (_state, { payload }) => {
     const { userFinishedLesson } = payload;
     const lessonFinished = !!userFinishedLesson;
     return { canBeShown: lessonFinished, shown: lessonFinished };

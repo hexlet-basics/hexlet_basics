@@ -1,3 +1,5 @@
+// @ts-check
+
 import '@babel/polyfill';
 
 import gon from 'gon';

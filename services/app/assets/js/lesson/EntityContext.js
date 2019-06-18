@@ -1,3 +1,3 @@
 import React from 'react';
 
-export default React.createContext('entity');
+export default React.createContext({});
