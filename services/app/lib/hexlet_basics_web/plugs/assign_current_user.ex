@@ -12,7 +12,7 @@ defmodule HexletBasicsWeb.Plugs.AssignCurrentUser do
 
     user =
       case maybe_user do
-        nil -> %User{guest: true}
+        nil -> %User{guest: true, nickname: nil}
         u -> u
       end
 

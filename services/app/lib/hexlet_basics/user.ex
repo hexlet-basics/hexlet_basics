@@ -25,7 +25,7 @@ defmodule HexletBasics.User do
   def changeset(%User{} = user, attrs) do
     user
     |> cast(attrs, [:nickname, :email])
-    |> validate_required([:nickname, :email])
+    |> validate_required([:email])
   end
 
   def directory_for_code(current_user) do

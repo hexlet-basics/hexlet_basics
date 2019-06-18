@@ -1,5 +1,5 @@
 .navbar-text
-  = unless @current_user.guest do
+  = if @current_user.nickname do
     .navbar-text= @current_user.nickname
 
   .navbar-text
