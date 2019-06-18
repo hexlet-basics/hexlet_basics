@@ -6,7 +6,6 @@ import { withTranslation } from 'react-i18next';
 import connect from '../connect';
 import TabsBox from './TabsBox';
 import ControlBox from './ControlBox';
-import EntityContext from '../EntityContext';
 
 const mapStateToProps = (state) => {
   const { notification, checkInfo, currentTabInfo } = state;
