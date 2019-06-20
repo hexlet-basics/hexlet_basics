@@ -67,7 +67,6 @@ module.exports = {
     new CopyWebpackPlugin([{ from: 'static/', to: '../' }]),
     new MonacoWebpackPlugin({
       languages: ['json', 'javascript', 'php', 'java', 'python', 'scheme', 'html'],
-      // features: [],
     }),
   ],
 };

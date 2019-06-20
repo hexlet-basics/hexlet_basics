@@ -1,5 +1,6 @@
 // @ts-check
 
+import '../../css/app.scss';
 import '@babel/polyfill';
 import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/all';

@@ -1,7 +1,6 @@
 doctype html
 html.h-md-100 lang="#{@locale}"
   head
-    link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
     link rel="stylesheet" href="#{static_path(@conn, "/js/lesson.css")}"
     title= page_title(@conn)
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
