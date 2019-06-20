@@ -6,12 +6,18 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-// const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
   mode: process.env.NODE_ENV || 'development',
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({ cache: true, parallel: true, sourceMap: false }),
+      new OptimizeCSSAssetsPlugin({}),
+    ]
+  },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
@@ -63,10 +69,10 @@ module.exports = {
     path: path.resolve(__dirname, '../priv/static/js'),
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '[name].css' }),
+    new MiniCssExtractPlugin({ filename: '../css/[name].css' }),
     new CopyWebpackPlugin([{ from: 'static/', to: '../' }]),
     new MonacoWebpackPlugin({
-      languages: ['json', 'javascript', 'php', 'java', 'python', 'scheme', 'html'],
+      languages: ['javascript', 'php', 'java', 'python', 'scheme'],
     }),
   ],
 };
