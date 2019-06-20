@@ -25,9 +25,10 @@ RUN mix deps.get
 COPY config .
 RUN MIX_ENV=prod mix deps.compile
 
-COPY package* ./
+COPY assets/package.json ./assets/package.json
+COPY assets/package-lock.json ./assets/package-lock.json
 
-RUN npm ci
+RUN cd assets && npm ci
 
 COPY . .
 
