@@ -25,15 +25,11 @@ defmodule HexletBasicsWeb.AuthController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
-    social_field_name = case auth.provider do
-      :github -> :github_uid
-      :facebook -> :facebook_uid
-    end
-    params = %{social_field_name => auth.uid}
+    params = %{github_uid: auth.uid}
     user = Repo.get_by(User, params) || struct(User, params)
     user = user
            |> User.changeset(%{
-             nickname: auth.info.name,
+             nickname: auth.info.nickname,
              email: auth.info.email
            })
            |> Repo.insert_or_update!
