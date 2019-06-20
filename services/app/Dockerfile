@@ -33,7 +33,7 @@ RUN cd assets && npm ci
 COPY . .
 
 RUN MIX_ENV=prod mix compile
-RUN NODE_ENV=production npx webpack
+RUN NODE_ENV=production npx run deploy
 RUN MIX_ENV=prod mix phx.digest
 
 CMD ["mix", "phx.server"]

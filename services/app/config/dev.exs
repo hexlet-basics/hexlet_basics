@@ -19,6 +19,8 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   watchers: [
     npx: [
       "webpack",
+      "--mode",
+      "development",
       "--watch-stdin",
       "--color",
       cd: Path.expand("../assets", __DIR__)
