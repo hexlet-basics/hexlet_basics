@@ -2,12 +2,12 @@
 
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
-import { registerRulesForLanguage } from 'monaco-ace-tokenizer';
+// import { registerRulesForLanguage } from 'monaco-ace-tokenizer';
 
 
-export const languageMapping = {
-  racket: 'scheme',
-};
+// export const languageMapping = {
+//   racket: 'scheme',
+// };
 
 export default class Editor extends React.Component {
   componentDidUpdate() {
@@ -17,13 +17,13 @@ export default class Editor extends React.Component {
     }
   }
 
-  loadHightLightForNotIncludeSyntax = async (syntax) => {
-    const { default: HighlightRules } = await import(`monaco-ace-tokenizer/lib/ace/definitions/${syntax}`);
-    this.monaco.languages.register({
-      id: syntax,
-    });
-    registerRulesForLanguage(syntax, new HighlightRules());
-  }
+  // loadHightLightForNotIncludeSyntax = async (syntax) => {
+  //   const { default: HighlightRules } = await import(`monaco-ace-tokenizer/lib/ace/definitions/${syntax}`);
+  //   this.monaco.languages.register({
+  //     id: syntax,
+  //   });
+  //   registerRulesForLanguage(syntax, new HighlightRules());
+  // }
 
 
   handleResize = () => this.editor.layout();
@@ -39,21 +39,21 @@ export default class Editor extends React.Component {
     this.monaco = monaco;
     this.editor.focus();
     // this.editor.getModel().updateOptions({ tabSize: this.tabSize });
-    if (language === 'racket') {
-      this.loadHightLightForNotIncludeSyntax(language);
-    }
+    // if (language === 'racket') {
+    //   this.loadHightLightForNotIncludeSyntax(language);
+    // }
     window.addEventListener('resize', this.handleResize);
   }
 
   render() {
     const options = {
-      fontSize: 16,
-      scrollBeyondLastLine: false,
-      selectOnLineNumbers: true,
+      fontSize: 14,
+      // scrollBeyondLastLine: false,
+      // selectOnLineNumbers: true,
       // automaticLayout: true,
-      minimap: {
-        enabled: false,
-      },
+      // minimap: {
+      //   enabled: false,
+      // },
     };
 
     const { language, defaultValue } = this.props;

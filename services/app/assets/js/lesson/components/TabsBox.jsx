@@ -26,6 +26,7 @@ class TabsBox extends React.Component {
 
   render() {
     const {
+      className,
       checkInfo,
       currentTabInfo,
       setActive,
@@ -41,23 +42,25 @@ class TabsBox extends React.Component {
       language,
     } = this.context;
 
-    const activateNavLink = activeClass('active d-flex x-flex-1');
-    const activateTabPane = activeClass('d-flex x-flex-1');
+    const activateNavLink = activeClass('active bg-black');
+    const activateTabPane = activeClass('d-flex flex-column overflow-auto h-100 w-100');
+
+    const tabNames = ['editor', 'console', 'solution'];
+    const elements = tabNames.map((name) => {
+      const className = `text-light ${activateNavLink(name)}`;
+      return (
+        <NavItem key={name}>
+          <NavLink href="#" onClick={setActive(name)} className={className}>
+            {t(name)}
+          </NavLink>
+        </NavItem>
+      );
+    });
 
     return (
-      <div className="d-flex flex-column x-flex-1 mb-2">
-        <Nav tabs>
-          <NavItem>
-            <NavLink href="#" onClick={setActive('editor')} className={activateNavLink('editor')}>{t('editor')}</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="#" onClick={setActive('console')} className={activateNavLink('console')}>{t('console')}</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="#" onClick={setActive('solution')} className={activateNavLink('solution')}>{t('solution')}</NavLink>
-          </NavItem>
-        </Nav>
-        <TabContent className="d-flex x-flex-1 overflow-hidden" activeTab={active}>
+      <React.Fragment>
+        <Nav tabs>{elements}</Nav>
+        <TabContent className={`d-flex ${className}`} activeTab={active}>
           <TabPane tabId="editor" className={activateTabPane('editor')}>
             <Editor
               defaultValue={lesson.prepared_code}
@@ -68,7 +71,7 @@ class TabsBox extends React.Component {
             />
           </TabPane>
           <TabPane tabId="console" className={activateTabPane('console')}>
-            <Console className="hexlet-basics-tab-content d-flex x-flex-1 p-2" output={checkInfo.output} />
+            <Console output={checkInfo.output} />
           </TabPane>
           <TabPane tabId="solution" className={activateTabPane('solution')}>
             <Solution
@@ -78,7 +81,7 @@ class TabsBox extends React.Component {
             />
           </TabPane>
         </TabContent>
-      </div>
+      </React.Fragment>
     );
   }
 }

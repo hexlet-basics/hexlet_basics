@@ -14,8 +14,8 @@ defmodule HexletBasicsWeb.Endpoint do
   plug(Plug.Static,
     at: "/",
     from: :hexlet_basics,
-    gzip: false,
-    only: ~w(locales assets fonts images robots.txt favicon.ico)
+    gzip: true,
+    only: ~w(assets locales css js fonts images robots.txt favicon.ico)
   )
 
   # Code reloading can be explicitly enabled under the

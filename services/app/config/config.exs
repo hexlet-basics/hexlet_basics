@@ -60,8 +60,9 @@ config :logger, :console,
 
 config :phoenix, :template_engines,
   slim: PhoenixSlime.Engine,
-  slime: PhoenixSlime.Engine,
-  json_library: Jason
+  slime: PhoenixSlime.Engine
+
+config :phoenix, :json_library, Jason
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -1,8 +1,8 @@
-.navbar-text
-  = if @current_user.nickname do
-    .navbar-text= @current_user.nickname
+= if @current_user.nickname do
+  .navbar-text.mr-3= @current_user.nickname
 
-  .navbar-text
+ul.navbar-nav
+  li.nav-item
     - locales = %{ "ru" => "github", "en" => "facebook" }
     = if @current_user.guest do
       = link to: auth_path(@conn, :request, locales[@locale]), class: "nav-link" do

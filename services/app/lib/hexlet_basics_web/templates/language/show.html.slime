@@ -11,7 +11,7 @@ h1.text-center.display-2= @language.slug
 
 = for module <- @modules do
   div vocab="http://schema.org/" typeof="Course"
-    .row.my-4.d-flex.flex-row
+    .row.mt-5.d-flex.flex-row
       .col-12
         - module_description = @descriptions_by_module[module.id]
         h2 property="name"
@@ -27,31 +27,16 @@ h1.text-center.display-2= @language.slug
             - lesson_description = @descriptions_by_lesson[lesson.id]
             - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
             .mb-2
-              = link to: language_module_lesson_path(@conn, :show, @language.slug, module.slug, lesson.slug) do
-                = if finished_lesson do
-                  .card.hexlet-basics-card.hexlet-basics-lesson-card.hexlet-basics-finished-lesson-card
-                    .card-body.py-2
+              .card
+                .card-body.py-3 class="hexlet-basics-#{@language.slug}-bg"
+                  .card-text
+                    = if finished_lesson do
                       img.img-fluid.hexlet-basics-finished-lesson-sticker(src=static_path(@conn, "/images/finished_lesson_pin.png"))
-                      .card-text
-                        = lesson.natural_order
-                        | .&nbsp;
-                        = lesson_description.name
-                - else
-                  .card.hexlet-basics-card.hexlet-basics-lesson-card(class="hexlet-basics-lesson-card-#{@language.slug}")
-                    .card-body.py-2
-                      .card-text
-                        = lesson.natural_order
-                        | .&nbsp;
-                        = lesson_description.name
+                    - url = language_module_lesson_path(@conn, :show, @language.slug, module.slug, lesson.slug)
+                    = link to: url, class: "stretched-link text-light text-decoration-none" do
+                      = lesson.natural_order
+                      | .&nbsp;
+                      = lesson_description.name
 
         .col-12.col-md-6.mt-3
           p.lead property="description"= module_description.description
-
-  hr.mt-4.mb-5
-
-.row.my-4
-  .col
-    p.lead.text-md-right.mb-4= gettext "Support Code Basics"
-  .col-12.col-md-6.col-xl-4
-    script paypalexpress="false" src="https://donorbox.org/widget.js"
-    iframe allowpaymentrequest="" frameborder="0" height="685px" name="donorbox" scrolling="no" seamless="seamless" src="https://donorbox.org/embed/code-basics-ru" style=("max-width:500px; min-width:310px; max-height:none!important") width="100%"

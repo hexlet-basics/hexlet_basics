@@ -1,6 +1,8 @@
 // @ts-check
 
 import '@babel/polyfill';
+import 'bootstrap';
+import '@fortawesome/fontawesome-free/js/all';
 
 import gon from 'gon';
 import React from 'react';
@@ -46,6 +48,7 @@ const run = () => {
       <EntityContext.Provider value={entities}>
         <App
           userFinishedLesson={userFinishedLesson}
+          language={language}
         />
       </EntityContext.Provider>
     </Provider>,

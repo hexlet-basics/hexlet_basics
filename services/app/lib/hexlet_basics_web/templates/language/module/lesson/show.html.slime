@@ -1,14 +1,14 @@
-.row
-  .col-12.col-md-5
-    .card.hexlet-basics-theory-card
+.row.h-md-100.d-flex.flex-column
+  .col-12.col-md-5.h-md-100
+    .card.hexlet-basics-theory-card.text-dark.h-md-100
       .card-header.py-0
         ul.nav.nav-pills.card-header-pills.justify-content-center(role="tablist")
           li.nav-item
-            a.nav-link.active(href="#lesson-tab" data-toggle="pill" role="tab")= gettext "lesson"
+            a.nav-link.btn-light.active href="#lesson-tab" data-toggle="pill" role="tab"= gettext "lesson"
           li.nav-item
-            a.nav-link(href="#discuss-tab" data-toggle="pill" role="tab")= gettext "discuss"
+            a.nav-link.btn-light href="#discuss-tab" data-toggle="pill" role="tab"= gettext "discuss"
 
-      .card-body.x-overflow-y-scroll
+      .card-body.overflow-auto
         .tab-content(itemscope itemtype="http://schema.org/Article")
           .tab-pane.fade.show.active#lesson-tab(role="tabpanel")
             h3(itemprop="name")= @lesson_description.name
@@ -34,7 +34,7 @@
           .tab-pane.fade#discuss-tab(role="tabpanel")
             #disqus_thread
 
-  .col-12.col-md-7.d-flex.flex-column.x-flex-1.hexlet-basics-editor-container.py-4.py-md-0.pl-md-0
+  .col-12.col-md-7.pl-md-0.h-md-100
     = if current_user(@conn).guest do
       .p-4.p-md-0
         p.lead= gettext "Only for signed users"
@@ -45,7 +45,7 @@
               i.fab.fa-github.mr-2
               =gettext("Sign In")
     - else
-      #basics-lesson-container.d-flex.flex-column.x-flex-1
+      #basics-lesson-container.d-flex.flex-column.h-md-100
 
 javascript:
   var lesson = Gon.getAsset('lesson');

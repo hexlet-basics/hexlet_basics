@@ -20,9 +20,8 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
     npx: [
       "webpack",
       "--watch-stdin",
-      "--progress",
       "--color",
-      cd: Path.expand("..", __DIR__)
+      cd: Path.expand("../assets", __DIR__)
     ]
   ]
 
@@ -69,10 +68,5 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # # Configure your database
-# config :hexlet_basics, HexletBasics.Repo,
-#   adapter: Ecto.Adapters.Postgres,
-#   username: "postgres",
-#   password: "",
-#   database: "hexlet_basics_dev",
-#   hostname: "db",
-#   pool_size: 10
+config :hexlet_basics, HexletBasics.Repo,
+  show_sensitive_data_on_connection_error: true

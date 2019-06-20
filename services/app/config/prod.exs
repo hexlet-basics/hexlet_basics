@@ -26,7 +26,7 @@ config :hexlet_basics,
   ga_en: "UA-1360700-64"
 
 # Do not print debug messages in production
-config :logger, level: :debug
+config :logger, level: :info
 
 # ## SSL Support
 #

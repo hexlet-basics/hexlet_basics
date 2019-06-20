@@ -30,29 +30,29 @@ class ControlBox extends React.Component {
     const {
       checkInfo,
       lessonState,
-      prevLesson,
       t,
     } = this.props;
 
     const {
       language,
       lesson,
+      prevLesson,
     } = this.context;
 
     const runButtonClasses = cn({
-      'btn btn-primary x-no-focus-outline px-4 mx-3': true,
+      'btn btn-black px-4 mx-3': true,
       disabled: checkInfo.processing,
     });
 
     const nextButtonClasses = cn({
-      btn: true,
-      'btn-outline-secondary disabled': !lessonState.finished,
+      'btn text-light': true,
+      'btn-outline-black disabled': !lessonState.finished,
       'btn-success': lessonState.finished,
     });
 
     const prevButtonClasses = cn({
-      btn: true,
-      'btn-outline-secondary disabled': !prevLesson,
+      'btn text-light': true,
+      'btn-outline-black disabled': !prevLesson,
       'btn-success': prevLesson,
     });
 
@@ -66,8 +66,8 @@ class ControlBox extends React.Component {
         <div className="row">
           <div className="col x-font-sans-serif text-center">
             <a
-              className="btn btn-outline-primary mr-3"
-              href={window.location}
+              className="btn btn-outline-secondary mr-3"
+              href={window.location.href}
               title={t('reset_code')}
               data-confirm={t('confirm')}
             >

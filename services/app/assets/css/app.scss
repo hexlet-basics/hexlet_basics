@@ -1,5 +1,8 @@
 // Basic Colors
-
+// $card-border-width: 0;
+// $card-border-radius: 0;
+// $nav-tabs-border-radius: 0;
+// $btn-border-radius: 0;
 $blue:    #6699cc !default;
 $indigo:  #7986CB !default;
 $purple:  #c594c5 !default;
@@ -11,217 +14,58 @@ $green:   #99C794 !default;
 $teal:    #5fb3b3 !default;
 $cyan:    #89DDF3 !default;
 
-// Languages colors
-$hexlet-basics-php-color: $teal;
-$hexlet-basics-javascript-color: $indigo;
-$hexlet-basics-python-color: $purple;
-$hexlet-basics-racket-color: $blue;
-$hexlet-basics-java-color: $cyan;
-
-// App colors
-$hexlet-basics-font-color: #f8f8f2;
-$hexlet-basics-dark-color: #343a40;
-$hexlet-basics-active-color: #eee;
-$hexlet-basics-active-bg: #1e1e1e;
-
-$hexlet-basics-gray: #a7adba;
-$hexlet-basics-very-light-gray: #d8dee9;
-$hexlet-basics-very-dark-gray: #343d46;
-$hexlet-basics-very-light-yellow: #fffffb;
-
-// Bootstrap color settings
-$primary: $hexlet-basics-very-light-gray !default;
-$body-bg: $hexlet-basics-very-dark-gray;
-$body-color: $hexlet-basics-font-color !default;
-$pre-color: $hexlet-basics-very-light-yellow;
-$close-color: $hexlet-basics-very-dark-gray;
-$card-bg: $teal !default;
-
-$code-font-size: 100% !default;
-$code-color: darken($purple, 28%) !default;
-
-// Fonts
-$font-family-monospace: "Ubuntu Mono", monospace;
-$font-family-base: $font-family-monospace;
-
-// Boxes and borders
+// $border-radius: 0;
 $enable-rounded: false;
-$nav-link-padding-y: .2rem !default;
-$nav-link-padding-x: 0.75rem !default;
-$link-hover-decoration: none;
-$fa-font-path: "/fonts";
+$border-width: 0;
 
-$table-border-width: 1px;
-$table-border-color: $hexlet-basics-gray;
+$theme-colors: (
+  "black": #1e1e1e
+);
+// $white: #f8f8f2;
+// $black: #343d46;
 
-$nav-tabs-border-color: $hexlet-basics-dark-color;
-$nav-tabs-link-active-border-color: $hexlet-basics-dark-color;
-$nav-tabs-link-hover-border-color: $body-bg;
-$nav-tabs-link-active-color: $hexlet-basics-active-color;
-$nav-tabs-link-active-bg: $hexlet-basics-active-bg;
+$body-color: #f8f8f2;
+$body-bg: #343d46;
+
+$hexlet-basics-php-bg: #5fb3b3;
+$hexlet-basics-java-bg: #89ddf3;
+$hexlet-basics-javascript-bg: #7986cb;
+// $html-bg:
+$hexlet-basics-racket-bg: #f9ae58;
+$hexlet-basics-python-bg: #c594c5;
+
+.hexlet-basics-php-bg {
+  background-color: $hexlet-basics-php-bg;
+}
+
+.hexlet-basics-java-bg {
+  background-color: $hexlet-basics-java-bg;
+}
+
+.hexlet-basics-javascript-bg {
+  background-color: $hexlet-basics-javascript-bg;
+}
+
+.hexlet-basics-racket-bg {
+  background-color: $hexlet-basics-racket-bg;
+}
+
+.hexlet-basics-python-bg {
+  background-color: $hexlet-basics-python-bg;
+}
 
 @import "~bootstrap/scss/bootstrap";
-// @import "~font-awesome/scss/font-awesome";
 @import "~highlight.js/styles/vs";
 
-// Custom utils
-.x-overflow-y-scroll {
-  overflow-y: scroll;
-}
-
-@include media-breakpoint-up(md) {
-  .x-md-100vh {
-    height: 100vh;
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $prop, $abbrev in (width: w, height: h) {
+      @each $size, $length in $sizes {
+        .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+      }
+    }
   }
-
-  .x-md-overflow-hidden {
-    overflow: hidden;
-  }
-}
-
-@include media-breakpoint-down(sm) {
-  .monaco-editor, .hexlet-basics-editor-container {
-    height: 600px;
-  }
-
-  .hexlet-basics-theory-card {
-    height: auto !important;
-  }
-}
-
-.x-wrap-word {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-.x-flex-1 {
-  flex: 1;
-  flex-basis: 0;
-}
-
-.x-no-focus-outline {
-  &:focus, &:active {
-    outline:0;
-    box-shadow: none;
-  }
-}
-
-.x-cursor-pointer {
-  cursor: pointer;
-}
-
-.x-1em-inline-block {
-  width: 1em;
-  display: inline-block;
-}
-
-.x-font-sans-serif {
-  font-family: $font-family-sans-serif;
-}
-
-// Notifications
-
-.hexlet-ide-notifications {
-  color: black;
-  .fa {
-    opacity: 1;
-  }
-  .fa-warning {
-    color: #df0000;
-  }
-  .fa-check {
-    color: green;
-  }
-}
-
-// Code-related tabs
-.hexlet-basics-tab-content {
-  background-color: $hexlet-basics-active-bg;
-}
-
-// Lessons list
-.hexlet-basics-lesson-card {
-  background-color: red;
-  border: none;
-  border-radius: 3px;
-
-  &:hover {
-    background-color: lighten(red, 10%);
-  }
-}
-
-// TODO: generate lesson cards dynamically
-.hexlet-basics-lesson-card-php {
-  background-color: $hexlet-basics-php-color;
-
-  &:hover {
-    background-color: lighten($hexlet-basics-php-color, 10%);
-  }
-}
-
-.hexlet-basics-lesson-card-javascript {
-  background-color: $hexlet-basics-javascript-color;
-
-  &:hover {
-    background-color: lighten($hexlet-basics-javascript-color, 10%);
-  }
-}
-
-.hexlet-basics-lesson-card-python {
-  background-color: $hexlet-basics-python-color;
-
-  &:hover {
-    background-color: lighten($hexlet-basics-python-color, 10%);
-  }
-}
-
-.hexlet-basics-lesson-card-racket {
-  background-color: $hexlet-basics-racket-color;
-
-  &:hover {
-    background-color: lighten($hexlet-basics-racket-color, 10%);
-  }
-}
-
-.hexlet-basics-lesson-card-java {
-  background-color: $hexlet-basics-java-color;
-
-  &:hover {
-    background-color: lighten($hexlet-basics-java-color, 10%);
-  }
-}
-
-.hexlet-basics-finished-lesson-card {
-  background-color: gray;
-
-  &:hover {
-    background-color: lighten(gray, 10%);
-  }
-}
-
-// Generic cards
-.hexlet-basics-card {
-  color: white;
-}
-
-.hexlet-basics-indigo-card {
-  background-color: $indigo;
-}
-
-.hexlet-basics-purple-card {
-  background-color: $purple;
-}
-
-.hexlet-basics-orange-card {
-  background-color: $orange;
-}
-
-.hexlet-basics-cyan-card {
-  background-color: $cyan;
-}
-
-.hexlet-basics-disabled-card {
-  background-color: $hexlet-basics-gray;
 }
 
 img.hexlet-basics-finished-lesson-sticker {
@@ -233,68 +77,50 @@ img.hexlet-basics-finished-lesson-sticker {
   width: auto;
 }
 
-#basics-lesson-container {
-  ul.nav-tabs {
-    border-bottom: none;
-  }
-
-  li.nav-item a {
-    border-left: none;
-  }
-}
-
-#basics-solution {
-  background-color: #f7f7f3;
-  width: 100%;
-  color: $hexlet-basics-dark-color;
-}
-
-.hexlet-basics-theory-card pre,
-#basics-solution pre {
-  color: $hexlet-basics-dark-color;
-  border: 1px dashed $indigo;
-}
-
 /* the only light, non-standard block, has to be customized directly */
 .hexlet-basics-theory-card {
-  height: calc(100vh - 5em);
-  font-family: $font-family-sans-serif;
-  color: $hexlet-basics-dark-color;
-  background-color: $hexlet-basics-very-light-yellow;
+//   height: calc(100vh - 4em);
+//   // font-family: $font-family-sans-serif;
+//   color: $hexlet-basics-dark-color;
+//   background-color: $hexlet-basics-very-light-yellow;
 
-  a {
-    color: $blue;
-  }
+//   a {
+//     color: $blue;
+//   }
 
-  img {
-    max-width: 100%;
-  }
+//   img {
+//     max-width: 100%;
+//   }
 
-  table {
-    margin-bottom: 2em;
-  }
+//   table {
+//     margin-bottom: 2em;
+//   }
 
-  table, th, td {
-   border: 1px solid black;
-  }
+//   table, th, td {
+//    border: 1px solid black;
+//   }
 
-  th, td {
-    padding: 5px;
-  }
+//   th, td {
+//     padding: 5px;
+//   }
 
-  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: $blue;
-    background-color: #D8DEE9;
-  }
-
+//   .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+//     color: $blue;
+//     background-color: #D8DEE9;
+//   }
   pre {
-    color: $hexlet-basics-dark-color;
+    // color: $hexlet-basics-dark-color;
     border: 1px dashed $indigo;
+
+    code {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
   }
 
   pre.hexlet-basics-output {
     display: inline-block;
-    background-color: $hexlet-basics-active-bg;
+    background-color: $black;
     color: white;
     min-width: 220px;
     max-width: 100%;
@@ -317,14 +143,14 @@ img.hexlet-basics-finished-lesson-sticker {
     margin-left: -15px;
   }
 
-  p code {
-    background-color: lighten($blue, 34%);
-    padding: 1px 4px;
-    border-radius: 3px;
-  }
-}
+//   p code {
+//     background-color: lighten($blue, 34%);
+//     padding: 1px 4px;
+//     border-radius: 3px;
+//   }
+// }
 
-img.hexlet-basics-navbar-logo {
-  height: 1.5em;
-  width: auto;
+// img.hexlet-basics-navbar-logo {
+//   height: 1.5em;
+//   width: auto;
 }

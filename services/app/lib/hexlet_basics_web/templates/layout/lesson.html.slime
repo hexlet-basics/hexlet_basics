@@ -1,17 +1,16 @@
 doctype html
-html lang="#{@locale}"
+html.h-md-100 lang="#{@locale}"
   head
-    link rel="stylesheet" href="#{static_path(@conn, "/assets/vendors.css")}"
-    link rel="stylesheet" href="#{static_path(@conn, "/assets/main.css")}"
-    / link rel="stylesheet" href="#{static_path(@conn, "/assets/lesson.css")}"
+    link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
+    link rel="stylesheet" href="#{static_path(@conn, "/js/lesson.css")}"
     title= page_title(@conn)
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
-  body.x-md-100vh.x-md-overflow-hidden
-    .container-fluid
+  body.h-md-100
+    .container-fluid.h-md-100.d-flex.flex-column
       header.header
-        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.d-flex.justify-content-between.py-0 role="navigation"
-          .navbar-text.pr-3
+        nav.navbar.navbar-expand-lg.navbar-dark role="navigation"
+          .navbar-text.pr-3.mr-auto
             a href="/"
               i.fas.fa-home
             = " → "
@@ -24,9 +23,8 @@ html lang="#{@locale}"
             = @lessons_count
           = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
-      main.mt-3 role="main"
+      main.h-md-100.d-flex.flex-column role="main"
         = render @view_module, @view_template, assigns
+      footer.mt-1
 
-    script src="#{static_path(@conn, "/assets/vendors.js")}"
-    script src="#{static_path(@conn, "/assets/main.js")}"
-    script src="#{static_path(@conn, "/assets/lesson.js")}"
+    script src="#{static_path(@conn, "/js/lesson.js")}"

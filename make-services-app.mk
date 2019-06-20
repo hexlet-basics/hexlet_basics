@@ -66,5 +66,5 @@ app-exercises-load-java:
 app-exercises-load-html:
 	docker pull hexletbasics/exercises-html
 	rm -rf tmp/exercises-html
-	docker run --rm -v $(CURDIR)/tmp/exercises-html:/out hexletbasics/exercises-html bash -c "cp -r /exercises-java/* /out"
+	docker run --rm -v $(CURDIR)/tmp/exercises-html:/out hexletbasics/exercises-html bash -c "cp -r /exercises-html/* /out"
 	docker-compose run --rm app mix x.exercises.load html

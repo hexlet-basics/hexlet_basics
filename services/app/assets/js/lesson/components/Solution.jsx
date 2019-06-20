@@ -29,7 +29,7 @@ const mapStateToProps = (state) => {
 
 @connect(mapStateToProps)
 @withTranslation()
-class Editor extends React.Component {
+class Solution extends React.Component {
   handleShowSolution = () => {
     const { showSolution } = this.props;
     showSolution();
@@ -100,11 +100,7 @@ class Editor extends React.Component {
 
   renderMessage(t) {
     const { solutionState } = this.props;
-    return (
-      <div className="p-3 pt-2" id="basics-solution">
-        {solutionState.canBeShown ? this.renderShowButton(t) : this.renderCountdownTimer(t)}
-      </div>
-    );
+    return solutionState.canBeShown ? this.renderShowButton(t) : this.renderCountdownTimer(t);
   }
 
   render() {
@@ -113,8 +109,12 @@ class Editor extends React.Component {
       t,
     } = this.props;
 
-    return solutionState.shown ? this.renderSolution(t) : this.renderMessage(t);
+    return (
+      <div className="p-3 pt-2 h-100 bg-black text-white">
+        {solutionState.shown ? this.renderSolution(t) : this.renderMessage(t)}
+      </div>
+    );
   }
 }
 
-export default Editor;
+export default Solution;

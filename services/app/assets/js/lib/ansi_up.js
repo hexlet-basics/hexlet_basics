@@ -1,3 +1,5 @@
+// @ts-check
+
 import AnsiUp from 'ansi_up';
 
 const obj = new AnsiUp();

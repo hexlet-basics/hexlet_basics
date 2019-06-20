@@ -1,12 +1,4 @@
-// Brunch automatically concatenates all files in your
-// watched paths. Those paths can be configured at
-// config.paths.watched in "brunch-config.js".
-//
-// However, those files will only be executed if
-// explicitly imported. The only exception are files
-// in vendor, which are never wrapped in imports and
-// therefore are always executed.
-
+import '../css/app.scss';
 // import 'jquery';
 import hljs from 'highlight.js';
 // import '@fortawesome/react-fontawesome';
@@ -19,7 +11,7 @@ import 'bootstrap';
 //
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-import '../../deps/phoenix_html/priv/static/phoenix_html';
+import 'phoenix_html';
 
 // Import local files
 //
