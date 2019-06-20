@@ -2,12 +2,13 @@
 
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
+import { get } from 'lodash';
 // import { registerRulesForLanguage } from 'monaco-ace-tokenizer';
 
 
-// export const languageMapping = {
-//   racket: 'scheme',
-// };
+export const languageMapping = {
+  racket: 'scheme',
+};
 
 export default class Editor extends React.Component {
   componentDidUpdate() {
@@ -62,7 +63,7 @@ export default class Editor extends React.Component {
       <MonacoEditor
         theme="vs-dark"
         options={options}
-        language={language}
+        language={get(languageMapping, language, language)}
         editorDidMount={this.editorDidMount}
         defaultValue={defaultValue}
         onChange={this.handleChange}
