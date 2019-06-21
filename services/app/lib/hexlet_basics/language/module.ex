@@ -3,7 +3,7 @@ defmodule HexletBasics.Language.Module do
   import Ecto.Changeset
   alias HexletBasics.Language.Module
 
-  @derive {Poison.Encoder, only: [:id, :slug]}
+  @derive {Jason.Encoder, only: [:id, :slug]}
 
   schema "language_modules" do
     field(:slug, :string)

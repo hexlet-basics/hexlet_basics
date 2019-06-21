@@ -3,7 +3,7 @@ defmodule HexletBasics.User do
   import Ecto.Changeset
   alias HexletBasics.User
 
-  @derive {Poison.Encoder, only: [:first_name, :last_name, :nickname, :guest]}
+  @derive {Jason.Encoder, only: [:first_name, :last_name, :nickname, :guest]}
 
   schema "users" do
     field(:email, :string)

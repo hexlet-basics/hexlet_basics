@@ -21,7 +21,7 @@ import * as actions from './actions';
 const currentUser = gon.getAsset('current_user');
 const lesson = gon.getAsset('lesson');
 const language = gon.getAsset('language');
-const description = gon.getAsset('lesson_description');
+const lessonDescription = gon.getAsset('lesson_description');
 const userFinishedLesson = gon.getAsset('user_finished_lesson');
 const prevLesson = gon.getAsset('prev_lesson');
 
@@ -41,7 +41,8 @@ const run = () => {
   const entities = {
     prevLesson,
     language,
-    lesson: { ...lesson, ...description },
+    lesson,
+    lessonDescription
   };
 
   ReactDOM.render(

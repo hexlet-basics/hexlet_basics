@@ -5,7 +5,7 @@ defmodule HexletBasics.Language.Module.Lesson.Description do
   alias HexletBasics.Language.Module.Lesson.Description
   alias HexletBasics.Language.Module.Lesson
 
-  @derive {Poison.Encoder, only: [:instructions, :theory, :name]}
+  @derive {Jason.Encoder, only: [:instructions, :theory, :name]}
 
   schema "language_module_lesson_descriptions" do
     field(:instructions, :string)
