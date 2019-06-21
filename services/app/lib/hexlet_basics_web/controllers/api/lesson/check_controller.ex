@@ -10,7 +10,7 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckController do
     %{assigns: %{current_user: current_user}} = conn
     %{"data" => %{"attributes" => %{"code" => code}}, "lesson_id" => lesson_id} = params
 
-    lesson = Repo.get(Lesson, lesson_id) |> Repo.preload(:language)
+    lesson = Repo.get!(Lesson, lesson_id) |> Repo.preload(:language)
     language = lesson.language
     code_directory = Application.fetch_env!(:hexlet_basics, :code_directory)
     full_directory_path = Path.join(code_directory, User.directory_for_code(current_user))
