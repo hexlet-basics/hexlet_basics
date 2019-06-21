@@ -71,7 +71,7 @@ const checkInfo = handleActions({
     return {
       ...state,
       processing: false,
-      output: attributes.output,
+      output: atob(attributes.output),
     };
   },
   [actions.runCheckFailure]: (state) => {

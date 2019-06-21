@@ -51,7 +51,7 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckController do
           passed: passed,
           result: result,
           status: status,
-          output: output
+          output: Base.encode64(output)
         }
       }
     }
