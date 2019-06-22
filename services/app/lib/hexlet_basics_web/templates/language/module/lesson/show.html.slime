@@ -1,4 +1,4 @@
-.row.h-md-100.d-flex.flex-column
+.row.h-md-100
   .col-12.col-md-5.h-md-100
     .card.hexlet-basics-theory-card.text-dark.h-md-100
       .card-header.py-0
