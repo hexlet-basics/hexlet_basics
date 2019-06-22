@@ -11,7 +11,7 @@ const Console = ({ output }) => {
   // });
   const html = ansiUp(output);
   return (
-    <pre className="p-3 pt-2 h-100 bg-black text-white">
+    <pre className="p-3 mb-0 h-100 bg-black text-white">
       <code className="nohighlight x-wrap-word">
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </code>
