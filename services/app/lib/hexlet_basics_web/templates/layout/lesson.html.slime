@@ -22,7 +22,7 @@ html.h-md-100 lang="#{@locale}"
             = @lessons_count
           = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
-      main.h-md-100.d-flex.flex-column role="main"
+      main.h-md-100.overflow-hidden role="main"
         = render @view_module, @view_template, assigns
       footer.mt-1
 
