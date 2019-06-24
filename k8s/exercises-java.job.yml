@@ -15,7 +15,7 @@ spec:
           emptyDir: {}
 
       initContainers:
-        - name: exercises-javascript
+        - name: exercises-java
           image: hexletbasics/exercises-java
           command:
             - cp
