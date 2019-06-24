@@ -7,6 +7,10 @@ init:
 	helm repo add rimusz https://charts.rimusz.net
 	helm repo update
 
+apply-exercises-html:
+	kubectl delete jobs exercises-html-job || true
+	kubectl apply -f exercises-html.job.yml
+
 apply-exercises-js:
 	kubectl delete jobs exercises-javascript-job || true
 	kubectl apply -f exercises-javascript.job.yml
