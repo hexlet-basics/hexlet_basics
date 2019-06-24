@@ -27,12 +27,16 @@ $theme-colors: (
 $body-color: #f8f8f2;
 $body-bg: #343d46;
 
+$hexlet-basics-html-bg: #99C794;
 $hexlet-basics-php-bg: #5fb3b3;
 $hexlet-basics-java-bg: #89ddf3;
 $hexlet-basics-javascript-bg: #7986cb;
-// $html-bg:
 $hexlet-basics-racket-bg: #f9ae58;
 $hexlet-basics-python-bg: #c594c5;
+
+.hexlet-basics-html-bg {
+  background-color: $hexlet-basics-html-bg;
+}
 
 .hexlet-basics-php-bg {
   background-color: $hexlet-basics-php-bg;

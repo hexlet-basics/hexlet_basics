@@ -35,6 +35,13 @@
         = link javaAnchor, to: language_path(@conn, :show, "java"), class: "btn btn-light btn-block stretched-link"
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.h-100
+      .card-body.hexlet-basics-html-bg
+        h2.h4.font-weight-light.card-title.text-center HTML
+        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/html.png") alt="html programming lessons")
+        - htmlAnchor = if Enum.member?(@started_languages_by_slug, "html"), do: gettext("Continue"), else: gettext("Start")
+        = link htmlAnchor, to: language_path(@conn, :show, "html"), class: "btn btn-light btn-block stretched-link"
+  .col-12.col-sm-6.col-lg-3.mb-4
+    .card.h-100
       .card-body.hexlet-basics-racket-bg
         h2.h4.font-weight-light.card-title.text-center Racket
         img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/racket.png") alt="Racket programming lessons")
