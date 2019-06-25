@@ -9,13 +9,21 @@ html.h-md-100 lang="#{@locale}"
     .container-fluid.h-md-100.d-flex.flex-column
       header.header
         nav.navbar.navbar-expand-lg.navbar-dark role="navigation"
-          .navbar-text.pr-3.mr-auto
-            a href="/"
-              i.fas.fa-home
+          .navbar-text.pr-3.mr-auto(itemscope itemtype="http://schema.org/BreadcrumbList")
+            span(itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem")
+              a href="/" title="Главная" itemprop="item"
+                meta itemprop="name" content="Главная"
+                i.fas.fa-home
+                meta itemprop="position" content="1"
             = " → "
-            = link @language.slug, to: language_path(@conn, :show, @language.slug)
+              span(itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem")
+                a href=language_path(@conn, :show, @language.slug) itemprop="item" title=@language.slug
+                  span itemprop="name"
+                    =@language.slug
+                meta itemprop="position" content="2"
             = " → "
-            = @module_description.name
+              span
+                  =@module_description.name
             | &nbsp;
             = @lesson.natural_order
             | /
