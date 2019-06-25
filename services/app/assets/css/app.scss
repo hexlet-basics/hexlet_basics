@@ -92,21 +92,29 @@ img.hexlet-basics-finished-lesson-sticker {
 //     color: $blue;
 //   }
 
-//   img {
-//     max-width: 100%;
-//   }
+  img {
+    max-width: 100%;
+  }
 
-//   table {
-//     margin-bottom: 2em;
-//   }
+  table {
+    @extend .table;
 
-//   table, th, td {
-//    border: 1px solid black;
-//   }
+    color: inherit;
+    width: auto;
 
-//   th, td {
-//     padding: 5px;
-//   }
+    thead {
+      th {
+        border-bottom: 2px solid $table-border-color;
+        border-top: 1px solid $table-border-color;
+      }
+    }
+
+    tbody {
+      td {
+        border-top: 1px solid $table-border-color;
+      }
+    }
+  }
 
 //   .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
 //     color: $blue;
