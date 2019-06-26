@@ -48,7 +48,7 @@
               i.fab.fa-github.mr-2
               =gettext("Sign In")
     - else
-      #basics-lesson-container.d-flex.flex-column.h-md-100
+      #basics-lesson-container.d-flex.flex-column.vh-100.h-md-100
 
 javascript:
   var lesson = Gon.getAsset('lesson');
