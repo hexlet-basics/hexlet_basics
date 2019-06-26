@@ -23,7 +23,7 @@ const getViewOptions = (languageName, props) => {
       };
     default:
       return {
-        tabsBoxClassName: 'h-md-100',
+        tabsBoxClassName: 'h-100',
         component: null,
       }
   }
