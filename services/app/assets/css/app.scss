@@ -64,6 +64,17 @@ $hexlet-basics-python-bg: #c594c5;
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $prop, $unit in (height: vh) {
+      @each $size in (25, 50, 75, 100) {
+        .#{$unit}#{$infix}-#{$size} { #{$prop}: #{$size}#{$unit} !important; }
+      }
+    }
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
     @each $prop, $abbrev in (width: w, height: h) {
       @each $size, $length in $sizes {
         .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
@@ -80,6 +91,10 @@ img.hexlet-basics-finished-lesson-sticker {
   height: 40px;
   width: auto;
 }
+
+// #basics-lesson-container {
+//   height: 100vh;
+// }
 
 /* the only light, non-standard block, has to be customized directly */
 .hexlet-basics-theory-card {
