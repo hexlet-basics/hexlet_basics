@@ -1,8 +1,4 @@
 // Basic Colors
-// $card-border-width: 0;
-// $card-border-radius: 0;
-// $nav-tabs-border-radius: 0;
-// $btn-border-radius: 0;
 $blue:    #6699cc !default;
 $indigo:  #7986CB !default;
 $purple:  #c594c5 !default;
@@ -14,15 +10,12 @@ $green:   #99C794 !default;
 $teal:    #5fb3b3 !default;
 $cyan:    #89DDF3 !default;
 
-// $border-radius: 0;
 $enable-rounded: false;
 $border-width: 0;
 
 $theme-colors: (
   "black": #1e1e1e
 );
-// $white: #f8f8f2;
-// $black: #343d46;
 
 $body-color: #f8f8f2;
 $body-bg: #343d46;
@@ -92,21 +85,8 @@ img.hexlet-basics-finished-lesson-sticker {
   width: auto;
 }
 
-// #basics-lesson-container {
-//   height: 100vh;
-// }
-
 /* the only light, non-standard block, has to be customized directly */
 .hexlet-basics-theory-card {
-//   height: calc(100vh - 4em);
-//   // font-family: $font-family-sans-serif;
-//   color: $hexlet-basics-dark-color;
-//   background-color: $hexlet-basics-very-light-yellow;
-
-//   a {
-//     color: $blue;
-//   }
-
   img {
     max-width: 100%;
   }
@@ -131,12 +111,7 @@ img.hexlet-basics-finished-lesson-sticker {
     }
   }
 
-//   .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-//     color: $blue;
-//     background-color: #D8DEE9;
-//   }
   pre {
-    // color: $hexlet-basics-dark-color;
     border: 1px dashed $indigo;
     padding: 8px;
   }
@@ -165,15 +140,4 @@ img.hexlet-basics-finished-lesson-sticker {
     width: calc(100% + 15px);
     margin-left: -15px;
   }
-
-//   p code {
-//     background-color: lighten($blue, 34%);
-//     padding: 1px 4px;
-//     border-radius: 3px;
-//   }
-// }
-
-// img.hexlet-basics-navbar-logo {
-//   height: 1.5em;
-//   width: auto;
 }
