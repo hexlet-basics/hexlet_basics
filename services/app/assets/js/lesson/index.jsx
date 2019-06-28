@@ -2,13 +2,13 @@
 
 import '../../css/app.scss';
 import '@babel/polyfill';
-import 'bootstrap';
-import '@fortawesome/fontawesome-free/js/all';
+import hljs from 'highlight.js';
 
 import gon from 'gon';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import '../shared';
 import '../lib/i18n';
 
 import configureStore from '../lib/configureStore';
@@ -58,6 +58,7 @@ const run = () => {
   );
 };
 
+hljs.initHighlightingOnLoad();
 if (!currentUser.guest) {
   run();
 }

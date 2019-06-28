@@ -1,3 +1,5 @@
+@import "~highlight.js/styles/vs";
+
 // Basic Colors
 $blue:    #6699cc !default;
 $indigo:  #7986CB !default;
@@ -52,7 +54,6 @@ $hexlet-basics-python-bg: #c594c5;
 }
 
 @import "~bootstrap/scss/bootstrap";
-@import "~highlight.js/styles/vs";
 
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {

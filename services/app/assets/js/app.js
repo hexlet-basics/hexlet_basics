@@ -1,17 +1,14 @@
 import '../css/app.scss';
+import './shared';
 // import 'jquery';
-import hljs from 'highlight.js';
 // import '@fortawesome/react-fontawesome';
-import '@fortawesome/fontawesome-free/js/all';
 // import brands from '@fortawesome/fontawesome-free-brands';
 // import solid from '@fortawesome/fontawesome-free-solid';
-import 'bootstrap';
 // import 'jquery-ujs';
 // Import dependencies
 //
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-import 'phoenix_html';
 
 // Import local files
 //
@@ -44,5 +41,3 @@ import 'phoenix_html';
 
 // fontawesome.library.add(brands);
 // fontawesome.library.add(solid);
-
-hljs.initHighlightingOnLoad();
