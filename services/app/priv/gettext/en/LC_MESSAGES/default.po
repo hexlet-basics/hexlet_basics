@@ -261,3 +261,13 @@ msgstr "Code Basics: basics of programming on Java"
 #: lib/hexlet_basics_web/controllers/language_controller.ex:95
 msgid "OG description java"
 msgstr "The study of programming is a difficult and lengthy process. Learning the syntax of the language - it is impossible to start without it. This The course is devoted to the basics of writing programs for a Java. He is preparing a springboard for writing meaningful programs."
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:94
+msgid "OG title html"
+msgstr "Code Basics: The Basics Of HTML Document Layout"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:95
+msgid "OG description html"
+msgstr "To standardize the output of text inside the browser, an HTML standard was created that describes the rules for formatting text data for correct output. This course is devoted to the basics of HTML markup, working with typography, outputting media documents and working with forms."
