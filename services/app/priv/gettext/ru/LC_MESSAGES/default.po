@@ -261,3 +261,13 @@ msgstr "Code Basics: основы программирования на Java"
 #: lib/hexlet_basics_web/controllers/language_controller.ex:95
 msgid "OG description java"
 msgstr "Изучение программирования — непростой и длительный процесс. Изучение синтаксиса языка — самая простая и короткая часть в пути, но без неё невозможно начать. Этот курс посвящен азам написания программ на Java. Он готовит плацдарм для написания осмысленных программ"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:94
+msgid "OG title html"
+msgstr "Code Basics: основы разметки HTML документа"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/language_controller.ex:95
+msgid "OG description html"
+msgstr "Для стандартизации вывода текста внутри браузера был придуман стандарт HTML, описывающий правила оформления текстовых данных для корректного вывода. Этот курс посвящён азам HTML разметки, работы с типографикой, вывода медиа документов и работы с формами."
