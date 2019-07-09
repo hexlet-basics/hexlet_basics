@@ -13,6 +13,9 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Start"
 msgstr ""
 
@@ -35,7 +38,7 @@ msgstr ""
 msgid "Sign Out"
 msgstr ""
 
-#: lib/hexlet_basics_web/controllers/auth_controller.ex:41
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:38
 msgid "Successfully authenticated."
 msgstr ""
 
@@ -109,14 +112,6 @@ msgid "Recommended Books"
 msgstr ""
 
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
-msgid "Terms of Service"
-msgstr ""
-
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
-msgid "Privacy"
-msgstr ""
-
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 #: lib/hexlet_basics_web/templates/page/about.html.slime:1
 msgid "Source code"
 msgstr ""
@@ -147,11 +142,13 @@ msgstr "All lessons completed!"
 msgid "Code Basics Description"
 msgstr "Learn the basics of programming for free with interactive exercises. No prior experience required!"
 
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Author"
 msgstr "Kirill Mokevnin, Rakhim Davletkaliyev, Natalia Bass"
 
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Title"
 msgstr "Code Basics: basics of programming"
@@ -182,16 +179,9 @@ msgid "Please Sign In"
 msgstr "Please sign in with your GitHub account, this is necessary to track the progress of the lessons. If you do not have an account yet, now is the time to create an account on Github."
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
-msgid "Donate"
-msgstr ""
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/language/show.html.slime:2
-msgid "Support Code Basics"
-msgstr ""
-
-#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
@@ -220,62 +210,60 @@ msgstr "Idea, syllabus, platform: Kirill Mokevnin. Core lessons: Rakhim Davletka
 msgid "Projects goal"
 msgstr "The goal of Code Basics is to provide quality interactive lessons on the basics of programming, free of charge, available to everybody."
 
-#, elixir-format
-#: lib/hexlet_basics_web/controllers/language_controller.ex:94
+## For meta tags in language_controller
 msgid "OG title php"
 msgstr "Code Basics: basics of programming on PHP"
 
-#, elixir-format
-#: lib/hexlet_basics_web/controllers/language_controller.ex:95
+## For meta tags in language_controller
 msgid "OG description php"
 msgstr "The study of programming is a difficult and lengthy process. Learning the syntax of the language - it is impossible to start without it. This The course is devoted to the basics of writing programs for a PHP. He is preparing a springboard for writing meaningful programs."
 
-#, elixir-format
-#: lib/hexlet_basics_web/controllers/language_controller.ex:94
+## For meta tags in language_controller
 msgid "OG title javascript"
 msgstr "Code Basics: basics of programming on Javascript"
 
-#, elixir-format
-#: lib/hexlet_basics_web/controllers/language_controller.ex:95
+## For meta tags in language_controller
 msgid "OG description javascript"
 msgstr "The study of programming is a difficult and lengthy process. Learning the syntax of the language - it is impossible to start without it. This The course is devoted to the basics of writing programs for a Javascript. He is preparing a springboard for writing meaningful programs."
 
-#, elixir-format
-#: lib/hexlet_basics_web/controllers/language_controller.ex:94
+## For meta tags in language_controller
 msgid "OG title python"
 msgstr "Code Basics: basics of programming on Python"
 
-#, elixir-format
-#: lib/hexlet_basics_web/controllers/language_controller.ex:95
+## For meta tags in language_controller
 msgid "OG description python"
 msgstr "The study of programming is a difficult and lengthy process. Learning the syntax of the language - it is impossible to start without it. This The course is devoted to the basics of writing programs for a racket. He is preparing a springboard for writing meaningful programs."
 
-#, elixir-format
-#: lib/hexlet_basics_web/controllers/language_controller.ex:94
+## For meta tags in language_controller
 msgid "OG title racket"
 msgstr "Code Basics: basics of programming on Racket"
 
-#, elixir-format
-#: lib/hexlet_basics_web/controllers/language_controller.ex:95
+## For meta tags in language_controller
 msgid "OG description racket"
 msgstr "The racket belongs to the Lisp-language family. These programmers should learn them from the very beginning. This module is about introducing the syntax and concepts underlying any lisp."
 
-#, elixir-format
-#: lib/hexlet_basics_web/controllers/language_controller.ex:94
+## For meta tags in language_controller
 msgid "OG title java"
 msgstr "Code Basics: basics of programming on Java"
 
-#, elixir-format
-#: lib/hexlet_basics_web/controllers/language_controller.ex:95
+## For meta tags in language_controller
 msgid "OG description java"
 msgstr "The study of programming is a difficult and lengthy process. Learning the syntax of the language - it is impossible to start without it. This The course is devoted to the basics of writing programs for a Java. He is preparing a springboard for writing meaningful programs."
 
-#, elixir-format
-#: lib/hexlet_basics_web/controllers/language_controller.ex:94
+## For meta tags in language_controller
 msgid "OG title html"
 msgstr "Code Basics: The Basics Of HTML Document Layout"
 
-#, elixir-format
-#: lib/hexlet_basics_web/controllers/language_controller.ex:95
+## For meta tags in language_controller
 msgid "OG description html"
 msgstr "To standardize the output of text inside the browser, an HTML standard was created that describes the rules for formatting text data for correct output. This course is devoted to the basics of HTML markup, working with typography, outputting media documents and working with forms."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Privacy"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Terms of Service"
+msgstr ""
