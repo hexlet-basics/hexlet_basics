@@ -28,7 +28,7 @@ h1.text-center.display-2= @language.slug
             - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
             .mb-2
               .card
-                .card-body.py-3.bg-dark
+                .card-body.py-3.bg-secondary
                   .card-text
                     = if finished_lesson do
                       img.img-fluid.hexlet-basics-finished-lesson-sticker(src=static_path(@conn, "/images/finished_lesson_pin.png"))
