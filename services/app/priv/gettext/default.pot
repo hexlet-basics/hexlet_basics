@@ -13,6 +13,9 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Start"
 msgstr ""
 
@@ -35,7 +38,7 @@ msgstr ""
 msgid "Sign Out"
 msgstr ""
 
-#: lib/hexlet_basics_web/controllers/auth_controller.ex:41
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:38
 msgid "Successfully authenticated."
 msgstr ""
 
@@ -139,11 +142,13 @@ msgstr ""
 msgid "Code Basics Description"
 msgstr ""
 
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Author"
 msgstr ""
 
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Title"
 msgstr ""
@@ -174,16 +179,9 @@ msgid "Please Sign In"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
-msgid "Donate"
-msgstr ""
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/language/show.html.slime:2
-msgid "Support Code Basics"
-msgstr ""
-
-#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
@@ -210,4 +208,62 @@ msgstr ""
 #, elixir-format
 #: lib/hexlet_basics_web/templates/page/about.html.slime:1
 msgid "Projects goal"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title php"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description php"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title javascript"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description javascript"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title python"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description python"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title racket"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description racket"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title java"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description java"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title html"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description html"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Privacy"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Terms of Service"
 msgstr ""
