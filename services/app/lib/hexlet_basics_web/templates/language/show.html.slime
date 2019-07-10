@@ -7,7 +7,12 @@ h1.text-center.display-2= @language.slug
       class: 'btn btn-lg btn-success px-4 mb-3 mt-2'
 
 - else
-  = gettext "All lessons completed!"
+  .h3.text-center.text-success
+    = gettext "All lessons completed!"
+  .h5.text-center.text-primary
+    - course_link = link(String.downcase(gettext("Courses")), to: 'https://ru.hexlet.io/courses')
+    - professions_link = link(String.downcase(gettext("Professions")), to: 'https://ru.hexlet.io/professions')
+    == gettext("Try Hexlet %{courses} or join to %{professions}", courses: safe_to_string(course_link), professions: safe_to_string(professions_link))
 
 = for module <- @modules do
   div vocab="http://schema.org/" typeof="Course"
