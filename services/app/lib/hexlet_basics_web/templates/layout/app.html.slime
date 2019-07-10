@@ -21,7 +21,9 @@ html.h-100 lang="#{@locale}"
               li.nav-item
                 a.nav-link target="_blank" href="http://guides.hexlet.io"= gettext "Guides"
               li.nav-item
-                a.nav-link target="_blank" href="https://ru.hexlet.io/projects"= gettext "Projects"
+                a.nav-link target="_blank" href="https://ru.hexlet.io/courses"= gettext "Courses"
+              li.nav-item
+                a.nav-link target="_blank" href="https://ru.hexlet.io/professions"= gettext "Professions"
               / li.nav-item
                 / a.nav-link.font-weight-bold target="_blank" href="https://donorbox.org/code-basics-ru"
                 /   = gettext "Donate"

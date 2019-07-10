@@ -267,3 +267,20 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Terms of Service"
 msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Courses"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Professions"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Try Hexlet %{courses} or join to %{professions}"
+msgstr ""
