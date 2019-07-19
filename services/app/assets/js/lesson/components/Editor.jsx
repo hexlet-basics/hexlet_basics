@@ -10,6 +10,17 @@ export const languageMapping = {
   racket: 'scheme',
 };
 
+const langToTabSizeMapping = {
+  javascript: 2,
+  ruby: 2,
+  yml: 2,
+  py: 2,
+  rkt: 2,
+  erlang: 2,
+};
+
+const defaultTabSize = 4;
+
 export default class Editor extends React.Component {
   componentDidUpdate() {
     const { current } = this.props;
@@ -39,6 +50,7 @@ export default class Editor extends React.Component {
     this.editor = editor;
     this.monaco = monaco;
     this.editor.focus();
+    this.editor.getModel().updateOptions({ tabSize: get(langToTabSizeMapping, language, defaultTabSize)});
     // this.editor.getModel().updateOptions({ tabSize: this.tabSize });
     // if (language === 'racket') {
     //   this.loadHightLightForNotIncludeSyntax(language);
