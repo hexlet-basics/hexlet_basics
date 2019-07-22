@@ -115,6 +115,10 @@ img.hexlet-basics-finished-lesson-sticker {
   pre {
     border: 1px dashed $indigo;
     padding: 8px;
+
+    code {
+      @extend .pb-2;
+    }
   }
 
   pre.hexlet-basics-output {
