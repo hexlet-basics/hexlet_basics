@@ -1,6 +1,5 @@
 // @ts-check
 
-import '../../css/app.scss';
 import '@babel/polyfill';
 import hljs from 'highlight.js';
 
@@ -8,6 +7,9 @@ import gon from 'gon';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+
+import '../../css/app.scss';
+
 import '../shared';
 import '../lib/i18n';
 

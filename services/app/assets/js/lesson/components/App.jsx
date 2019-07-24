@@ -16,6 +16,7 @@ const mapStateToProps = (state) => {
 
 const getViewOptions = (languageName, props) => {
   switch (languageName) {
+    case 'css':
     case 'html':
       return {
         tabsBoxClassName: 'h-50',

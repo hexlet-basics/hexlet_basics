@@ -3,7 +3,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: exercises-html-job
+  name: exercises-css-job
 spec:
 
   template:
@@ -15,12 +15,12 @@ spec:
           emptyDir: {}
 
       initContainers:
-        - name: exercises-html
-          image: hexletbasics/exercises-html
+        - name: exercises-css
+          image: hexletbasics/exercises-css
           command:
             - cp
             - "-r"
-            - "/exercises-html/."
+            - "/exercises-css/."
             - "/out"
           volumeMounts:
             - mountPath: /out
@@ -34,9 +34,9 @@ spec:
           command:
             - mix
             - x.exercises.load
-            - html
+            - css
           volumeMounts:
-            - mountPath: /hexletbasics/exercises-html
+            - mountPath: /hexletbasics/exercises-css
               name: pod-data
           resources:
             requests:

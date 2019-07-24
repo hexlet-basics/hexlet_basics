@@ -24,6 +24,7 @@ $body-bg: #343d46;
 
 $hexlet-basics-html-bg: #99C794;
 $hexlet-basics-php-bg: #5fb3b3;
+$hexlet-basics-css-bg: $red;
 $hexlet-basics-java-bg: #89ddf3;
 $hexlet-basics-javascript-bg: #7986cb;
 $hexlet-basics-racket-bg: #f9ae58;
@@ -35,6 +36,10 @@ $hexlet-basics-python-bg: #c594c5;
 
 .hexlet-basics-php-bg {
   background-color: $hexlet-basics-php-bg;
+}
+
+.hexlet-basics-css-bg {
+  background-color: $hexlet-basics-css-bg;
 }
 
 .hexlet-basics-java-bg {

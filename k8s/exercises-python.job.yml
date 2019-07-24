@@ -30,13 +30,13 @@ spec:
 
         - name: app
           imagePullPolicy: Always
-          image: gcr.io/hexlet-basics/app:v139
+          image: gcr.io/hexlet-basics/app:v151
           command:
             - mix
             - x.exercises.load
             - python
           volumeMounts:
-            - mountPath: /exercises-python
+            - mountPath: /hexletbasics/exercises-python
               name: pod-data
           resources:
             requests:

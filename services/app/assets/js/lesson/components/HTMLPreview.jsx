@@ -2,10 +2,6 @@
 
 import React from 'react';
 
-// import {
-//   TabContent, TabPane, Nav, NavItem, NavLink,
-// } from 'reactstrap';
-
 const HTMLPreview = (props) => {
   const { html } = props;
   return (

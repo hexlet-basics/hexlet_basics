@@ -12,7 +12,7 @@ defmodule Mix.Tasks.X.Exercises.Load do
   def run([lang_name]) do
     Application.ensure_all_started(:hexlet_basics)
 
-    repo_dest = "/exercises-#{lang_name}"
+    repo_dest = "/hexletbasics/exercises-#{lang_name}"
     module_dest = "#{repo_dest}/modules"
 
     {:ok, upload} =
