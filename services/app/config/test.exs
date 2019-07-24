@@ -13,7 +13,9 @@ config :hexlet_basics,
   code_directory: "/tmp/hexlet-basics-test/code",
   langs: %{},
   ga_ru: "ruGtag",
-  ga_en: "enGtag"
+  ga_en: "enGtag",
+  gtm_ru: "ruGtm",
+  gtm_en: "enGtm"
 
 config :rollbax, enabled: false
 

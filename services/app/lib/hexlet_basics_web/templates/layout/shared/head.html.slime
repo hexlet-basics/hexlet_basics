@@ -20,7 +20,7 @@ meta content="webiste" property="og:type"
 
 = render_gon_script(@conn)
 
-script async="async" src="https://www.googletagmanager.com/gtag/js?id=#{@ga}"
+script async="async" src="https://www.googletagmanager.com/gtag/js?id=#{assigns[:ga]}"
 
 javascript:
   if (Gon.isProd()) {
