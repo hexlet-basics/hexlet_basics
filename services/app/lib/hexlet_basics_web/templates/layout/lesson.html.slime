@@ -6,6 +6,7 @@ html.h-md-100 lang="#{@locale}"
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
   body.h-md-100
+    = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html"
     .container-fluid.h-md-100.d-flex.flex-column
       header.header
         nav.navbar.navbar-expand-lg.navbar-dark role="navigation"

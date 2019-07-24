@@ -12,7 +12,7 @@ defmodule HexletBasicsWeb.Plugs.AssignGlobals do
     locale = conn.assigns[:locale]
     current_user = conn.assigns[:current_user]
 
-    configuration1 = [:ga, :disqus]
+    configuration1 = [:ga, :disqus, :gtm]
                      |> Enum.map(&({&1, "#{&1}_#{locale}"}))
                      |> Enum.reduce(%{}, fn {key, localKey}, acc ->
                        value = Application.fetch_env!(:hexlet_basics, String.to_atom(localKey))
@@ -25,6 +25,7 @@ defmodule HexletBasicsWeb.Plugs.AssignGlobals do
     conn
     |> put_gon(configuration)
     |> assign(:ga, configuration1.ga)
+    |> assign(:gtm, configuration1.gtm)
     |> assign(:meta_attrs, [])
     |> assign(:link_attrs, [])
     |> assign(:title, Gettext.gettext(HexletBasicsWeb.Gettext, "Code Basics Title"))

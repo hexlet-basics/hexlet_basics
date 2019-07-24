@@ -8,6 +8,7 @@ html.h-100 lang="#{@locale}"
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
   body.h-100
+    = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html", assigns
     header
       nav.navbar.navbar-expand-md.navbar-dark role="navigation"
         .container
