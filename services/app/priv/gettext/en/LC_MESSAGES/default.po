@@ -16,6 +16,7 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Start"
 msgstr ""
 
@@ -138,6 +139,8 @@ msgstr "All lessons completed!"
 
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Code Basics Description"
 msgstr "Learn the basics of programming for free with interactive exercises. No prior experience required!"
@@ -145,10 +148,15 @@ msgstr "Learn the basics of programming for free with interactive exercises. No 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Author"
 msgstr "Kirill Mokevnin, Rakhim Davletkaliyev, Natalia Bass"
 
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Title"
 msgstr "Code Basics: basics of programming"
@@ -179,6 +187,7 @@ msgid "Please Sign In"
 msgstr "Please sign in with your GitHub account, this is necessary to track the progress of the lessons. If you do not have an account yet, now is the time to create an account on Github."
 
 #, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
@@ -257,6 +266,14 @@ msgstr "Code Basics: The Basics Of HTML Document Layout"
 ## For meta tags in language_controller
 msgid "OG description html"
 msgstr "To standardize the output of text inside the browser, an HTML standard was created that describes the rules for formatting text data for correct output. This course is devoted to the basics of HTML markup, working with typography, outputting media documents and working with forms."
+
+## For meta tags in language_controller
+msgid "OG title css"
+msgstr "Code Basics: The Basics Of Using CSS"
+
+## For meta tags in language_controller
+msgid "OG description css"
+msgstr "Cascading Style Sheets (CSS) - cascading style sheets that allow you to design the content of the page in accordance with the described rules. Text styles, block layout on a page, animation - everything is described using cascading style sheets."
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
