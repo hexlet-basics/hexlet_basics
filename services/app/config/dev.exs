@@ -47,10 +47,10 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
-      ~r{priv/gettext/.*(po)$},
-      ~r{lib/hexlet_basics_web/views/.*(ex)$},
-      ~r{lib/hexlet_basics_web/templates/.*(eex|slim|slime)$}
+      ~r"{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$}",
+      ~r"{priv/gettext/.*(po)$}",
+      ~r"{lib/hexlet_basics_web/{live,views}/.*(ex)$}",
+      ~r"{lib/hexlet_basics_web/templates/.*(eex|slim|slime)$}"
     ]
   ]
 
@@ -74,3 +74,5 @@ config :phoenix, :stacktrace_depth, 20
 # # Configure your database
 config :hexlet_basics, HexletBasics.Repo,
   show_sensitive_data_on_connection_error: true
+
+config :phoenix, :plug_init_mode, :runtime

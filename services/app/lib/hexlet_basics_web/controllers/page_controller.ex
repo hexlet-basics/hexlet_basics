@@ -30,7 +30,7 @@ defmodule HexletBasicsWeb.PageController do
   def show(conn, %{"id" => id}) do
     pages = ["about", "privacy", "tos"]
 
-    link_attrs = [%{rel: "canonical", href: url(conn, page_path(conn, :show, id))}]
+    link_attrs = [%{rel: "canonical", href: url(conn, Routes.page_path(conn, :show, id))}]
     if id in pages do
       render(conn, :"#{id}", link_attrs: link_attrs)
     else

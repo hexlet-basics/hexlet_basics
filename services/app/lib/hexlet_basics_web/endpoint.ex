@@ -14,8 +14,8 @@ defmodule HexletBasicsWeb.Endpoint do
   plug(Plug.Static,
     at: "/",
     from: :hexlet_basics,
-    gzip: true,
-    only: ~w(assets locales css js fonts images robots.txt favicon.ico)
+    gzip: false,
+    only: ~w(css js fonts images robots.txt favicon.ico)
   )
 
   # Code reloading can be explicitly enabled under the
@@ -27,12 +27,12 @@ defmodule HexletBasicsWeb.Endpoint do
   end
 
   plug(Plug.RequestId)
-  plug(Plug.Logger)
+  plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
 
   plug(Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
-    json_decoder: Jason
+    json_decoder: Phoenix.json_library()
   )
 
   plug(Plug.MethodOverride)
@@ -54,12 +54,12 @@ defmodule HexletBasicsWeb.Endpoint do
 
   # It receives the endpoint configuration and checks if
   # configuration should be loaded from the system environment.
-  def init(_key, config) do
-    if config[:load_from_system_env] do
-      port = System.get_env("PORT") || raise "expected the PORT environment variable to be set"
-      {:ok, Keyword.put(config, :http, [:inet6, port: port])}
-    else
-      {:ok, config}
-    end
-  end
+  # def init(_key, config) do
+  #   if config[:load_from_system_env] do
+  #     port = System.get_env("PORT") || raise "expected the PORT environment variable to be set"
+  #     {:ok, Keyword.put(config, :http, [:inet6, port: port])}
+  #   else
+  #     {:ok, config}
+  #   end
+  # end
 end

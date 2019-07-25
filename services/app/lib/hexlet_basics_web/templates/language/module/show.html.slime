@@ -7,5 +7,5 @@ h2
 
 ol
   <%= for lesson <- @lessons do %>
-    li= link lesson.slug, to: language_module_lesson_path(@conn, :show, @language.slug, @module.slug, lesson.slug)
+    li= link lesson.slug, to: Routes.language_module_lesson_path(@conn, :show, @language.slug, @module.slug, lesson.slug)
   <% end %>

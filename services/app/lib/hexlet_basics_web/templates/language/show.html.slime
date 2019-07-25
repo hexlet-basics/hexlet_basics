@@ -3,7 +3,7 @@ h1.text-center.display-2= @language.slug
 - anchor = if @first_lesson == @next_lesson, do: gettext("Start learning"), else: gettext("Continue Learning")
 = if @next_lesson do
   .text-center
-    = link anchor, to: language_module_lesson_path(@conn, :show, @language.slug, @next_lesson.module.slug, @next_lesson.slug),
+    = link anchor, to: Routes.language_module_lesson_path(@conn, :show, @language.slug, @next_lesson.module.slug, @next_lesson.slug),
       class: 'btn btn-lg btn-success px-4 mb-3 mt-2'
 
 - else
@@ -36,8 +36,8 @@ h1.text-center.display-2= @language.slug
                 .card-body.py-3.bg-secondary
                   .card-text
                     = if finished_lesson do
-                      img.img-fluid.hexlet-basics-finished-lesson-sticker(src=static_path(@conn, "/images/finished_lesson_pin.png"))
-                    - url = language_module_lesson_path(@conn, :show, @language.slug, module.slug, lesson.slug)
+                      img.img-fluid.hexlet-basics-finished-lesson-sticker(src=Routes.static_path(@conn, "/images/finished_lesson_pin.png"))
+                    - url = Routes.language_module_lesson_path(@conn, :show, @language.slug, module.slug, lesson.slug)
                     = link to: url, class: "stretched-link text-light text-decoration-none" do
                       = lesson.natural_order
                       | .&nbsp;

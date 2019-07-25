@@ -14,14 +14,14 @@ defmodule HexletBasicsWeb.AuthController do
     conn
     |> put_flash(:info, gettext "You have been logged out!")
     |> configure_session(drop: true)
-    |> redirect(to: page_path(conn, :index))
+    |> redirect(to: Routes.page_path(conn, :index))
   end
 
   def callback(%{assigns: %{ueberauth_failure: _fails}} = conn, _params) do
     conn
     |> put_flash(:error, gettext "Failed to authenticate.")
     |> configure_session(drop: true)
-    |> redirect(to: page_path(conn, :index))
+    |> redirect(to: Routes.page_path(conn, :index))
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
@@ -37,6 +37,6 @@ defmodule HexletBasicsWeb.AuthController do
     conn
       |> put_flash(:info, gettext "Successfully authenticated.")
       |> put_session(:current_user, user)
-      |> redirect(to: page_path(conn, :index))
+      |> redirect(to: Routes.page_path(conn, :index))
   end
 end

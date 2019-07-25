@@ -25,7 +25,7 @@ defmodule HexletBasicsWeb.LessonController do
       nil ->
         conn
         |> put_flash(:info, gettext("You did it!"))
-        |> redirect(to: page_path(conn, :index))
+        |> redirect(to: Routes.page_path(conn, :index))
 
       next_lesson ->
         next_lesson = next_lesson |> Repo.preload([:module])
@@ -33,7 +33,7 @@ defmodule HexletBasicsWeb.LessonController do
         module = next_lesson.module
 
         path =
-          language_module_lesson_path(conn, :show, language.slug, module.slug, next_lesson.slug)
+          Routes.language_module_lesson_path(conn, :show, language.slug, module.slug, next_lesson.slug)
 
         redirect(conn, to: path)
     end

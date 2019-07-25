@@ -9,51 +9,51 @@
     .card.h-100
       .card-body.hexlet-basics-php-bg
         h2.h4.font-weight-light.card-title.text-center PHP
-        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/php.png") alt="php programming lessons")
+        img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/php.png") alt="php programming lessons")
         - phpAnchor = if Enum.member?(@started_languages_by_slug, "php"), do: gettext("Continue"), else: gettext("Start")
-        = link phpAnchor, to: language_path(@conn, :show, "php"), class: "btn btn-light btn-block stretched-link"
+        = link phpAnchor, to: Routes.language_path(@conn, :show, "php"), class: "btn btn-light btn-block stretched-link"
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.h-100
       .card-body.hexlet-basics-javascript-bg
         h2.h4.font-weight-light.card-title.text-center JavaScript
-        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/js.png") alt="JavaScript programming lessons")
+        img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/js.png") alt="JavaScript programming lessons")
         - jsAnchor = if Enum.member?(@started_languages_by_slug, "javascript"), do: gettext("Continue"), else: gettext("Start")
-        = link jsAnchor, to: language_path(@conn, :show, "javascript"), class: "btn btn-light btn-block stretched-link"
+        = link jsAnchor, to: Routes.language_path(@conn, :show, "javascript"), class: "btn btn-light btn-block stretched-link"
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.h-100
       .card-body.hexlet-basics-python-bg
         h2.h4.font-weight-light.card-title.text-center Python
-        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/python.png") alt="Python programming lessons")
+        img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/python.png") alt="Python programming lessons")
         - pythonAnchor = if Enum.member?(@started_languages_by_slug, "python"), do: gettext("Continue"), else: gettext("Start")
-        = link pythonAnchor, to: language_path(@conn, :show, "python"), class: "btn btn-light btn-block stretched-link"
+        = link pythonAnchor, to: Routes.language_path(@conn, :show, "python"), class: "btn btn-light btn-block stretched-link"
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.h-100
       .card-body.hexlet-basics-java-bg
         h2.h4.font-weight-light.card-title.text-center Java
-        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/java.png") alt="Java programming lessons")
+        img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/java.png") alt="Java programming lessons")
         - javaAnchor = if Enum.member?(@started_languages_by_slug, "java"), do: gettext("Continue"), else: gettext("Start")
-        = link javaAnchor, to: language_path(@conn, :show, "java"), class: "btn btn-light btn-block stretched-link"
+        = link javaAnchor, to: Routes.language_path(@conn, :show, "java"), class: "btn btn-light btn-block stretched-link"
 
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.h-100
       .card-body.hexlet-basics-html-bg
         h2.h4.font-weight-light.card-title.text-center HTML
-        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/html.png") alt="html lessons")
+        img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/html.png") alt="html lessons")
         - htmlAnchor = if Enum.member?(@started_languages_by_slug, "html"), do: gettext("Continue"), else: gettext("Start")
-        = link htmlAnchor, to: language_path(@conn, :show, "html"), class: "btn btn-light btn-block stretched-link"
+        = link htmlAnchor, to: Routes.language_path(@conn, :show, "html"), class: "btn btn-light btn-block stretched-link"
 
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.h-100
       .card-body.hexlet-basics-css-bg
         h2.h4.font-weight-light.card-title.text-center CSS
-        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/css.png") alt="css lessons")
+        img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/css.png") alt="css lessons")
         - cssAnchor = if Enum.member?(@started_languages_by_slug, "css"), do: gettext("Continue"), else: gettext("Start")
-        = link cssAnchor, to: language_path(@conn, :show, "css"), class: "btn btn-light btn-block stretched-link"
+        = link cssAnchor, to: Routes.language_path(@conn, :show, "css"), class: "btn btn-light btn-block stretched-link"
 
   .col-12.col-sm-6.col-lg-3.mb-4
     .card.h-100
       .card-body.hexlet-basics-racket-bg
         h2.h4.font-weight-light.card-title.text-center Racket
-        img.img-fluid.mt-3.mb-4(src=static_path(@conn, "/images/racket.png") alt="Racket programming lessons")
+        img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/racket.png") alt="Racket programming lessons")
         - racketAnchor = if Enum.member?(@started_languages_by_slug, "racket"), do: gettext("Continue"), else: gettext("Start")
-        = link racketAnchor, to: language_path(@conn, :show, "racket"), class: "btn btn-light btn-block stretched-link"
+        = link racketAnchor, to: Routes.language_path(@conn, :show, "racket"), class: "btn btn-light btn-block stretched-link"

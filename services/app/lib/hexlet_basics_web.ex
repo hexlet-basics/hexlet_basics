@@ -21,10 +21,10 @@ defmodule HexletBasicsWeb do
     quote do
       use Phoenix.Controller, namespace: HexletBasicsWeb
       import Plug.Conn
-      alias HexletBasicsWeb.Router.Helpers, as: Routes
       # TODO: remove after switching to Routes
-      import HexletBasicsWeb.Router.Helpers
+      # import HexletBasicsWeb.Router.Helpers
       import HexletBasicsWeb.Gettext
+      alias HexletBasicsWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -36,14 +36,14 @@ defmodule HexletBasicsWeb do
         pattern: "**/*"
 
       # Import convenience functions from controllers
-      import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
+      import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
 
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import HexletBasicsWeb.Router.Helpers
       import HexletBasicsWeb.ErrorHelpers
       import HexletBasicsWeb.Gettext
+      alias HexletBasicsWeb.Router.Helpers, as: Routes
 
       def current_user(conn) do
         conn.assigns[:current_user]

@@ -1,7 +1,7 @@
 doctype html
 html.h-100 lang="#{@locale}"
   head
-    link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
+    link rel="stylesheet" href="#{Routes.static_path(@conn, "/css/app.css")}"
     title= @title
     = meta_tags(@meta_attrs)
     = link_tags(@link_attrs)
@@ -13,7 +13,7 @@ html.h-100 lang="#{@locale}"
       nav.navbar.navbar-expand-md.navbar-dark role="navigation"
         .container
           a.navbar-brand href="/"
-            img.mr-3(width="30px" src=static_path(@conn, "/images/logo.png") alt="Code Basics Logo")
+            img.mr-3(width="30px" src=Routes.static_path(@conn, "/images/logo.png") alt="Code Basics Logo")
             span= gettext("Code Basics")
           button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation")
             span.navbar-toggler-icon
@@ -66,7 +66,7 @@ html.h-100 lang="#{@locale}"
           .col-12.col-md-5.mt-3.text-right
             ul.nav.flex-column
               li
-                a target="_blank" href="#{page_path(@conn, :show, "about")}"= gettext "About"
+                a target="_blank" href="#{Routes.page_path(@conn, :show, "about")}"= gettext "About"
               li
                 a target="_blank" href="https://ru.hexlet.io/blog"= gettext "Blog"
               li
@@ -77,9 +77,9 @@ html.h-100 lang="#{@locale}"
               li
                 a target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSr58Xg4DVX2WdmAkv3hE2ITJ3fPeNUmRFe0Ekro53U-ACFrhcUkV8PlUm4ddcn53Uh-5UIezZtZZgc/pubhtml"= gettext "Matrix"
               li
-                a target="_blank" href="#{page_path(@conn, :show, "tos")}"= gettext "Terms of Service"
+                a target="_blank" href="#{Routes.page_path(@conn, :show, "tos")}"= gettext "Terms of Service"
               li
-                a target="_blank" href="#{page_path(@conn, :show, "privacy")}"= gettext "Privacy"
+                a target="_blank" href="#{Routes.page_path(@conn, :show, "privacy")}"= gettext "Privacy"
 
 
-    script src="#{static_path(@conn, "/js/app.js")}"
+    script src="#{Routes.static_path(@conn, "/js/app.js")}"

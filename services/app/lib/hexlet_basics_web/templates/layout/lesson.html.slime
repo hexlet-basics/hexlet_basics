@@ -1,7 +1,7 @@
 doctype html
 html.h-md-100 lang="#{@locale}"
   head
-    link rel="stylesheet" href="#{static_path(@conn, "/css/lesson.css")}"
+    link rel="stylesheet" href="#{Routes.static_path(@conn, "/css/lesson.css")}"
     title= page_title(@conn)
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
@@ -18,7 +18,7 @@ html.h-md-100 lang="#{@locale}"
                 meta itemprop="position" content="1"
             = " → "
               span(itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem")
-                a href=language_path(@conn, :show, @language.slug) itemprop="item" title=@language.slug
+                a href=Routes.language_path(@conn, :show, @language.slug) itemprop="item" title=@language.slug
                   span itemprop="name"
                     =@language.slug
                 meta itemprop="position" content="2"
@@ -35,4 +35,4 @@ html.h-md-100 lang="#{@locale}"
         = render @view_module, @view_template, assigns
       footer.mt-1
 
-    script src="#{static_path(@conn, "/js/lesson.js")}"
+    script src="#{Routes.static_path(@conn, "/js/lesson.js")}"

@@ -43,7 +43,7 @@
         p.lead= gettext "Only for signed users"
         p= gettext "Please Sign In"
         .text-center
-          = link to: auth_path(@conn, :request, :github), class: "btn btn-lg btn-success" do
+          = link to: Routes.auth_path(@conn, :request, :github), class: "btn btn-lg btn-success" do
             strong
               i.fab.fa-github.mr-2
               =gettext("Sign In")
