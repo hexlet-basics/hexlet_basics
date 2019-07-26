@@ -32,8 +32,8 @@ RUN cd assets && npm ci
 
 COPY . .
 
-RUN MIX_ENV=prod mix compile
+RUN SECRET_KEY_BASE=jopa MIX_ENV=prod mix compile
 RUN NODE_ENV=production cd assets && npm run deploy
-RUN MIX_ENV=prod mix phx.digest
+RUN SECRET_KEY_BASE=jopa MIX_ENV=prod mix phx.digest
 
 CMD ["mix", "phx.server"]
