@@ -90,6 +90,8 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
       module: module,
       lesson: lesson,
       lesson_theory_html: lesson_theory_html,
+      lesson_inserted_at: lesson.inserted_at,
+      lesson_updated_at: lesson.updated_at,
       lesson_instructions_html: lesson_instructions_html,
       module_description: module_description,
       lesson_description: lesson_description,

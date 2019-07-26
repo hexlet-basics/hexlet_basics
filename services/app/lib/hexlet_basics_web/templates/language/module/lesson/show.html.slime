@@ -9,12 +9,19 @@
             a.nav-link.btn-light href="#discuss-tab" data-toggle="pill" role="tab"= gettext "discuss"
 
       .card-body.overflow-auto
-        .tab-content(itemscope itemtype="http://schema.org/Article")
+        .tab-content(itemscope itemtype="http://schema.org/TechArticle")
           meta content="#{gettext("Code Basics Author")}" itemprop="author"
           meta content=@module_description.description itemprop="description"
+          meta content=@lesson_inserted_at itemprop="datePublished"
+          meta content=true itemprop="isAccessibleForFree"
+          meta content=@lesson_updated_at itemprop="dateModified"
           meta content="/images/smm_cover.jpg" itemprop="image"
+
+          span(itemprop="publisher" itemscope itemtype="http://schema.org/Organization")
+            = render HexletBasicsWeb.LayoutView, "shared/schemas/company.html", assigns
+
           .tab-pane.fade.show.active#lesson-tab(role="tabpanel")
-            h1.h3(itemprop="name")= @lesson_description.name
+            h1.h3(itemprop="headline")= @lesson_description.name
             == @lesson_theory_html
             h2.h3= gettext "instructions"
             == @lesson_instructions_html

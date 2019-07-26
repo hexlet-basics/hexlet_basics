@@ -15,16 +15,18 @@ h1.text-center.display-2= @language.slug
     == gettext("Try Hexlet %{courses} or join to %{professions}", courses: safe_to_string(course_link), professions: safe_to_string(professions_link))
 
 = for module <- @modules do
-  div vocab="http://schema.org/" typeof="Course"
+  div(itemscope itemtype="http://schema.org/Course")
+    span(itemprop="provider" itemscope itemtype="http://schema.org/Organization")
+      = render HexletBasicsWeb.LayoutView, "shared/schemas/company.html", assigns
+
     .row.mt-5.d-flex.flex-row
       .col-12
         - module_description = @descriptions_by_module[module.id]
-        h2 property="name"
+        h2 itemprop="name"
           = module_description.name
           a aria-controls="module_#{module.id}" aria-expanded="false" data-toggle="collapse" href="#module_#{module.id}"
             small.ml-3.text-muted
               span.fas.fa-chevron-right
-
     .collapse.show id="module_#{module.id}"
       .row.d-flex.flex-row
         .col-12.col-md-6.lead.mt-4
@@ -44,4 +46,4 @@ h1.text-center.display-2= @language.slug
                       = lesson_description.name
 
         .col-12.col-md-6.mt-3
-          p.lead property="description"= module_description.description
+          p.lead itemprop="description"= module_description.description
