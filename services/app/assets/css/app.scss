@@ -82,6 +82,11 @@ $hexlet-basics-python-bg: #c594c5;
   }
 }
 
+%hexlet-output {
+  border: 1px dashed $indigo;
+  padding: 8px;
+}
+
 img.hexlet-basics-finished-lesson-sticker {
   position: absolute;
   bottom: 0;
@@ -118,12 +123,15 @@ img.hexlet-basics-finished-lesson-sticker {
   }
 
   pre {
-    border: 1px dashed $indigo;
-    padding: 8px;
+    @extend %hexlet-output;
 
     code {
       @extend .pb-2;
     }
+  }
+
+  .hexlet-basics-example {
+    @extend %hexlet-output;
   }
 
   pre.hexlet-basics-output {
