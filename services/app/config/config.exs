@@ -15,7 +15,8 @@ config :ueberauth, Ueberauth,
          default_scope: "read:user,user:email",
          send_redirect_uri: false
        ]},
-    facebook: {Ueberauth.Strategy.Facebook, []}
+    facebook: {Ueberauth.Strategy.Facebook, []},
+    auth0: {Ueberauth.Strategy.Auth0, []}
   ]
 
 config :rollbax,
@@ -29,6 +30,11 @@ config :ueberauth, Ueberauth.Strategy.Github.OAuth,
 config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
   client_id: System.get_env("FACEBOOK_CLIENT_ID_EN"),
   client_secret: System.get_env("FACEBOOK_CLIENT_SECRET_EN")
+
+config :ueberauth, Ueberauth.Strategy.Auth0.OAuth,
+  domain: System.get_env("AUTH0_DOMAIN"),
+  client_id: System.get_env("AUTH0_CLIENT_ID"),
+  client_secret: System.get_env("AUTH0_CLIENT_SECRET")
 
 # General application configuration
 config :hexlet_basics,

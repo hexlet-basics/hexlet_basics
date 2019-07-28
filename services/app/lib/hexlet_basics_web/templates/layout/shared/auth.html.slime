@@ -5,9 +5,9 @@ ul.navbar-nav
   li.nav-item
     - locales = %{ "ru" => "github", "en" => "facebook" }
     = if @current_user.guest do
-      = link to: Routes.auth_path(@conn, :request, locales[@locale]), class: "nav-link" do
+      = link to: Routes.auth_path(@conn, :request, "auth0"), class: "nav-link" do
         strong
           i.fab.mr-2 class="fa-#{locales[@locale]}"
           = gettext("Sign In")
     - else
-      = link gettext("Sign Out"), to: Routes.session_path(@conn, :delete), method: "delete", class: "nav-link"
+      = link gettext("Sign Out"), to: Routes.session_path(@conn, :logout), class: "nav-link"

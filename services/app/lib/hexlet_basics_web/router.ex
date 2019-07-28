@@ -75,6 +75,7 @@ defmodule HexletBasicsWeb.Router do
     resources("/pages", PageController)
 
     resources("/session", SessionController, singleton: true)
+    get "/logout", SessionController, :logout
 
     resources "/languages", LanguageController do
       resources "/modules", Language.ModuleController do

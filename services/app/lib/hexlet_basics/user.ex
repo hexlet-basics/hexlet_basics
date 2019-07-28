@@ -11,6 +11,7 @@ defmodule HexletBasics.User do
     field(:last_name, :string)
     field(:github_uid, :integer)
     field(:facebook_uid, :string)
+    field(:auth0_uid, :string)
     field(:nickname, :string)
     field(:guest, :boolean, virtual: true, default: false)
     has_many(:finished_lessons, User.FinishedLesson, on_delete: :delete_all)

@@ -25,7 +25,7 @@ defmodule HexletBasicsWeb.AuthController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
-    params = %{github_uid: auth.uid}
+    params = %{auth0_uid: auth.uid}
     user = Repo.get_by(User, params) || struct(User, params)
     user = user
            |> User.changeset(%{
