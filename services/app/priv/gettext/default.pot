@@ -113,6 +113,10 @@ msgid "Recommended Books"
 msgstr ""
 
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Facebook"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 #: lib/hexlet_basics_web/templates/page/about.html.slime:1
 msgid "Source code"
 msgstr ""
