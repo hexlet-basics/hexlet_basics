@@ -40,10 +40,10 @@ html.h-100 lang="#{@locale}"
               = message
         = render @view_module, @view_template, assigns
 
-    footer.footer.mt-3.pb-3
+    footer.footer.mt-5.pb-3
       .container
         .row.d-flex.flex-row.justify-content-between
-          .col-12.col-md-7.mt-3
+          .col-12.col-md-4
             span vocab="http://schema.org/" typeof="Organization"
               span.h4.mb-2
                 | &copy; Hexlet,&nbsp;
@@ -63,23 +63,27 @@ html.h-100 lang="#{@locale}"
               br
               a.small[href="mailto:support@hexlet.io" property="email" typeof="Text"] support@hexlet.io
 
-          .col-12.col-md-5.mt-3.text-right
+          .col-12.col-md-4.text-center
             ul.nav.flex-column
               li
                 a target="_blank" href="#{Routes.page_path(@conn, :show, "about")}"= gettext "About"
               li
-                a target="_blank" href="https://ru.hexlet.io/blog"= gettext "Blog"
-              li
-                a target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Chat"
-
-              li
-                a target="_blank" href="https://ru.hexlet.io/pages/recommended-books"= gettext "Recommended Books"
-              li
-                a target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSr58Xg4DVX2WdmAkv3hE2ITJ3fPeNUmRFe0Ekro53U-ACFrhcUkV8PlUm4ddcn53Uh-5UIezZtZZgc/pubhtml"= gettext "Matrix"
+                a target="_blank" href="https://www.facebook.com/codebasicsru/"= gettext "Facebook"
               li
                 a target="_blank" href="#{Routes.page_path(@conn, :show, "tos")}"= gettext "Terms of Service"
               li
                 a target="_blank" href="#{Routes.page_path(@conn, :show, "privacy")}"= gettext "Privacy"
 
+
+          .col-12.col-md-4.text-right
+            ul.nav.flex-column
+              li
+                a target="_blank" href="https://ru.hexlet.io/blog"= gettext "Blog"
+              li
+                a target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Chat"
+              li
+                a target="_blank" href="https://ru.hexlet.io/pages/recommended-books"= gettext "Recommended Books"
+              li
+                a target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSr58Xg4DVX2WdmAkv3hE2ITJ3fPeNUmRFe0Ekro53U-ACFrhcUkV8PlUm4ddcn53Uh-5UIezZtZZgc/pubhtml"= gettext "Matrix"
 
     script src="#{Routes.static_path(@conn, "/js/app.js")}"
