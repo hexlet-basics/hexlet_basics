@@ -10,7 +10,7 @@
 
     - template:
         src: environment.j2
-        dest: '../.env'
+        dest: '/app/.env'
       tags: env
 
     # TODO: add https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu
