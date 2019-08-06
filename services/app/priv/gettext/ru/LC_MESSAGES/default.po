@@ -279,6 +279,34 @@ msgstr "Code Basics: основы использования CSS"
 msgid "OG description css"
 msgstr "Cascading Style Sheets (CSS) — каскадные таблицы стилей, которые позволяют оформлять содержимое страницы в соответствии с описанными правилами. Стили текста, расположение блоков на странице, анимация — всё это описывается с помощью каскадных таблиц стилей."
 
+## Header in module page
+msgid "Header php"
+msgstr "PHP для начинающих"
+
+## Header in module page
+msgid "Header javascript"
+msgstr "JavaScript для начинающих"
+
+## Header in module page
+msgid "Header python"
+msgstr "Python для начинающих"
+
+## Header in module page
+msgid "Header java"
+msgstr "Java для начинающих"
+
+## Header in module page
+msgid "Header html"
+msgstr "HTML для начинающих"
+
+## Header in module page
+msgid "Header css"
+msgstr "CSS для начинающих"
+
+## Header in module page
+msgid "Header racket"
+msgstr "Racket для начинающих"
+
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Privacy"

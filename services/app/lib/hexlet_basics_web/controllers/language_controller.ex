@@ -78,8 +78,11 @@ defmodule HexletBasicsWeb.LanguageController do
 
     next_lesson = next_lesson |> Repo.preload(:module)
 
+    titleText = Gettext.gettext(HexletBasicsWeb.Gettext, "OG title #{language.slug}")
+    header = Gettext.gettext(HexletBasicsWeb.Gettext, "Header #{language.slug}")
+
     meta_attrs = [%{property: "og:type", content: 'article'},
-      %{property: "og:title", content: Gettext.gettext(HexletBasicsWeb.Gettext, "OG title #{language.slug}")},
+      %{property: "og:title", content: titleText},
       %{property: "og:description", content: Gettext.gettext(HexletBasicsWeb.Gettext, "OG description #{language.slug}")},
       %{property: "og:image", content: url(conn, Routes.static_path(conn, "/images/#{language.slug}.png"))},
       %{property: "og:url", content: url(conn, Routes.language_path(conn, :show, language.slug))},
@@ -101,7 +104,8 @@ defmodule HexletBasicsWeb.LanguageController do
       descriptions_by_lesson: descriptions_by_lesson,
       meta_attrs: meta_attrs,
       link_attrs: link_attrs,
-      title: language.slug
+      title: titleText,
+      header: header
     )
   end
 
