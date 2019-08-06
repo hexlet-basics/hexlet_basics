@@ -279,6 +279,34 @@ msgstr ""
 msgid "OG description css"
 msgstr ""
 
+## Header in module page
+msgid "Header php"
+msgstr ""
+
+## Header in module page
+msgid "Header javascript"
+msgstr ""
+
+## Header in module page
+msgid "Header python"
+msgstr ""
+
+## Header in module page
+msgid "Header java"
+msgstr ""
+
+## Header in module page
+msgid "Header html"
+msgstr ""
+
+## Header in module page
+msgid "Header css"
+msgstr ""
+
+## Header in module page
+msgid "Header racket"
+msgstr ""
+
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Privacy"

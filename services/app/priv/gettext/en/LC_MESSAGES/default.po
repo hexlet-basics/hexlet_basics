@@ -279,6 +279,34 @@ msgstr "Code Basics: The Basics Of Using CSS"
 msgid "OG description css"
 msgstr "Cascading Style Sheets (CSS) - cascading style sheets that allow you to design the content of the page in accordance with the described rules. Text styles, block layout on a page, animation - everything is described using cascading style sheets."
 
+## Header in module page
+msgid "Header php"
+msgstr "PHP for beginners"
+
+## Header in module page
+msgid "Header javascript"
+msgstr "JavaScript for beginners"
+
+## Header in module page
+msgid "Header python"
+msgstr "Python for beginners"
+
+## Header in module page
+msgid "Header java"
+msgstr "Java for beginners"
+
+## Header in module page
+msgid "Header html"
+msgstr "HTML for beginners"
+
+## Header in module page
+msgid "Header css"
+msgstr "CSS for beginners"
+
+## Header in module page
+msgid "Header racket"
+msgstr "Racket for beginners"
+
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Privacy"
