@@ -69,7 +69,9 @@ defmodule HexletBasics.Mixfile do
       {:porcelain, "~> 2.0"},
       {:ueberauth_github, "~> 0.6"},
       {:ueberauth_facebook, "~> 0.8"},
-      {:ueberauth, "~> 0.4"}
+      {:ueberauth, "~> 0.4"},
+      {:comeonin, "~> 5.1"},
+      {:bcrypt_elixir, "~> 2.0"}
     ]
   end
 

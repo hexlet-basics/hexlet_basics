@@ -305,3 +305,13 @@ msgstr "Профессии"
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "Try Hexlet %{courses} or join to %{professions}"
 msgstr "Попробуйте наши %{courses} или вступайте в %{professions}"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Sign up"
+msgstr "Регистрация"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/user_controller.ex:16
+msgid "User created!"
+msgstr ""

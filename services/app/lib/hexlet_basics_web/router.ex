@@ -75,6 +75,7 @@ defmodule HexletBasicsWeb.Router do
     resources("/pages", PageController)
 
     resources("/session", SessionController, singleton: true)
+    resources "/registrations", UserController, only: [:create, :new]
 
     resources "/languages", LanguageController do
       resources "/modules", Language.ModuleController do

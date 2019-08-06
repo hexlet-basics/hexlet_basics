@@ -12,6 +12,7 @@ defmodule HexletBasics.User do
     field(:github_uid, :integer)
     field(:facebook_uid, :string)
     field(:nickname, :string)
+    field(:encrypted_password, :string)
     field(:guest, :boolean, virtual: true, default: false)
     has_many(:finished_lessons, User.FinishedLesson, on_delete: :delete_all)
 
@@ -24,8 +25,9 @@ defmodule HexletBasics.User do
 
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:nickname, :email])
-    |> validate_required([:email])
+    |> cast(attrs, [:nickname, :email, :encrypted_password])
+    |> validate_required([:email, :encrypted_password])
+    |> update_change(:encrypted_password, &Bcrypt.hash_pwd_salt(&1))
   end
 
   def directory_for_code(current_user) do
