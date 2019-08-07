@@ -1,0 +1,10 @@
+p
+  strong
+    Welcome
+  p
+    Your email address is 
+    = @email_address
+  p
+    confirmation url
+    = @confirmation_url
+

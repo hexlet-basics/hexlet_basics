@@ -2,6 +2,12 @@ defmodule HexletBasicsWeb.Router do
   use HexletBasicsWeb, :router
   use Plug.ErrorHandler
 
+  if Mix.env == :dev do
+        # If using Phoenix
+    forward "/sent_emails", Bamboo.SentEmailViewerPlug
+    #               end
+  end
+
   defp handle_errors(conn, %{kind: kind, reason: reason, stack: stacktrace}) do
     conn =
       conn
@@ -75,6 +81,7 @@ defmodule HexletBasicsWeb.Router do
     resources("/pages", PageController)
 
     resources("/session", SessionController, singleton: true)
+    resources("/remind-password", RemindPasswordController, only: [:new, :create])
     resources "/registrations", UserController, only: [:create, :new]
 
     resources "/languages", LanguageController do

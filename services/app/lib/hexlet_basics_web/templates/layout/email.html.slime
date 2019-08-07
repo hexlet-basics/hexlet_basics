@@ -1,0 +1,8 @@
+html
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width"
+  body
+    p
+      Hello!
+    = render @view_module, @view_template, assigns

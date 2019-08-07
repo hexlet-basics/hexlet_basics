@@ -13,6 +13,7 @@ defmodule HexletBasics.User do
     field(:facebook_uid, :string)
     field(:nickname, :string)
     field(:encrypted_password, :string)
+    field(:confirmation_token, :string)
     field(:password, :string, virtual: true)
     field(:guest, :boolean, virtual: true, default: false)
     has_many(:finished_lessons, User.FinishedLesson, on_delete: :delete_all)
@@ -28,9 +29,22 @@ defmodule HexletBasics.User do
     user
     |> cast(attrs, [:nickname, :email, :password])
     |> validate_required([:email, :password])
-    # |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 6)
     |> hash_password
+
+    # |> validate_format(:email, ~r/@/)
+    # |> unique_constraint(:email)
+  end
+
+  def registration_changeset(%User{} = user, attrs) do
+    user
+    |> cast(attrs, [:nickname, :email, :password])
+    |> validate_required([:email, :password])
+    |> validate_length(:password, min: 6)
+    |> hash_password
+    |> generate_confirmation_token
+
+    # |> validate_format(:email, ~r/@/)
     # |> unique_constraint(:email)
   end
 
@@ -42,6 +56,14 @@ defmodule HexletBasics.User do
     |> String.to_charlist()
     |> Enum.chunk_every(3)
     |> Path.join()
+  end
+
+
+  def generate_confirmation_token(changeset) do
+    length = 64
+    token =  :crypto.strong_rand_bytes(length) |> Base.url_encode64 |> binary_part(0, length)
+
+    changeset |> put_change(:confirmation_token, token)
   end
 
   defp hash_password(changeset) do

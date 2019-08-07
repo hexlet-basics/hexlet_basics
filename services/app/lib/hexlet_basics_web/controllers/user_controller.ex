@@ -1,6 +1,8 @@
 defmodule HexletBasicsWeb.UserController do
   use HexletBasicsWeb, :controller
   alias HexletBasics.Repo
+  alias HexletBasics.Mailer
+  alias HexletBasics.Email
   alias HexletBasics.{User}
 
   plug :check_authentication when action in [:create, :new]
@@ -11,9 +13,11 @@ defmodule HexletBasicsWeb.UserController do
   end
 
   def create(conn, %{"user" => params}) do
-    changeset = User.changeset(%User{}, params)
+    changeset = User.registration_changeset(%User{}, params)
     case Repo.insert(changeset) do
       {:ok, user} ->
+        Email.confirmation_html_email(user.email, Routes.user_url(conn, :new, confirmation_token: user.confirmation_token))
+        |> Mailer.deliver_now # FIXME
         conn
         |> put_flash(:info, gettext("User created!"))
         |> put_session(:current_user, user)
