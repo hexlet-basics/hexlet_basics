@@ -3,6 +3,8 @@ defmodule HexletBasicsWeb.UserController do
   alias HexletBasics.Repo
   alias HexletBasics.{User}
 
+  plug :check_authentication when action in [:create, :new]
+
   def new(conn, _params) do
     changeset = User.changeset(%User{}, %{})
     render(conn, "new.html", changeset: changeset)
@@ -19,6 +21,16 @@ defmodule HexletBasicsWeb.UserController do
       {:error, changeset} ->
         conn
         |> render("new.html", changeset: changeset)
+    end
+  end
+
+  defp check_authentication(conn, options) do
+    %{assigns: %{current_user: current_user}} = conn
+
+    if current_user.guest do
+      conn
+    else
+      conn |> redirect(to: "/") |> halt()
     end
   end
 end

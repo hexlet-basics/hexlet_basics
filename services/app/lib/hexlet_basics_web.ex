@@ -44,6 +44,8 @@ defmodule HexletBasicsWeb do
       import HexletBasicsWeb.ErrorHelpers
       import HexletBasicsWeb.Gettext
       alias HexletBasicsWeb.Router.Helpers, as: Routes
+      import HexletBasicsWeb.Helpers.Auth, only: [signed_in?: 1]
+      import Formulator
 
       def current_user(conn) do
         conn.assigns[:current_user]

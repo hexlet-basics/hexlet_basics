@@ -3,6 +3,8 @@ defmodule HexletBasicsWeb.SessionController do
   alias HexletBasics.Repo
   alias HexletBasics.{User}
 
+  plug :check_authentication when action in [:create, :new]
+
   def new(conn, _params) do
     render(conn, "new.html")
   end
@@ -27,5 +29,15 @@ defmodule HexletBasicsWeb.SessionController do
     |> put_flash(:info, gettext "You have been logged out!")
     |> configure_session(drop: true)
     |> redirect(to: "/")
+  end
+
+  defp check_authentication(conn, options) do
+    %{assigns: %{current_user: current_user}} = conn
+
+    if current_user.guest do
+      conn
+    else
+      conn |> redirect(to: "/") |> halt()
+    end
   end
 end

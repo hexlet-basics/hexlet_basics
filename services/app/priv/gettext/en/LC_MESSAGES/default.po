@@ -32,6 +32,7 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1
 msgid "Sign In"
 msgstr ""
 
@@ -48,7 +49,7 @@ msgid "You did it!"
 msgstr ""
 
 #: lib/hexlet_basics_web/controllers/auth_controller.ex:15
-#: lib/hexlet_basics_web/controllers/session_controller.ex:6
+#: lib/hexlet_basics_web/controllers/session_controller.ex:29
 msgid "You have been logged out!"
 msgstr ""
 
@@ -306,12 +307,38 @@ msgstr ""
 msgid "Try Hexlet %{courses} or join to %{professions}"
 msgstr ""
 
-#, elixir-format, fuzzy
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
 #: lib/hexlet_basics_web/templates/user/new.html.slime:1
-msgid "Sign up"
+msgid "Sign Up"
 msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/controllers/user_controller.ex:16
 msgid "User created!"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Email"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "First name"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Last name"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Registration"
 msgstr ""

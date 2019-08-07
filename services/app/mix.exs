@@ -70,8 +70,8 @@ defmodule HexletBasics.Mixfile do
       {:ueberauth_github, "~> 0.6"},
       {:ueberauth_facebook, "~> 0.8"},
       {:ueberauth, "~> 0.4"},
-      {:comeonin, "~> 5.1"},
-      {:bcrypt_elixir, "~> 2.0"}
+      {:bcrypt_elixir, "~> 2.0"},
+      {:formulator, "~> 0.1.8"}
     ]
   end
 

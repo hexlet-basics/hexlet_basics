@@ -19,6 +19,7 @@
   "ex_machina": {:git, "https://github.com/thoughtbot/ex_machina.git", "669ae080f64933d75581a64f7eab10c7408c7825", []},
   "faker": {:hex, :faker, "0.12.0", "796cbac868c86c2df6f273ea4cdf2e271860863820e479e04a374b7ee6c376b6", [:mix], [], "hexpm"},
   "file_system": {:hex, :file_system, "0.2.7", "e6f7f155970975789f26e77b8b8d8ab084c59844d8ecfaf58cbda31c494d14aa", [:mix], [], "hexpm"},
+  "formulator": {:hex, :formulator, "0.1.8", "eb43e1646828edb6614c2cf9c269d55b3d970414684f1e0290734d22c4936af4", [:mix], [{:gettext, ">= 0.11.0", [hex: :gettext, repo: "hexpm", optional: false]}, {:phoenix_html, "~> 2.4", [hex: :phoenix_html, repo: "hexpm", optional: false]}], "hexpm"},
   "gettext": {:hex, :gettext, "0.17.0", "abe21542c831887a2b16f4c94556db9c421ab301aee417b7c4fbde7fbdbe01ec", [:mix], [], "hexpm"},
   "git_cli": {:hex, :git_cli, "0.2.7", "95abeca54022ffad020e6f78b507c25c344780f9a1f215d8d63fa4c348523853", [:mix], [], "hexpm"},
   "hackney": {:hex, :hackney, "1.15.1", "9f8f471c844b8ce395f7b6d8398139e26ddca9ebc171a8b91342ee15a19963f4", [:rebar3], [{:certifi, "2.5.1", [hex: :certifi, repo: "hexpm", optional: false]}, {:idna, "6.0.0", [hex: :idna, repo: "hexpm", optional: false]}, {:metrics, "1.0.1", [hex: :metrics, repo: "hexpm", optional: false]}, {:mimerl, "~>1.1", [hex: :mimerl, repo: "hexpm", optional: false]}, {:ssl_verify_fun, "1.1.4", [hex: :ssl_verify_fun, repo: "hexpm", optional: false]}], "hexpm"},

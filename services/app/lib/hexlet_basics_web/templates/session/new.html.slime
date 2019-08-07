@@ -2,13 +2,9 @@
   .row.justify-content-center.pb-5.mt-5
     .col-12.col-sm-8.col-md-7.col-lg-4
         h2.h3.mb-4.mt-3.text-center
-          = gettext("Sign in")
+          = gettext("Sign In")
         = form_for @conn, Routes.session_path(@conn, :create), [as: :session], fn f -> 
+          = input f, :email, placeholder: gettext("Email"), class: "form-control", label: false
+          = input f, :password, as: :password, placeholder: gettext("Password"), class: "form-control", label: false
           .form-group
-            = text_input f, :email, placeholder: "email", class: "form-control"
-
-          .form-group
-            = password_input f, :password, placeholder: "password", class: "form-control"
-
-          .form-group
-            = submit "Submit", class: "btn btn-primary"
+            = submit gettext("Sign In"), class: "btn btn-primary"

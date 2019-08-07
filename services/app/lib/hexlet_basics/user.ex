@@ -13,6 +13,7 @@ defmodule HexletBasics.User do
     field(:facebook_uid, :string)
     field(:nickname, :string)
     field(:encrypted_password, :string)
+    field(:password, :string, virtual: true)
     field(:guest, :boolean, virtual: true, default: false)
     has_many(:finished_lessons, User.FinishedLesson, on_delete: :delete_all)
 
@@ -25,9 +26,12 @@ defmodule HexletBasics.User do
 
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:nickname, :email, :encrypted_password])
-    |> validate_required([:email, :encrypted_password])
-    |> update_change(:encrypted_password, &Bcrypt.hash_pwd_salt(&1))
+    |> cast(attrs, [:nickname, :email, :password])
+    |> validate_required([:email, :password])
+    # |> validate_format(:email, ~r/@/)
+    |> validate_length(:password, min: 6)
+    |> hash_password
+    # |> unique_constraint(:email)
   end
 
   def directory_for_code(current_user) do
@@ -38,5 +42,14 @@ defmodule HexletBasics.User do
     |> String.to_charlist()
     |> Enum.chunk_every(3)
     |> Path.join()
+  end
+
+  defp hash_password(changeset) do
+    if password = get_change(changeset, :password) do
+      changeset
+      |> put_change(:encrypted_password, Bcrypt.hash_pwd_salt(password))
+    else
+      changeset
+    end
   end
 end
