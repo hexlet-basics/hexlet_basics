@@ -317,10 +317,9 @@ msgid "Sign Up"
 msgstr "Регистрация"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:18
-#: lib/hexlet_basics_web/controllers/user_controller.ex:18
+#: lib/hexlet_basics_web/controllers/user_controller.ex:26
 msgid "User created!"
-msgstr ""
+msgstr "Пользователь успешно зарегистрирован!"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
@@ -340,6 +339,7 @@ msgid "Last name"
 msgstr "Фамилия"
 
 #, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
 #: lib/hexlet_basics_web/templates/session/new.html.slime:1
 #: lib/hexlet_basics_web/templates/user/new.html.slime:1
 msgid "Password"
@@ -374,3 +374,59 @@ msgstr "Восстановление пароля"
 #: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
 msgid "Trying sign in?"
 msgstr "Пытаетесь войти?"
+
+#, elixir-format
+#: lib/hexlet_basics/email.ex:7
+msgid "Confirm registration"
+msgstr "Подтверждение регистрации"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1
+msgid "Forgot password?"
+msgstr "Забыли пароль?"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:27
+msgid "Message with instructions for reset password was sent"
+msgstr "Сообщение с инструкциями по сбросу пароля было отправлено на вашу почту"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/password_controller.ex:21
+msgid "Password was change"
+msgstr "Пароль был успешно изменен"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
+msgid "Change Password"
+msgstr "Задать новый пароль"
+
+#, elixir-format
+#: lib/hexlet_basics/email.ex:23
+msgid "Reset password"
+msgstr "Сброс пароля"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
+msgid "Update Password"
+msgstr "Обновить Пароль"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/password_controller.ex:25
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:31
+msgid "User not found"
+msgstr "Пользователь не найден"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Nickname"
+msgstr "Никнейм"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/session_controller.ex:18
+msgid "Signed in successfully."
+msgstr "Вы авторизованы"
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/session_controller.ex:22
+msgid "There was a problem with your username/password"
+msgstr "Проверьте правильность введеных данных email/пароль"

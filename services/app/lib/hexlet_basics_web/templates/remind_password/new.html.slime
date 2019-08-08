@@ -6,7 +6,7 @@
         = form_for @conn, Routes.remind_password_path(@conn, :create), [as: :user], fn f -> 
           = input f, :email, placeholder: gettext("Email"), class: "form-control", label: false, required: true
           .form-group.text-center
-            = submit gettext("Remind Password"), class: "btn btn-primary"
+            = submit gettext("Remind Password"), class: "btn btn-primary w-100"
 
           .text-center
             = gettext("Trying sign in?")

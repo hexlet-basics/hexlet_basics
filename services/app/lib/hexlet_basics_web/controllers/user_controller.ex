@@ -16,11 +16,16 @@ defmodule HexletBasicsWeb.UserController do
     changeset = User.registration_changeset(%User{}, params)
     case Repo.insert(changeset) do
       {:ok, user} ->
-        Email.confirmation_html_email(user.email, Routes.user_url(conn, :new, confirmation_token: user.confirmation_token))
-        |> Mailer.deliver_now # FIXME
+
+        # TODO: пока отключил посылку писем с потдверждением
+        # Email.confirmation_html_email(conn,
+        #                               user.email,
+        #                               Routes.user_path(conn, :new, confirmation_token: user.confirmation_token))
+        # |> Mailer.deliver_now
+
         conn
-        |> put_flash(:info, gettext("User created!"))
         |> put_session(:current_user, user)
+        |> put_flash(:info, gettext("User created!"))
         |> redirect(to: Routes.page_path(conn, :index))
       {:error, changeset} ->
         conn

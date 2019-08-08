@@ -1,0 +1,9 @@
+.container-fluid
+  .row.justify-content-center.pb-5.mt-5
+    .col-12.col-sm-8.col-md-7.col-lg-4
+        h2.h3.mb-4.mt-3.text-center
+          = gettext("Change Password")
+        = form_for @conn, Routes.password_path(@conn, :update, reset_password_token: @reset_password_token), [as: :user, method: "patch"], fn f -> 
+          = input f, :password, as: :password, placeholder: gettext("Password"), class: "form-control", label: false, required: true
+          .form-group.text-center
+            = submit gettext("Update Password"), class: "btn btn-primary"

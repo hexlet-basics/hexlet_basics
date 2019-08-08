@@ -1,4 +1,3 @@
-require IEx
 defmodule HexletBasicsWeb.SessionControllerTest do
   use HexletBasicsWeb.ConnCase, async: true
 

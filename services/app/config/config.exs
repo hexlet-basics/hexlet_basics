@@ -53,6 +53,9 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
   pubsub: [name: HexletBasics.PubSub, adapter: Phoenix.PubSub.PG2]
 
+config :hexlet_basics, HexletBasics.Mailer,
+  adapter: Bamboo.LocalAdapter
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

@@ -15,11 +15,11 @@ defmodule HexletBasicsWeb.SessionController do
     {:ok, user} ->
       conn
       |> put_session(:current_user, user)
-      |> put_flash(:info, "Signed in successfully.")
+      |> put_flash(:info, gettext("Signed in successfully."))
       |> redirect(to: Routes.page_path(conn, :index))
     {:error, _} ->
       conn
-      |> put_flash(:error, "There was a problem with your username/password")
+      |> put_flash(:error, gettext("There was a problem with your username/password"))
       |> render("new.html")
     end
   end
@@ -31,7 +31,7 @@ defmodule HexletBasicsWeb.SessionController do
     |> redirect(to: "/")
   end
 
-  defp check_authentication(conn, options) do
+  defp check_authentication(conn, _options) do
     %{assigns: %{current_user: current_user}} = conn
 
     if current_user.guest do

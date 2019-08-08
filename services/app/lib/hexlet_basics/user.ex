@@ -14,6 +14,7 @@ defmodule HexletBasics.User do
     field(:nickname, :string)
     field(:encrypted_password, :string)
     field(:confirmation_token, :string)
+    field(:reset_password_token, :string)
     field(:password, :string, virtual: true)
     field(:guest, :boolean, virtual: true, default: false)
     has_many(:finished_lessons, User.FinishedLesson, on_delete: :delete_all)
@@ -31,21 +32,25 @@ defmodule HexletBasics.User do
     |> validate_required([:email, :password])
     |> validate_length(:password, min: 6)
     |> hash_password
-
-    # |> validate_format(:email, ~r/@/)
-    # |> unique_constraint(:email)
+    |> unique_constraint(:email)
   end
 
   def registration_changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:nickname, :email, :password])
+    |> cast(attrs, [:nickname, :email, :password, :first_name, :last_name])
     |> validate_required([:email, :password])
     |> validate_length(:password, min: 6)
     |> hash_password
-    |> generate_confirmation_token
+    |> generate_token(:confirmation_token)
+    |> unique_constraint(:email)
+  end
 
-    # |> validate_format(:email, ~r/@/)
-    # |> unique_constraint(:email)
+  def reset_password_changeset(%User{} = user, attrs) do
+   user
+   |> cast(attrs, [:password])
+   |> validate_required([:password])
+   |> validate_length(:password, min: 6)
+   |> hash_password
   end
 
   def directory_for_code(current_user) do
@@ -58,12 +63,11 @@ defmodule HexletBasics.User do
     |> Path.join()
   end
 
-
-  def generate_confirmation_token(changeset) do
+  def generate_token(changeset, attr) do
     length = 64
     token =  :crypto.strong_rand_bytes(length) |> Base.url_encode64 |> binary_part(0, length)
 
-    changeset |> put_change(:confirmation_token, token)
+    changeset |> change(%{attr => token})
   end
 
   defp hash_password(changeset) do

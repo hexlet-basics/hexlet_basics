@@ -6,5 +6,6 @@
         = form_for @conn, Routes.session_path(@conn, :create), [as: :session], fn f -> 
           = input f, :email, placeholder: gettext("Email"), class: "form-control", label: false
           = input f, :password, as: :password, placeholder: gettext("Password"), class: "form-control", label: false
-          .form-group
+          .form-group.d-flex
             = submit gettext("Sign In"), class: "btn btn-primary"
+            = link gettext("Forgot password?"), to: Routes.remind_password_path(@conn, :new), class: "ml-auto"

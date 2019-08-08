@@ -317,8 +317,7 @@ msgid "Sign Up"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:18
-#: lib/hexlet_basics_web/controllers/user_controller.ex:18
+#: lib/hexlet_basics_web/controllers/user_controller.ex:26
 msgid "User created!"
 msgstr ""
 
@@ -340,6 +339,7 @@ msgid "Last name"
 msgstr ""
 
 #, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
 #: lib/hexlet_basics_web/templates/session/new.html.slime:1
 #: lib/hexlet_basics_web/templates/user/new.html.slime:1
 msgid "Password"
@@ -373,4 +373,60 @@ msgstr ""
 #, elixir-format
 #: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
 msgid "Trying sign in?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics/email.ex:7
+msgid "Confirm registration"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1
+msgid "Forgot password?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:27
+msgid "Message with instructions for reset password was sent"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/password_controller.ex:21
+msgid "Password was change"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
+msgid "Reset Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics/email.ex:23
+msgid "Reset password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
+msgid "Update Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/password_controller.ex:25
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:31
+msgid "User not found"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Nickname"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/session_controller.ex:18
+msgid "Signed in successfully."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/session_controller.ex:22
+msgid "There was a problem with your username/password"
 msgstr ""
