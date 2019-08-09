@@ -6,7 +6,7 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckController do
   # import Ecto.Query
 
   def create(conn, params) do
-    # FIXME: return errros if timeout
+    # FIXME: return errors if timeout
     %{assigns: %{current_user: current_user}} = conn
     %{"data" => %{"attributes" => %{"code" => code}}, "lesson_id" => lesson_id} = params
 
