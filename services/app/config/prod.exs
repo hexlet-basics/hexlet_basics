@@ -35,7 +35,7 @@ config :hexlet_basics, HexletBasics.Mailer,
   server: "smtp.sparkpostmail.com",
   port: 587,
   username: System.get_env("SPARKPOST_SMTP_USERNAME"),
-  password: System.get_env("SPARKPOST_SMTP_PASSWORD"),
+  password: System.get_env("SPARKPOST_SMTP_PASSWORD")
 
 # ## SSL Support
 #
