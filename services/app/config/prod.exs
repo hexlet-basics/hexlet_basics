@@ -36,9 +36,6 @@ config :hexlet_basics, HexletBasics.Mailer,
   port: 587,
   username: System.get_env("SPARKPOST_SMTP_USERNAME"),
   password: System.get_env("SPARKPOST_SMTP_PASSWORD"),
-  tls: :if_available,
-  ssl: true,
-  retries: 1
 
 # ## SSL Support
 #
