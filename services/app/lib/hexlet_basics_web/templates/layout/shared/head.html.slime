@@ -8,7 +8,7 @@ meta content=("#{gettext("Code Basics Description")}") property="og:description"
 meta content="/images/smm_cover.jpg" property="og:image"
 meta content="webiste" property="og:type"
 
-/ link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" /
+link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" /
 / link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" /
 / link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" /
 / link href="/images/favicons/site.webmanifest" rel="manifest" /
