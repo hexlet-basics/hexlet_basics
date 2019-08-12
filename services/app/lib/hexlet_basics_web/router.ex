@@ -81,6 +81,7 @@ defmodule HexletBasicsWeb.Router do
     resources("/session", SessionController, singleton: true)
     resources("/remind-password", RemindPasswordController, only: [:new, :create])
     resources "/registrations", UserController, only: [:create, :new]
+    get("/confirm", UserController, :confirm)
     resources("/password", PasswordController, only: [:edit, :update], singleton: true)
 
     resources "/languages", LanguageController do

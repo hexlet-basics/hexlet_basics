@@ -1,9 +1,7 @@
 defmodule HexletBasicsWeb.UserController do
   use HexletBasicsWeb, :controller
-  alias HexletBasics.Repo
-  alias HexletBasics.Mailer
-  alias HexletBasics.Email
-  alias HexletBasics.{User}
+  alias HexletBasics.{User, Email, Mailer, Repo}
+  alias HexletBasics.StateMachines.UserStateMachine
 
   plug :check_authentication when action in [:create, :new]
 
@@ -17,19 +15,49 @@ defmodule HexletBasicsWeb.UserController do
     case Repo.insert(changeset) do
       {:ok, user} ->
 
-        # TODO: пока отключил посылку писем с потдверждением
-        # Email.confirmation_html_email(conn,
-        #                               user.email,
-        #                               Routes.user_path(conn, :new, confirmation_token: user.confirmation_token))
-        # |> Mailer.deliver_now
+        Email.confirmation_html_email(conn,
+                                      user.email,
+                                      Routes.user_path(conn, :confirm, confirmation_token: user.confirmation_token))
+        |> Mailer.deliver_now
+
+        {:ok, %User{state: state}} =  Machinery.transition_to(user, UserStateMachine, "waiting_confirmation")
+        user
+        |> User.state_changeset(%{state: state})
+        |> Repo.update()
 
         conn
-        |> put_session(:current_user, user)
         |> put_flash(:info, gettext("User created!"))
         |> redirect(to: Routes.page_path(conn, :index))
       {:error, changeset} ->
         conn
         |> render("new.html", changeset: changeset)
+    end
+  end
+
+  def confirm(conn, params) do
+    user = Repo.get_by(User, confirmation_token: params["confirmation_token"])
+    if user do
+
+      if user.state == "active" do
+        conn
+        |> put_session(:current_user, user)
+        |> redirect(to: "/")
+      else
+        {:ok, %User{state: state}} =  Machinery.transition_to(user, UserStateMachine, "active")
+
+        user
+        |> User.state_changeset(%{state: state})
+        |> Repo.update()
+
+        conn
+        |> put_session(:current_user, user)
+        |> put_flash(:info, gettext("Confirmation succeed"))
+        |> redirect(to: "/")
+      end
+    else
+      conn
+      |> put_flash(:error, gettext("User not found"))
+      |> redirect(to: "/")
     end
   end
 

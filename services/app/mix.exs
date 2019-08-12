@@ -75,7 +75,9 @@ defmodule HexletBasics.Mixfile do
       {:bcrypt_elixir, "~> 2.0"},
       {:formulator, "~> 0.1.8"},
       {:bamboo, "~> 1.3"},
-      {:bamboo_smtp, "~> 1.7.0"}
+      {:bamboo_smtp, "~> 1.7.0"},
+      {:machinery, git: "https://github.com/joaomdmoura/machinery.git"},
+      {:cowboy, "~> 2.5", override: true} # TODO: https://github.com/joaomdmoura/machinery/issues/40
     ]
   end
 

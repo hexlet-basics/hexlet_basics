@@ -12,6 +12,7 @@ defmodule HexletBasics.User do
     field(:github_uid, :integer)
     field(:facebook_uid, :string)
     field(:nickname, :string)
+    field(:state, :string)
     field(:encrypted_password, :string)
     field(:confirmation_token, :string)
     field(:reset_password_token, :string)
@@ -28,19 +29,24 @@ defmodule HexletBasics.User do
 
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:nickname, :email, :password])
+    |> cast(attrs, [:nickname, :email, :password, :state])
     |> validate_required([:email, :password])
     |> validate_length(:password, min: 6)
-    |> hash_password
+    |> put_hash_password
     |> unique_constraint(:email)
+  end
+
+  def state_changeset(%User{} = user, attrs \\ %{}) do
+    user |> cast(attrs, [:state])
   end
 
   def registration_changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:nickname, :email, :password, :first_name, :last_name])
+    |> cast(attrs, [:nickname, :email, :password, :first_name, :last_name, :state])
     |> validate_required([:email, :password])
     |> validate_length(:password, min: 6)
-    |> hash_password
+    |> put_hash_password
+    |> put_initial_state
     |> generate_token(:confirmation_token)
     |> unique_constraint(:email)
   end
@@ -50,7 +56,7 @@ defmodule HexletBasics.User do
    |> cast(attrs, [:password])
    |> validate_required([:password])
    |> validate_length(:password, min: 6)
-   |> hash_password
+   |> put_hash_password
   end
 
   def directory_for_code(current_user) do
@@ -70,7 +76,11 @@ defmodule HexletBasics.User do
     changeset |> change(%{attr => token})
   end
 
-  defp hash_password(changeset) do
+  defp put_initial_state(changeset) do
+    changeset |> put_change(:state, "initial")
+  end
+
+  defp put_hash_password(changeset) do
     if password = get_change(changeset, :password) do
       changeset
       |> put_change(:encrypted_password, Bcrypt.hash_pwd_salt(password))

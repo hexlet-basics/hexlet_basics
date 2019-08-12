@@ -5,6 +5,7 @@ defmodule HexletBasics.Repo.Migrations.AddConfirmationTokenAndResetPasswordToken
     alter table(:users) do
       add :confirmation_token, :string
       add :reset_password_token, :string
+      add :state, :string
     end
   end
 end
