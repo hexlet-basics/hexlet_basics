@@ -42,6 +42,18 @@ resource "kubernetes_secret" "cloudflare_credentials_kube_system" {
   }
 }
 
+resource "kubernetes_secret" "sparkpost_credentials" {
+  metadata {
+    name = "sparkpost-credentials"
+  }
+
+  data = {
+    SPARKPOST_SMTP_USERNAME = "${var.sparkpost_smtp_username}"
+    SPARKPOST_SMTP_PASSWORD = "${var.sparkpost_smtp_password}"
+    GUARDIAN_SECRET_KEY = "${var.guardian_secret_key}"
+  }
+}
+
 resource "kubernetes_secret" "github_credentials" {
   metadata {
     name = "github-credentials"
