@@ -7,7 +7,8 @@ defmodule HexletBasics.UserManager do
   def get_user!(id), do: Repo.get!(User, id)
 
   def authenticate_user(email, plain_text_password) do
-    query = from u in User, where: u.email == ^email
+    # NOTE: Проверка на наличия пароля нужна, потому что есть пользователи зареганые с гитхаба и у них пароля нет
+    query = from u in User, where: u.email == ^email and not(is_nil(u.encrypted_password))
     case Repo.one(query) do
       nil ->
         Bcrypt.no_user_verify()
