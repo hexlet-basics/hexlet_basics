@@ -29,7 +29,9 @@ defmodule HexletBasics.Mixfile do
         :ueberauth_github,
         :ueberauth_facebook,
         :ueberauth,
-        :porcelain
+        :porcelain,
+        :bamboo,
+        :bamboo_smtp
       ]
     ]
   end
@@ -69,7 +71,14 @@ defmodule HexletBasics.Mixfile do
       {:porcelain, "~> 2.0"},
       {:ueberauth_github, "~> 0.6"},
       {:ueberauth_facebook, "~> 0.8"},
-      {:ueberauth, "~> 0.4"}
+      {:ueberauth, "~> 0.4"},
+      {:bcrypt_elixir, "~> 2.0"},
+      {:formulator, "~> 0.1.8"},
+      {:bamboo, "~> 1.3"},
+      {:bamboo_smtp, "~> 1.7.0"},
+      {:machinery, git: "https://github.com/joaomdmoura/machinery.git"},
+      {:guardian, "~> 1.2"},
+      {:cowboy, "~> 2.5", override: true} # TODO: https://github.com/joaomdmoura/machinery/issues/40
     ]
   end
 

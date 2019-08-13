@@ -30,6 +30,13 @@ config :hexlet_basics,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :hexlet_basics, HexletBasics.Mailer,
+  adapter: Bamboo.SMTPAdapter,
+  server: "smtp.sparkpostmail.com",
+  port: 587,
+  username: System.get_env("SPARKPOST_SMTP_USERNAME"),
+  password: System.get_env("SPARKPOST_SMTP_PASSWORD")
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

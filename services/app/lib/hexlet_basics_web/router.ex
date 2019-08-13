@@ -2,6 +2,10 @@ defmodule HexletBasicsWeb.Router do
   use HexletBasicsWeb, :router
   use Plug.ErrorHandler
 
+  if Mix.env == :dev do
+    forward "/sent_emails", Bamboo.SentEmailViewerPlug
+  end
+
   defp handle_errors(conn, %{kind: kind, reason: reason, stack: stacktrace}) do
     conn =
       conn
@@ -37,6 +41,7 @@ defmodule HexletBasicsWeb.Router do
     plug(:accepts, ["html"])
     plug(HexletBasicsWeb.Plugs.SetLocale)
     plug(:fetch_session)
+    plug(HexletBasics.UserManager.Pipeline)
     plug(HexletBasicsWeb.Plugs.AssignCurrentUser)
     plug(:fetch_flash)
     plug(:protect_from_forgery)
@@ -48,6 +53,7 @@ defmodule HexletBasicsWeb.Router do
     plug(:accepts, ["json"])
     plug(HexletBasicsWeb.Plugs.SetLocale)
     plug(:fetch_session)
+    plug(HexletBasics.UserManager.Pipeline)
     plug(HexletBasicsWeb.Plugs.AssignCurrentUser)
     plug(HexletBasicsWeb.Plugs.ApiRequireAuth)
   end
@@ -75,6 +81,10 @@ defmodule HexletBasicsWeb.Router do
     resources("/pages", PageController)
 
     resources("/session", SessionController, singleton: true)
+    resources("/remind-password", RemindPasswordController, only: [:new, :create])
+    resources "/registrations", UserController, only: [:create, :new]
+    get("/confirm", UserController, :confirm)
+    resources("/password", PasswordController, only: [:edit, :update], singleton: true)
 
     resources "/languages", LanguageController do
       resources "/modules", Language.ModuleController do

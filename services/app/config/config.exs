@@ -53,6 +53,9 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
   pubsub: [name: HexletBasics.PubSub, adapter: Phoenix.PubSub.PG2]
 
+config :hexlet_basics, HexletBasics.Mailer,
+  adapter: Bamboo.LocalAdapter
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
@@ -62,6 +65,21 @@ config :phoenix, :template_engines,
   slim: PhoenixSlime.Engine,
   slime: PhoenixSlime.Engine,
   json_library: Jason
+
+config :formulator,
+  translate_error_module: HexletBasicsWeb.ErrorHelpers,
+  wrapper_class: "form-group"
+
+guardian_secret_key =
+  System.get_env("GUARDIAN_SECRET_KEY") ||
+    raise """
+    environment variable GUARDIAN_SECRET_KEY is missing.
+    You can generate one by calling:mix guardian.gen.secret
+    """
+
+config :hexlet_basics, HexletBasics.UserManager.Guardian,
+  issuer: "hexlet_basics",
+  secret_key: guardian_secret_key
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -1,0 +1,16 @@
+.container-fluid
+  .row.justify-content-center.pb-5.mt-5
+    .col-12.col-sm-8.col-md-7.col-lg-4
+        h2.h3.mb-4.mt-3.text-center
+          = gettext("Sign Up")
+        = form_for @changeset, Routes.user_path(@conn, :create), fn form -> 
+          = if @changeset.action do
+            .alert.alert-danger
+              p
+                = gettext("Oops, something went wrong! Please check the errors below.")
+
+          = input form, :email, as: :email, class: "form-control", placeholder: gettext("Email"), label: false, required: true
+          = input form, :password, as: :password, class: "form-control", placeholder: gettext("Password"), label: false, required: true
+
+          .form-group
+            = submit gettext("Registration"), class: "btn btn-primary w-100"

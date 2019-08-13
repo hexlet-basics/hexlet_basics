@@ -1,13 +1,21 @@
-= if @current_user.nickname do
-  .navbar-text.mr-3= @current_user.nickname
+= if @current_user.email do
+  .navbar-text.mr-3= @current_user.email
 
 ul.navbar-nav
   li.nav-item
-    - locales = %{ "ru" => "github", "en" => "facebook" }
-    = if @current_user.guest do
-      = link to: Routes.auth_path(@conn, :request, locales[@locale]), class: "nav-link" do
-        strong
-          i.fab.mr-2 class="fa-#{locales[@locale]}"
-          = gettext("Sign In")
-    - else
+    / TODO: Пока отключаем аутентификацию через соц сети
+    / - locales = %{ "ru" => "github", "en" => "facebook" }
+    / = if @current_user.guest do
+    /   = link to: Routes.auth_path(@conn, :request, locales[@locale]), class: "nav-link" do
+    /   strong
+    /     i.fab.mr-2 class="fa-#{locales[@locale]}"
+    /     = gettext("Sign In")
+
+  = if signed_in?(@conn) do
+    li.nav-item
       = link gettext("Sign Out"), to: Routes.session_path(@conn, :delete), method: "delete", class: "nav-link"
+    - else
+      li.nav-item
+        = link gettext("Sign In"), to: Routes.session_path(@conn, :new), class: "nav-link"
+      li.nav-item
+        = link gettext("Sign Up"), to: Routes.user_path(@conn, :new), class: "nav-link"

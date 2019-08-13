@@ -8,7 +8,7 @@ defmodule HexletBasicsWeb.Plugs.AssignCurrentUser do
 
   @spec call(Plug.Conn.t(), Keyword.t()) :: Plug.Conn.t()
   def call(conn, _opts) do
-    maybe_user = get_session(conn, :current_user)
+    maybe_user = get_session(conn, :current_user) || Guardian.Plug.current_resource(conn)
 
     user =
       case maybe_user do

@@ -1,0 +1,232 @@
+center
+  table#bodyTable align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%"
+    tr
+      td#bodyCell align="center" valign="top"
+        /! BEGIN TEMPLATE //
+        table border="0" cellpadding="0" cellspacing="0" width="100%"
+          tr
+            td#templatePreheader align="center" valign="top"
+              /![if gte mso 9]
+                | <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;"
+                | <tr
+                | <td align="center" valign="top" width="600" style="width:600px;"
+              table.templateContainer align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
+                tr
+                  td.preheaderContainer valign="top"
+                    table.mcnTextBlock border="0" cellpadding="0" cellspacing="0" style="min-width:100%;" width="100%"
+                      tbody.mcnTextBlockOuter
+                        tr
+                          td.mcnTextBlockInner valign="top"
+                            table.mcnTextContentContainer align="left" border="0" cellpadding="0" cellspacing="0" width="100%"
+                              tbody
+                                tr
+                                  td.mcnTextContent style=("padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:0;") valign="top"
+                                    | Welcome Code basics! Please, complete your registration.
+              /![if gte mso 9]
+                | </td
+                | </tr
+                | </table
+          tr
+            td#templateHeader align="center" valign="top"
+              /![if gte mso 9]
+                | <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;"
+                | <tr
+                | <td align="center" valign="top" width="600" style="width:600px;"
+              table.templateContainer align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
+                tr
+                  td.headerContainer valign="top"
+              /![if gte mso 9]
+                | </td
+                | </tr
+                | </table
+          tr
+            td#templateBody align="center" valign="top"
+              /![if gte mso 9]
+                | <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;"
+                | <tr
+                | <td align="center" valign="top" width="600" style="width:600px;"
+              table.templateContainer align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
+                tr
+                  td.bodyContainer valign="top"
+                    table.mcnTextBlock border="0" cellpadding="0" cellspacing="0" style="min-width:100%;" width="100%"
+                      tbody.mcnTextBlockOuter
+                        tr
+                          td.mcnTextBlockInner valign="top"
+                            table.mcnTextContentContainer align="left" border="0" cellpadding="0" cellspacing="0" style="min-width:100%;" width="100%"
+                              tbody
+                                tr
+                                  td.mcnTextContent style=("padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;") valign="top"
+                                    h1 Welcome to Code basics!
+                                    p
+                                      | Thanks for signing up at code-basics.com. Please
+                                      strong
+                                        a href="#{@confirmation_url}" rel="nofollow" follow this link
+                                      | to complete your registration or just click this button:
+                    table.mcnButtonBlock border="0" cellpadding="0" cellspacing="0" style="min-width:100%;" width="100%"
+                      tbody.mcnButtonBlockOuter
+                        tr
+                          td.mcnButtonBlockInner align="center" style=("padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;") valign="top"
+                            table.mcnButtonContentContainer border="0" cellpadding="0" cellspacing="0" style=("border-collapse: separate !important;border-radius: 3px;background-color: #2BAADF;")
+                              tbody
+                                tr
+                                  td.mcnButtonContent align="center" style=("font-family: Arial; font-size: 16px; padding: 15px;") valign="middle"
+                                    a.mcnButton href="#{@confirmation_url}" rel="nofollow" style=("font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;") target="_blank" title=("Complete registration")  Complete registration
+              /![if gte mso 9]
+                | </td
+                | </tr
+                | </table
+          tr
+            td#templateFooter align="center" valign="top"
+              /![if gte mso 9]
+                | <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;"
+                | <tr
+                | <td align="center" valign="top" width="600" style="width:600px;"
+              table.templateContainer align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
+                tr
+                  td.footerContainer valign="top"
+                    table.mcnFollowBlock border="0" cellpadding="0" cellspacing="0" style="min-width:100%;" width="100%"
+                      tbody.mcnFollowBlockOuter
+                        tr
+                          td.mcnFollowBlockInner align="center" style="padding:9px" valign="top"
+                            table.mcnFollowContentContainer border="0" cellpadding="0" cellspacing="0" style="min-width:100%;" width="100%"
+                              tbody
+                                tr
+                                  td align="center" style="padding-left:9px;padding-right:9px;"
+                                    table.mcnFollowContent border="0" cellpadding="0" cellspacing="0" style="min-width:100%;" width="100%"
+                                      tbody
+                                        tr
+                                          td align="center" style=("padding-top:9px; padding-right:9px; padding-left:9px;") valign="top"
+                                            table align="center" border="0" cellpadding="0" cellspacing="0"
+                                              tbody
+                                                tr
+                                                  td align="center" valign="top"
+                                                    /![if mso]
+                                                      | <table align="center" border="0" cellspacing="0" cellpadding="0"
+                                                      | <tr
+                                                    /![if mso]
+                                                      | <td align="center" valign="top"
+                                                    table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;"
+                                                      tbody
+                                                        tr
+                                                          td.mcnFollowContentItemContainer style=("padding-right:10px; padding-bottom:9px;") valign="top"
+                                                            table.mcnFollowContentItem border="0" cellpadding="0" cellspacing="0" width="100%"
+                                                              tbody
+                                                                tr
+                                                                  td align="left" style=("padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;") valign="middle"
+                                                                    table align="left" border="0" cellpadding="0" cellspacing="0" width=""
+                                                                      tbody
+                                                                        tr
+                                                                          td.mcnFollowIconContent align="center" valign="middle" width="24"
+                                                                            a href="http://www.twitter.com/hexlethq" target="_blank"
+                                                                              img height="24" src="https://ucarecdn.com/fe0de030-2f98-4655-9cab-871df07b29a4/darktwitter48.png" style="display:block;" width="24" /
+                                                    /![if mso]
+                                                      | </td
+                                                    /![if mso]
+                                                      | <td align="center" valign="top"
+                                                    table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;"
+                                                      tbody
+                                                        tr
+                                                          td.mcnFollowContentItemContainer style=("padding-right:10px; padding-bottom:9px;") valign="top"
+                                                            table.mcnFollowContentItem border="0" cellpadding="0" cellspacing="0" width="100%"
+                                                              tbody
+                                                                tr
+                                                                  td align="left" style=("padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;") valign="middle"
+                                                                    table align="left" border="0" cellpadding="0" cellspacing="0" width=""
+                                                                      tbody
+                                                                        tr
+                                                                          td.mcnFollowIconContent align="center" valign="middle" width="24"
+                                                                            a href="https://www.facebook.com/Hexlet" target="_blank"
+                                                                              img height="24" src="https://ucarecdn.com/010b3bdd-91ee-46a1-9cdd-37a3cedd1ea2/darkfacebook48.png" style="display:block;" width="24" /
+                                                    /![if mso]
+                                                      | </td
+                                                    /![if mso]
+                                                      | <td align="center" valign="top"
+                                                    table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;"
+                                                      tbody
+                                                        tr
+                                                          td.mcnFollowContentItemContainer style=("padding-right:10px; padding-bottom:9px;") valign="top"
+                                                            table.mcnFollowContentItem border="0" cellpadding="0" cellspacing="0" width="100%"
+                                                              tbody
+                                                                tr
+                                                                  td align="left" style=("padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;") valign="middle"
+                                                                    table align="left" border="0" cellpadding="0" cellspacing="0" width=""
+                                                                      tbody
+                                                                        tr
+                                                                          td.mcnFollowIconContent align="center" valign="middle" width="24"
+                                                                            a href="http://vk.com/hexlet" target="_blank"
+                                                                              img height="24" src="https://ucarecdn.com/fdd2b565-550a-4eec-87cd-4bea352e3df9/darkvk48.png" style="display:block;" width="24" /
+                                                    /![if mso]
+                                                      | </td
+                                                    /![if mso]
+                                                      | <td align="center" valign="top"
+                                                    table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;"
+                                                      tbody
+                                                        tr
+                                                          td.mcnFollowContentItemContainer style=("padding-right:10px; padding-bottom:9px;") valign="top"
+                                                            table.mcnFollowContentItem border="0" cellpadding="0" cellspacing="0" width="100%"
+                                                              tbody
+                                                                tr
+                                                                  td align="left" style=("padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;") valign="middle"
+                                                                    table align="left" border="0" cellpadding="0" cellspacing="0" width=""
+                                                                      tbody
+                                                                        tr
+                                                                          td.mcnFollowIconContent align="center" valign="middle" width="24"
+                                                                            a href="https://plus.google.com/b/108226937214888198279/+HexletOrg/posts" target="_blank"
+                                                                              img height="24" src="https://ucarecdn.com/12884b5e-b740-4fd8-a221-fc652bd6e043/darkgoogleplus48.png" style="display:block;" width="24" /
+                                                    /![if mso]
+                                                      | </td
+                                                    /![if mso]
+                                                      | <td align="center" valign="top"
+                                                    table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;"
+                                                      tbody
+                                                        tr
+                                                          td.mcnFollowContentItemContainer style=("padding-right:0; padding-bottom:9px;") valign="top"
+                                                            table.mcnFollowContentItem border="0" cellpadding="0" cellspacing="0" width="100%"
+                                                              tbody
+                                                                tr
+                                                                  td align="left" style=("padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;") valign="middle"
+                                                                    table align="left" border="0" cellpadding="0" cellspacing="0" width=""
+                                                                      tbody
+                                                                        tr
+                                                                          td.mcnFollowIconContent align="center" valign="middle" width="24"
+                                                                            a href="https://www.youtube.com/user/HexletUniversity" target="_blank"
+                                                                              img height="24" src="https://ucarecdn.com/e88c944a-5be7-4ce8-afee-c52ab1253293/darkyoutube48.png" style="display:block;" width="24" /
+                                                    /![if mso]
+                                                      | </td
+                                                    /![if mso]
+                                                      | </tr
+                                                      | </table
+                    table.mcnDividerBlock border="0" cellpadding="0" cellspacing="0" style="min-width:100%;" width="100%"
+                      tbody.mcnDividerBlockOuter
+                        tr
+                          td.mcnDividerBlockInner style=("min-width: 100%; padding: 10px 18px 25px;")
+                            table.mcnDividerContent border="0" cellpadding="0" cellspacing="0" style=("min-width: 100%;border-top-width: 2px;border-top-style: solid;border-top-color: #EEEEEE;") width="100%"
+                              tbody
+                                tr
+                                  td
+                                    span
+                            /!
+                              | <td class="mcnDividerBlockInner" style="padding: 18px;"
+                              | <hr class="mcnDividerContent" style="border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;" /
+                    table.mcnTextBlock border="0" cellpadding="0" cellspacing="0" style="min-width:100%;" width="100%"
+                      tbody.mcnTextBlockOuter
+                        tr
+                          td.mcnTextBlockInner valign="top"
+                            table.mcnTextContentContainer align="left" border="0" cellpadding="0" cellspacing="0" style="min-width:100%;" width="100%"
+                              tbody
+                                tr
+                                  td.mcnTextContent style=("padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;") valign="top"
+                                    em
+                                      | Copyright © #{DateTime.utc_now.year} Hexlet Ltd., All rights reserved
+                                    br/
+                                    br/
+                                    strong Our address:
+                                    br/
+                                    | Puolikkotie 8, 02230 Espoo, Finland
+                                    br/
+                                    br/
+              /![if gte mso 9]
+                | </td
+                | </tr
+                | </table
+        /! // END TEMPLATE

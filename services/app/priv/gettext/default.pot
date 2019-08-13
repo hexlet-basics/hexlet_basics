@@ -32,6 +32,10 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1
 msgid "Sign In"
 msgstr ""
 
@@ -48,7 +52,7 @@ msgid "You did it!"
 msgstr ""
 
 #: lib/hexlet_basics_web/controllers/auth_controller.ex:15
-#: lib/hexlet_basics_web/controllers/session_controller.ex:6
+#: lib/hexlet_basics_web/controllers/session_controller.ex:18
 msgid "You have been logged out!"
 msgstr ""
 
@@ -332,4 +336,118 @@ msgstr ""
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "Try Hexlet %{courses} or join to %{professions}"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Sign Up"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Email"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Registration"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+msgid "Dont have account?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+msgid "Forgot Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Oops, something went wrong! Please check the errors below."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+msgid "Remind Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+msgid "Trying sign in?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics/email.ex:7
+msgid "Confirm registration"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1
+msgid "Forgot password?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:26
+msgid "Message with instructions for reset password was sent"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/password_controller.ex:26
+msgid "Password was change"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics/email.ex:23
+msgid "Reset password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
+msgid "Update Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/password_controller.ex:13
+#: lib/hexlet_basics_web/controllers/password_controller.ex:30
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:30
+#: lib/hexlet_basics_web/controllers/user_controller.ex:59
+msgid "User not found"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/session_controller.ex:26
+msgid "Signed in successfully."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
+msgid "Change Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/user_controller.ex:29
+msgid "User created! Check your email for confirm registration"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/user_controller.ex:54
+msgid "Registration confirmed! Welcome!"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/session_controller.ex:33
+msgid "There was a problem with your email/password"
 msgstr ""
