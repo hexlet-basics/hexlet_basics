@@ -13,4 +13,4 @@ gcp-setup:
 # gcloud auth application-default login
 # gcloud config set project hexlet-basics
 gcloud-cluster-init:
-	gcloud container clusters get-credentials hexlet-basics-5 --region europe-west3-a --project ${PROJECT}
+	gcloud container clusters get-credentials hexlet-basics-6 --region europe-west3-a --project ${PROJECT}
