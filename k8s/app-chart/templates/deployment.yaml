@@ -88,5 +88,7 @@ spec:
                 name: github-credentials
             - secretRef:
                 name: facebook-credentials
+            - secretRef:
+                name: sparkpost-credentials
             - configMapRef:
                 name: hexlet-basics-config-map
