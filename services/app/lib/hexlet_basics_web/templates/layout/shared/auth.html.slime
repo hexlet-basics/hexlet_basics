@@ -1,5 +1,5 @@
-= if @current_user.nickname do
-  .navbar-text.mr-3= @current_user.nickname
+= if @current_user.email do
+  .navbar-text.mr-3= @current_user.email
 
 ul.navbar-nav
   li.nav-item

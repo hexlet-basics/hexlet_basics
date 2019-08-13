@@ -3,6 +3,9 @@ USER = "$(shell id -u):$(shell id -g)"
 app-test:
 	docker-compose run app mix test
 
+app-console:
+	docker-compose run app iex -S mix
+
 app-lint:
 	docker-compose run app npm run lint -- --ext js --ext jsx .
 

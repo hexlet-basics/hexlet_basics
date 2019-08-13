@@ -6,7 +6,7 @@ defmodule HexletBasicsWeb.UserController do
   plug :check_authentication when action in [:create, :new]
 
   def new(conn, _params) do
-    changeset = User.changeset(%User{}, %{})
+    changeset = User.registration_changeset(%User{}, %{})
     render(conn, "new.html", changeset: changeset)
   end
 
@@ -26,7 +26,7 @@ defmodule HexletBasicsWeb.UserController do
         |> Repo.update()
 
         conn
-        |> put_flash(:info, gettext("User created!"))
+        |> put_flash(:info, gettext("User created! Check your email for confirm registration"))
         |> redirect(to: Routes.page_path(conn, :index))
       {:error, changeset} ->
         conn
@@ -51,7 +51,7 @@ defmodule HexletBasicsWeb.UserController do
 
         conn
         |> put_session(:current_user, user)
-        |> put_flash(:info, gettext("Confirmation succeed"))
+        |> put_flash(:info, gettext("Registration confirmed! Welcome!"))
         |> redirect(to: "/")
       end
     else
@@ -61,7 +61,7 @@ defmodule HexletBasicsWeb.UserController do
     end
   end
 
-  defp check_authentication(conn, options) do
+  defp check_authentication(conn, _options) do
     %{assigns: %{current_user: current_user}} = conn
 
     if current_user.guest do

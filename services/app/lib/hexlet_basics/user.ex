@@ -29,10 +29,8 @@ defmodule HexletBasics.User do
 
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:nickname, :email, :password, :state])
-    |> validate_required([:email, :password])
-    |> validate_length(:password, min: 6)
-    |> put_hash_password
+    |> cast(attrs, [:nickname, :email, :state])
+    |> validate_required([:email])
     |> unique_constraint(:email)
   end
 
@@ -80,12 +78,9 @@ defmodule HexletBasics.User do
     changeset |> put_change(:state, "initial")
   end
 
-  defp put_hash_password(changeset) do
-    if password = get_change(changeset, :password) do
-      changeset
-      |> put_change(:encrypted_password, Bcrypt.hash_pwd_salt(password))
-    else
-      changeset
-    end
+  defp put_hash_password(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
+    change(changeset, encrypted_password: Bcrypt.hash_pwd_salt(password))
   end
+
+  defp put_hash_password(changeset), do: changeset
 end

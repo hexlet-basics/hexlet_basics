@@ -41,6 +41,7 @@ defmodule HexletBasicsWeb.Router do
     plug(:accepts, ["html"])
     plug(HexletBasicsWeb.Plugs.SetLocale)
     plug(:fetch_session)
+    plug(HexletBasics.UserManager.Pipeline)
     plug(HexletBasicsWeb.Plugs.AssignCurrentUser)
     plug(:fetch_flash)
     plug(:protect_from_forgery)
@@ -52,6 +53,7 @@ defmodule HexletBasicsWeb.Router do
     plug(:accepts, ["json"])
     plug(HexletBasicsWeb.Plugs.SetLocale)
     plug(:fetch_session)
+    plug(HexletBasics.UserManager.Pipeline)
     plug(HexletBasicsWeb.Plugs.AssignCurrentUser)
     plug(HexletBasicsWeb.Plugs.ApiRequireAuth)
   end
