@@ -8,7 +8,5 @@ services:
   test:
     image: app
     command: mix test
-    environment:
-      - GUARDIAN_SECRET_KEY: asdfg
     depends_on:
       - db
