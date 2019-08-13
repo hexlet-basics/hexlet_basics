@@ -13,7 +13,8 @@ defmodule HexletBasics.UserManager do
         Bcrypt.no_user_verify()
         {:error, :invalid_credentials}
       user ->
-        if Bcrypt.verify_pass(plain_text_password, user.encrypted_password) do
+        # NOTE: Проверка на наличия пароля нужна, потому что есть пользователи зареганые с гитхаба и у них пароля нет
+        if user.encrypted_password && Bcrypt.verify_pass(plain_text_password, user.encrypted_password) do
           {:ok, user}
         else
           {:error, :invalid_credentials}
