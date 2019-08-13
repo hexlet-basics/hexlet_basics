@@ -23,6 +23,10 @@ config :rollbax, enabled: false
 # config :logger, level: :warn
 config :logger, :console, format: "[$level] $message\n"
 
+config :hexlet_basics, HexletBasics.UserManager.Guardian,
+  issuer: "hexlet_basics",
+  secret_key: "asdf"
+
 # Configure your database
 config :hexlet_basics, HexletBasics.Repo,
   adapter: Ecto.Adapters.Postgres,
