@@ -58,7 +58,7 @@ center
                                   td.mcnTextContent style=("padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;") valign="top"
                                     h1 Welcome to Code basics!
                                     p
-                                      | Thanks for signing up at <span>code-basics.com</span>. Please follow this 
+                                      | Thanks for signing up at code-basics.com. Please follow this 
                                       strong
                                         a href="#{@confirmation_url}" rel="nofollow" link
                                       | to complete your registration or just click this button:
