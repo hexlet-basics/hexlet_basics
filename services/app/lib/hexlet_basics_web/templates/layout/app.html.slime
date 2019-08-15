@@ -36,8 +36,11 @@ html.h-100 lang="#{@locale}"
         = for name <- [:info, :error] do
           - message = get_flash(@conn, name)
           = if message do
-            .alert class="alert-#{alert_name_by_flash(name)}" role="alert"
+            .alert class=" alert-dismissible fade show alert-#{alert_name_by_flash(name)}" role="alert"
               = message
+              button.close type="button" data-dismiss="alert" aria-label="Close"
+                span aria-hidden="true" &times;
+
         = render @view_module, @view_template, assigns
 
     footer.footer.mt-5.pb-3
