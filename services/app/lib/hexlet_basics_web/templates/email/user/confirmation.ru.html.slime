@@ -58,9 +58,9 @@ center
                                   td.mcnTextContent style=("padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;") valign="top"
                                     h1 Добро пожаловать на Code basics!
                                     p
-                                      | Спасибо за регистрацию на code-basics.ru. Пожалуйста, перейдите по 
+                                      | Спасибо за регистрацию на <span>code-basics.ru</span>. Пожалуйста, перейдите по 
                                       strong
-                                        a href="#{@confirmation_url}" rel="nofollow"  ссылке
+                                        a href="#{@confirmation_url}" rel="nofollow" ссылке
                                       | для завершения регистрации или просто нажмите на эту кнопку:
                     table.mcnButtonBlock border="0" cellpadding="0" cellspacing="0" style="min-width:100%;" width="100%"
                       tbody.mcnButtonBlockOuter
