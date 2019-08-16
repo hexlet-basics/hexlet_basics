@@ -21,7 +21,14 @@ defmodule HexletBasicsWeb.LessonController do
         limit: 1
       )
 
-    case Repo.one(next_lesson_query) do
+    next_not_finished_lesson_query =
+      from(l in lessons_query,
+        left_join: fl in assoc(l, :user_finished_lessons),
+        where: is_nil(fl.id),
+        limit: 1
+      )
+
+    case Repo.one(next_lesson_query) || Repo.one(next_not_finished_lesson_query) do
       nil ->
         conn
         |> put_flash(:info, gettext("You did it!"))
