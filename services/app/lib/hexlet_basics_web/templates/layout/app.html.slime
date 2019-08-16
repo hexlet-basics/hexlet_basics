@@ -7,7 +7,7 @@ html.h-100 lang="#{@locale}"
     = link_tags(@link_attrs)
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
-  body.h-100
+  body.h-100.d-flex.flex-column
     = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html", assigns
     header
       nav.navbar.navbar-expand-md.navbar-dark role="navigation"
@@ -31,7 +31,7 @@ html.h-100 lang="#{@locale}"
                 /   span.ml-1.small= "❤️"
             = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
-    main.mt-5 role="main"
+    main.mt-5.flex-fill role="main"
       .container
         = for name <- [:info, :error] do
           - message = get_flash(@conn, name)
