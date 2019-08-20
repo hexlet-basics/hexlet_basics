@@ -12,6 +12,11 @@ defmodule HexletBasicsWeb.PasswordControllerTest do
     assert html_response(conn, 200)
   end
 
+  test "#edit without params", %{conn: conn} do
+    conn = get conn, password_path(conn, :edit)
+    assert redirected_to(conn) == remind_password_path(conn, :new)
+  end
+
   test "#edit when user not found", %{conn: conn} do
     conn = get conn, password_path(conn, :edit, reset_password_token: "123")
     assert redirected_to(conn) == remind_password_path(conn, :new)
