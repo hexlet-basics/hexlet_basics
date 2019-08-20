@@ -1,5 +1,6 @@
 defmodule HexletBasicsWeb.Plugs.SubdomainRedirects do
   import Plug.Conn
+  alias HexletBasicsWeb.Helpers.CustomUrl
   use HexletBasicsWeb, :controller
 
   def init(options), do: options
@@ -10,12 +11,11 @@ defmodule HexletBasicsWeb.Plugs.SubdomainRedirects do
     cond do
       conn.host == System.get_env("APP_RU_HOST") ->
         conn
+        |> put_router_url(CustomUrl.url_by_lang(locale))
       locale == "ru" ->
-        cur_path = current_path(conn)
-        redirect_url = Routes.url(%URI{scheme: System.get_env("APP_SCHEME"), host: System.get_env("APP_RU_HOST")}) <> cur_path
-
         conn
-        |> redirect(external: redirect_url)
+        |> put_router_url(CustomUrl.url_by_lang(locale))
+        |> redirect(external: CustomUrl.redirect_current_url(conn, locale))
         |> halt()
       true ->
         conn

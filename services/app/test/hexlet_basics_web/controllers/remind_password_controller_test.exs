@@ -1,7 +1,11 @@
 defmodule HexletBasicsWeb.RemindPasswordControllerTest do
   use HexletBasicsWeb.ConnCase, async: true
 
-  @create_attrs %{encrypted_password: Bcrypt.hash_pwd_salt("password"), email: "user@mail.ru", reset_password_token: @reset_password_token}
+  @create_attrs %{
+    encrypted_password: Bcrypt.hash_pwd_salt("password"),
+    email: "user@mail.ru",
+    reset_password_token: @reset_password_token
+  }
 
   setup [:create_user]
 

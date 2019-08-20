@@ -47,6 +47,7 @@ msgid "Successfully authenticated."
 msgstr ""
 
 #: lib/hexlet_basics_web/controllers/lesson_controller.ex:35
+#: lib/hexlet_basics_web/controllers/lesson_controller.ex:34
 msgid "You did it!"
 msgstr ""
 
@@ -474,4 +475,9 @@ msgstr ""
 #, elixir-format
 #: lib/hexlet_basics_web/controllers/session_controller.ex:35
 msgid "There was a problem with your email/password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Switch language to"
 msgstr ""

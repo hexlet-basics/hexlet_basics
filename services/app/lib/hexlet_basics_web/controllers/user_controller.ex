@@ -1,6 +1,6 @@
 defmodule HexletBasicsWeb.UserController do
   use HexletBasicsWeb, :controller
-  alias HexletBasics.{User, Email, Mailer, Repo}
+  alias HexletBasics.{User, Email, Mailer, Repo, UserManager.Guardian}
   alias HexletBasics.StateMachines.UserStateMachine
 
   plug :check_authentication when action in [:create, :new]
@@ -12,12 +12,14 @@ defmodule HexletBasicsWeb.UserController do
 
   def create(conn, %{"user" => params}) do
     changeset = User.registration_changeset(%User{}, params)
-    case Repo.insert(changeset) do
-      {:ok, user} ->
+    case Repo.insert(changeset) do {:ok, user} ->
 
-        email = Email.confirmation_html_email(conn,
-                                              user.email,
-                                              Routes.user_path(conn, :confirm, confirmation_token: user.confirmation_token))
+        email = Email.confirmation_html_email(
+          conn,
+          user.email,
+          Routes.user_url(conn, :confirm, confirmation_token: user.confirmation_token)
+        )
+
         email
         |> Mailer.deliver_now
 
@@ -40,9 +42,9 @@ defmodule HexletBasicsWeb.UserController do
     user = Repo.get_by(User, confirmation_token: params["confirmation_token"])
     if user do
 
-      if user.state == "active" do
+      if User.active?(user) do
         conn
-        |> put_session(:current_user, user)
+        |> Guardian.Plug.sign_in(user)
         |> redirect(to: "/")
       else
         {:ok, %User{state: state}} =  Machinery.transition_to(user, UserStateMachine, "active")
@@ -52,7 +54,7 @@ defmodule HexletBasicsWeb.UserController do
         |> Repo.update()
 
         conn
-        |> put_session(:current_user, user)
+        |> Guardian.Plug.sign_in(user)
         |> put_flash(:info, gettext("Registration confirmed! Welcome!"))
         |> redirect(to: "/")
       end

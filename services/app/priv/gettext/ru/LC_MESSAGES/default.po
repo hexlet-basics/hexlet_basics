@@ -47,6 +47,7 @@ msgid "Successfully authenticated."
 msgstr "Вы авторизовались"
 
 #: lib/hexlet_basics_web/controllers/lesson_controller.ex:35
+#: lib/hexlet_basics_web/controllers/lesson_controller.ex:34
 msgid "You did it!"
 msgstr "Вы прошли все доступные упражнения. Скоро появятся новые."
 
@@ -475,3 +476,8 @@ msgstr " Ваш e-mail подтвержден, и вы авторизованы.
 #: lib/hexlet_basics_web/controllers/session_controller.ex:35
 msgid "There was a problem with your email/password"
 msgstr " Неправильные email/пароль"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Switch language to"
+msgstr "Сменить язык на"

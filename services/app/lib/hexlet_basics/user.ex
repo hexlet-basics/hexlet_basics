@@ -78,6 +78,10 @@ defmodule HexletBasics.User do
     changeset |> change(%{attr => token})
   end
 
+  def active?(user) do
+    user.state == "active"
+  end
+
   defp put_initial_state(changeset) do
     changeset |> put_change(:state, "initial")
   end
