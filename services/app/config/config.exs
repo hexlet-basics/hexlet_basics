@@ -32,7 +32,7 @@ config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
 
 # General application configuration
 config :hexlet_basics,
-  docker_command_template: "docker run --rm ~s ~s timeout 4 make --silent -C ~s test",
+  docker_command_template: "docker run --rm --net none ~s ~s timeout 4 make --silent -C ~s test",
   ecto_repos: [HexletBasics.Repo],
   disqus_ru: "hexlet-basics",
   disqus_en: "hexlet-basics-en"
