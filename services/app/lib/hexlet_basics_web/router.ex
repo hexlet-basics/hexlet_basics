@@ -47,6 +47,7 @@ defmodule HexletBasicsWeb.Router do
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
     plug(HexletBasicsWeb.Plugs.AssignGlobals)
+    plug(HexletBasicsWeb.Plugs.SubdomainRedirects)
   end
 
   pipeline :api do

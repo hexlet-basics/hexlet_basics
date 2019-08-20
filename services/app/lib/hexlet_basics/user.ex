@@ -17,6 +17,7 @@ defmodule HexletBasics.User do
     field(:confirmation_token, :string)
     field(:reset_password_token, :string)
     field(:password, :string, virtual: true)
+    # field(:locale, :string)
     field(:guest, :boolean, virtual: true, default: false)
     has_many(:finished_lessons, User.FinishedLesson, on_delete: :delete_all)
 

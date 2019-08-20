@@ -1,4 +1,4 @@
-localhost, ru.code-basics.test, en.code-basics.test {
+localhost, ru.code-basics.test, en.code-basics.test, code-basics.test {
     gzip
     tls self_signed
     proxy / app:4000 {
