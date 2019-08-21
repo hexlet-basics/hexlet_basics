@@ -283,6 +283,14 @@ msgstr "Code Basics: The Basics Of Using CSS"
 msgid "OG description css"
 msgstr "Cascading Style Sheets (CSS) - cascading style sheets that allow you to design the content of the page in accordance with the described rules. Text styles, block layout on a page, animation - everything is described using cascading style sheets."
 
+## For meta tags in language_controller
+msgid "OG title ruby"
+msgstr "Code Basics: basics of programming on Ruby"
+
+## For meta tags in language_controller
+msgid "OG description ruby"
+msgstr "Ruby is a language designed to make programmers happy. He took from himself the best of Lisp, Smalltalk and Perl - he is object-oriented, but at the same time his declarative nature allows writing in a procedural and functional paradigm."
+
 ## Header in module page
 msgid "Header php"
 msgstr "PHP for beginners"
@@ -310,6 +318,10 @@ msgstr "CSS for beginners"
 ## Header in module page
 msgid "Header racket"
 msgstr "Racket for beginners"
+
+## Header in module page
+msgid "Header ruby"
+msgstr "Ruby for beginners"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
