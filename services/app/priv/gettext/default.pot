@@ -283,6 +283,14 @@ msgstr ""
 msgid "OG description css"
 msgstr ""
 
+## For meta tags in language_controller
+msgid "OG title ruby"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description ruby"
+msgstr ""
+
 ## Header in module page
 msgid "Header php"
 msgstr ""
@@ -309,6 +317,10 @@ msgstr ""
 
 ## Header in module page
 msgid "Header racket"
+msgstr ""
+
+## Header in module page
+msgid "Header ruby"
 msgstr ""
 
 #, elixir-format
