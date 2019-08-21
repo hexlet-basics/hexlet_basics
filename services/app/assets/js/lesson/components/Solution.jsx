@@ -110,7 +110,7 @@ class Solution extends React.Component {
     } = this.props;
 
     return (
-      <div className="p-3 pt-2 h-100 bg-black text-white">
+      <div className="p-3 pt-2 d-flex flex-column flex-fill bg-black text-white">
         {solutionState.shown ? this.renderSolution(t) : this.renderMessage(t)}
       </div>
     );
