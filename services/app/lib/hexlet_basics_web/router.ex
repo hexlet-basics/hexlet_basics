@@ -39,23 +39,24 @@ defmodule HexletBasicsWeb.Router do
 
   pipeline :browser do
     plug(:accepts, ["html"])
-    plug(HexletBasicsWeb.Plugs.SetLocale)
     plug(:fetch_session)
+    plug(HexletBasicsWeb.Plugs.Subdomain)
     plug(HexletBasics.UserManager.Pipeline)
     plug(HexletBasicsWeb.Plugs.AssignCurrentUser)
+    plug(HexletBasicsWeb.Plugs.SetLocale)
     plug(:fetch_flash)
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
     plug(HexletBasicsWeb.Plugs.AssignGlobals)
-    plug(HexletBasicsWeb.Plugs.SubdomainRedirects)
+    plug(HexletBasicsWeb.Plugs.SetUrl)
   end
 
   pipeline :api do
     plug(:accepts, ["json"])
-    plug(HexletBasicsWeb.Plugs.SetLocale)
     plug(:fetch_session)
     plug(HexletBasics.UserManager.Pipeline)
     plug(HexletBasicsWeb.Plugs.AssignCurrentUser)
+    plug(HexletBasicsWeb.Plugs.SetLocale)
     plug(HexletBasicsWeb.Plugs.ApiRequireAuth)
   end
 
@@ -85,6 +86,7 @@ defmodule HexletBasicsWeb.Router do
     resources("/remind-password", RemindPasswordController, only: [:new, :create])
     resources "/registrations", UserController, only: [:create, :new]
     get("/confirm", UserController, :confirm)
+    get("/switch", LocaleController, :switch)
     resources("/password", PasswordController, only: [:edit, :update], singleton: true)
 
     resources "/languages", LanguageController do

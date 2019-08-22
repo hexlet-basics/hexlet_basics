@@ -17,7 +17,7 @@ defmodule HexletBasics.User do
     field(:confirmation_token, :string)
     field(:reset_password_token, :string)
     field(:password, :string, virtual: true)
-    # field(:locale, :string)
+    field(:locale, :string)
     field(:guest, :boolean, virtual: true, default: false)
     has_many(:finished_lessons, User.FinishedLesson, on_delete: :delete_all)
 
@@ -39,9 +39,13 @@ defmodule HexletBasics.User do
     user |> cast(attrs, [:state])
   end
 
+  def locale_changeset(%User{} = user, attrs \\ %{}) do
+    user |> cast(attrs, [:locale])
+  end
+
   def registration_changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:nickname, :email, :password, :first_name, :last_name, :state])
+    |> cast(attrs, [:nickname, :email, :password, :first_name, :last_name, :state, :locale])
     |> validate_required([:email, :password])
     |> validate_length(:password, min: 6)
     |> put_hash_password

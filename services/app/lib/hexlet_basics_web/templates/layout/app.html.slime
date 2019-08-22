@@ -29,7 +29,7 @@ html.h-100 lang="#{@locale}"
             ul.navbar-nav.mr-3
               li.nav-item
                 - switch_map = locales_switch_map()
-                = link to: redirect_current_url(@conn, switch_map[@locale]), class: "nav-link" do
+                = link to: Routes.locale_path(@conn, :switch, redirect_url: redirect_current_url(@conn, switch_map[@locale]), locale: switch_map[@locale]), class: "nav-link" do
                   = gettext("Switch language to")
                   | &nbsp;
                   = switch_map[@locale]

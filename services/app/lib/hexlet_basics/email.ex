@@ -11,9 +11,12 @@ defmodule HexletBasics.Email do
     |> put_html_layout({HexletBasicsWeb.LayoutView, "email.html"})
   end
 
-  def confirmation_html_email(conn, email_address, url) do
+  def confirmation_html_email(conn, user, url) do
     subject = gettext("Confirm registration")
-    %{assigns: %{locale: locale}} = conn
+    %{assigns: %{locale: locale_from_conn}} = conn
+
+    locale = user.locale || locale_from_conn
+    email_address = user.email
 
     email_address
     |>base_email(subject)
@@ -24,9 +27,12 @@ defmodule HexletBasics.Email do
     )
   end
 
-  def reset_password_html_email(conn, email_address, url) do
+  def reset_password_html_email(conn, user, url) do
     subject = gettext("Reset password")
-    %{assigns: %{locale: locale}} = conn
+    %{assigns: %{locale: locale_from_conn}} = conn
+
+    locale = user.locale || locale_from_conn
+    email_address = user.email
 
     email_address
     |>base_email(subject)

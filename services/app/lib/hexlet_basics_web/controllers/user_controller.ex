@@ -11,12 +11,13 @@ defmodule HexletBasicsWeb.UserController do
   end
 
   def create(conn, %{"user" => params}) do
-    changeset = User.registration_changeset(%User{}, params)
+    %{assigns: %{locale: locale}} = conn
+    changeset = User.registration_changeset(%User{}, Map.put(params, "locale", locale))
     case Repo.insert(changeset) do {:ok, user} ->
 
         email = Email.confirmation_html_email(
           conn,
-          user.email,
+          user,
           Routes.user_url(conn, :confirm, confirmation_token: user.confirmation_token)
         )
 

@@ -19,7 +19,7 @@ defmodule HexletBasicsWeb.RemindPasswordController do
 
       email = Email.reset_password_html_email(
         conn,
-        user.email,
+        user,
         Routes.password_url(conn, :edit, reset_password_token: user.reset_password_token)
       )
 
