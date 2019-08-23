@@ -30,7 +30,7 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
     lesson_descriptions_assoc = Ecto.assoc(language, :lesson_descriptions)
     lesson_description_query =
       from(d in lesson_descriptions_assoc,
-        where: d.locale == ^conn.assigns[:locale]
+        where: d.locale == ^locale
       )
     descriptions_by_lesson =
       lesson_description_query
@@ -41,6 +41,7 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
       where: l.language_id == ^language.id and l.upload_id == ^language.upload_id and l.module_id == ^module.id,
       order_by: [asc: l.order]
     lessons = Repo.all(query)
+
     render(
       conn,
       language: language,
