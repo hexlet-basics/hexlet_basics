@@ -17,7 +17,7 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
     module_description_assoc = Ecto.assoc(module, :descriptions)
     module_description_query =
       from(d in module_description_assoc,
-        where: d.locale ==^locale
+        where: d.locale == ^locale
       )
     module_description = Repo.one(module_description_query)
 
