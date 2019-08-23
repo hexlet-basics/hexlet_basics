@@ -4,6 +4,12 @@ provider "google" {
   credentials = "${file("google.key.json")}"
 }
 
+provider "cloudflare" {
+  version = "~> 1.15.0"
+  email    = "${var.cloudflare_email}"
+  token  = "${var.cloudflare_api_key}"
+}
+
 provider "kubernetes" {
   version = "~> 1.7"
 
