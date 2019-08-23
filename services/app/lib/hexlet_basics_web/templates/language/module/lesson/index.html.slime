@@ -1,0 +1,29 @@
+div(itemscope itemtype="http://schema.org/Course")
+  span(itemprop="provider" itemscope itemtype="http://schema.org/Organization")
+    = render HexletBasicsWeb.LayoutView, "shared/schemas/company.html", assigns
+
+  .row.mt-5.d-flex.flex-row
+    .col-12
+      - module_description = @module_description
+      h2 itemprop="name"
+        = module_description.name
+  .show id="module_#{@module.id}"
+    .row.d-flex.flex-row
+      .col-12.col-md-6.lead.mt-4
+        = for lesson <- @lessons do
+          - lesson_description = @descriptions_by_lesson[lesson.id]
+          - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
+          .mb-2
+            .card
+              .card-body.py-3.bg-secondary
+                .card-text
+                  = if finished_lesson do
+                    img.img-fluid.hexlet-basics-finished-lesson-sticker(src=Routes.static_path(@conn, "/images/finished_lesson_pin.png"))
+                  - url = Routes.language_module_lesson_path(@conn, :show, @language.slug, @module.slug, lesson.slug)
+                  = link to: url, class: "stretched-link text-light text-decoration-none" do
+                    = lesson.natural_order
+                    | .&nbsp;
+                    = lesson_description.name
+
+      .col-12.col-md-6.mt-3
+        p.lead itemprop="description"= module_description.description

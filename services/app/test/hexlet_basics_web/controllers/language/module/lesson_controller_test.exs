@@ -22,5 +22,12 @@ defmodule HexletBasicsWeb.Language.Module.LessonControllerTest do
            |> get(language_module_lesson_path(conn, :show, language.slug, module.slug, lesson.slug))
     assert html_response(conn, 200)
   end
+
+  test 'index', %{conn: conn} do
+    module = insert(:language_module)
+    language = module.language
+    conn = get conn, language_module_lesson_path(conn, :index, language.slug, module.slug)
+    assert html_response(conn, 200)
+  end
 end
 
