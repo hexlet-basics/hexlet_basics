@@ -31,8 +31,10 @@ defmodule HexletBasicsWeb.LessonControllerTest do
         module: not_finished_lesson.module,
         upload: not_finished_lesson.language.upload
       })
+    user_with_finished_lessons = insert(:user)
+    user_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: finished_lesson, user: user_with_finished_lessons})
+    second_user_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: not_finished_lesson, user: user_with_finished_lessons})
     user = insert(:user)
-    user_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: finished_lesson, user: user})
 
     conn =  conn
             |> Guardian.Plug.sign_in(user)

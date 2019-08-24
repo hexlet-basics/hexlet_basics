@@ -8,7 +8,7 @@ defmodule HexletBasicsWeb.LessonController do
   plug(HexletBasicsWeb.Plugs.RequireAuth)
 
   def next(conn, %{"lesson_id" => id}) do
-    %{assigns: %{locale: locale}} = conn
+    %{assigns: %{locale: locale, current_user: current_user}} = conn
     lesson = Repo.get!(Lesson, id)
     lesson = lesson |> Repo.preload([:language])
     language = lesson.language
@@ -24,6 +24,7 @@ defmodule HexletBasicsWeb.LessonController do
     next_not_finished_lesson_query =
       from(l in lessons_query,
         left_join: fl in assoc(l, :user_finished_lessons),
+        on: fl.user_id == ^current_user.id,
         where: is_nil(fl.id),
         limit: 1
       )
