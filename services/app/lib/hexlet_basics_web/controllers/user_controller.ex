@@ -15,12 +15,14 @@ defmodule HexletBasicsWeb.UserController do
     case Repo.insert(changeset) do
       {:ok, user} ->
 
-        Email.confirmation_html_email(conn,
-                                      user.email,
-                                      Routes.user_path(conn, :confirm, confirmation_token: user.confirmation_token))
+        email = Email.confirmation_html_email(conn,
+                                              user.email,
+                                              Routes.user_path(conn, :confirm, confirmation_token: user.confirmation_token))
+        email
         |> Mailer.deliver_now
 
         {:ok, %User{state: state}} =  Machinery.transition_to(user, UserStateMachine, "waiting_confirmation")
+
         user
         |> User.state_changeset(%{state: state})
         |> Repo.update()

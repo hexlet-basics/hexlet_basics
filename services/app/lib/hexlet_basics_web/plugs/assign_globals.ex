@@ -14,8 +14,8 @@ defmodule HexletBasicsWeb.Plugs.AssignGlobals do
 
     configuration1 = [:ga, :disqus, :gtm]
                      |> Enum.map(&({&1, "#{&1}_#{locale}"}))
-                     |> Enum.reduce(%{}, fn {key, localKey}, acc ->
-                       value = Application.fetch_env!(:hexlet_basics, String.to_atom(localKey))
+                     |> Enum.reduce(%{}, fn {key, local_key}, acc ->
+                       value = Application.fetch_env!(:hexlet_basics, String.to_atom(local_key))
                        Map.put(acc, key, value)
                      end)
     configuration2 = %{locale: locale, current_user: current_user}

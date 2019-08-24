@@ -69,7 +69,10 @@ defmodule HexletBasics.User do
 
   def generate_token(changeset, attr) do
     length = 64
-    token =  :crypto.strong_rand_bytes(length) |> Base.url_encode64 |> binary_part(0, length)
+    crypto = :crypto.strong_rand_bytes(length)
+    token = crypto
+            |> Base.url_encode64
+            |> binary_part(0, length)
 
     changeset |> change(%{attr => token})
   end

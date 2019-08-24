@@ -1,8 +1,8 @@
 defmodule HexletBasicsWeb.SessionControllerTest do
   use HexletBasicsWeb.ConnCase, async: true
 
-  @create_attrs %{ encrypted_password: Bcrypt.hash_pwd_salt("password"), email: "user@mail.ru" }
-  @session_attrs %{ password: "password", email: "user@mail.ru" }
+  @create_attrs %{encrypted_password: Bcrypt.hash_pwd_salt("password"), email: "user@mail.ru"}
+  @session_attrs %{password: "password", email: "user@mail.ru"}
 
   test "#new", %{conn: conn} do
     conn = get conn, user_path(conn, :new)

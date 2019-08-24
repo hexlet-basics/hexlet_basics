@@ -17,9 +17,11 @@ defmodule HexletBasicsWeb.RemindPasswordController do
                      |> User.generate_token(:reset_password_token)
                      |> Repo.update()
 
-      Email.reset_password_html_email(conn,
-                                      user.email,
-                                      Routes.password_path(conn, :edit, reset_password_token: user.reset_password_token))
+      email = Email.reset_password_html_email(conn,
+                                              user.email,
+                                              Routes.password_path(conn, :edit, reset_password_token: user.reset_password_token))
+
+      email
       |> Mailer.deliver_later
 
       conn
