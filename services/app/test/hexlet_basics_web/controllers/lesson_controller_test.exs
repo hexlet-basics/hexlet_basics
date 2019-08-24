@@ -29,15 +29,19 @@ defmodule HexletBasicsWeb.LessonControllerTest do
     finished_lesson = insert(:language_module_lesson,
       %{language: not_finished_lesson.language,
         module: not_finished_lesson.module,
-        upload: not_finished_lesson.language.upload
+        upload: not_finished_lesson.language.upload,
+        natural_order: 110
       })
-    user_with_finished_lessons = insert(:user)
-    user_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: finished_lesson, user: user_with_finished_lessons})
-    second_user_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: not_finished_lesson, user: user_with_finished_lessons})
-    user = insert(:user)
+
+    user_with_all_finished_lessons = insert(:user)
+    first_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: finished_lesson, user: user_with_all_finished_lessons})
+    second_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: not_finished_lesson, user: user_with_all_finished_lessons})
+
+    user_with_last_finished_lesson = insert(:user)
+    last_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: finished_lesson, user: user_with_last_finished_lesson})
 
     conn =  conn
-            |> Guardian.Plug.sign_in(user)
+            |> Guardian.Plug.sign_in(user_with_last_finished_lesson)
             |>get(lesson_member_path(conn, :next, finished_lesson.id))
     language = not_finished_lesson.language
     module = not_finished_lesson.module
