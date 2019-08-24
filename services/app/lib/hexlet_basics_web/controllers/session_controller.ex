@@ -9,7 +9,9 @@ defmodule HexletBasicsWeb.SessionController do
   end
 
   def create(conn, %{"session" => %{"email" => email, "password" => password}}) do
-    UserManager.authenticate_user(email, password)
+    auth = UserManager.authenticate_user(email, password)
+
+    auth
     |> login_reply(conn)
   end
 
@@ -29,12 +31,12 @@ defmodule HexletBasicsWeb.SessionController do
   end
 
   defp login_reply({:error, _reason}, conn) do
-      conn
-      |> put_flash(:error, gettext("There was a problem with your email/password"))
-      |> new(%{})
+    conn
+    |> put_flash(:error, gettext("There was a problem with your email/password"))
+    |> new(%{})
   end
 
-    defp check_authentication(conn, _options) do
+  defp check_authentication(conn, _options) do
     %{assigns: %{current_user: current_user}} = conn
 
     if current_user.guest do

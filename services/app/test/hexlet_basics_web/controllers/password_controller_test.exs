@@ -2,8 +2,8 @@ defmodule HexletBasicsWeb.PasswordControllerTest do
   use HexletBasicsWeb.ConnCase, async: true
 
   @reset_password_token "123456"
-  @create_attrs %{ encrypted_password: Bcrypt.hash_pwd_salt("password"), email: "user@mail.ru", reset_password_token: @reset_password_token }
-  @update_attrs %{ encrypted_password: Bcrypt.hash_pwd_salt("new_password") }
+  @create_attrs %{encrypted_password: Bcrypt.hash_pwd_salt("password"), email: "user@mail.ru", reset_password_token: @reset_password_token}
+  @update_attrs %{encrypted_password: Bcrypt.hash_pwd_salt("new_password")}
 
   setup [:create_user]
 
@@ -37,6 +37,6 @@ defmodule HexletBasicsWeb.PasswordControllerTest do
 
   defp create_user(_) do
     user = insert(:user, @create_attrs)
-    { :ok, user: user }
+    {:ok, user: user}
   end
 end
