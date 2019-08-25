@@ -32,7 +32,6 @@ msgstr "Требуется аутентификация"
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
 #: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
 #: lib/hexlet_basics_web/templates/session/new.html.slime:1
 #: lib/hexlet_basics_web/templates/session/new.html.slime:1
@@ -47,12 +46,12 @@ msgstr "Выйти"
 msgid "Successfully authenticated."
 msgstr "Вы авторизовались"
 
-#: lib/hexlet_basics_web/controllers/lesson_controller.ex:27
+#: lib/hexlet_basics_web/controllers/lesson_controller.ex:35
 msgid "You did it!"
 msgstr "Вы прошли все доступные упражнения. Скоро появятся новые."
 
 #: lib/hexlet_basics_web/controllers/auth_controller.ex:15
-#: lib/hexlet_basics_web/controllers/session_controller.ex:18
+#: lib/hexlet_basics_web/controllers/session_controller.ex:20
 msgid "You have been logged out!"
 msgstr "Вы вышли"
 
@@ -291,6 +290,14 @@ msgstr "Code Basics: основы программирования на Ruby"
 msgid "OG description ruby"
 msgstr "Руби — язык, созданный для того, чтобы программисты были счастливы. Он взял из себя лучшее из Lisp, Smalltalk и Perl — он объектно-ориентирован, но в то же время его декларативность позволяет писать в процедурной и функциональной парадигме."
 
+## For meta tags in language_controller
+msgid "OG title elixir"
+msgstr "Code Basics: основы программирования на Elixir"
+
+## For meta tags in language_controller
+msgid "OG description elixir"
+msgstr "Эликсир — язык программирования, работающий поверх Erlang. Как Erlang, это — функциональный язык со строгими вычислениями, однократным присвоением и динамической типизацией, созданный, чтобы поддерживать распределенные, отказоустойчивые, безостановочные приложения с горячей заменой кода"
+
 ## Header in module page
 msgid "Header php"
 msgstr "PHP для начинающих"
@@ -322,6 +329,10 @@ msgstr "Racket для начинающих"
 ## Header in module page
 msgid "Header ruby"
 msgstr "Ruby для начинающих"
+
+## Header in module page
+msgid "Header elixir"
+msgstr "Elixir для начинающих"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
@@ -402,7 +413,7 @@ msgid "Trying sign in?"
 msgstr "Пытаетесь войти?"
 
 #, elixir-format
-#: lib/hexlet_basics/email.ex:7
+#: lib/hexlet_basics/email.ex:15
 msgid "Confirm registration"
 msgstr "Подтверждение регистрации"
 
@@ -412,17 +423,17 @@ msgid "Forgot password?"
 msgstr "Забыли пароль?"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:26
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:28
 msgid "Message with instructions for reset password was sent"
 msgstr "Сообщение с инструкциями по сбросу пароля было отправлено на вашу почту"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/password_controller.ex:26
+#: lib/hexlet_basics_web/controllers/password_controller.ex:32
 msgid "Password was change"
 msgstr "Пароль был успешно изменен"
 
 #, elixir-format
-#: lib/hexlet_basics/email.ex:23
+#: lib/hexlet_basics/email.ex:28
 msgid "Reset password"
 msgstr "Сброс пароля"
 
@@ -433,14 +444,15 @@ msgstr "Обновить Пароль"
 
 #, elixir-format
 #: lib/hexlet_basics_web/controllers/password_controller.ex:13
-#: lib/hexlet_basics_web/controllers/password_controller.ex:30
-#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:30
-#: lib/hexlet_basics_web/controllers/user_controller.ex:59
+#: lib/hexlet_basics_web/controllers/password_controller.ex:20
+#: lib/hexlet_basics_web/controllers/password_controller.ex:36
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:32
+#: lib/hexlet_basics_web/controllers/user_controller.ex:61
 msgid "User not found"
 msgstr "Пользователь не найден"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/session_controller.ex:26
+#: lib/hexlet_basics_web/controllers/session_controller.ex:28
 msgid "Signed in successfully."
 msgstr "Вы авторизованы"
 
@@ -450,16 +462,16 @@ msgid "Change Password"
 msgstr "Задать новый пароль"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/user_controller.ex:29
+#: lib/hexlet_basics_web/controllers/user_controller.ex:31
 msgid "User created! Check your email for confirm registration"
 msgstr "Пользователь успешно создан! Мы выслали вам на почту письмо со ссылкой. Перейдите по ней чтобы завершить регистрацию и войти"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/user_controller.ex:54
+#: lib/hexlet_basics_web/controllers/user_controller.ex:56
 msgid "Registration confirmed! Welcome!"
 msgstr " Ваш e-mail подтвержден, и вы авторизованы. Добро пожаловать!"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/session_controller.ex:33
+#: lib/hexlet_basics_web/controllers/session_controller.ex:35
 msgid "There was a problem with your email/password"
 msgstr " Неправильные email/пароль"
