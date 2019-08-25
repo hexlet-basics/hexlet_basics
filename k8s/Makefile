@@ -7,6 +7,10 @@ init:
 	helm repo add rimusz https://charts.rimusz.net
 	helm repo update
 
+apply-exercises-ruby:
+	kubectl delete jobs exercises-ruby-job || true
+	kubectl apply -f exercises-ruby.job.yml
+
 apply-exercises-elixir:
 	kubectl delete jobs exercises-elixir-job || true
 	kubectl apply -f exercises-elixir.job.yml
