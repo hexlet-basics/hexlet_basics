@@ -77,3 +77,9 @@ app-exercises-load-css:
 	rm -rf tmp/hexletbasics/exercises-css
 	docker run --rm -v $(CURDIR)/tmp/hexletbasics/exercises-css:/out hexletbasics/exercises-css bash -c "cp -r /exercises-css/* /out"
 	docker-compose run --rm app mix x.exercises.load css
+
+app-exercises-load-elixir:
+	docker pull hexletbasics/exercises-elixir
+	rm -rf tmp/hexletbasics/exercises-elixir
+	docker run --rm -v $(CURDIR)/tmp/hexletbasics/exercises-elixir:/out hexletbasics/exercises-elixir bash -c "cp -r /exercises-elixir/* /out"
+	docker-compose run --rm app mix x.exercises.load elixir
