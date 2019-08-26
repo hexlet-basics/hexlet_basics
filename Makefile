@@ -5,6 +5,7 @@ PROJECT := hexlet-basics
 include make-compose.mk
 include make-services-app.mk
 include make-gcp.mk
+include k8s/Makefile
 
 project-setup: project-files-touch docker-ansible-build-image project-env-generate compose-setup
 
