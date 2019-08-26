@@ -25,10 +25,15 @@ html.h-100 lang="#{@locale}"
                 a.nav-link target="_blank" href="https://ru.hexlet.io/courses"= gettext "Courses"
               li.nav-item
                 a.nav-link target="_blank" href="https://ru.hexlet.io/professions"= gettext "Professions"
-              / li.nav-item
-                / a.nav-link.font-weight-bold target="_blank" href="https://donorbox.org/code-basics-ru"
-                /   = gettext "Donate"
-                /   span.ml-1.small= "❤️"
+
+            ul.navbar-nav.mr-3
+              li.nav-item
+                - switch_map = locales_switch_map()
+                = link to: Routes.locale_path(@conn, :switch, redirect_url: redirect_current_url(@conn, switch_map[@locale]), locale: switch_map[@locale]), class: "nav-link" do
+                  = gettext("Switch language to")
+                  | &nbsp;
+                  = switch_map[@locale]
+
             = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
     main.mt-5.flex-fill role="main"

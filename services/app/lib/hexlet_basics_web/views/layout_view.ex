@@ -4,6 +4,8 @@ defmodule HexletBasicsWeb.LayoutView do
   import PhoenixGon.View
   import HexletBasics.PageTitle
 
+  def locales_switch_map, do: %{"ru" => "en", "en" => "ru"}
+
   def alert_name_by_flash(name) do
     map = %{
       info: 'info',

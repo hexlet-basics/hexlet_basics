@@ -1,7 +1,8 @@
 defmodule HexletBasicsWeb.PageController do
   use HexletBasicsWeb, :controller
-  # alias HexletBasics.User.FinishedLesson
-  # import Ecto.Query
+  alias HexletBasicsWeb.Plugs.DetectDomainForRoot
+
+  plug DetectDomainForRoot when action in [:index]
 
   def index(conn, _params) do
     %{assigns: %{current_user: current_user}} = conn

@@ -16,12 +16,15 @@ use Mix.Config
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json",
   load_from_system_env: true
+  # url: [
+  #   scheme: System.get_env("APP_SCHEME"),
+  #   host: System.get_env("APP_HOST")
+  # ]
 
-# url: [host: "localhost", port: 3000]
-
+# TODO: убрать code-basics.ru после деплоя
 config :hexlet_basics,
   code_directory: "/tmp/hexlet-basics/code",
-  langs: %{"code-basics.ru" => "ru", "code-basics.com" => "en"},
+  langs: %{System.get_env("APP_RU_HOST") => "ru", System.get_env("APP_HOST") => "en", "code-basics.ru" => "ru"},
   ga_ru: "UA-1360700-63",
   ga_en: "UA-1360700-64",
   gtm_ru: "GTM-WVMW3V8",
