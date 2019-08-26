@@ -57,7 +57,7 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
 
 config :hexlet_basics,
   code_directory: "/tmp/hexlet-basics/code",
-  langs: %{"ru.code-basics.test" => "ru", "code-basics.test" => "en"},
+  langs: %{"ru.code-basics.test" => "ru", "en.code-basics.test" => "en"},
   ga_ru: "ruGtag",
   ga_en: "enGtag",
   gtm_ru: "ruGtm",

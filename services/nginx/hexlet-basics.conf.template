@@ -5,18 +5,6 @@ upstream hexlet-basics {
 }
 
 server {
-  listen      8080;
-  server_name "~^www\.(.*)$";
-  return      301 https://$1$request_uri;
-}
-
-server {
-  listen         8080;
-  server_name    code-basics.ru;
-  rewrite ^ https://ru.code-basics.com/$request_uri?$query_string permanent;
-}
-
-server {
   listen 8080;
 
 

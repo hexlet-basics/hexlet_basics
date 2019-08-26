@@ -44,8 +44,9 @@ defmodule HexletBasicsWeb.Endpoint do
   plug(Plug.Session,
     store: :cookie,
     key: "_hexlet_basics_key",
-    signing_salt: "mKGV92uB",
-    domain: System.get_env("APP_HOST")
+    signing_salt: "mKGV92uB"
+    # TODO: раскоментить после деплоя
+    # domain: System.get_env("APP_HOST")
   )
 
   plug(PhoenixGon.Pipeline)

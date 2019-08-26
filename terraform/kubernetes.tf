@@ -100,6 +100,9 @@ resource "kubernetes_config_map" "hexlet_basics_config_map" {
     DB_POOL_SIZE = "10"
     DB_NAME      = "hexlet_basics_prod"
     FORCE        = "11"
+    APP_SCHEME   = "${var.app_scheme}"
+    APP_HOST     = "${var.app_host}"
+    APP_RU_HOST  = "${var.app_ru_host}"
   }
 }
 

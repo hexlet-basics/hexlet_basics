@@ -10,9 +10,10 @@ defmodule HexletBasicsWeb.LocaleController do
       UserManager.set_locale!(current_user, locale)
     end
 
+    # TODO: раскоментировать после деплоя
     conn
     |> put_router_url(CustomUrl.url_by_lang(locale))
-    |> put_session(:locale, locale)
+    # |> put_session(:locale, locale)
     |> redirect(external: redirect_url)
   end
 
