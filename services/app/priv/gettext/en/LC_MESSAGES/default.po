@@ -47,7 +47,6 @@ msgid "Successfully authenticated."
 msgstr ""
 
 #: lib/hexlet_basics_web/controllers/lesson_controller.ex:35
-#: lib/hexlet_basics_web/controllers/lesson_controller.ex:34
 msgid "You did it!"
 msgstr ""
 
@@ -424,7 +423,7 @@ msgid "Forgot password?"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:28
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:30
 msgid "Message with instructions for reset password was sent"
 msgstr ""
 
@@ -434,7 +433,7 @@ msgid "Password was change"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics/email.ex:28
+#: lib/hexlet_basics/email.ex:31
 msgid "Reset password"
 msgstr ""
 
@@ -447,8 +446,8 @@ msgstr ""
 #: lib/hexlet_basics_web/controllers/password_controller.ex:13
 #: lib/hexlet_basics_web/controllers/password_controller.ex:20
 #: lib/hexlet_basics_web/controllers/password_controller.ex:36
-#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:32
-#: lib/hexlet_basics_web/controllers/user_controller.ex:61
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:34
+#: lib/hexlet_basics_web/controllers/user_controller.ex:64
 msgid "User not found"
 msgstr ""
 
@@ -463,22 +462,21 @@ msgid "Change Password"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/user_controller.ex:31
+#: lib/hexlet_basics_web/controllers/user_controller.ex:34
 msgid "User created! Check your email for confirm registration"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/user_controller.ex:56
+#: lib/hexlet_basics_web/controllers/user_controller.ex:59
 msgid "Registration confirmed! Welcome!"
 msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/controllers/session_controller.ex:35
-#: lib/hexlet_basics_web/controllers/session_controller.ex:33
 msgid "There was a problem with your email/password"
 msgstr ""
 
-#, elixir-format, fuzzy
+#, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Switch language to"
 msgstr ""
