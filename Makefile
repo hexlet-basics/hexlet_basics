@@ -1,5 +1,5 @@
 S := app
-
+TAG := latest
 PROJECT := hexlet-basics
 
 include make-compose.mk
@@ -28,3 +28,5 @@ ansible-vaults-edit:
 docker-ansible-build-image:
 	docker build -t ansible ansible
 
+tag:
+	git tag $(TAG) && git push --tags
