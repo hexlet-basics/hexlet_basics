@@ -92,3 +92,10 @@ spec:
                 name: sparkpost-credentials
             - configMapRef:
                 name: hexlet-basics-config-map
+          env:
+            - name: CODE_BASICS_VERSION
+              value: {{ .Values.version }}
+          lifecycle:
+            postStart:
+              exec:
+                command: {{ .Values.slack_notification }}

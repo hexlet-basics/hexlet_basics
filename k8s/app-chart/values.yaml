@@ -17,6 +17,7 @@ app:
     repository: gcr.io/hexlet-basics/app
     imagePullPolicy: Always
 
+slack_notification: ['/usr/src/app/deploy-notify.sh']
 
 # service:
 #   type: NodePort
