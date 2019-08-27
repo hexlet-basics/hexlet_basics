@@ -12,39 +12,39 @@ apply-exercises: apply-exercises-ruby apply-exercises-elixir apply-exercises-htm
 
 apply-exercises-ruby:
 	kubectl delete jobs exercises-ruby-job || true
-	kubectl apply -f $(CURRENT_DIR)/app-chart/templates/jobs/exercises-ruby.job.yml
+	kubectl apply -f $(CURRENT_DIR)/exercises-ruby.job.yml
 
 apply-exercises-elixir:
 	kubectl delete jobs exercises-elixir-job || true
-	kubectl apply -f $(CURRENT_DIR)/app-chart/templates/jobs/exercises-elixir.job.yml
+	kubectl apply -f $(CURRENT_DIR)/exercises-elixir.job.yml
 
 apply-exercises-html:
 	kubectl delete jobs exercises-html-job || true
-	kubectl apply -f $(CURRENT_DIR)/app-chart/templates/jobs/exercises-html.job.yml
+	kubectl apply -f $(CURRENT_DIR)/exercises-html.job.yml
 
 apply-exercises-css:
 	kubectl delete jobs exercises-css-job || true
-	kubectl apply -f $(CURRENT_DIR)/app-chart/templates/jobs/exercises-css.job.yml
+	kubectl apply -f $(CURRENT_DIR)/exercises-css.job.yml
 
 apply-exercises-js:
 	kubectl delete jobs exercises-javascript-job || true
-	kubectl apply -f $(CURRENT_DIR)/app-chart/templates/jobs/exercises-javascript.job.yml
+	kubectl apply -f $(CURRENT_DIR)/exercises-javascript.job.yml
 
 apply-exercises-java:
 	kubectl delete jobs exercises-java-job || true
-	kubectl apply -f $(CURRENT_DIR)/app-chart/templates/jobs/exercises-java.job.yml
+	kubectl apply -f $(CURRENT_DIR)/exercises-java.job.yml
 
 apply-exercises-racket:
 	kubectl delete jobs exercises-racket-job || true
-	kubectl apply -f $(CURRENT_DIR)/app-chart/templates/jobs/exercises-racket.job.yml
+	kubectl apply -f $(CURRENT_DIR)/exercises-racket.job.yml
 
 apply-exercises-php:
 	kubectl delete jobs exercises-php-job || true
-	kubectl apply -f $(CURRENT_DIR)/app-chart/templates/jobs/exercises-php.job.yml
+	kubectl apply -f $(CURRENT_DIR)/exercises-php.job.yml
 
 apply-exercises-python:
 	kubectl delete jobs exercises-python-job || true
-	kubectl apply -f $(CURRENT_DIR)/app-chart/templates/jobs/exercises-python.job.yml
+	kubectl apply -f $(CURRENT_DIR)/exercises-python.job.yml
 
 # helm install --name app ./app-chart
 helm-upgrade-app:
