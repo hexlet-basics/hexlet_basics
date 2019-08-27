@@ -16,6 +16,13 @@ defmodule HexletBasicsWeb.SessionControllerTest do
     assert redirected_to(conn) == page_path(conn, :index)
   end
 
+  test "#create with not active state", %{conn: conn} do
+    user = insert(:user, Map.put(@create_attrs, :state, "waiting_confirmation"))
+    conn = post conn, session_path(conn, :create), session: @session_attrs
+
+    assert html_response(conn, 200)
+  end
+
   test "#create when user doesnt have encrypted_password", %{conn: conn} do
     user = insert(:user, %{email: "user@mail.ru"})
     conn = post conn, session_path(conn, :create), session: @session_attrs

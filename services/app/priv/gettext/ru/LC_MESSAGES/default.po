@@ -472,7 +472,7 @@ msgid "Registration confirmed! Welcome!"
 msgstr " Ваш e-mail подтвержден, и вы авторизованы. Добро пожаловать!"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/session_controller.ex:35
+#: lib/hexlet_basics/user_manager.ex:22 lib/hexlet_basics/user_manager.ex:30
 msgid "There was a problem with your email/password"
 msgstr " Неправильные email/пароль"
 
@@ -480,3 +480,8 @@ msgstr " Неправильные email/пароль"
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Switch language to"
 msgstr "Сменить язык на"
+
+#, elixir-format
+#: lib/hexlet_basics/user_manager.ex:26
+msgid "You have not yet verified your email"
+msgstr "Вы еще не подтвердили свой e-mail"

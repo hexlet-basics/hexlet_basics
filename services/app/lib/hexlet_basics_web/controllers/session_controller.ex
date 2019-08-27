@@ -30,9 +30,9 @@ defmodule HexletBasicsWeb.SessionController do
     |> redirect(to: Routes.page_path(conn, :index))
   end
 
-  defp login_reply({:error, _reason}, conn) do
+  defp login_reply({:error, reason}, conn) do
     conn
-    |> put_flash(:error, gettext("There was a problem with your email/password"))
+    |> put_flash(:error, reason)
     |> new(%{})
   end
 
