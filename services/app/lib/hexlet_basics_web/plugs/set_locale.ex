@@ -20,8 +20,7 @@ defmodule HexletBasicsWeb.Plugs.SetLocale do
     # subdomain = if supported_locale?(conn.private[:subdomain]), do: conn.private[:subdomain], else: nil
     # locale = subdomain || current_user.locale || locale_from_session || lang_from_header || locale_from_host
 
-    # locale = current_user.locale || locale_from_host
-    locale = locale_from_host
+    locale = current_user.locale || locale_from_host
 
     Gettext.put_locale(HexletBasicsWeb.Gettext, locale)
     conn
