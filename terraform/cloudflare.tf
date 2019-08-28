@@ -17,3 +17,10 @@ resource "cloudflare_record" "txt" {
   type    = "TXT"
 }
 
+resource "cloudflare_record" "yandex-verification" {
+  domain  = "${var.domain}"
+  name  = "yandex-verification"
+  value   = "a1675c88bd4b0ade"
+  type    = "TXT"
+}
+
