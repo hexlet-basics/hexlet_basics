@@ -34,9 +34,27 @@ spec:
           hostPath:
             path: /var/run/docker.sock
       containers:
-        - name: nginx
-          imagePullPolicy: "{{ .Values.nginx.image.imagePullPolicy }}"
-          image: "{{ .Values.nginx.image.repository }}:{{ .Values.version }}"
+        # - name: nginx
+        #   imagePullPolicy: "{{ .Values.nginx.image.imagePullPolicy }}"
+        #   image: "{{ .Values.nginx.image.repository }}:{{ .Values.version }}"
+        #   readinessProbe:
+        #     httpGet:
+        #       path: /
+        #       port: 8080
+        #     initialDelaySeconds: 5
+        #     periodSeconds: 5
+        #     successThreshold: 1
+        #   ports:
+        #     - containerPort: 8080
+        #   resources:
+        #     requests:
+        #       cpu: 10m
+        #   env:
+        #     - name: NGINX_SERVER_ADDRESS
+        #       value: 127.0.0.1
+        - name: caddy
+          imagePullPolicy: "{{ .Values.caddy.image.imagePullPolicy }}"
+          image: "{{ .Values.caddy.image.repository }}:{{ .Values.version }}"
           readinessProbe:
             httpGet:
               path: /
@@ -50,7 +68,7 @@ spec:
             requests:
               cpu: 10m
           env:
-            - name: NGINX_SERVER_ADDRESS
+            - name: CADDY_SERVER_ADDRESS
               value: 127.0.0.1
         - name: phoenix
           securityContext:
