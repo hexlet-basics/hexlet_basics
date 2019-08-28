@@ -12,19 +12,17 @@ defmodule HexletBasicsWeb.Plugs.SetLocale do
                        |> Enum.find(nil, &supported_locale?(&1))
 
     langs = Application.fetch_env!(:hexlet_basics, :langs)
-    locale_from_host = Map.get(langs, conn.host, "ru")
+    locale_from_host = Map.get(langs, conn.host, "en")
 
-    # TODO: Раскоментить после деплоя
-    # locale_from_session = get_session(conn, :locale)
-    # locale_from_host = Map.get(langs, conn.host, "en")
-    # subdomain = if supported_locale?(conn.private[:subdomain]), do: conn.private[:subdomain], else: nil
-    # locale = subdomain || current_user.locale || locale_from_session || lang_from_header || locale_from_host
+    locale_from_session = get_session(conn, :locale)
 
-    locale = current_user.locale || locale_from_host
+    subdomain = if supported_locale?(conn.private[:subdomain]), do: conn.private[:subdomain], else: nil
+    locale = subdomain || current_user.locale || locale_from_session || lang_from_header || locale_from_host
+
 
     Gettext.put_locale(HexletBasicsWeb.Gettext, locale)
     conn
-    # |> put_session(:locale, locale)
+    |> put_session(:locale, locale)
     |> assign(:locale, locale)
   end
 
