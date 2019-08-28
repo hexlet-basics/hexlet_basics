@@ -7,7 +7,6 @@ defmodule HexletBasicsWeb.PageController do
   def index(conn, _params) do
     %{assigns: %{current_user: current_user}} = conn
 
-    IO.inspect conn
     started_languages =
       HexletBasics.Repo.all(Ecto.assoc(current_user, :finished_lesson_languages))
 
