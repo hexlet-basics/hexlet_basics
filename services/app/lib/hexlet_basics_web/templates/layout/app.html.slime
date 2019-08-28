@@ -26,15 +26,13 @@ html.h-100 lang="#{@locale}"
               li.nav-item
                 a.nav-link target="_blank" href="https://ru.hexlet.io/professions"= gettext "Professions"
 
+            = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
+
             ul.navbar-nav.mr-3
               li.nav-item
                 - switch_map = locales_switch_map()
                 = link to: Routes.locale_path(@conn, :switch, redirect_url: redirect_current_url(@conn, switch_map[@locale]), locale: switch_map[@locale]), class: "nav-link" do
-                  = gettext("Switch language to")
-                  | &nbsp;
-                  = switch_map[@locale]
-
-            = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
+                  img.ml-3(width="30px" src=Routes.static_path(@conn, "/images/flag-#{switch_map[@locale]}.svg") alt="#{gettext("Switch language to")} #{switch_map[@locale]}")
 
     main.mt-5.flex-fill role="main"
       .container
