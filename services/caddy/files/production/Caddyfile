@@ -1,4 +1,4 @@
-:8080, code-basics.com, ru.code-basics.com {
+code-basics.com, ru.code-basics.com {
     tls off
     gzip
     proxy / {$CADDY_SERVER_ADDRESS}:4000 {
