@@ -8,17 +8,15 @@ defmodule HexletBasicsWeb.Plugs.DetectDomainForRoot do
   def call(conn, _) do
     %{assigns: %{locale: locale}} = conn
 
-    conn
-    # cond do
-    #   # TODO: раскоментить после деплоя
-    #   # conn.host == System.get_env("APP_RU_HOST") ->
-    #   #   conn
-    #   locale == "ru" ->
-    #     conn
-    #     |> redirect(external: CustomUrl.redirect_current_url(conn, locale))
-    #     |> halt()
-    #   true ->
-    #     conn
-    # end
+    cond do
+      conn.host == System.get_env("APP_RU_HOST") ->
+        conn
+      locale == "ru" ->
+        conn
+        |> redirect(external: CustomUrl.redirect_current_url(conn, locale))
+        |> halt()
+      true ->
+        conn
+    end
   end
 end

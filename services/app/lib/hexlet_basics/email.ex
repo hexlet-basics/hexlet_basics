@@ -3,10 +3,10 @@ defmodule HexletBasics.Email do
   import HexletBasicsWeb.Gettext
   alias HexletBasicsWeb.Endpoint
 
-  defp base_email(email_address, subject, conn) do
+  defp base_email(email_address, subject) do
     new_email()
     |> to(email_address)
-    |> from({"Code Basics", sending_from(conn)})
+    |> from({"Code Basics", sending_from})
     |> subject(subject)
     |> put_html_layout({HexletBasicsWeb.LayoutView, "email.html"})
   end
@@ -19,7 +19,7 @@ defmodule HexletBasics.Email do
     email_address = user.email
 
     email_address
-    |>base_email(subject, conn)
+    |>base_email(subject)
     |> render(
       "user/confirmation.#{locale}.html",
       confirmation_url: url,
@@ -35,7 +35,7 @@ defmodule HexletBasics.Email do
     email_address = user.email
 
     email_address
-    |>base_email(subject, conn)
+    |>base_email(subject)
     |> render(
       "user/reset_password.#{locale}.html",
       reset_password_url: url,
@@ -43,11 +43,8 @@ defmodule HexletBasics.Email do
     )
   end
 
-  defp sending_from(conn) do
-    #TODO: переделать на один домен после деплоя
-    # sending_domain = Endpoint.config(:url)[:host]
-    # "noreply@#{sending_domain}"
-
-    "noreply@#{conn.host}"
+  defp sending_from do
+    sending_domain = Endpoint.config(:url)[:host]
+    "noreply@#{sending_domain}"
   end
 end
