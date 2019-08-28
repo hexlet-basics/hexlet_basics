@@ -1,0 +1,17 @@
+localhost, en.code-basics.test, code-basics.test {
+    gzip
+    tls self_signed
+    proxy / app:4000 {
+        transparent
+        websocket
+    }
+}
+
+ru.code-basics.test {
+    gzip
+    tls self_signed
+    proxy / app:4000 {
+        transparent
+        websocket
+    }
+}
