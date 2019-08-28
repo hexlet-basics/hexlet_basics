@@ -9,6 +9,11 @@ nginx:
     repository: gcr.io/hexlet-basics/nginx
     imagePullPolicy: Always
 
+caddy:
+  image:
+    repository: gcr.io/hexlet-basics/caddy
+    imagePullPolicy: Always
+
 app:
   image:
     repository: gcr.io/hexlet-basics/app
