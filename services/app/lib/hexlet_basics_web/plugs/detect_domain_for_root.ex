@@ -6,8 +6,11 @@ defmodule HexletBasicsWeb.Plugs.DetectDomainForRoot do
   def init(options), do: options
 
   def call(conn, _) do
-    %{assigns: %{locale: locale}} = conn
+    %{assigns: %{locale: default_locale, current_user: current_user}} = conn
 
+    locale_from_session = get_session(conn, :locale)
+
+    locale = current_user.locale || locale_from_session || default_locale
     cond do
       conn.host == System.get_env("APP_RU_HOST") ->
         conn

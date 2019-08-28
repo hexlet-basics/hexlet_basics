@@ -40,7 +40,6 @@ defmodule HexletBasicsWeb.Router do
   pipeline :browser do
     plug(:accepts, ["html"])
     plug(:fetch_session)
-    plug(HexletBasicsWeb.Plugs.Subdomain)
     plug(HexletBasics.UserManager.Pipeline)
     plug(HexletBasicsWeb.Plugs.AssignCurrentUser)
     plug(HexletBasicsWeb.Plugs.SetLocale)
