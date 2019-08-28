@@ -19,8 +19,15 @@ resource "cloudflare_record" "txt" {
 
 resource "cloudflare_record" "yandex-verification" {
   domain  = "${var.domain}"
-  name  = "yandex-verification"
-  value   = "a1675c88bd4b0ade"
+  name  = "${var.domain}"
+  value   = "yandex-verification=a1675c88bd4b0ade"
+  type    = "TXT"
+}
+
+resource "cloudflare_record" "yandex-verification-ru" {
+  domain  = "${var.domain}"
+  name  = "ru.${var.domain}"
+  value   = "yandex-verification=a1675c88bd4b0ade"
   type    = "TXT"
 }
 
