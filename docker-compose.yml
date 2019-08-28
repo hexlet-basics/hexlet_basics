@@ -12,11 +12,11 @@ services:
   caddy:
     build:
       context: services/caddy
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.development
     ports:
       - "443:2015"
     volumes:
-      - "./services/caddy/Caddyfile:/etc/Caddyfile"
+      - "./services/caddy/files/development/Caddyfile:/etc/Caddyfile"
     depends_on:
       - app
 
