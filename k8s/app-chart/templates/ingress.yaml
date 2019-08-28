@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/managed-by: "{{ .Release.Service }}"
     helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: "code-basics.com., code-basics.ru."
+    external-dns.alpha.kubernetes.io/hostname: "code-basics.com., code-basics.ru., ru.code-basics.com."
     # kubernetes.io/ingress.global-static-ip-name: "web-static-ip"
 spec:
   backend:
