@@ -4,6 +4,7 @@ localhost, ru.code-basics.test, en.code-basics.test, code-basics.test {
     proxy / app:4000 {
         transparent
         websocket
+        header_upstream X-Forwarded-Host {host}
     }
 }
 
