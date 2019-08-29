@@ -80,6 +80,7 @@ defmodule HexletBasicsWeb.Router do
 
     get("/", PageController, :index)
     resources("/pages", PageController)
+    get("/robots.txt", PageController, :robots)
 
     resources("/session", SessionController, singleton: true)
     resources("/remind-password", RemindPasswordController, only: [:new, :create])

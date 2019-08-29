@@ -15,7 +15,7 @@ defmodule HexletBasicsWeb.Endpoint do
     at: "/",
     from: :hexlet_basics,
     gzip: false,
-    only: ~w(css js fonts images robots.txt favicon.ico)
+    only: ~w(css js fonts images favicon.ico)
   )
 
   # Code reloading can be explicitly enabled under the

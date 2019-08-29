@@ -44,6 +44,10 @@ defmodule HexletBasicsWeb.PageController do
     end
   end
 
+  def robots(conn, _) do
+    render(conn, "robots.txt")
+  end
+
  def url(conn, path) do
     "#{conn.scheme}://#{conn.host}#{path}"
   end
