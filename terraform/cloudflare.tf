@@ -31,3 +31,10 @@ resource "cloudflare_record" "yandex-verification-ru" {
   type    = "TXT"
 }
 
+resource "cloudflare_record" "google-verification-ru" {
+  domain  = "${var.domain}"
+  name  = "ru.${var.domain}"
+  value   = "google-site-verification=AdJxboarIC6NOwJ9CEkIeZXdNE7DqamnPo0P7J4DJDw"
+  type    = "TXT"
+}
+
