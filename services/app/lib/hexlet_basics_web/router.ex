@@ -44,7 +44,7 @@ defmodule HexletBasicsWeb.Router do
     plug(HexletBasicsWeb.Plugs.AssignCurrentUser)
     plug(HexletBasicsWeb.Plugs.SetLocale)
     plug(:fetch_flash)
-    plug(:protect_from_forgery, allow_hosts: [System.get_env("APP_HOST"), System.get_env("APP_RU_HOST")])
+    plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
     plug(HexletBasicsWeb.Plugs.AssignGlobals)
     plug(HexletBasicsWeb.Plugs.SetUrl)
