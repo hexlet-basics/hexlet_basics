@@ -38,3 +38,10 @@ resource "cloudflare_record" "google-verification-ru" {
   type    = "TXT"
 }
 
+resource "cloudflare_record" "google-verification-com" {
+  domain  = "${var.domain}"
+  name  = "${var.domain}"
+  value   = "google-site-verification=fLdLHe9AG4S3LblT-1jYMQHuna8D9YtQh0TqLrv_KtA"
+  type    = "TXT"
+}
+
