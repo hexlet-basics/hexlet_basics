@@ -41,6 +41,7 @@ defmodule HexletBasicsWeb.Endpoint do
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
+   Rollbax.report(:error, "test system env", [],_custom_data =%{}, %{app_env: System.get_env("APP_HOST")})
   plug(Plug.Session,
     store: :cookie,
     key: "_hexlet_basics_key",
