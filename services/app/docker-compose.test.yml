@@ -8,5 +8,6 @@ services:
   test:
     image: app
     command: mix test
+    env_file: "./env.example"
     depends_on:
       - db
