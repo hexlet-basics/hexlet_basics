@@ -13,7 +13,7 @@ html.h-100 lang="#{@locale}"
       nav.navbar.navbar-expand-md.navbar-dark role="navigation"
         .container
           a.navbar-brand href="/"
-            img.mr-3(width="30px" src=Routes.static_path(@conn, "/images/logo.png") alt="Code Basics Logo")
+            img.mr-3.d-none.d-sm-inline(width="30px" src=Routes.static_path(@conn, "/images/logo.png") alt="Code Basics Logo")
             span= gettext("Code Basics")
           button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation")
             span.navbar-toggler-icon

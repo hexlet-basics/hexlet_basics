@@ -12,7 +12,7 @@ use Mix.Config
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
-  url: [host: System.get_env("APP_HOST"), scheme: System.get_env("APP_SCHEME"), port: 443],
+  url: [host: System.fetch_env!("APP_HOST"), scheme: System.fetch_env!("APP_SCHEME"), port: 443],
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,

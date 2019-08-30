@@ -5,18 +5,18 @@
 use Mix.Config
 
 secret_key_base =
-  System.get_env("SECRET_KEY_BASE") ||
+  System.fetch_env!("SECRET_KEY_BASE") ||
     raise """
     environment variable SECRET_KEY_BASE is missing.
     You can generate one by calling: mix phx.gen.secret
     """
 
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
-  http: [:inet6, port: String.to_integer(System.get_env("PORT") || "4000")],
+  http: [:inet6, port: String.to_integer(System.get_env("PORT", "4000"))],
   secret_key_base: secret_key_base
 
 guardian_secret_key =
-  System.get_env("GUARDIAN_SECRET_KEY") ||
+  System.fetch_env!("GUARDIAN_SECRET_KEY") ||
     raise """
     environment variable GUARDIAN_SECRET_KEY is missing.
     You can generate one by calling:mix guardian.gen.secret

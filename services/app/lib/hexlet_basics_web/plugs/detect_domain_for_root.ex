@@ -12,7 +12,7 @@ defmodule HexletBasicsWeb.Plugs.DetectDomainForRoot do
 
     locale = current_user.locale || locale_from_session || default_locale
     cond do
-      conn.host == System.get_env("APP_RU_HOST") ->
+      conn.host == System.fetch_env!("APP_RU_HOST") ->
         conn
       locale == "ru" ->
         conn

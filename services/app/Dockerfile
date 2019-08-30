@@ -7,7 +7,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 
 RUN apt-get update && apt-get install -y inotify-tools
 RUN apt-get update && apt-get install -y nodejs
-RUN npm install -g npm-check-updates
+RUN npm install -g npm-check-updates env-cmd
 
 # Install hex (Elixir package manager)
 RUN mix local.hex --force
@@ -32,8 +32,8 @@ RUN cd assets && npm ci
 
 COPY . .
 
-RUN SECRET_KEY_BASE=jopa MIX_ENV=prod GUARDIAN_SECRET_KEY=asdfg mix compile
+RUN MIX_ENV=prod env-cmd -f .env.example mix compile
 RUN NODE_ENV=production cd assets && npm run deploy
-RUN SECRET_KEY_BASE=jopa MIX_ENV=prod GUARDIAN_SECRET_KEY=asdfg mix phx.digest
+RUN MIX_ENV=prod env-cmd -f .env.example mix phx.digest
 
 CMD ["mix", "phx.server"]

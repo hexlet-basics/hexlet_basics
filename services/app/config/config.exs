@@ -19,16 +19,16 @@ config :ueberauth, Ueberauth,
   ]
 
 config :rollbax,
-  access_token: System.get_env("ROLLBAR_ACCESS_TOKEN"),
+  access_token: System.fetch_env!("ROLLBAR_ACCESS_TOKEN"),
   environment: "production"
 
-config :ueberauth, Ueberauth.Strategy.Github.OAuth,
-  client_id: System.get_env("GITHUB_CLIENT_ID_RU"),
-  client_secret: System.get_env("GITHUB_CLIENT_SECRET_RU")
+# config :ueberauth, Ueberauth.Strategy.Github.OAuth,
+#   client_id: System.fetch_env!("GITHUB_CLIENT_ID_RU"),
+#   client_secret: System.fetch_env!("GITHUB_CLIENT_SECRET_RU")
 
-config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
-  client_id: System.get_env("FACEBOOK_CLIENT_ID_EN"),
-  client_secret: System.get_env("FACEBOOK_CLIENT_SECRET_EN")
+# config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
+#   client_id: System.fetch_env!("FACEBOOK_CLIENT_ID_EN"),
+#   client_secret: System.fetch_env!("FACEBOOK_CLIENT_SECRET_EN")
 
 # General application configuration
 config :hexlet_basics,
@@ -38,10 +38,10 @@ config :hexlet_basics,
   disqus_en: "hexlet-basics-en"
 
 config :hexlet_basics, HexletBasics.Repo,
-  username: System.get_env("DB_USERNAME"),
-  password: System.get_env("DB_PASSWORD"),
-  database: System.get_env("DB_NAME"),
-  hostname: System.get_env("DB_HOSTNAME"),
+  username: System.fetch_env!("DB_USERNAME"),
+  password: System.fetch_env!("DB_PASSWORD"),
+  database: System.fetch_env!("DB_NAME"),
+  hostname: System.fetch_env!("DB_HOSTNAME"),
   pool_size: 2
 
 # config :playfair, Playfair.Gettext, default_locale: "ru_RU"
@@ -50,7 +50,7 @@ config :hexlet_basics, HexletBasics.Repo,
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
   # url: [host: "localhost"],
   render_errors: [view: HexletBasicsWeb.ErrorView, accepts: ~w(html json), layout: false],
-  secret_key_base: System.get_env("SECRET_KEY_BASE"),
+  secret_key_base: System.fetch_env!("SECRET_KEY_BASE"),
   pubsub: [name: HexletBasics.PubSub, adapter: Phoenix.PubSub.PG2]
 
 config :hexlet_basics, HexletBasics.Mailer,
@@ -72,7 +72,7 @@ config :formulator,
 
 config :hexlet_basics, HexletBasics.UserManager.Guardian,
   issuer: "hexlet_basics",
-  secret_key: System.get_env("GUARDIAN_SECRET_KEY")
+  secret_key: System.fetch_env!("GUARDIAN_SECRET_KEY")
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
