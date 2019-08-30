@@ -21,14 +21,11 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
     host: System.fetch_env!("APP_HOST")
   ]
 
-# TODO: убрать code-basics.ru после деплоя
 config :hexlet_basics,
   code_directory: "/tmp/hexlet-basics/code",
   langs: %{System.fetch_env!("APP_RU_HOST") => "ru", System.fetch_env!("APP_HOST") => "en"},
-  ga_ru: "UA-1360700-63",
-  ga_en: "UA-1360700-64",
-  gtm_ru: "GTM-WVMW3V8",
-  gtm_en: ""
+  ga: "UA-1360700-64",
+  gtm: "GTM-WVMW3V8",
 
 # Do not print debug messages in production
 config :logger, level: :info
