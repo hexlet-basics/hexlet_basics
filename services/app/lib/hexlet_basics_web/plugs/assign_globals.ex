@@ -9,16 +9,18 @@ defmodule HexletBasicsWeb.Plugs.AssignGlobals do
 
   @spec call(Plug.Conn.t, Keyword.t) :: Plug.Conn.t
   def call(conn, _opts) do
-    locale = conn.assigns[:locale]
-    current_user = conn.assigns[:current_user]
+    %{assigns: %{current_user: current_user, locale: locale}} = conn
 
-    configuration1 = [:ga, :disqus, :gtm]
-                     |> Enum.map(&({&1, "#{&1}_#{locale}"}))
-                     |> Enum.reduce(%{}, fn {key, local_key}, acc ->
-                       value = Application.fetch_env!(:hexlet_basics, String.to_atom(local_key))
+   configuration1 = [:ga, :gtm]
+                     |> Enum.reduce(%{}, fn key, acc ->
+                       value = Application.fetch_env!(:hexlet_basics, key)
                        Map.put(acc, key, value)
                      end)
-    configuration2 = %{locale: locale, current_user: current_user}
+
+    disqus_local_key = String.to_atom("disqus_#{locale}")
+    disqus_value = Application.fetch_env!(:hexlet_basics, disqus_local_key)
+
+    configuration2 = %{locale: locale, current_user: current_user, disqus: disqus_value}
     configuration = Map.merge(configuration1, configuration2)
     Logger.info inspect ["Params For Gon", configuration]
 
@@ -31,4 +33,3 @@ defmodule HexletBasicsWeb.Plugs.AssignGlobals do
     |> assign(:title, Gettext.gettext(HexletBasicsWeb.Gettext, "Code Basics Title"))
   end
 end
-

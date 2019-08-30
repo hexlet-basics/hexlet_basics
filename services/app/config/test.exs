@@ -12,10 +12,8 @@ config :hexlet_basics,
   docker_command_template: "echo 'docker run --rm ~s ~s timeout -t 1 make --silent -C ~s test'",
   code_directory: "/tmp/hexlet-basics-test/code",
   langs: %{},
-  ga_ru: "ruGtag",
-  ga_en: "enGtag",
-  gtm_ru: "ruGtm",
-  gtm_en: "enGtm"
+  ga: "gtag",
+  gtm: "gtm"
 
 config :rollbax, enabled: false
 

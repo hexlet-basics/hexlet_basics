@@ -57,11 +57,9 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
 
 config :hexlet_basics,
   code_directory: "/tmp/hexlet-basics/code",
-  langs: %{"ru.code-basics.test" => "ru", "en.code-basics.test" => "en"},
-  ga_ru: "ruGtag",
-  ga_en: "enGtag",
-  gtm_ru: "ruGtm",
-  gtm_en: "enGtm"
+  langs: %{System.fetch_env!("APP_RU_HOST") => "ru", System.fetch_env!("APP_HOST") => "en"},
+  ga: "gtag",
+  gtm: "gtm"
 
 # config :rollbax, enabled: :log
 

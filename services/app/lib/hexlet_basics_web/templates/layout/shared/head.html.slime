@@ -35,5 +35,12 @@ javascript:
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', Gon.getAsset('ga'));
+    var config = {}
+    var currentUser = Gon.getAsset('current_user')
+
+    if (!currentUser.guest) {
+      config['user_id'] = currentUser.id
+    }
+
+    gtag('config', Gon.getAsset('ga'), config);
   }
