@@ -6,7 +6,7 @@ defmodule HexletBasics.Email do
   defp base_email(email_address, subject) do
     new_email()
     |> to(email_address)
-    |> from({"Code Basics", sending_from})
+    |> from({"Code Basics", sending_from()})
     |> subject(subject)
     |> put_html_layout({HexletBasicsWeb.LayoutView, "email.html"})
   end

@@ -1,6 +1,6 @@
 defmodule HexletBasicsWeb.SessionController do
   use HexletBasicsWeb, :controller
-  alias HexletBasics.{UserManager, UserManager.User, UserManager.Guardian}
+  alias HexletBasics.{UserManager, UserManager.Guardian}
 
   plug :check_authentication when action in [:create, :new]
 
