@@ -1,9 +1,8 @@
 // @ts-check
 
 import gon from 'gon';
-import ru from 'date-fns/locale/ru';
-import en from 'date-fns/locale/en';
+import { ru, enUS } from 'date-fns/locale';
 
-const locales = { ru, en };
+const locales = { ru, en: enUS };
 
 export default locales[gon.getAsset('locale')];

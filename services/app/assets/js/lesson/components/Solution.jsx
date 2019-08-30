@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { Highlight } from 'react-fast-highlight';
 import { get } from 'lodash';
 import { withTranslation } from 'react-i18next';
-import dateFns from 'date-fns';
+import formatDistanceStrict from 'date-fns/formatDistanceStrict'
 import dateFnsLocale from '../../lib/data-fns-locale';
 import connect from '../connect';
 
@@ -90,7 +90,7 @@ class Solution extends React.Component {
 
   renderCountdownTimer(t) {
     const { countdown } = this.props;
-    const remainingTime = dateFns.distanceInWordsStrict(
+    const remainingTime = formatDistanceStrict(
       countdown.currentTime,
       countdown.finishTime,
       { locale: dateFnsLocale },
