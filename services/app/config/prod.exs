@@ -25,7 +25,7 @@ config :hexlet_basics,
   code_directory: "/tmp/hexlet-basics/code",
   langs: %{System.fetch_env!("APP_RU_HOST") => "ru", System.fetch_env!("APP_HOST") => "en"},
   ga: "UA-1360700-64",
-  gtm: "GTM-WVMW3V8",
+  gtm: "GTM-WVMW3V8"
 
 # Do not print debug messages in production
 config :logger, level: :info
