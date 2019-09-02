@@ -10,5 +10,6 @@ defmodule HexletBasicsWeb.Plugs.SetUrl do
 
     conn
     |> put_router_url(CustomUrl.url_by_lang(locale))
+    |> put_static_url(CustomUrl.url_by_lang(locale))
   end
 end
