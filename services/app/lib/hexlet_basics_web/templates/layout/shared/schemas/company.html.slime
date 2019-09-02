@@ -1,8 +1,8 @@
 meta content="Hexlet" itemprop="name"
-meta content="https://hexlet.io" itemprop="url"
+link href="https://hexlet.io" itemprop="url"
 meta content="Hexlet Ltd." itemprop="legalName"
-meta content="VAT ID: FI26641607" itemprop="vatId"
+meta content="VAT ID: FI26641607" itemprop="vatID"
 span(itemprop="address" itemscope itemtype="http://schema.org/PostalAddress")
   meta content="Puolikkotie 8, 02230 Espoo, Finland" itemprop="name"
 span(itemprop="logo" itemscope itemtype="http://schema.org/ImageObject")
-  meta content="#{Routes.static_path(@conn, "/images/hexlet-logo.png")}" itemprop="url"
+  link href="#{Routes.static_url(@conn, "/images/hexlet-logo.png")}" itemprop="contentUrl"

@@ -123,6 +123,21 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
     lesson_theory_html = Earmark.as_html!(lesson_description.theory)
     lesson_instructions_html = Earmark.as_html!(lesson_description.instructions)
 
+    meta_attrs = [
+      %{property: "og:type", content: 'article'},
+      %{property: "og:title", content: lesson_description.name},
+      %{property: "og:description", content: module_description.description},
+      %{property: "og:image", content: Routes.static_url(conn, "/images/#{language.slug}.png")},
+      %{property: "og:url", content: Routes.language_url(conn, :show, language.slug)},
+      %{property: "name", content: lesson_description.name},
+      %{property: "description", content: module_description.description},
+      %{property: "image", content: Routes.static_url(conn, "/images/#{language.slug}.png")}
+    ]
+    link_attrs = [
+      %{rel: "canonical", href: Routes.language_module_lesson_url(conn, :show, language.slug, module.slug, lesson.slug)},
+      %{rel: 'image_src', href: Routes.static_url(conn, "/images/#{language.slug}.png")}
+    ]
+
     render(conn,
       language: language,
       module: module,
@@ -134,6 +149,8 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
       module_description: module_description,
       lesson_description: lesson_description,
       lessons_count: lessons_count,
+      meta_attrs: meta_attrs,
+      link_attrs: link_attrs,
       layout: {HexletBasicsWeb.LayoutView, "lesson.html"}
     )
   end

@@ -13,7 +13,7 @@
           meta content="#{gettext("Code Basics Author")}" itemprop="author"
           meta content=@module_description.description itemprop="description"
           meta content=@lesson_inserted_at itemprop="datePublished"
-          meta content=true itemprop="isAccessibleForFree"
+          meta content="true" itemprop="isAccessibleForFree"
           meta content=@lesson_updated_at itemprop="dateModified"
           meta content="/images/smm_cover.jpg" itemprop="image"
 

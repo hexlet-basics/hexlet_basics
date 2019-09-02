@@ -81,17 +81,19 @@ defmodule HexletBasicsWeb.LanguageController do
     title_text = Gettext.gettext(HexletBasicsWeb.Gettext, "OG title #{language.slug}")
     header = Gettext.gettext(HexletBasicsWeb.Gettext, "Header #{language.slug}")
 
-    meta_attrs = [%{property: "og:type", content: 'article'},
+    meta_attrs = [
+      %{property: "og:type", content: 'article'},
       %{property: "og:title", content: title_text},
       %{property: "og:description", content: Gettext.gettext(HexletBasicsWeb.Gettext, "OG description #{language.slug}")},
-      %{property: "og:image", content: url(conn, Routes.static_path(conn, "/images/#{language.slug}.png"))},
-      %{property: "og:url", content: url(conn, Routes.language_path(conn, :show, language.slug))},
+      %{property: "og:image", content: Routes.static_url(conn, "/images/#{language.slug}.png")},
+      %{property: "og:url", content: Routes.language_url(conn, :show, language.slug)},
       %{property: "name", content: Gettext.gettext(HexletBasicsWeb.Gettext, "OG title #{language.slug}")},
       %{property: "description", content: Gettext.gettext(HexletBasicsWeb.Gettext, "OG description #{language.slug}")},
-      %{property: "image", content: url(conn, Routes.static_path(conn, "/images/#{language.slug}.png"))}
+      %{property: "image", content: Routes.static_url(conn, "/images/#{language.slug}.png")}
     ]
-    link_attrs = [%{rel: "canonical", href: url(conn, Routes.language_path(conn, :show, language.slug))},
-      %{rel: 'image_src', href: url(conn, Routes.static_path(conn, "/images/#{language.slug}.png"))}
+    link_attrs = [
+      %{rel: "canonical", href: Routes.language_url(conn, :show, language.slug)},
+      %{rel: 'image_src', href: Routes.static_url(conn, "/images/#{language.slug}.png")}
     ]
 
     render(conn,
@@ -107,9 +109,5 @@ defmodule HexletBasicsWeb.LanguageController do
       title: title_text,
       header: header
     )
-  end
-
-  def url(conn, path) do
-    "#{conn.scheme}://#{conn.host}#{path}"
   end
 end
