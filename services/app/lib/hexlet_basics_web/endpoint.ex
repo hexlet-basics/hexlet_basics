@@ -46,7 +46,7 @@ defmodule HexletBasicsWeb.Endpoint do
     store: :cookie,
     key: "_hexlet_basics_key",
     signing_salt: "mKGV92uB",
-    domain: "code-basics.com"
+    domain: System.fetch_env!("APP_HOST")
   )
 
   plug(PhoenixGon.Pipeline)

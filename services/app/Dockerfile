@@ -32,8 +32,8 @@ RUN cd assets && npm ci
 
 COPY . .
 
-RUN MIX_ENV=prod env-cmd -f .env.example mix compile
+RUN MIX_ENV=prod env-cmd -f .env.docker mix compile
 RUN NODE_ENV=production cd assets && npm run deploy
-RUN MIX_ENV=prod env-cmd -f .env.example mix phx.digest
+RUN MIX_ENV=prod env-cmd -f .env.docker mix phx.digest
 
 CMD ["mix", "phx.server"]
