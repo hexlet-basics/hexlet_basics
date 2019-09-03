@@ -12,7 +12,7 @@ defmodule HexletBasics.User do
     field(:github_uid, :integer)
     field(:facebook_uid, :string)
     field(:nickname, :string)
-    field(:state, :string)
+    field(:state, :string, default: "initial")
     field(:encrypted_password, :string)
     field(:confirmation_token, :string)
     field(:reset_password_token, :string)
@@ -55,11 +55,11 @@ defmodule HexletBasics.User do
   end
 
   def reset_password_changeset(%User{} = user, attrs) do
-   user
-   |> cast(attrs, [:password])
-   |> validate_required([:password])
-   |> validate_length(:password, min: 6)
-   |> put_hash_password
+    user
+    |> cast(attrs, [:password])
+    |> validate_required([:password])
+    |> validate_length(:password, min: 6)
+    |> put_hash_password
   end
 
   def directory_for_code(current_user) do
@@ -75,9 +75,11 @@ defmodule HexletBasics.User do
   def generate_token(changeset, attr) do
     length = 64
     crypto = :crypto.strong_rand_bytes(length)
-    token = crypto
-            |> Base.url_encode64
-            |> binary_part(0, length)
+
+    token =
+      crypto
+      |> Base.url_encode64()
+      |> binary_part(0, length)
 
     changeset |> change(%{attr => token})
   end
@@ -90,7 +92,9 @@ defmodule HexletBasics.User do
     changeset |> put_change(:state, "initial")
   end
 
-  defp put_hash_password(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
+  defp put_hash_password(
+         %Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset
+       ) do
     change(changeset, encrypted_password: Bcrypt.hash_pwd_salt(password))
   end
 

@@ -22,13 +22,13 @@ config :rollbax,
   access_token: System.fetch_env!("ROLLBAR_ACCESS_TOKEN"),
   environment: "production"
 
-# config :ueberauth, Ueberauth.Strategy.Github.OAuth,
-#   client_id: System.fetch_env!("GITHUB_CLIENT_ID_RU"),
-#   client_secret: System.fetch_env!("GITHUB_CLIENT_SECRET_RU")
+config :ueberauth, Ueberauth.Strategy.Github.OAuth,
+  client_id: System.fetch_env!("GITHUB_CLIENT_ID"),
+  client_secret: System.fetch_env!("GITHUB_CLIENT_SECRET")
 
-# config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
-#   client_id: System.fetch_env!("FACEBOOK_CLIENT_ID_EN"),
-#   client_secret: System.fetch_env!("FACEBOOK_CLIENT_SECRET_EN")
+config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
+  client_id: System.fetch_env!("FACEBOOK_CLIENT_ID"),
+  client_secret: System.fetch_env!("FACEBOOK_CLIENT_SECRET")
 
 # General application configuration
 config :hexlet_basics,

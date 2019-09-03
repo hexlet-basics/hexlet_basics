@@ -1,42 +1,44 @@
 defmodule HexletBasicsWeb.AuthController do
   use HexletBasicsWeb, :controller
-  alias HexletBasics.Repo
-  alias HexletBasics.{User}
-  plug Ueberauth
-
+  alias HexletBasics.{UserManager, UserManager.Guardian}
+  alias HexletBasicsWeb.Plugs.CheckAuthentication
   alias Ueberauth.Strategy.Helpers
+
+  plug Ueberauth
+  plug CheckAuthentication when action in [:request, :callback]
 
   def request(conn, _params) do
     render(conn, callback_url: Helpers.callback_url(conn))
   end
 
-  def delete(conn, _params) do
+  def callback(%{assigns: %{ueberauth_failure: _fails}} = conn, _params) do
     conn
-    |> put_flash(:info, gettext "You have been logged out!")
-    |> configure_session(drop: true)
+    |> put_flash(:error, gettext("Failed to authenticate."))
     |> redirect(to: Routes.page_path(conn, :index))
   end
 
-  def callback(%{assigns: %{ueberauth_failure: _fails}} = conn, _params) do
+  def callback(
+        %{assigns: %{ueberauth_auth: %{info: %{email: nil}, uid: uid, provider: provider}}} =
+          conn,
+        _params
+      ) do
+
     conn
-    |> put_flash(:error, gettext "Failed to authenticate.")
-    |> configure_session(drop: true)
+    |> put_flash(
+      :error,
+      gettext("Please confirm the email in your %{provider} account, then try again",
+        provider: provider
+      )
+    )
     |> redirect(to: Routes.page_path(conn, :index))
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
-    params = %{github_uid: auth.uid}
-    user = Repo.get_by(User, params) || struct(User, params)
-    user = user
-           |> User.changeset(%{
-             nickname: auth.info.nickname,
-             email: auth.info.email
-           })
-           |> Repo.insert_or_update!
+    user = UserManager.authenticate_user_by_social_network(auth)
 
     conn
-      |> put_flash(:info, gettext "Successfully authenticated.")
-      |> put_session(:current_user, user)
-      |> redirect(to: Routes.page_path(conn, :index))
+    |> put_flash(:info, gettext("Successfully authenticated."))
+    |> Guardian.Plug.sign_in(user)
+    |> redirect(to: Routes.page_path(conn, :index))
   end
 end

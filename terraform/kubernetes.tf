@@ -60,8 +60,8 @@ resource "kubernetes_secret" "github_credentials" {
   }
 
   data = {
-    GITHUB_CLIENT_ID_RU     = "${var.github_client_id}"
-    GITHUB_CLIENT_SECRET_RU = "${var.github_client_secret}"
+    GITHUB_CLIENT_ID     = "${var.github_client_id}"
+    GITHUB_CLIENT_SECRET = "${var.github_client_secret}"
   }
 }
 
@@ -71,8 +71,8 @@ resource "kubernetes_secret" "facebook_credentials" {
   }
 
   data = {
-    FACEBOOK_CLIENT_ID_EN     = "${var.facebook_client_id}"
-    FACEBOOK_CLIENT_SECRET_EN = "${var.facebook_client_secret}"
+    FACEBOOK_CLIENT_ID     = "${var.facebook_client_id}"
+    FACEBOOK_CLIENT_SECRET = "${var.facebook_client_secret}"
   }
 }
 

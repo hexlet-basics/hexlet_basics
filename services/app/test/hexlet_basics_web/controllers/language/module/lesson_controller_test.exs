@@ -1,5 +1,6 @@
 defmodule HexletBasicsWeb.Language.Module.LessonControllerTest do
   use HexletBasicsWeb.ConnCase
+  alias HexletBasics.UserManager.Guardian
 
   test "show", %{conn: conn} do
     lesson = insert(:language_module_lesson)
@@ -18,7 +19,7 @@ defmodule HexletBasicsWeb.Language.Module.LessonControllerTest do
     language = lesson.language
 
     conn = conn
-           |> put_session(:current_user, user)
+           |> Guardian.Plug.sign_in(user)
            |> get(language_module_lesson_path(conn, :show, language.slug, module.slug, lesson.slug))
     assert html_response(conn, 200)
   end

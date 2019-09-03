@@ -33,5 +33,4 @@ defmodule HexletBasicsWeb.ChannelCase do
     end
     :ok
   end
-
 end
