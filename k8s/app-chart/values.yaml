@@ -4,11 +4,6 @@ version: v201
 
 replicaCount: 1
 
-nginx:
-  image:
-    repository: gcr.io/hexlet-basics/nginx
-    imagePullPolicy: Always
-
 caddy:
   image:
     repository: gcr.io/hexlet-basics/caddy
