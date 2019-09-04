@@ -1,8 +1,9 @@
 defmodule HexletBasicsWeb.SessionController do
   use HexletBasicsWeb, :controller
   alias HexletBasics.{UserManager, UserManager.Guardian}
+  alias HexletBasicsWeb.Plugs.CheckAuthentication
 
-  plug :check_authentication when action in [:create, :new]
+  plug CheckAuthentication when action in [:new, :create]
 
   def new(conn, _params) do
     render(conn, "new.html")
@@ -17,9 +18,9 @@ defmodule HexletBasicsWeb.SessionController do
 
   def delete(conn, _params) do
     conn
-    |> put_flash(:info, gettext "You have been logged out!")
     |> Guardian.Plug.sign_out()
-    |> configure_session(drop: true)
+    |> clear_session
+    |> put_flash(:info, gettext("You have been logged out!"))
     |> redirect(to: "/")
   end
 

@@ -1,5 +1,6 @@
 defmodule HexletBasicsWeb.LanguageControllerTest do
   use HexletBasicsWeb.ConnCase
+  alias HexletBasics.UserManager.Guardian
 
   test "index", %{conn: conn} do
     conn = get conn, "/"
@@ -18,7 +19,7 @@ defmodule HexletBasicsWeb.LanguageControllerTest do
     lesson = insert(:language_module_lesson)
     language = lesson.language
     conn = conn
-           |> put_session(:current_user, user)
+           |> Guardian.Plug.sign_in(user)
            |> get(language_path(conn, :show, language.slug))
     assert html_response(conn, 200)
   end

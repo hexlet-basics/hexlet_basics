@@ -1,9 +1,9 @@
 defmodule HexletBasicsWeb.UserController do
   use HexletBasicsWeb, :controller
-  alias HexletBasics.{User, Email, Mailer, Repo, UserManager.Guardian}
-  alias HexletBasics.StateMachines.UserStateMachine
+  alias HexletBasics.{User, Email, Mailer, Repo, UserManager.Guardian, StateMachines.UserStateMachine}
+  alias HexletBasicsWeb.Plugs.CheckAuthentication
 
-  plug :check_authentication when action in [:create, :new]
+  plug CheckAuthentication when action in [:new, :create]
 
   def new(conn, _params) do
     changeset = User.registration_changeset(%User{}, %{})
@@ -13,18 +13,21 @@ defmodule HexletBasicsWeb.UserController do
   def create(conn, %{"user" => params}) do
     %{assigns: %{locale: locale}} = conn
     changeset = User.registration_changeset(%User{}, Map.put(params, "locale", locale))
-    case Repo.insert(changeset) do {:ok, user} ->
 
-        email = Email.confirmation_html_email(
-          conn,
-          user,
-          Routes.user_url(conn, :confirm, confirmation_token: user.confirmation_token)
-        )
+    case Repo.insert(changeset) do
+      {:ok, user} ->
+        email =
+          Email.confirmation_html_email(
+            conn,
+            user,
+            Routes.user_url(conn, :confirm, confirmation_token: user.confirmation_token)
+          )
 
         email
-        |> Mailer.deliver_now
+        |> Mailer.deliver_now()
 
-        {:ok, %User{state: state}} =  Machinery.transition_to(user, UserStateMachine, "waiting_confirmation")
+        {:ok, %User{state: state}} =
+          Machinery.transition_to(user, UserStateMachine, "waiting_confirmation")
 
         user
         |> User.state_changeset(%{state: state})
@@ -33,6 +36,7 @@ defmodule HexletBasicsWeb.UserController do
         conn
         |> put_flash(:info, gettext("User created! Check your email for confirm registration"))
         |> redirect(to: Routes.page_path(conn, :index))
+
       {:error, changeset} ->
         conn
         |> render("new.html", changeset: changeset)
@@ -41,14 +45,14 @@ defmodule HexletBasicsWeb.UserController do
 
   def confirm(conn, params) do
     user = Repo.get_by(User, confirmation_token: params["confirmation_token"])
-    if user do
 
+    if user do
       if User.active?(user) do
         conn
         |> Guardian.Plug.sign_in(user)
         |> redirect(to: "/")
       else
-        {:ok, %User{state: state}} =  Machinery.transition_to(user, UserStateMachine, "active")
+        {:ok, %User{state: state}} = Machinery.transition_to(user, UserStateMachine, "active")
 
         user
         |> User.state_changeset(%{state: state})

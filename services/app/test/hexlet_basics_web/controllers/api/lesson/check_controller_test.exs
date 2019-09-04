@@ -1,6 +1,7 @@
 defmodule HexletBasicsWeb.Api.Lesson.CheckControllerTest do
   import Plug.Conn
   use HexletBasicsWeb.ConnCase
+  alias HexletBasics.UserManager.Guardian
 
   test "create", %{conn: conn} do
     lesson = insert(:language_module_lesson)
@@ -14,7 +15,7 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckControllerTest do
     }
     user = insert(:user)
     conn = conn
-           |> put_session(:current_user, user)
+           |> Guardian.Plug.sign_in(user)
            |> post(lesson_check_path(conn, :create, lesson.id), data: data)
 
     assert json_response(conn, 200)

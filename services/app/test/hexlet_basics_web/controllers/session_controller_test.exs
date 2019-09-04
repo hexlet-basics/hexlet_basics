@@ -1,5 +1,6 @@
 defmodule HexletBasicsWeb.SessionControllerTest do
   use HexletBasicsWeb.ConnCase, async: true
+  alias HexletBasics.UserManager.Guardian
 
   @create_attrs %{encrypted_password: Bcrypt.hash_pwd_salt("password"), email: "user@mail.ru"}
   @session_attrs %{password: "password", email: "user@mail.ru"}
@@ -26,7 +27,7 @@ defmodule HexletBasicsWeb.SessionControllerTest do
   test "#delete", %{conn: conn} do
     user = insert(:user, @create_attrs)
     conn = conn
-           |> put_session(:current_user, user)
+           |> Guardian.Plug.sign_in(user)
            |> delete(session_path(conn, :delete))
 
     assert redirected_to(conn) == page_path(conn, :index)

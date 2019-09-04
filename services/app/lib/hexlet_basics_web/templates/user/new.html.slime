@@ -1,5 +1,5 @@
 .container-fluid
-  .row.justify-content-center.pb-5.mt-5
+  .row.justify-content-center.pb-4.mt-5
     .col-12.col-sm-8.col-md-7.col-lg-4
         h2.h3.mb-4.mt-3.text-center
           = gettext("Sign Up")
@@ -14,3 +14,7 @@
 
           .form-group
             = submit gettext("Registration"), class: "btn btn-primary w-100"
+
+  .row.justify-content-center.pb-5
+    .col-12.col-sm-8.col-md-7.col-lg-4
+      = render HexletBasicsWeb.SharedView, "social_sign_in.html", assigns
