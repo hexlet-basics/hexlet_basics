@@ -3,6 +3,7 @@ defmodule HexletBasics.UserManager do
   alias HexletBasics.User
   import Ecto.Query, warn: false
   alias HexletBasics.Repo
+  import HexletBasicsWeb.Gettext
 
   def get_user!(id), do: Repo.get!(User, id)
 
@@ -18,12 +19,15 @@ defmodule HexletBasics.UserManager do
     case Repo.one(query) do
       nil ->
         Bcrypt.no_user_verify()
-        {:error, :invalid_credentials}
+        {:error, gettext("There was a problem with your email/password")}
       user ->
-        if Bcrypt.verify_pass(plain_text_password, user.encrypted_password) do
-          {:ok, user}
-        else
-          {:error, :invalid_credentials}
+        cond do
+          !User.active?(user) ->
+            {:error, gettext("You have not yet verified your email")}
+          Bcrypt.verify_pass(plain_text_password, user.encrypted_password) ->
+            {:ok, user}
+          true ->
+            {:error, gettext("There was a problem with your email/password")}
         end
     end
   end

@@ -50,9 +50,9 @@ defmodule HexletBasicsWeb.UserController do
       else
         {:ok, %User{state: state}} =  Machinery.transition_to(user, UserStateMachine, "active")
 
-        user
-        |> User.state_changeset(%{state: state})
-        |> Repo.update()
+        user = user
+               |> User.state_changeset(%{state: state})
+               |> Repo.update!()
 
         conn
         |> Guardian.Plug.sign_in(user)
