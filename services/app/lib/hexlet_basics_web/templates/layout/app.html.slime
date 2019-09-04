@@ -25,6 +25,8 @@ html.h-100 lang="#{@locale}"
                 a.nav-link target="_blank" href="https://ru.hexlet.io/courses"= gettext "Courses"
               li.nav-item
                 a.nav-link target="_blank" href="https://ru.hexlet.io/professions"= gettext "Professions"
+              li.nav-item
+                a.nav-link target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Community"
 
             = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
