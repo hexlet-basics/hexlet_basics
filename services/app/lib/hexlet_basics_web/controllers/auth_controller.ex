@@ -34,11 +34,16 @@ defmodule HexletBasicsWeb.AuthController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
-    user = UserManager.authenticate_user_by_social_network(auth)
-
-    conn
-    |> put_flash(:info, gettext("Successfully authenticated."))
-    |> Guardian.Plug.sign_in(user)
-    |> redirect(to: Routes.page_path(conn, :index))
+    case UserManager.authenticate_user_by_social_network(auth) do
+      {:ok, user} ->
+        conn
+        |> put_flash(:info, gettext("Successfully authenticated."))
+        |> Guardian.Plug.sign_in(user)
+        |> redirect(to: Routes.page_path(conn, :index))
+      {:error, _} ->
+        conn
+        |> put_flash(:error, gettext("Failed to authenticate."))
+        |> redirect(to: Routes.page_path(conn, :index))
+    end
   end
 end

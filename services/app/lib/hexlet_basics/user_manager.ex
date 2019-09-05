@@ -46,25 +46,26 @@ defmodule HexletBasics.UserManager do
       |> Repo.preload(:user)
 
     if account do
-      account.user
+      user = activate_user!(account.user)
+      {:ok, user}
     else
       user = user_get_by(email: email) || %User{}
 
-      user =
-        if User.active?(user) do
-          user
-          |> User.changeset(%{nickname: nickname, email: email})
-          |> Repo.insert_or_update!()
-        else
-          {:ok, %User{state: state}} = Machinery.transition_to(user, UserStateMachine, "active")
+      Repo.transaction(fn ->
+        user =
+          if new_record?(user) do
+            {:ok, %User{state: state}} = Machinery.transition_to(user, UserStateMachine, "active")
 
-          user
-          |> User.changeset(%{nickname: nickname, email: email, state: state})
-          |> Repo.insert_or_update!()
-        end
+            user
+            |> User.changeset(%{nickname: nickname, email: email, state: state})
+            |> Repo.insert!()
+          else
+            activate_user!(user)
+          end
 
-      create_account(%{provider: provider, uid: uid, user_id: user.id})
-      user
+        create_account(%{provider: provider, uid: uid, user_id: user.id})
+        user
+      end)
     end
   end
 
@@ -72,5 +73,21 @@ defmodule HexletBasics.UserManager do
     %Account{}
     |> Account.changeset(attrs)
     |> Repo.insert()
+  end
+
+  defp activate_user!(user) do
+    {:ok, %User{state: state}} =
+      Machinery.transition_to(user, UserStateMachine, "active")
+
+    user
+    |> User.state_changeset(%{state: state})
+    |> Repo.update!()
+  end
+
+  defp new_record?(user) do
+    case Ecto.get_meta(user, :state) do
+      :loaded -> false
+      :built -> true
+    end
   end
 end

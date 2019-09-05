@@ -22,6 +22,7 @@ defmodule HexletBasics.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import HexletBasics.DataCase
+      import HexletBasics.Factory
     end
   end
 
