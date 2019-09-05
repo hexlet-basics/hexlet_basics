@@ -88,8 +88,6 @@ html.h-100 lang="#{@locale}"
               li
                 a target="_blank" href="https://ru.hexlet.io/blog"= gettext "Blog"
               li
-                a target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Chat"
-              li
                 a target="_blank" href="https://ru.hexlet.io/pages/recommended-books"= gettext "Recommended Books"
               li
                 a target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSr58Xg4DVX2WdmAkv3hE2ITJ3fPeNUmRFe0Ekro53U-ACFrhcUkV8PlUm4ddcn53Uh-5UIezZtZZgc/pubhtml"= gettext "Matrix"
