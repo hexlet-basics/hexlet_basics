@@ -356,6 +356,11 @@ msgid "Professions"
 msgstr "Профессии"
 
 #, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Community"
+msgstr "Сообщество"
+
+#, elixir-format
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "Try Hexlet %{courses} or join to %{professions}"
 msgstr "Попробуйте наши %{courses} или вступайте в %{professions}"
