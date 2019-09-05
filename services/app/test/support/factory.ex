@@ -7,5 +7,6 @@ defmodule HexletBasics.Factory do
   use HexletBasics.LanguageModuleLessonFactory
   use HexletBasics.LanguageModuleLessonDescriptionFactory
   use HexletBasics.UserFactory
+  use HexletBasics.UserAccountFactory
   use HexletBasics.UserFinishedLessonFactory
 end

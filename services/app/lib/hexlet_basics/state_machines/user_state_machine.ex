@@ -4,6 +4,7 @@ defmodule HexletBasics.StateMachines.UserStateMachine do
     transitions: %{
       "initial" =>  ["waiting_confirmation", "inactive", "active"],
       "waiting_confirmation" => "active",
+      "active" => "active",
       "*" => "inactive"
     }
 end
