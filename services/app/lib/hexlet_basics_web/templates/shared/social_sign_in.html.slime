@@ -1,11 +1,11 @@
 = if @current_user.guest do
-  / .row
-  /   .col-12
-  /     = link to: Routes.auth_path(@conn, :request, "github"), class: "btn btn-primary w-100" do
-  /       i.fab.mr-2.fa-github
-  /       = gettext("Sign In Github")
-  .row.mt-3
+  .row
     .col-12
-      = link to: Routes.auth_path(@conn, :request, "facebook"), class: "btn btn-primary w-100" do
-        i.fab.mr-2.fa-facebook
-        = gettext("Sign In Facebook")
+      = link to: Routes.auth_path(@conn, :request, "github"), class: "btn btn-primary w-100" do
+        i.fab.mr-2.fa-github
+        = gettext("Sign In Github")
+  / .row.mt-3
+  /   .col-12
+  /     = link to: Routes.auth_path(@conn, :request, "facebook"), class: "btn btn-primary w-100" do
+  /       i.fab.mr-2.fa-facebook
+  /       = gettext("Sign In Facebook")
