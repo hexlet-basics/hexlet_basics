@@ -15,6 +15,6 @@
           .form-group
             = submit gettext("Registration"), class: "btn btn-primary w-100"
 
-  / .row.justify-content-center.pb-5
-  /   .col-12.col-sm-8.col-md-7.col-lg-4
-  /     = render HexletBasicsWeb.SharedView, "social_sign_in.html", assigns
+  .row.justify-content-center.pb-5
+    .col-12.col-sm-8.col-md-7.col-lg-4
+      = render HexletBasicsWeb.SharedView, "social_sign_in.html", assigns
