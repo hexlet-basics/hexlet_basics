@@ -72,4 +72,47 @@ defmodule HexletBasicsWeb.UserController do
       |> redirect(to: "/")
     end
   end
+<<<<<<< HEAD
+=======
+
+  def resend_confirmation(conn, %{"user_id" => user_id} = params) do
+    user = Repo.get!(User, user_id)
+    changeset = User.resend_confirmation_changeset(user)
+    redirect_to = params["redirect_to"] || Routes.page_path(conn, :index)
+
+    case Repo.update(changeset) do
+      {:ok, user} ->
+        email =
+          Email.confirmation_html_email(
+            conn,
+            user,
+            Routes.user_url(conn, :confirm, confirmation_token: user.confirmation_token)
+          )
+
+        email
+        |> Mailer.deliver_now()
+
+        conn
+        |> put_flash(
+          :info,
+          gettext(
+            "We sent an email to confirm the email - %{email}, follow the link from the email to complete the procedure. Please contact support <a href=mailto:support@hexlet.io> support@hexlet.io </a>.",
+            email: user.email
+          )
+        )
+        |> redirect(to: redirect_to)
+
+      {:error, _} ->
+        conn
+        |> put_flash(
+          :error,
+          gettext(
+            "Something went wrong! Please contact support <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
+          )
+        )
+
+        |> redirect(to: redirect_to)
+    end
+  end
+>>>>>>> add edit page
 end

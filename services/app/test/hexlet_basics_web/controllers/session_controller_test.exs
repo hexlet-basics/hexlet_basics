@@ -11,14 +11,14 @@ defmodule HexletBasicsWeb.SessionControllerTest do
   end
 
   test "#create", %{conn: conn} do
-    user = insert(:user, @create_attrs)
+    _user = insert(:user, @create_attrs)
     conn = post conn, session_path(conn, :create), session: @session_attrs
 
     assert redirected_to(conn) == page_path(conn, :index)
   end
 
   test "#create when user doesnt have encrypted_password", %{conn: conn} do
-    user = insert(:user, %{email: "user@mail.ru"})
+    _user = insert(:user, %{email: "user@mail.ru"})
     conn = post conn, session_path(conn, :create), session: @session_attrs
 
     assert html_response(conn, 200)

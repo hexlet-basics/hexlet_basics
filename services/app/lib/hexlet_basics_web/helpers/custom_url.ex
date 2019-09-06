@@ -10,4 +10,8 @@ defmodule HexletBasicsWeb.Helpers.CustomUrl do
     cur_path = current_path(conn)
     url_by_lang(locale) <> cur_path
   end
+
+  def redirect_current_path(conn) do
+    current_path(conn)
+  end
 end

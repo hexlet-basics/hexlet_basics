@@ -38,14 +38,4 @@ defmodule HexletBasicsWeb.SessionController do
     |> put_flash(:error, gettext("There was a problem with your email/password"))
     |> new(%{})
   end
-
-  defp check_authentication(conn, _options) do
-    %{assigns: %{current_user: current_user}} = conn
-
-    if current_user.guest do
-      conn
-    else
-      conn |> redirect(to: "/") |> halt()
-    end
-  end
 end
