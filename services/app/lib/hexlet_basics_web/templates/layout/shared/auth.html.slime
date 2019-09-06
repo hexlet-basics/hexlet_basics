@@ -1,8 +1,8 @@
-= if @current_user.email do
-  .navbar-text.mr-3= @current_user.email
 
 ul.navbar-nav
   li.nav-item
+    = if @current_user.email do
+      .navbar-text.mr-3= @current_user.email
     / TODO: Пока отключаем аутентификацию через соц сети
     / - locales = %{ "ru" => "github", "en" => "facebook" }
     / = if @current_user.guest do
