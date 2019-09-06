@@ -3,11 +3,12 @@ defmodule HexletBasics.UserManager do
   alias HexletBasics.{User, User.Account}
   alias HexletBasics.StateMachines.{UserStateMachine, User.EmailDeliveryStateMachine}
   import Ecto.Query, warn: false
+  import Ecto
   alias HexletBasics.Repo
 
   def get_user!(id), do: Repo.get!(User, id)
   def get_user(id), do: Repo.get(User, id)
-  def user_get_by(params), do: Repo.get_by(User, params)
+  def user_get_by(params), do: User.Scope.not_removed(User) |> Repo.get_by(params)
 
   def set_locale!(%User{} = user, locale) do
     user
@@ -71,6 +72,33 @@ defmodule HexletBasics.UserManager do
     end
   end
 
+  def link_user_social_network_account(%{
+        info: %{email: email},
+        uid: uid,
+        provider: provider
+      }) do
+    uid = if is_binary(uid), do: uid, else: to_string(uid)
+    provider = Atom.to_string(provider)
+
+    account =
+      get_account(%{provider: provider, uid: uid})
+      |> Repo.preload(:user)
+
+    if account do
+      user = activate_user!(account.user)
+      {:ok, user}
+    else
+      user = user_get_by(email: email)
+
+      Repo.transaction(fn ->
+        activate_user!(user)
+
+        create_account(%{provider: provider, uid: uid, user_id: user.id})
+        user
+      end)
+    end
+  end
+
   def create_account(attrs \\ %{}) do
     %Account{}
     |> Account.changeset(attrs)
@@ -96,12 +124,34 @@ defmodule HexletBasics.UserManager do
   end
 
   defp activate_user!(user) do
-    {:ok, %User{state: state}} =
-      Machinery.transition_to(user, UserStateMachine, "active")
+    {:ok, %User{state: state}} = Machinery.transition_to(user, UserStateMachine, "active")
 
     user
     |> User.state_changeset(%{state: state})
     |> Repo.update!()
+  end
+
+  def remove_user!(user) do
+    Repo.transaction(fn ->
+      assoc(user, :accounts) |> Repo.delete_all()
+
+      {:ok, %User{state: state}} = Machinery.transition_to(user, UserStateMachine, "removed")
+
+      user
+      |> User.remove_changeset(%{
+        state: state
+      })
+      |> Repo.update!()
+    end)
+  end
+
+  def delete_account(user, account_id) do
+    account =
+      assoc(user, :accounts)
+      |> Repo.get(account_id)
+
+    account
+    |> Repo.delete()
   end
 
   defp new_record?(user) do

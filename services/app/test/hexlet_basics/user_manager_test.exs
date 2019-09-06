@@ -220,4 +220,47 @@ defmodule HexletBasics.UserManagerTest do
    
     assert User.enabled_delivery?(enabled_delivery_user)
   end
+
+  test "link_user_social_network_account/1 github" do
+    user = insert(:user, email: "user@user.ru")
+    user_auth = Map.replace!(@github_auth, :info, %{email: user.email, nickname: user.nickname})
+     {:ok, user} = UserManager.link_user_social_network_account(user_auth)
+
+    account =
+      UserManager.get_account(%{
+        provider: to_string(@github_auth[:provider]),
+        uid: to_string(@github_auth[:uid])
+      })
+
+    assert user.email == @github_auth[:info][:email]
+    assert account.user_id == user.id
+  end
+
+  test "link_user_social_network_account/1 facebook" do
+    user = insert(:user, email: "user@user.ru")
+    user_auth = Map.replace!(@facebook_auth, :info, %{email: user.email, nickname: user.nickname})
+     {:ok, user} = UserManager.link_user_social_network_account(user_auth)
+
+    account =
+      UserManager.get_account(%{
+        provider: to_string(@facebook_auth[:provider]),
+        uid: @facebook_auth[:uid]
+      })
+
+    assert user.email == @facebook_auth[:info][:email]
+    assert account.user_id == user.id
+  end
+
+  test "user_get_by with removed user" do
+    removed_user = insert(:user, state: "removed", email: "removed_user@mail.com")
+
+    result_for_removed = UserManager.user_get_by(%{email: removed_user.email})
+    assert is_nil(result_for_removed)
+  end
+
+  test "user_get_by" do
+    user = insert(:user, email: "user@user.com")
+    result_for_active = UserManager.user_get_by(%{email: user.email})
+    assert result_for_active
+  end
 end

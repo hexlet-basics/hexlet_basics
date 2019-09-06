@@ -1,5 +1,6 @@
 defmodule HexletBasicsWeb.UserControllerTest do
   use HexletBasicsWeb.ConnCase, async: true
+  alias HexletBasics.{UserManager.Guardian, Repo, User}
 
   @create_attrs %{password: "password", email: "user@mail.ru", confirmation_token: "1234"}
   @waiting_confirmation_attrs %{password: "password", email: "user@mail.ru", confirmation_token: "1234", state: "waiting_confirmation"}
@@ -39,5 +40,17 @@ defmodule HexletBasicsWeb.UserControllerTest do
     confirmed_user = HexletBasics.Repo.get(HexletBasics.User, user.id)
     assert redirected_to(conn) == page_path(conn, :index)
     assert confirmed_user.state == "waiting_confirmation"
+  end
+
+  test "resend_confirmation", %{conn: conn} do
+    user = insert(:user, @waiting_confirmation_attrs)
+    conn =
+      conn
+      |> Guardian.Plug.sign_in(user)
+      |> post(user_path(conn, :resend_confirmation, user, redirect_to: profile_path(conn, :show)))
+
+    not_confirmed_user = Repo.get(User, user.id)
+    assert not_confirmed_user.confirmation_token != user.confirmation_token
+    assert redirected_to(conn) == profile_path(conn, :show)
   end
 end

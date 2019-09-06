@@ -20,6 +20,7 @@ defmodule HexletBasics.User do
     field(:password, :string, virtual: true)
     field(:locale, :string)
     field(:guest, :boolean, virtual: true, default: false)
+    has_many(:accounts, User.Account, on_delete: :delete_all)
     has_many(:finished_lessons, User.FinishedLesson, on_delete: :delete_all)
 
     has_many(:finished_lesson_lessons, through: [:finished_lessons, :language_module_lesson])
@@ -48,6 +49,12 @@ defmodule HexletBasics.User do
     user |> cast(attrs, [:locale])
   end
 
+  def resend_confirmation_changeset(%User{} = user, attrs \\ %{}) do
+    user
+    |> cast(attrs, [])
+    |> generate_token(:confirmation_token)
+  end
+
   def registration_changeset(%User{} = user, attrs) do
     user
     |> cast(attrs, [:nickname, :email, :password, :first_name, :last_name, :state, :locale])
@@ -65,6 +72,12 @@ defmodule HexletBasics.User do
     |> validate_required([:password])
     |> validate_length(:password, min: 6)
     |> put_hash_password
+  end
+
+  def remove_changeset(%User{} = user, attrs) do
+    user
+    |> cast(attrs, [:state])
+    |> clean_attrs
   end
 
   def directory_for_code(current_user) do
@@ -101,6 +114,10 @@ defmodule HexletBasics.User do
     user.email_delivery_state == "enabled"
   end
 
+  def removed?(user) do
+    user.state == "removed"
+  end
+
   defp put_initial_state(changeset) do
     changeset |> put_change(:state, "initial")
   end
@@ -112,4 +129,17 @@ defmodule HexletBasics.User do
   end
 
   defp put_hash_password(changeset), do: changeset
+
+  defp clean_attrs(changeset) do
+    change(changeset, %{
+      email: nil,
+      first_name: nil,
+      last_name: nil,
+      nickname: nil,
+      encrypted_password: nil,
+      github_uid: nil,
+      reset_password_token: nil,
+      confirmation_token: nil
+    })
+  end
 end
