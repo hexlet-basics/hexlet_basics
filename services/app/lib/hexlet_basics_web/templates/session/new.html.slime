@@ -10,4 +10,4 @@
             = submit gettext("Sign In"), class: "btn btn-primary"
             = link gettext("Forgot password?"), to: Routes.remind_password_path(@conn, :new), class: "ml-auto"
 
-        = render HexletBasicsWeb.SharedView, "social_sign_in.html", assigns
+        / = render HexletBasicsWeb.SharedView, "social_sign_in.html", assigns
