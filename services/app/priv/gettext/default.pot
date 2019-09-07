@@ -20,7 +20,8 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: lib/hexlet_basics_web/controllers/auth_controller.ex:15
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:16
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:45
 msgid "Failed to authenticate."
 msgstr ""
 
@@ -42,7 +43,7 @@ msgstr ""
 msgid "Sign Out"
 msgstr ""
 
-#: lib/hexlet_basics_web/controllers/auth_controller.ex:34
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:40
 msgid "Successfully authenticated."
 msgstr ""
 
@@ -50,7 +51,7 @@ msgstr ""
 msgid "You did it!"
 msgstr ""
 
-#: lib/hexlet_basics_web/controllers/session_controller.ex:22
+#: lib/hexlet_basics_web/controllers/session_controller.ex:23
 msgid "You have been logged out!"
 msgstr ""
 
@@ -451,12 +452,12 @@ msgstr ""
 #: lib/hexlet_basics_web/controllers/password_controller.ex:20
 #: lib/hexlet_basics_web/controllers/password_controller.ex:36
 #: lib/hexlet_basics_web/controllers/remind_password_controller.ex:34
-#: lib/hexlet_basics_web/controllers/user_controller.ex:63
+#: lib/hexlet_basics_web/controllers/user_controller.ex:68
 msgid "User not found"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/session_controller.ex:28
+#: lib/hexlet_basics_web/controllers/session_controller.ex:29
 msgid "Signed in successfully."
 msgstr ""
 
@@ -466,17 +467,17 @@ msgid "Change Password"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/user_controller.ex:33
+#: lib/hexlet_basics_web/controllers/user_controller.ex:37
 msgid "User created! Check your email for confirm registration"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/user_controller.ex:58
+#: lib/hexlet_basics_web/controllers/user_controller.ex:63
 msgid "Registration confirmed! Welcome!"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/session_controller.ex:35
+#: lib/hexlet_basics_web/controllers/session_controller.ex:36
 msgid "There was a problem with your email/password"
 msgstr ""
 
@@ -487,16 +488,16 @@ msgid "Switch language to"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/auth_controller.ex:25
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:29
 msgid "Please confirm the email in your %{provider} account, then try again"
 msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/shared/social_sign_in.html.slime:1
-msgid "Sign In Facebook"
+msgid "Sign In Github"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/shared/social_sign_in.html.slime:1
-msgid "Sign In Github"
+#: lib/hexlet_basics_web/controllers/lesson_controller.ex:35
+msgid "You did it! We hope you enjoyed the training. Please rate Code Basics: <a href=https://www.facebook.com/pg/codebasicsru/reviews/ target=_blank>Share your impressions</a> on Facebook."
 msgstr ""
