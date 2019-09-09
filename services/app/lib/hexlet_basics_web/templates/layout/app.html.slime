@@ -41,7 +41,7 @@ html.h-100 lang="#{@locale}"
           - message = get_flash(@conn, name)
           = if message do
             .alert class=" alert-dismissible fade show alert-#{alert_name_by_flash(name)}" role="alert"
-              = message
+              == message
               button.close type="button" data-dismiss="alert" aria-label="Close"
                 span aria-hidden="true" &times;
 
