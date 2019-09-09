@@ -32,7 +32,7 @@ defmodule HexletBasicsWeb.LessonController do
     case Repo.one(next_lesson_query) || Repo.one(next_not_finished_lesson_query) do
       nil ->
         conn
-        |> put_flash(:info, gettext("You did it! We hope you enjoyed the training. Please rate Code Basics: <a href=https://www.facebook.com/pg/codebasicsru/reviews/ target=_blank>Share your impressions</a> on Facebook."))
+        |> put_flash(:info, gettext("You did it!"))
         |> redirect(to: Routes.page_path(conn, :index))
 
       next_lesson ->
