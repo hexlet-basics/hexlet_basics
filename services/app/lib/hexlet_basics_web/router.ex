@@ -59,6 +59,11 @@ defmodule HexletBasicsWeb.Router do
     plug(HexletBasicsWeb.Plugs.ApiRequireAuth)
   end
 
+  pipeline :api_for_webhooks do
+    plug(:accepts, ["json"])
+    plug(:fetch_session)
+  end
+
   scope "/auth", HexletBasicsWeb do
     pipe_through(:browser)
 
@@ -72,6 +77,12 @@ defmodule HexletBasicsWeb.Router do
     resources "/lessons", Api.LessonController, include: [] do
       resources("/checks", Api.Lesson.CheckController, include: [:create])
     end
+  end
+
+  scope "/api/webhooks", HexletBasicsWeb do
+    pipe_through(:api_for_webhooks)
+
+    post("sparkpost/process", Api.Webhooks.SparkpostController, :process)
   end
 
   scope "/", HexletBasicsWeb do
