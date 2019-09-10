@@ -60,7 +60,7 @@ defmodule HexletBasics.Mixfile do
       {:ecto_state_machine, "~> 0.3.0"},
       {:phoenix_jsroutes, "~> 0.0.4"},
       {:ex_machina, github: "thoughtbot/ex_machina", only: :test},
-      {:earmark, github: "pragdave/earmark"},
+      {:earmark, git: "https://github.com/Hexlet/earmark.git", branch: "master"},
       {:faker, "~> 0.9", only: :test},
       {:yaml_elixir, "~> 2.1.0"},
       {:rollbax, ">= 0.0.0"},
