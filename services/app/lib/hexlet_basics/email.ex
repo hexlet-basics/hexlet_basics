@@ -44,7 +44,6 @@ defmodule HexletBasics.Email do
   end
 
   defp sending_from do
-    sending_domain = Endpoint.config(:url)[:host]
-    "noreply@#{sending_domain}"
+    "basics.info@hexlet.io"
   end
 end
