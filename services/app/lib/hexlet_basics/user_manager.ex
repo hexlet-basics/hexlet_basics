@@ -1,6 +1,7 @@
 defmodule HexletBasics.UserManager do
   alias Bcrypt
-  alias HexletBasics.{User, User.Account, StateMachines.UserStateMachine}
+  alias HexletBasics.{User, User.Account}
+  alias HexletBasics.StateMachines.{UserStateMachine, User.EmailDeliveryStateMachine}
   import Ecto.Query, warn: false
   alias HexletBasics.Repo
 
@@ -73,6 +74,24 @@ defmodule HexletBasics.UserManager do
     %Account{}
     |> Account.changeset(attrs)
     |> Repo.insert()
+  end
+
+  def disable_delivery!(user) do
+    {:ok, %User{email_delivery_state: state}} =
+      Machinery.transition_to(user, EmailDeliveryStateMachine, "disabled")
+
+    user
+    |> User.email_delivery_state_changeset(%{email_delivery_state: state})
+    |> Repo.update!()
+  end
+
+  def enable_delivery!(user) do
+    {:ok, %User{email_delivery_state: state}} =
+      Machinery.transition_to(user, EmailDeliveryStateMachine, "enabled")
+
+    user
+    |> User.email_delivery_state_changeset(%{email_delivery_state: state})
+    |> Repo.update!()
   end
 
   defp activate_user!(user) do

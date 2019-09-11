@@ -82,7 +82,7 @@ defmodule HexletBasicsWeb.Router do
   scope "/api/webhooks", HexletBasicsWeb do
     pipe_through(:api_for_webhooks)
 
-    post("sparkpost/process", Api.Webhooks.SparkpostController, :process)
+    post("/sparkpost/process", Api.Webhooks.SparkpostController, :process)
   end
 
   scope "/", HexletBasicsWeb do
