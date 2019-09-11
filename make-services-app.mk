@@ -27,8 +27,7 @@ app-db-drop:
 	docker-compose run app mix ecto.drop
 
 app-db-prepare:
-	docker-compose run app mix ecto.create
-	docker-compose run app mix ecto.migrate
+	docker-compose run app mix ecto.setup
 
 app-exercises-load-python:
 	docker pull hexletbasics/exercises-python

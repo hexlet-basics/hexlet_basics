@@ -4,7 +4,7 @@ version: '2'
 
 services:
   db:
-    image: postgres:11.1
+    image: postgres:9.6
   test:
     image: app
     command: mix test
