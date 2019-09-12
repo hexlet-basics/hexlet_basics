@@ -1,7 +1,6 @@
 defmodule HexletBasics.Email do
   use Bamboo.Phoenix, view: HexletBasicsWeb.EmailView
   import HexletBasicsWeb.Gettext
-  alias HexletBasicsWeb.Endpoint
 
   defp base_email(email_address, subject) do
     new_email()
