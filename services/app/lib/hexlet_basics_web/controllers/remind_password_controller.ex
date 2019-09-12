@@ -1,9 +1,7 @@
 defmodule HexletBasicsWeb.RemindPasswordController do
   use HexletBasicsWeb, :controller
-  alias HexletBasics.Repo
-  alias HexletBasics.{User}
-  alias HexletBasics.Email
-  alias HexletBasics.Mailer
+  alias HexletBasics.{User, Repo}
+  alias HexletBasics.{Notifier, Email}
 
   def new(conn, _params) do
     changeset = User.changeset(%User{}, %{})
@@ -24,7 +22,7 @@ defmodule HexletBasicsWeb.RemindPasswordController do
       )
 
       email
-      |> Mailer.deliver_later
+      |> Notifier.send_email(user)
 
       conn
       |> put_flash(:info, gettext("Message with instructions for reset password was sent"))
