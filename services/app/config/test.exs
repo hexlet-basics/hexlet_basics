@@ -18,8 +18,8 @@ config :hexlet_basics,
 config :rollbax, enabled: false
 
 # Print only warnings and errors during test
-# config :logger, level: :warn
-config :logger, :console, format: "[$level] $message\n"
+config :logger, level: :warn
+# config :logger, :console, format: "[$level] $message\n"
 
 config :hexlet_basics, HexletBasics.UserManager.Guardian,
   issuer: "hexlet_basics",

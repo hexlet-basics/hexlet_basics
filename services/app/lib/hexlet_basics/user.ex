@@ -13,6 +13,7 @@ defmodule HexletBasics.User do
     field(:facebook_uid, :string)
     field(:nickname, :string)
     field(:state, :string, default: "initial")
+    field(:email_delivery_state, :string, default: "enabled")
     field(:encrypted_password, :string)
     field(:confirmation_token, :string)
     field(:reset_password_token, :string)
@@ -37,6 +38,10 @@ defmodule HexletBasics.User do
 
   def state_changeset(%User{} = user, attrs \\ %{}) do
     user |> cast(attrs, [:state])
+  end
+
+  def email_delivery_state_changeset(%User{} = user, attrs \\ %{}) do
+    user |> cast(attrs, [:email_delivery_state])
   end
 
   def locale_changeset(%User{} = user, attrs \\ %{}) do
@@ -86,6 +91,14 @@ defmodule HexletBasics.User do
 
   def active?(user) do
     user.state == "active"
+  end
+
+  def disabled_delivery?(user) do
+    user.email_delivery_state == "disabled"
+  end
+
+  def enabled_delivery?(user) do
+    user.email_delivery_state == "enabled"
   end
 
   defp put_initial_state(changeset) do
