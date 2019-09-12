@@ -4,7 +4,7 @@ defmodule HexletBasics.Notifier do
   def send_email(email, recipient) do
     if User.enabled_delivery?(recipient) do
       email
-      |> Mailer.deliver_now()
+      |> Mailer.deliver_later()
     end
   end
 end
