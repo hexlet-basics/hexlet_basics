@@ -93,6 +93,14 @@ defmodule HexletBasics.User do
     user.state == "active"
   end
 
+  def disabled_delivery?(user) do
+    user.email_delivery_state == "disabled"
+  end
+
+  def enabled_delivery?(user) do
+    user.email_delivery_state == "enabled"
+  end
+
   defp put_initial_state(changeset) do
     changeset |> put_change(:state, "initial")
   end

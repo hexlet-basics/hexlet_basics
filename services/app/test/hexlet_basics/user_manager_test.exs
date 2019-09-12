@@ -206,4 +206,18 @@ defmodule HexletBasics.UserManagerTest do
     assert User.active?(auth_user)
     assert account.id == new_account.id
   end
+
+  test "disable_delivery!/1" do
+    user = insert(:user)
+    disabled_delivery_user = UserManager.disable_delivery!(user)
+
+    assert User.disabled_delivery?(disabled_delivery_user)
+  end
+
+  test "enable_delivery!/1" do
+    user = insert(:user, email_delivery_state: "disabled")
+    enabled_delivery_user = UserManager.enable_delivery!(user)
+   
+    assert User.enabled_delivery?(enabled_delivery_user)
+  end
 end
