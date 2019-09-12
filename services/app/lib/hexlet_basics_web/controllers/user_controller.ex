@@ -1,7 +1,6 @@
 defmodule HexletBasicsWeb.UserController do
   use HexletBasicsWeb, :controller
-  alias HexletBasics.{User, Repo, UserManager.Guardian, StateMachines.UserStateMachine}
-  alias HexletBasics.{Email, Notifier}
+  alias HexletBasics.{User, Email, Mailer, Repo, UserManager.Guardian, StateMachines.UserStateMachine}
   alias HexletBasicsWeb.Plugs.CheckAuthentication
 
   plug CheckAuthentication when action in [:new, :create]
@@ -25,7 +24,7 @@ defmodule HexletBasicsWeb.UserController do
           )
 
         email
-        |> Notifier.send_email(user)
+        |> Mailer.deliver_now()
 
         {:ok, %User{state: state}} =
           Machinery.transition_to(user, UserStateMachine, "waiting_confirmation")
