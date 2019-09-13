@@ -18,7 +18,7 @@ defmodule HexletBasicsWeb.AuthController do
   end
 
   def callback(
-        %{assigns: %{ueberauth_auth: %{info: %{email: nil}, uid: uid, provider: provider}}} =
+        %{assigns: %{ueberauth_auth: %{info: %{email: nil}, provider: provider}}} =
           conn,
         _params
       ) do

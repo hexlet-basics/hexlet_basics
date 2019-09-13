@@ -70,14 +70,4 @@ defmodule HexletBasicsWeb.UserController do
       |> redirect(to: "/")
     end
   end
-
-  defp check_authentication(conn, _options) do
-    %{assigns: %{current_user: current_user}} = conn
-
-    if current_user.guest do
-      conn
-    else
-      conn |> redirect(to: "/") |> halt()
-    end
-  end
 end
