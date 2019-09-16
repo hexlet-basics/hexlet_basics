@@ -1,7 +1,7 @@
 defmodule HexletBasicsWeb.UserController do
   use HexletBasicsWeb, :controller
   alias HexletBasics.{User, Repo, UserManager.Guardian, StateMachines.UserStateMachine}
-  alias HexletBasics.{Email, Notifier}
+  alias HexletBasics.{Notifications}
   alias HexletBasicsWeb.Plugs.CheckAuthentication
 
   plug CheckAuthentication when action in [:new, :create]
@@ -17,15 +17,11 @@ defmodule HexletBasicsWeb.UserController do
 
     case Repo.insert(changeset) do
       {:ok, user} ->
-        email =
-          Email.confirmation_html_email(
-            conn,
-            user,
-            Routes.user_url(conn, :confirm, confirmation_token: user.confirmation_token)
-          )
+        email = Ecto.build_assoc(user, :emails, %{kind: "user_registration"})
+                |> Repo.insert!()
 
         email
-        |> Notifier.send_email(user)
+        |> Notifications.send_email(conn, user)
 
         {:ok, %User{state: state}} =
           Machinery.transition_to(user, UserStateMachine, "waiting_confirmation")

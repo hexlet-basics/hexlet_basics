@@ -30,8 +30,9 @@ config :hexlet_basics,
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :hexlet_basics, HexletBasics.Mailer,
+config :hexlet_basics, HexletBasics.Notifications.Mailer,
   adapter: Bamboo.SMTPAdapter,
+  deliver_later_strategy: HexletBasics.Notifications.DeliveryLaterStrategy,
   server: "smtp.sparkpostmail.com",
   port: 587,
   username: System.fetch_env!("SPARKPOST_SMTP_USERNAME"),

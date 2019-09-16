@@ -53,8 +53,9 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
   secret_key_base: System.fetch_env!("SECRET_KEY_BASE"),
   pubsub: [name: HexletBasics.PubSub, adapter: Phoenix.PubSub.PG2]
 
-config :hexlet_basics, HexletBasics.Mailer,
-  adapter: Bamboo.LocalAdapter
+config :hexlet_basics, HexletBasics.Notifications.Mailer,
+  adapter: Bamboo.LocalAdapter,
+  deliver_later_strategy: HexletBasics.Notifications.DeliveryLaterStrategy
 
 # Configures Elixir's Logger
 config :logger, :console,

@@ -1,7 +1,7 @@
 defmodule HexletBasics.User do
   use Ecto.Schema
   import Ecto.Changeset
-  alias HexletBasics.User
+  alias HexletBasics.{User, Notifications.Email}
 
   @derive {Jason.Encoder, only: [:first_name, :last_name, :nickname, :guest]}
 
@@ -25,6 +25,8 @@ defmodule HexletBasics.User do
     has_many(:finished_lesson_lessons, through: [:finished_lessons, :language_module_lesson])
     has_many(:finished_lesson_modules, through: [:finished_lesson_lessons, :module])
     has_many(:finished_lesson_languages, through: [:finished_lesson_modules, :language])
+
+    has_many(:emails, Email, foreign_key: :recipient_id)
 
     timestamps()
   end
