@@ -1,5 +1,5 @@
 defmodule HexletBasics.Notifications.DeliveryLaterStrategy do
-  @behaviour Bamboo.DeliveryLaterStrategy
+  @behaviour Bamboo.DeliverLaterStrategy
 
   alias HexletBasics.Notifications
   alias HexletBasics.Repo
@@ -15,6 +15,7 @@ defmodule HexletBasics.Notifications.DeliveryLaterStrategy do
       rescue
         e in _ ->
           Notifications.email_fail!(email)
+          Rollbax.report(:error, e, __STACKTRACE__)
       end
     end
   end

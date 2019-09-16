@@ -15,14 +15,11 @@ defmodule HexletBasicsWeb.RemindPasswordController do
                      |> User.generate_token(:reset_password_token)
                      |> Repo.update()
 
-      # email = Email.reset_password_html_email(
-      #   conn,
-      #   user,
-      #   Routes.password_url(conn, :edit, reset_password_token: user.reset_password_token)
-      # )
+        email = Ecto.build_assoc(user, :emails, %{kind: "remind_password"})
+                |> Repo.insert!()
 
-      # email
-      # |> Notifications.send_email(user)
+        email
+        |> Notifications.send_email(conn, user)
 
       conn
       |> put_flash(:info, gettext("Message with instructions for reset password was sent"))

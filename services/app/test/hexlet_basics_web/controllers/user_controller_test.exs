@@ -12,7 +12,10 @@ defmodule HexletBasicsWeb.UserControllerTest do
 
   test "create user", %{conn: conn} do
     conn = post conn, user_path(conn, :create), user: @create_attrs
+    user = HexletBasics.Repo.get_by(HexletBasics.User, email: @create_attrs[:email])
+    sent_email = HexletBasics.Repo.get_by(HexletBasics.Notifications.Email, %{kind: "user_registration", recipient_id: user.id})
 
+    assert sent_email
     assert redirected_to(conn) == page_path(conn, :index)
   end
 

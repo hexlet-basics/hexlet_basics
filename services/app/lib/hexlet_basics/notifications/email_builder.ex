@@ -3,12 +3,14 @@ defmodule HexletBasics.Notifications.EmailBuilder do
   import HexletBasicsWeb.Gettext
 
   defp base_email(email_address, email, subject) do
+    meta = Jason.encode!(%{metadata: %{email_id: email.id}})
+
     new_email()
     |> to(email_address)
     |> from({"Code Basics", sending_from()})
     |> subject(subject)
     |> put_private(:email_id, email.id)
-    |> put_header("X-MSYS-API", %{metadata: %{email_id: email.id}})
+    |> put_header("X-MSYS-API", meta)
     |> put_html_layout({HexletBasicsWeb.LayoutView, "email.html"})
   end
 

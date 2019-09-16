@@ -35,6 +35,43 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: emails; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.emails (
+    id bigint NOT NULL,
+    state character varying(255),
+    delivery_status character varying(255),
+    delivery_message text,
+    kind character varying(255),
+    body text,
+    sent_at timestamp(0) without time zone,
+    recipient_id bigint,
+    inserted_at timestamp(0) without time zone NOT NULL,
+    updated_at timestamp(0) without time zone NOT NULL
+);
+
+
+--
+-- Name: emails_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.emails_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: emails_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.emails_id_seq OWNED BY public.emails.id;
+
+
+--
 -- Name: language_module_descriptions; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -370,6 +407,13 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
+-- Name: emails id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.emails ALTER COLUMN id SET DEFAULT nextval('public.emails_id_seq'::regclass);
+
+
+--
 -- Name: language_module_descriptions id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -430,6 +474,14 @@ ALTER TABLE ONLY public.user_finished_lessons ALTER COLUMN id SET DEFAULT nextva
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+--
+-- Name: emails emails_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.emails
+    ADD CONSTRAINT emails_pkey PRIMARY KEY (id);
 
 
 --
@@ -604,6 +656,14 @@ CREATE UNIQUE INDEX users_email_index ON public.users USING btree (email);
 
 
 --
+-- Name: emails emails_recipient_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.emails
+    ADD CONSTRAINT emails_recipient_id_fkey FOREIGN KEY (recipient_id) REFERENCES public.users(id);
+
+
+--
 -- Name: language_module_descriptions language_module_descriptions_language_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -711,5 +771,5 @@ ALTER TABLE ONLY public.user_finished_lessons
 -- PostgreSQL database dump complete
 --
 
-INSERT INTO public."schema_migrations" (version) VALUES (20171125194458), (20171126054250), (20171126070001), (20171126070653), (20171126070825), (20171127083442), (20171127083829), (20171214111434), (20171214172819), (20171226110804), (20171226162229), (20180111153426), (20180201133326), (20180201133426), (20190603193727), (20190805163126), (20190807123154), (20190808094808), (20190812125644), (20190819131621), (20190902131653), (20190904072740), (20190911072227), (20190911072926);
+INSERT INTO public."schema_migrations" (version) VALUES (20171125194458), (20171126054250), (20171126070001), (20171126070653), (20171126070825), (20171127083442), (20171127083829), (20171214111434), (20171214172819), (20171226110804), (20171226162229), (20180111153426), (20180201133326), (20180201133426), (20190603193727), (20190805163126), (20190807123154), (20190808094808), (20190812125644), (20190819131621), (20190902131653), (20190904072740), (20190911072227), (20190911072926), (20190913051952);
 

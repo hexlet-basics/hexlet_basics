@@ -17,7 +17,7 @@ defmodule HexletBasics.Notifications do
     email = update_email!(email, %{body: email_struct.html_body})
 
     if User.enabled_delivery?(recipient) do
-      email = email_sending!(email)
+      email_sending!(email)
 
       email_struct
       |> Mailer.deliver_later()
@@ -33,6 +33,13 @@ defmodule HexletBasics.Notifications do
             recipient,
             Routes.user_url(conn, :confirm, confirmation_token: recipient.confirmation_token)
           )
+      "remind_password" ->
+        EmailBuilder.build_reset_password_html_email(
+          conn,
+          email,
+          recipient,
+          Routes.password_url(conn, :edit, reset_password_token: recipient.reset_password_token)
+        )
     end
   end
 

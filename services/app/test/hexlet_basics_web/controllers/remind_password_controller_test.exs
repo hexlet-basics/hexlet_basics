@@ -4,7 +4,7 @@ defmodule HexletBasicsWeb.RemindPasswordControllerTest do
   @create_attrs %{
     encrypted_password: Bcrypt.hash_pwd_salt("password"),
     email: "user@mail.ru",
-    reset_password_token: @reset_password_token
+    reset_password_token: "12345"
   }
 
   setup [:create_user]
@@ -16,7 +16,9 @@ defmodule HexletBasicsWeb.RemindPasswordControllerTest do
 
   test "#create", %{conn: conn, user: user} do
     conn = post conn, remind_password_path(conn, :create), user: %{email: user.email}
+    sent_email = HexletBasics.Repo.get_by(HexletBasics.Notifications.Email, %{kind: "remind_password", recipient_id: user.id})
 
+    assert sent_email
     assert redirected_to(conn) == page_path(conn, :index)
   end
 
