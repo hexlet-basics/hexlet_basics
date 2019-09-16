@@ -5,9 +5,10 @@ defmodule HexletBasics.Notifications.Email do
   schema "emails" do
     field(:state, :string, default: "created")
     field(:kind, :string)
-    field(:delivery_status, EmailDeliveryStatusEnum)
+    field(:delivery_status, HexletBasics.Notifications.EmailDeliveryStatusEnum)
     field(:delivery_message, :string)
     field(:body, :string)
+    field(:sent_at, :utc_datetime)
     belongs_to(:recipient, HexletBasics.User)
 
     timestamps()
@@ -16,7 +17,7 @@ defmodule HexletBasics.Notifications.Email do
   @doc false
   def changeset(email, attrs) do
     email
-    |> cast(attrs, [:delivery_status, :state, :kind, :delivery_message, :body])
+    |> cast(attrs, [:delivery_status, :state, :kind, :delivery_message, :body, :sent_at])
     |> cast_assoc(:recipient)
   end
 end

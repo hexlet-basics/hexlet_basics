@@ -1,4 +1,6 @@
 defmodule HexletBasics.StateMachines.EmailStateMachine do
+  alias HexletBasics.Notifications.Email
+
   use Machinery,
     states: ["created", "processing", "sending", "sent", "failed"],
     transitions: %{
@@ -6,4 +8,8 @@ defmodule HexletBasics.StateMachines.EmailStateMachine do
       "processing" => "sending",
       "sending" => ["sent", "failed"],
     }
+
+  def before_transition(struct, "sent") do
+    %Email{struct | sent_at: DateTime.utc_now}
+  end
 end

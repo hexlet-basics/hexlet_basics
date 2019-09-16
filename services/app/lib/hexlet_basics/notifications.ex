@@ -37,27 +37,27 @@ defmodule HexletBasics.Notifications do
   end
 
   def email_processing!(email) do
-    state = email_change_state(email, "processing")
-    update_email!(email, %{state: state})
+    struct = email_change_state(email, "processing")
+    update_email!(email, %{state: struct.state})
   end
 
   def email_sending!(email) do
-    state = email_change_state(email, "sending")
-    update_email!(email, %{state: state})
+    struct = email_change_state(email, "sending")
+    update_email!(email, %{state: struct.state})
   end
 
   def email_fail!(email) do
-    state = email_change_state(email, "failed")
-    update_email!(email, %{state: state})
+    struct = email_change_state(email, "failed")
+    update_email!(email, %{state: struct.state})
   end
 
   def email_sent!(email) do
-    state = email_change_state(email, "sent")
-    update_email!(email, %{state: state})
+    struct = email_change_state(email, "sent")
+    update_email!(email, %{state: struct.state, sent_at: struct.sent_at})
   end
 
   defp email_change_state(email, state) do
-    {:ok, %Email{state: state}} = Machinery.transition_to(email, EmailStateMachine, state)
-    state
+    {:ok, email} = Machinery.transition_to(email, EmailStateMachine, state)
+    email
   end
 end

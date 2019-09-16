@@ -2,10 +2,9 @@ defmodule HexletBasics.Repo.Migrations.CreateEmails do
   use Ecto.Migration
 
   def change do
-    EmailDeliveryStatusEnum.create_type
     create table(:emails) do
       add :state, :string
-      add :delivery_status, EmailDeliveryStatusEnum.type()
+      add :delivery_status, :string
       add :delivery_message, :text
       add :kind, :string
       add :body, :text
