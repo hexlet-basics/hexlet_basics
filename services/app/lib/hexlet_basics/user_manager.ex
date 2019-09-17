@@ -6,6 +6,7 @@ defmodule HexletBasics.UserManager do
   alias HexletBasics.Repo
 
   def get_user!(id), do: Repo.get!(User, id)
+  def get_user(id), do: Repo.get(User, id)
   def user_get_by(params), do: Repo.get_by(User, params)
 
   def set_locale!(%User{} = user, locale) do
