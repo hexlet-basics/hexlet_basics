@@ -2,11 +2,14 @@ defmodule HexletBasics.Email do
   use Bamboo.Phoenix, view: HexletBasicsWeb.EmailView
   import HexletBasicsWeb.Gettext
 
-  defp base_email(email_address, subject) do
+  defp base_email(email_address, subject, user) do
+    meta = Jason.encode!(%{metadata: %{user_id: user.id}})
+
     new_email()
     |> to(email_address)
     |> from({"Code Basics", sending_from()})
     |> subject(subject)
+    |> put_header("X-MSYS-API", meta)
     |> put_html_layout({HexletBasicsWeb.LayoutView, "email.html"})
   end
 
@@ -18,7 +21,7 @@ defmodule HexletBasics.Email do
     email_address = user.email
 
     email_address
-    |>base_email(subject)
+    |>base_email(subject, user)
     |> render(
       "user/confirmation.#{locale}.html",
       confirmation_url: url,
@@ -34,7 +37,7 @@ defmodule HexletBasics.Email do
     email_address = user.email
 
     email_address
-    |>base_email(subject)
+    |>base_email(subject, user)
     |> render(
       "user/reset_password.#{locale}.html",
       reset_password_url: url,
