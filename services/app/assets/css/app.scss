@@ -30,6 +30,8 @@ $hexlet-basics-java-bg: #89ddf3;
 $hexlet-basics-javascript-bg: #7986cb;
 $hexlet-basics-racket-bg: #f9ae58;
 $hexlet-basics-python-bg: #c594c5;
+$hexlet-basics-ruby-bg: #db625c;
+$hexlet-basics-elixir-bg: #9976d6;
 
 .hexlet-basics-html-bg {
   background-color: $hexlet-basics-html-bg;
@@ -57,6 +59,14 @@ $hexlet-basics-python-bg: #c594c5;
 
 .hexlet-basics-python-bg {
   background-color: $hexlet-basics-python-bg;
+}
+
+.hexlet-basics-ruby-bg {
+  background-color: $hexlet-basics-ruby-bg;
+}
+
+.hexlet-basics-elixir-bg {
+  background-color: $hexlet-basics-elixir-bg;
 }
 
 @import "~bootstrap/scss/bootstrap";

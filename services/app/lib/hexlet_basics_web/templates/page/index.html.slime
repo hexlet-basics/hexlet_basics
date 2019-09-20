@@ -57,3 +57,24 @@
         img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/racket.png") alt="Racket programming lessons")
         - racketAnchor = if Enum.member?(@started_languages_by_slug, "racket"), do: gettext("Continue"), else: gettext("Start")
         = link racketAnchor, to: Routes.language_path(@conn, :show, "racket"), class: "btn btn-light btn-block stretched-link"
+
+.row.justify-content-center.mb-5.mt-5
+  .col-12.col-md-9.text-center
+    h1.h3.font-weight-light = gettext("Courses in development")
+    p = gettext("Courses in development description")
+
+.row
+  .col-12.col-sm-6.col-lg-3.mb-4
+    .card.h-100
+      .card-body.hexlet-basics-ruby-bg
+        h2.h4.font-weight-light.card-title.text-center Ruby
+        img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/ruby.png") alt="ruby programming lessons")
+        - rubyAnchor = if Enum.member?(@started_languages_by_slug, "ruby"), do: gettext("Continue"), else: gettext("Start")
+        = link rubyAnchor, to: Routes.language_path(@conn, :show, "ruby"), class: "btn btn-light btn-block stretched-link"
+  .col-12.col-sm-6.col-lg-3.mb-4
+    .card.h-100
+      .card-body.hexlet-basics-elixir-bg
+        h2.h4.font-weight-light.card-title.text-center Elixir
+        img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/elixir.png") alt="elixir programming lessons")
+        - elixirAnchor = if Enum.member?(@started_languages_by_slug, "elixir"), do: gettext("Continue"), else: gettext("Start")
+        = link elixirAnchor, to: Routes.language_path(@conn, :show, "elixir"), class: "btn btn-light btn-block stretched-link"
