@@ -172,6 +172,14 @@ msgstr "Code Basics: основы программирования"
 msgid "From the creators of Hexlet"
 msgstr "От создателей Хекслета"
 
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Courses in development"
+msgstr "Курсы в разработке"
+
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Courses in development description"
+msgstr "Данные курсы находятся в разработке и не являются финальной версией. Вы можете помочь в разработке, прислав Pull Request в репозиторий GitHub"
+
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 #: lib/hexlet_basics_web/templates/page/about.html.slime:1

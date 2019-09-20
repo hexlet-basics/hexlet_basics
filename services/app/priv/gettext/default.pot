@@ -151,6 +151,7 @@ msgstr ""
 msgid "Code Basics Description"
 msgstr ""
 
+
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
@@ -176,6 +177,14 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 #: lib/hexlet_basics_web/templates/page/about.html.slime:1
 msgid "About"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Courses in development"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Courses in development description"
 msgstr ""
 
 #, elixir-format
