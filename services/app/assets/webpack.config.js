@@ -15,7 +15,8 @@ module.exports = {
     minimizer: [
       new TerserPlugin({ cache: true, parallel: true, sourceMap: false }),
       new OptimizeCSSAssetsPlugin({}),
-    ]
+    ],
+    concatenateModules: false,
   },
   resolve: {
     extensions: ['.js', '.jsx'],
