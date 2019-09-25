@@ -76,6 +76,7 @@ defmodule HexletBasics.Mixfile do
       {:formulator, "~> 0.1.8"},
       {:bamboo, "~> 1.3"},
       {:bamboo_smtp, "~> 1.7.0"},
+      {:hackney, github: "benoitc/hackney", override: true},
       {:machinery, git: "https://github.com/joaomdmoura/machinery.git"},
       {:guardian, "~> 1.2"},
       {:cowboy, "~> 2.5", override: true} # TODO: https://github.com/joaomdmoura/machinery/issues/40
