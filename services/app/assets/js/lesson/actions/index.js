@@ -14,7 +14,7 @@ export const runCheckFailure = createAction('CHECK/RUN/FAILURE');
 export const changeCode = createAction('CODE/CHANGE');
 export const selectTab = createAction('TAB/SELECT');
 
-export const dismissNotification = createAction('NOTIFICATION/DISMISS');
+// export const dismissNotification = createAction('NOTIFICATION/DISMISS');
 
 export const runCheck = ({ lesson, code }) => async (dispatch) => {
   dispatch(runCheckRequest());

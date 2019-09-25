@@ -26,10 +26,10 @@ const currentTabInfo = handleActions({
 }, { current: 'editor', clicksCount: 0 });
 
 const notification = handleActions({
-  [actions.dismissNotification]: () => {
-    const info = null;
-    return info;
-  },
+  // [actions.dismissNotification]: () => {
+  //   const info = null;
+  //   return info;
+  // },
   [actions.runCheckFailure]: (_state, { payload }) => {
     let message;
     switch (payload.code) {

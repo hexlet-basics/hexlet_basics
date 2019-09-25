@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { withTranslation } from 'react-i18next';
+import cn from 'classnames';
 import {
   TabContent, TabPane, Nav, NavItem, NavLink,
 } from 'reactstrap';
@@ -13,8 +14,8 @@ import connect from '../connect';
 import EntityContext from '../EntityContext';
 
 const mapStateToProps = (state) => {
-  const { checkInfo, currentTabInfo } = state;
-  const props = { checkInfo, currentTabInfo };
+  const { notification, checkInfo, currentTabInfo } = state;
+  const props = { checkInfo, currentTabInfo, notification };
   return props;
 };
 
@@ -30,6 +31,7 @@ class TabsBox extends React.Component {
       checkInfo,
       currentTabInfo,
       setActive,
+      notification,
       changeCode,
       userFinishedLesson,
       active,
@@ -46,6 +48,11 @@ class TabsBox extends React.Component {
     const activateTabPane = activeClass('d-flex flex-column overflow-auto h-100 w-100');
 
     const tabNames = ['editor', 'console', 'solution'];
+
+    const badgeClassName = cn('badge', {
+      [`badge-${notification && notification.type}`]: true,
+    });
+
     const elements = tabNames.map((name) => {
       const className = `text-light ${activateNavLink(name)}`;
       return (
@@ -59,7 +66,14 @@ class TabsBox extends React.Component {
 
     return (
       <React.Fragment>
-        <Nav tabs>{elements}</Nav>
+        <div className="d-flex">
+          <div className="mr-auto">
+            <Nav tabs>{elements}</Nav>
+          </div>
+          <div className="my-auto">
+            <span className={badgeClassName}>{notification && t(notification.headline)}</span>
+          </div>
+        </div>
         <TabContent className={`d-flex ${className}`} activeTab={active}>
           <TabPane tabId="editor" className={activateTabPane('editor')}>
             <Editor

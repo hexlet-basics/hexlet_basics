@@ -1,7 +1,6 @@
 // @ts-check
 
 import React from 'react';
-import { Alert, AlertContainer } from 'react-bs-notifier';
 import { withTranslation } from 'react-i18next';
 import connect from '../connect';
 import TabsBox from './TabsBox';
@@ -9,8 +8,8 @@ import HTMLPreview from './HTMLPreview';
 import ControlBox from './ControlBox';
 
 const mapStateToProps = (state) => {
-  const { notification, code, checkInfo, currentTabInfo } = state;
-  const props = { notification, code, checkInfo, currentTabInfo };
+  const { code, checkInfo, currentTabInfo } = state;
+  const props = { code, checkInfo, currentTabInfo };
   return props;
 };
 
@@ -39,27 +38,6 @@ class App extends React.Component {
     selectTab({ current });
   }
 
-  renderAlert() {
-    const { notification, dismissNotification, t } = this.props;
-    if (!notification) {
-      return null;
-    }
-    return (
-      <div className="hexlet-ide-notifications">
-        <AlertContainer>
-          <Alert
-            timeout={5000}
-            onDismiss={dismissNotification}
-            type={notification.type}
-            headline={t(notification.headline)}
-          >
-            {t(notification.message)}
-          </Alert>
-        </AlertContainer>
-      </div>
-    );
-  }
-
   render() {
     const { currentTabInfo, userFinishedLesson, language } = this.props;
 
@@ -67,7 +45,6 @@ class App extends React.Component {
 
     return (
       <React.Fragment>
-        {this.renderAlert()}
         <TabsBox
           className={currentViewOptions.tabsBoxClassName}
           onSelectActive={this.handleSelectTab}
