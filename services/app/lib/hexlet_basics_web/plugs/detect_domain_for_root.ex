@@ -14,7 +14,7 @@ defmodule HexletBasicsWeb.Plugs.DetectDomainForRoot do
     cond do
       conn.host == System.fetch_env!("APP_RU_HOST") ->
         conn
-        |>put_session(:locale, "ru")
+        |> put_session(:locale, "ru")
       locale == "ru" ->
         conn
         |> redirect(external: CustomUrl.redirect_current_url(conn, locale))
