@@ -1,11 +1,12 @@
 defmodule HexletBasicsWeb.AuthController do
   use HexletBasicsWeb, :controller
   alias HexletBasics.{UserManager, UserManager.Guardian}
-  alias HexletBasicsWeb.Plugs.CheckAuthentication
+  alias HexletBasicsWeb.Plugs.{CheckAuthentication, ChangeLocale}
   alias Ueberauth.Strategy.Helpers
 
   plug Ueberauth
   plug CheckAuthentication when action in [:request, :callback]
+  plug ChangeLocale when action in [:request, :callback]
 
   def request(conn, _params) do
     render(conn, callback_url: Helpers.callback_url(conn))
