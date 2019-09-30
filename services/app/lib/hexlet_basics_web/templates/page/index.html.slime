@@ -16,7 +16,7 @@
     .card.h-100
       .card-body.hexlet-basics-javascript-bg
         h2.h4.font-weight-light.card-title.text-center JavaScript
-        img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/js.png") alt="JavaScript programming lessons")
+        img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/javascript.png") alt="JavaScript programming lessons")
         - jsAnchor = if Enum.member?(@started_languages_by_slug, "javascript"), do: gettext("Continue"), else: gettext("Start")
         = link jsAnchor, to: Routes.language_path(@conn, :show, "javascript"), class: "btn btn-light btn-block stretched-link"
   .col-12.col-sm-6.col-lg-3.mb-4
