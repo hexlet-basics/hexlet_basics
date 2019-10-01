@@ -8,16 +8,26 @@ meta content=("#{gettext("Code Basics Description")}") property="og:description"
 meta content="/images/smm_cover.jpg" property="og:image"
 meta content="webiste" property="og:type"
 
-link href="/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"
-link href="/images/favicons/apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed" sizes="180x180"
-/ link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" /
-/ link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" /
-/ link href="/images/favicons/site.webmanifest" rel="manifest" /
-/ link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg" rel="mask-icon" /
-/ link href="/images/favicons/favicon.ico" rel=("shortcut icon") /
-/ meta content="#b91d47" name="msapplication-TileColor" /
-/ meta content="/images/favicons/browserconfig.xml" name="msapplication-config" /
-/ meta content="#ffffff" name="theme-color" /
+link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"
+link rel="apple-touch-icon" href="/apple-touch-icon.png"
+link rel="apple-touch-icon" sizes="57x57" href="#{Routes.static_path(@conn, "/images/favicons/apple-touch-icon-57x57.png")}"
+link rel="apple-touch-icon" sizes="72x72" href="#{Routes.static_path(@conn, "/images/favicons/apple-touch-icon-72x72.png")}"
+link rel="apple-touch-icon" sizes="76x76" href="#{Routes.static_path(@conn, "/images/favicons/apple-touch-icon-76x76.png")}"
+link rel="apple-touch-icon" sizes="114x114" href="#{Routes.static_path(@conn, "/images/favicons/apple-touch-icon-114x114.png")}"
+link rel="apple-touch-icon" sizes="120x120" href="#{Routes.static_path(@conn, "/images/favicons/apple-touch-icon-120x120.png")}"
+link rel="apple-touch-icon" sizes="144x144" href="#{Routes.static_path(@conn, "/images/favicons/apple-touch-icon-144x144.png")}"
+link rel="apple-touch-icon" sizes="152x152" href="#{Routes.static_path(@conn, "/images/favicons/apple-touch-icon-152x152.png")}"
+link rel="apple-touch-icon" sizes="167x167" href="#{Routes.static_path(@conn, "/images/favicons/apple-touch-icon-167x167.png")}"
+link rel="apple-touch-icon" sizes="180x180" href="#{Routes.static_path(@conn, "/images/favicons/apple-touch-icon-180x180.png")}"
+
+link href="/images/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"
+link href="/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"
+link href="/images/favicons/site.webmanifest" rel="manifest"
+link color="#5bbad5" href="/images/favicons/safari-pinned-tab.svg" rel="mask-icon"
+link href="/images/favicons/favicon.ico" rel=("shortcut icon")
+meta content="#b91d47" name="msapplication-TileColor"
+meta content="/images/favicons/browserconfig.xml" name="msapplication-config"
+meta content="#ffffff" name="theme-color"
 
 = render_gon_script(@conn)
 
