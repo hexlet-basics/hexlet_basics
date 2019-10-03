@@ -11,14 +11,33 @@ defmodule HexletBasicsWeb.Plugs.AssignCurrentUser do
   def call(conn, _opts) do
     # FIXME: Это нужно будет убрать когда вернем аутентификацию для соцсетей
     user_from_session = get_session(conn, :current_user)
-    conn = cond do
-      user_from_session && !user_from_session.guest ->
-        renew_user = UserManager.get_user!(user_from_session.id)
+
+    conn =
+      cond do
+        user_from_session && !user_from_session.guest ->
+          renew_user = UserManager.get_user!(user_from_session.id)
+
+          conn
+          |> put_session(:current_user, renew_user)
+
+        true ->
+          conn
+      end
+
+    token = Guardian.Plug.current_token(conn)
+
+    conn =
+      if token do
+        case UserManager.Guardian.refresh(token) do
+          {:ok, _old_stuff, {new_token, _new_claims}} ->
+            conn
+            |> Guardian.Plug.put_session_token(new_token)
+          {:error, _} ->
+            conn
+        end
+      else
         conn
-        |> put_session(:current_user, renew_user)
-      true ->
-        conn
-    end
+      end
 
     maybe_user = get_session(conn, :current_user) || Guardian.Plug.current_resource(conn)
 
