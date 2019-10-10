@@ -45,3 +45,10 @@ resource "cloudflare_record" "google-verification-com" {
   type    = "TXT"
 }
 
+resource "cloudflare_record" "facebook-domain-verification" {
+  domain  = "${var.domain}"
+  name  = "${var.domain}"
+  value   = "facebook-domain-verification=d7d3em3a29yebcswwq8aa57shrc1m6"
+  type    = "TXT"
+}
+
