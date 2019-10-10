@@ -70,8 +70,6 @@ defmodule HexletBasicsWeb.UserController do
       |> redirect(to: "/")
     end
   end
-<<<<<<< HEAD
-=======
 
   def resend_confirmation(conn, %{"user_id" => user_id} = params) do
     user = Repo.get!(User, user_id)
@@ -112,5 +110,4 @@ defmodule HexletBasicsWeb.UserController do
         |> redirect(to: redirect_to)
     end
   end
->>>>>>> add edit page
 end
