@@ -9,6 +9,9 @@ metadata:
     app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
     app.kubernetes.io/managed-by: "{{ .Release.Service }}"
     helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+  annotations:
+    beta.cloud.google.com/backend-config: '{"ports": {"8080":"hexlet-basics-backend-config"}}'
+
 spec:
   selector:
     app.kubernetes.io/name: "{{ .Release.Name }}-web-pod"
