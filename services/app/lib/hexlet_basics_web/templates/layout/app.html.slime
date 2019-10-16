@@ -10,7 +10,7 @@ html.h-100 lang="#{@locale}"
   body.h-100.d-flex.flex-column
     = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html", assigns
     header
-      nav.navbar.navbar-expand-md.navbar-dark role="navigation"
+      nav.navbar.navbar-expand-lg.navbar-dark role="navigation"
         a.navbar-brand href="/"
           img.mr-3.d-none.d-sm-inline(width="30px" src=Routes.static_path(@conn, "/images/logo.png") alt="Code Basics Logo")
           span= gettext("Code Basics")
