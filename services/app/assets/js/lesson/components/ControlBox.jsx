@@ -45,13 +45,13 @@ class ControlBox extends React.Component {
     });
 
     const nextButtonClasses = cn({
-      'btn text-light': true,
+      'btn text-light d-inline-flex align-items-center': true,
       'btn-outline-black disabled': !lessonState.finished,
       'btn-success': lessonState.finished,
     });
 
     const prevButtonClasses = cn({
-      'btn text-light': true,
+      'btn text-light d-inline-flex align-items-center': true,
       'btn-outline-black disabled': !prevLesson,
       'btn-success': prevLesson,
     });
@@ -64,9 +64,9 @@ class ControlBox extends React.Component {
     return (
       <Hotkeys keyName="ctrl+Enter" onKeyUp={this.handleRunCheck}>
         <div className="row">
-          <div className="col d-flex d-md-block x-font-sans-serif text-center">
+          <div className="col d-flex d-xl-block x-font-sans-serif text-center py-2">
             <a
-              className="btn btn-outline-secondary mr-md-3"
+              className="btn btn-outline-secondary mr-xl-3 d-inline-flex align-items-center"
               href={window.location.href}
               title={t('reset_code')}
               data-confirm={t('confirm')}
@@ -74,8 +74,8 @@ class ControlBox extends React.Component {
               <FontAwesomeIcon icon="sync-alt" />
             </a>
             <a className={prevButtonClasses} href={prevLessonPath}>
-              <FontAwesomeIcon icon="chevron-circle-left" className="mr-md-2" />
-              <span className="d-none d-md-inline">{t('prev_lesson')}</span>
+              <FontAwesomeIcon icon="chevron-circle-left" className="mr-xl-2" />
+              <span className="d-none d-xl-inline">{t('prev_lesson')}</span>
             </a>
             <button type="button" className={runButtonClasses} onClick={this.handleRunCheck}>
               <span className="text-secondary x-1em-inline-block mr-2">
@@ -85,8 +85,8 @@ class ControlBox extends React.Component {
               <span className="">{t('run')}</span>
             </button>
             <a className={nextButtonClasses} href={nextLessonPath}>
-              <span className="d-none d-md-inline">{t('next_lesson')}</span>
-              <FontAwesomeIcon icon="chevron-circle-right" className="ml-md-2" />
+              <span className="d-none d-xl-inline">{t('next_lesson')}</span>
+              <FontAwesomeIcon icon="chevron-circle-right" className="ml-xl-2" />
             </a>
           </div>
         </div>
