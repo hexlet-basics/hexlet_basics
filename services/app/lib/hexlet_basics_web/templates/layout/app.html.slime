@@ -10,7 +10,7 @@ html.h-100 lang="#{@locale}"
   body.h-100.d-flex.flex-column
     = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html", assigns
     header
-      nav.navbar.navbar-expand-md.navbar-dark role="navigation"
+      nav.navbar.navbar-expand-lg.navbar-dark role="navigation"
         a.navbar-brand href="/"
           img.mr-3.d-none.d-sm-inline(width="30px" src=Routes.static_path(@conn, "/images/logo.png") alt="Code Basics Logo")
           span= gettext("Code Basics")
@@ -70,7 +70,7 @@ html.h-100 lang="#{@locale}"
               br
               a.small[href="mailto:support@hexlet.io" property="email" typeof="Text"] support@hexlet.io
 
-          .col-12.col-md-4.text-center
+          .col-12.col-md-4.text-md-center.my-3.my-md-0
             ul.nav.flex-column
               li
                 a target="_blank" href="#{Routes.page_path(@conn, :show, "about")}"= gettext "About"
@@ -82,7 +82,7 @@ html.h-100 lang="#{@locale}"
                 a target="_blank" href="#{Routes.page_path(@conn, :show, "privacy")}"= gettext "Privacy"
 
 
-          .col-12.col-md-4.text-right
+          .col-12.col-md-4.text-md-right
             ul.nav.flex-column
               li
                 a target="_blank" href="https://ru.hexlet.io/blog"= gettext "Blog"
