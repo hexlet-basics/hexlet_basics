@@ -70,7 +70,7 @@ html.h-100 lang="#{@locale}"
               br
               a.small[href="mailto:support@hexlet.io" property="email" typeof="Text"] support@hexlet.io
 
-          .col-12.col-md-4.text-center
+          .col-12.col-md-4.text-md-center.my-3.my-md-0
             ul.nav.flex-column
               li
                 a target="_blank" href="#{Routes.page_path(@conn, :show, "about")}"= gettext "About"
@@ -82,7 +82,7 @@ html.h-100 lang="#{@locale}"
                 a target="_blank" href="#{Routes.page_path(@conn, :show, "privacy")}"= gettext "Privacy"
 
 
-          .col-12.col-md-4.text-right
+          .col-12.col-md-4.text-md-right
             ul.nav.flex-column
               li
                 a target="_blank" href="https://ru.hexlet.io/blog"= gettext "Blog"
