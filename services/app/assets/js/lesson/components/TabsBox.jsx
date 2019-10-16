@@ -49,14 +49,14 @@ class TabsBox extends React.Component {
 
     const tabNames = ['editor', 'console', 'solution'];
 
-    const badgeClassName = cn('badge', {
+    const badgeClassName = cn('badge mb-2 mb-sm-0 p-2', {
       [`badge-${notification && notification.type}`]: true,
     });
 
     const elements = tabNames.map((name) => {
       const className = `text-light ${activateNavLink(name)}`;
       return (
-        <NavItem key={name}>
+        <NavItem key={name} className="flex-fill">
           <NavLink href="#" onClick={setActive(name)} className={className}>
             {t(name)}
           </NavLink>
@@ -66,12 +66,12 @@ class TabsBox extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="d-flex">
-          <div className="mr-auto">
-            <Nav tabs>{elements}</Nav>
-          </div>
+        <div className="d-flex flex-column flex-sm-row-reverse">
           <div className="my-auto">
             <span className={badgeClassName}>{notification && t(notification.headline)}</span>
+          </div>
+          <div className="mr-auto">
+            <Nav tabs className="flex-nowrap">{elements}</Nav>
           </div>
         </div>
         <TabContent className={`d-flex ${className}`} activeTab={active}>
