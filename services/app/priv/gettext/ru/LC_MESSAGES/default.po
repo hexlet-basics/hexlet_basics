@@ -604,9 +604,9 @@ msgstr "Ваш аккаунт успешно удален"
 #, elixir-format
 #: lib/hexlet_basics_web/templates/profile/show.html.slime:6
 msgid "Add %{provider} account"
-msgstr "Подключить %{provider} аккаунт"
+msgstr "Подключить %{provider}"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/profile/show.html.slime:4
 msgid "Delete %{provider} account"
-msgstr "Отключить %{provider} аккаунт"
+msgstr "Отключить %{provider}"
