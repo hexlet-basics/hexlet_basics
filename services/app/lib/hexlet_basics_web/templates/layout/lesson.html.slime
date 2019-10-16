@@ -31,7 +31,12 @@ html.h-md-100 lang="#{@locale}"
             = @lesson.natural_order
             | /
             = @lessons_count
-          = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
+
+          button.navbar-toggler.px-0(type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation")
+            span.navbar-toggler-icon
+
+          #navbarToggler.collapse.navbar-collapse.flex-grow-0.navbar-expand-md
+            = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
       main.h-md-100.overflow-hidden role="main"
         = render @view_module, @view_template, assigns
