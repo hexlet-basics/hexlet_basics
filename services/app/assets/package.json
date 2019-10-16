@@ -45,6 +45,7 @@
     "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.10.2",
     "react-fast-highlight": "^2.2.2",
+    "react-frame-component": "^4.1.1",
     "react-hot-keys": "^2.2.0",
     "react-i18next": "^10.13.1",
     "react-monaco-editor": "0.31.0",
