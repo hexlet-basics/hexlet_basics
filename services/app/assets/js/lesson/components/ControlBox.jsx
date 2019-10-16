@@ -40,7 +40,7 @@ class ControlBox extends React.Component {
     } = this.context;
 
     const runButtonClasses = cn({
-      'btn btn-black px-4 mx-3': true,
+      'btn btn-black px-md-4 mx-md-3 flex-fill': true,
       disabled: checkInfo.processing,
     });
 
@@ -64,9 +64,9 @@ class ControlBox extends React.Component {
     return (
       <Hotkeys keyName="ctrl+Enter" onKeyUp={this.handleRunCheck}>
         <div className="row">
-          <div className="col x-font-sans-serif text-center">
+          <div className="col d-flex d-md-block x-font-sans-serif text-center">
             <a
-              className="btn btn-outline-secondary mr-3"
+              className="btn btn-outline-secondary mr-md-3"
               href={window.location.href}
               title={t('reset_code')}
               data-confirm={t('confirm')}
@@ -74,17 +74,19 @@ class ControlBox extends React.Component {
               <FontAwesomeIcon icon="sync-alt" />
             </a>
             <a className={prevButtonClasses} href={prevLessonPath}>
-              {t('prev_lesson')}
+              <FontAwesomeIcon icon="chevron-circle-left" className="mr-md-2" />
+              <span className="d-none d-md-inline">{t('prev_lesson')}</span>
             </a>
             <button type="button" className={runButtonClasses} onClick={this.handleRunCheck}>
               <span className="text-secondary x-1em-inline-block mr-2">
                 {checkInfo.processing && <FontAwesomeIcon icon="spinner" pulse />}
                 {!checkInfo.processing && <FontAwesomeIcon icon="play-circle" />}
               </span>
-              {t('run')}
+              <span className="">{t('run')}</span>
             </button>
             <a className={nextButtonClasses} href={nextLessonPath}>
-              {t('next_lesson')}
+              <span className="d-none d-md-inline">{t('next_lesson')}</span>
+              <FontAwesomeIcon icon="chevron-circle-right" className="ml-md-2" />
             </a>
           </div>
         </div>
