@@ -11,7 +11,7 @@ import EntityContext from '../EntityContext';
 
 const mapStateToProps = (state) => {
   const { checkInfo, code, lessonState } = state;
-  const props = { checkInfo, code, lessonState };
+  const props = { checkInfo, code: code.content, lessonState };
   return props;
 };
 

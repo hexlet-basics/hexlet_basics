@@ -5,14 +5,12 @@ import { handleActions } from 'redux-actions';
 import { addMinutes } from 'date-fns';
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
-import hardSet from 'redux-persist/es/stateReconciler/hardSet';
 
 import * as actions from '../actions';
 
 const code = handleActions({
-  [actions.changeCode]: (_state, { payload }) => {
-    const { content } = payload;
-    return content;
+  [actions.changeCode]: (state, { payload }) => {
+    return { content: payload.content };
   },
 }, null);
 
@@ -141,7 +139,6 @@ const solutionState = handleActions({
 const persistCodeConfig = {
   key: 'code',
   storage,
-  stateReconciler: hardSet,
 };
 
 export default combineReducers({

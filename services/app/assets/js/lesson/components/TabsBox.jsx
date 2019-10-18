@@ -14,10 +14,12 @@ import connect from '../connect';
 import EntityContext from '../EntityContext';
 
 const mapStateToProps = (state) => {
-  const { notification, checkInfo, currentTabInfo } = state;
-  const props = { checkInfo, currentTabInfo, notification };
+  const { code, notification, checkInfo, currentTabInfo } = state;
+  const props = { code: code.content, checkInfo, currentTabInfo, notification };
   return props;
 };
+
+const getEditorValue = (content) => content ? Object.values(content).join('') : '';
 
 @connect(mapStateToProps)
 @withActive()
@@ -28,6 +30,7 @@ class TabsBox extends React.Component {
   render() {
     const {
       className,
+      code,
       checkInfo,
       currentTabInfo,
       setActive,
@@ -64,6 +67,8 @@ class TabsBox extends React.Component {
       );
     });
 
+    const defaultValue = getEditorValue(code);
+
     return (
       <React.Fragment>
         <div className="d-flex flex-column flex-sm-row-reverse">
@@ -77,7 +82,7 @@ class TabsBox extends React.Component {
         <TabContent className={`d-flex ${className}`} activeTab={active}>
           <TabPane tabId="editor" className={activateTabPane('editor')}>
             <Editor
-              defaultValue={lesson.prepared_code}
+              defaultValue={defaultValue}
               onCodeChange={changeCode}
               language={language.slug}
               current={currentTabInfo.current === 'editor'}

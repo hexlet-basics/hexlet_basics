@@ -20,7 +20,7 @@ const mapStateToProps = (state) => {
     countdown,
   } = state;
   const props = {
-    code,
+    code: code.content,
     solutionState,
     countdown,
   };

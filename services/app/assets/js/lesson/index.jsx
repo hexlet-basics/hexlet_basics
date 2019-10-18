@@ -19,7 +19,7 @@ import reducers from './reducers';
 import EntityContext from './EntityContext';
 
 import * as actions from './actions';
-import {PersistGate} from 'redux-persist/integration/react';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const currentUser = gon.getAsset('current_user');
 const lesson = gon.getAsset('lesson');
@@ -30,7 +30,9 @@ const prevLesson = gon.getAsset('prev_lesson');
 
 const run = () => {
   const { store, persistor } = configureStore(reducers, {
-    code: lesson.prepared_code,
+    code: {
+      content: lesson.prepared_code,
+    },
   });
 
 
@@ -50,14 +52,14 @@ const run = () => {
 
   ReactDOM.render(
     <Provider store={store}>
-      <EntityContext.Provider value={entities}>
-        <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={null} persistor={persistor}>
+        <EntityContext.Provider value={entities}>
           <App
             userFinishedLesson={userFinishedLesson}
             language={language}
           />
-        </PersistGate>
-      </EntityContext.Provider>
+        </EntityContext.Provider>
+      </PersistGate>
     </Provider>,
     document.getElementById('basics-lesson-container'),
   );

@@ -19,7 +19,7 @@ const getViewOptions = (languageName, props) => {
     case 'html':
       return {
         tabsBoxClassName: 'h-50',
-        component: <HTMLPreview html={props.code} />,
+        component: <HTMLPreview html={props.code.content} />,
       };
     default:
       return {
