@@ -3,6 +3,9 @@
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
 import { addMinutes } from 'date-fns';
+import storage from 'redux-persist/lib/storage';
+import persistReducer from 'redux-persist/es/persistReducer';
+import hardSet from 'redux-persist/es/stateReconciler/hardSet';
 
 import * as actions from '../actions';
 
@@ -135,8 +138,14 @@ const solutionState = handleActions({
   },
 }, { canBeShown: false, shown: false });
 
+const persistCodeConfig = {
+  key: 'code',
+  storage,
+  stateReconciler: hardSet,
+};
+
 export default combineReducers({
-  code,
+  code: persistReducer(persistCodeConfig, code),
   currentTabInfo,
   notification,
   checkInfo,
