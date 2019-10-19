@@ -17,7 +17,7 @@ $ make project-setup
 
 Add to _/etc/hosts_:
 
-    127.0.0.1 ru.code-basics.test en.code-basics.test
+    127.0.0.1 code-basics.test ru.code-basics.test en.code-basics.test
 
 ### Load content
 
