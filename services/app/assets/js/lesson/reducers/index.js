@@ -5,8 +5,12 @@ import { handleActions } from 'redux-actions';
 import { addMinutes } from 'date-fns';
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
+import Gon from 'gon';
 
 import * as actions from '../actions';
+
+const language = Gon.getAsset("language");
+const lesson = Gon.getAsset("lesson");
 
 const code = handleActions({
   [actions.changeCode]: (state, { payload }) => {
@@ -137,7 +141,7 @@ const solutionState = handleActions({
 }, { canBeShown: false, shown: false });
 
 const persistCodeConfig = {
-  key: 'code',
+  key: `code:${language.slug}:${lesson.slug}`,
   storage,
 };
 
