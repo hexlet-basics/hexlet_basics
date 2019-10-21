@@ -3,14 +3,9 @@
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
 import { addMinutes } from 'date-fns';
-import storage from 'redux-persist/lib/storage';
-import persistReducer from 'redux-persist/es/persistReducer';
-import Gon from 'gon';
 
 import * as actions from '../actions';
-
-const language = Gon.getAsset("language");
-const lesson = Gon.getAsset("lesson");
+import { persistCodeReducer } from '../../lib/persistReducer';
 
 const code = handleActions({
   [actions.changeCode]: (_state, { payload }) => {
@@ -140,13 +135,8 @@ const solutionState = handleActions({
   },
 }, { canBeShown: false, shown: false });
 
-const persistCodeConfig = {
-  key: `code:${language.slug}:${lesson.slug}`,
-  storage,
-};
-
 export default combineReducers({
-  code: persistReducer(persistCodeConfig, code),
+  code: persistCodeReducer(code),
   currentTabInfo,
   notification,
   checkInfo,
