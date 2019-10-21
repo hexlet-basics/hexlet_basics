@@ -20,6 +20,12 @@ const mapStateToProps = (state) => {
 class ControlBox extends React.Component {
   static contextType = EntityContext;
 
+  resetCode = () => {
+    const { changeCode } = this.props;
+    const { lesson } = this.context;
+    changeCode({ content: lesson.prepared_code })
+  }
+
   handleRunCheck = () => {
     const { code, runCheck } = this.props;
     const { lesson } = this.context;
@@ -67,6 +73,7 @@ class ControlBox extends React.Component {
           <div className="col d-flex d-xl-block x-font-sans-serif text-center py-2">
             <a
               className="btn btn-outline-secondary mr-xl-3 d-inline-flex align-items-center"
+              onClick={this.resetCode}
               href={window.location.href}
               title={t('reset_code')}
               data-confirm={t('confirm')}

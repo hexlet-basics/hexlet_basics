@@ -13,7 +13,7 @@ const language = Gon.getAsset("language");
 const lesson = Gon.getAsset("lesson");
 
 const code = handleActions({
-  [actions.changeCode]: (state, { payload }) => {
+  [actions.changeCode]: (_state, { payload }) => {
     return { content: payload.content };
   },
 }, null);
