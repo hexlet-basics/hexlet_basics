@@ -3,8 +3,10 @@ defmodule HexletBasicsWeb.UserController do
   alias HexletBasics.{User, Repo, UserManager.Guardian, StateMachines.UserStateMachine}
   alias HexletBasics.{Email, Notifier}
   alias HexletBasicsWeb.Plugs.CheckAuthentication
+  alias HexletBasicsWeb.Plugs.DetectLocaleByHost
 
   plug CheckAuthentication when action in [:new, :create]
+  plug DetectLocaleByHost when action in [:new]
 
   def new(conn, _params) do
     changeset = User.registration_changeset(%User{}, %{})
