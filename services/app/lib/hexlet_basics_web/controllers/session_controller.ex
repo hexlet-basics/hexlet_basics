@@ -2,7 +2,9 @@ defmodule HexletBasicsWeb.SessionController do
   use HexletBasicsWeb, :controller
   alias HexletBasics.{UserManager, UserManager.Guardian}
   alias HexletBasicsWeb.Plugs.CheckAuthentication
+  alias HexletBasicsWeb.Plugs.DetectLocaleByHost
 
+  plug DetectLocaleByHost when action in [:new]
   plug CheckAuthentication when action in [:new, :create]
 
   def new(conn, _params) do
