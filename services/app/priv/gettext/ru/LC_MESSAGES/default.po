@@ -552,7 +552,7 @@ msgstr "Выслать письмо со ссылкой для подтверж�
 #, elixir-format
 #: lib/hexlet_basics_web/controllers/user_controller.ex:102
 msgid "We sent an email to confirm the email - %{email}, follow the link from the email to complete the procedure. Please contact support <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
-msgstr "Мы отправили письмо для подтверждения email - %{email}, перейдите по ссылке из письма, чтобы завершить процедуру. Пожалуйста, обратитесь в службу поддержки <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
+msgstr "Мы отправили письмо для подтверждения email - %{email}, перейдите по ссылке из письма, чтобы завершить процедуру. Если письмо не пришло, пожалуйста, обратитесь в службу поддержки <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/profile/show.html.slime:6

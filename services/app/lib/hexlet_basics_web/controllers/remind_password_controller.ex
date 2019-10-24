@@ -1,6 +1,6 @@
 defmodule HexletBasicsWeb.RemindPasswordController do
   use HexletBasicsWeb, :controller
-  alias HexletBasics.{User, Repo}
+  alias HexletBasics.{User, Repo, UserManager}
   alias HexletBasics.{Notifier, Email}
 
   def new(conn, _params) do
@@ -9,7 +9,7 @@ defmodule HexletBasicsWeb.RemindPasswordController do
   end
 
   def create(conn, %{"user" => params}) do
-    user = Repo.get_by(User, email: params["email"])
+    user = UserManager.user_get_by(email: params["email"])
     if user do
       {:ok, user} = user
                      |> User.generate_token(:reset_password_token)

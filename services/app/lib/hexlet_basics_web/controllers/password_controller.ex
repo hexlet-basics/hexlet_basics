@@ -1,10 +1,10 @@
 defmodule HexletBasicsWeb.PasswordController do
   use HexletBasicsWeb, :controller
   alias HexletBasics.Repo
-  alias HexletBasics.{User, Email, Mailer}
+  alias HexletBasics.{User, Email, Notifier, UserManager}
 
   def edit(conn, %{"reset_password_token" => reset_password_token}) do
-    user = Repo.get_by(User, reset_password_token: reset_password_token)
+    user = UserManager.user_get_by(reset_password_token: reset_password_token)
 
     if user do
       changeset = User.reset_password_changeset(%User{}, %{})
@@ -23,7 +23,7 @@ defmodule HexletBasicsWeb.PasswordController do
   end
 
   def update(conn, params) do
-    user = Repo.get_by(User, reset_password_token: params["reset_password_token"])
+    user = UserManager.user_get_by(reset_password_token: params["reset_password_token"])
 
     if user do
       user
@@ -56,7 +56,7 @@ defmodule HexletBasicsWeb.PasswordController do
       )
 
     email
-    |> Mailer.deliver_later()
+    |> Notifier.send_email(user)
 
     conn
     |> put_flash(:info, gettext("Message with instructions for reset password was sent"))

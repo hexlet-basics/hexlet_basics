@@ -1,6 +1,6 @@
 defmodule HexletBasicsWeb.Api.SparkpostControllerTest do
   use HexletBasicsWeb.ConnCase, async: true
-  alias HexletBasics.{User, Repo}
+  alias HexletBasics.{User, UserManager}
 
   setup [:prepare_events]
 
@@ -10,9 +10,9 @@ defmodule HexletBasicsWeb.Api.SparkpostControllerTest do
       |> put_req_header("content-type", "application/json")
       |> post(sparkpost_path(conn, :process), Jason.encode!(events))
 
-    disabled_delivery_user = Repo.get(User, disabled_delivery_user.id)
-    spam_user = Repo.get(User, spam_user.id)
-    delivery_user = Repo.get(User, delivery_user.id)
+    disabled_delivery_user = UserManager.get_user!(disabled_delivery_user.id)
+    spam_user = UserManager.get_user!(spam_user.id)
+    delivery_user = UserManager.get_user!(delivery_user.id)
 
     assert json_response(conn, 200)
     assert User.disabled_delivery?(disabled_delivery_user)

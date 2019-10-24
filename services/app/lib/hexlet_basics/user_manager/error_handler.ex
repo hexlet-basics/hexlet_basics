@@ -13,8 +13,7 @@ defmodule HexletBasics.UserManager.ErrorHandler do
     |> redirect(to: Routes.page_path(conn, :index))
   end
 
-  def auth_error(conn, {type, _reason}, _opts) do
-    body = to_string(type)
+  def auth_error(conn, {_type, _reason}, _opts) do
     conn
     |> HexletBasics.UserManager.Guardian.Plug.sign_out()
     |> redirect(to: "/")

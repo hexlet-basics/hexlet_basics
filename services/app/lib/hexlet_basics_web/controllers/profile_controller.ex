@@ -1,8 +1,11 @@
 defmodule HexletBasicsWeb.ProfileController do
   use HexletBasicsWeb, :controller
   alias HexletBasics.Repo
+  alias HexletBasicsWeb.Plugs.{DetectDomainForRoot}
   alias HexletBasics.{User, UserManager, UserManager.Guardian}
   import Ecto
+
+  plug DetectDomainForRoot when action in [:show]
 
   def show(%{assigns: %{current_user: current_user}} = conn, _params) do
     github_account = assoc(current_user, :accounts) |> Repo.get_by(provider: "github")

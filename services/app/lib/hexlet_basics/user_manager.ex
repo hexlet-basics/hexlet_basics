@@ -6,8 +6,8 @@ defmodule HexletBasics.UserManager do
   import Ecto
   alias HexletBasics.Repo
 
-  def get_user!(id), do: Repo.get!(User, id)
-  def get_user(id), do: Repo.get(User, id)
+  def get_user!(id), do: User.Scope.not_removed(User) |> Repo.get!(id)
+  def get_user(id), do: User.Scope.not_removed(User) |> Repo.get(id)
   def user_get_by(params), do: User.Scope.not_removed(User) |> Repo.get_by(params)
 
   def set_locale!(%User{} = user, locale) do
@@ -136,10 +136,12 @@ defmodule HexletBasics.UserManager do
       assoc(user, :accounts) |> Repo.delete_all()
 
       {:ok, %User{state: state}} = Machinery.transition_to(user, UserStateMachine, "removed")
+      {:ok, %User{email_delivery_state: email_delivery_state}} = Machinery.transition_to(user, EmailDeliveryStateMachine, "disabled")
 
       user
       |> User.remove_changeset(%{
-        state: state
+        state: state,
+        email_delivery_state: email_delivery_state
       })
       |> Repo.update!()
     end)

@@ -4,13 +4,15 @@
       h3.h4.font-weight-bold.text-black-50
         = gettext("Social networks")
       .d-flex.align-items-center
-        i.fab.mr-2.fa-github.fa-2x
         = if @github_account do
-          = link gettext("Delete %{provider} account", provider: "GitHub"),
-            to: Routes.profile_path(@conn, :delete_account, @github_account, redirect_to: redirect_current_path(@conn), provider: "github"),
-            class: "btn btn-dark", method: :delete
+          = link to: Routes.profile_path(@conn, :delete_account, @github_account, redirect_to: redirect_current_path(@conn), provider: "github"),
+            class: "btn btn-black d-flex align-items-center", method: :delete do
+              i.fab.mr-2.fa-github.fa-2x
+              = gettext("Delete %{provider} account", provider: "GitHub")
         - else
-          = link gettext("Add %{provider} account", provider: "GitHub"), to: Routes.auth_path(@conn, :request, "github"), class: "btn btn-dark"
+          = link to: Routes.auth_path(@conn, :request, "github"), class: "btn btn-black d-flex align-items-center" do
+            i.fab.mr-2.fa-github.fa-2x
+            = gettext("Add %{provider} account", provider: "GitHub")
     .mb-4
       = if @user_active? do
         h3.h4.font-weight-bold.text-black-50

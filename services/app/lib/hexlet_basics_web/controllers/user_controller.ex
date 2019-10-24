@@ -1,6 +1,6 @@
 defmodule HexletBasicsWeb.UserController do
   use HexletBasicsWeb, :controller
-  alias HexletBasics.{User, Repo, UserManager.Guardian, StateMachines.UserStateMachine}
+  alias HexletBasics.{User, Repo, UserManager, UserManager.Guardian, StateMachines.UserStateMachine}
   alias HexletBasics.{Email, Notifier}
   alias HexletBasicsWeb.Plugs.CheckAuthentication
   alias HexletBasicsWeb.Plugs.DetectLocaleByHost
@@ -47,7 +47,7 @@ defmodule HexletBasicsWeb.UserController do
   end
 
   def confirm(conn, params) do
-    user = Repo.get_by(User, confirmation_token: params["confirmation_token"])
+    user = UserManager.user_get_by(confirmation_token: params["confirmation_token"])
 
     if user do
       if User.active?(user) do
@@ -74,7 +74,7 @@ defmodule HexletBasicsWeb.UserController do
   end
 
   def resend_confirmation(conn, %{"user_id" => user_id} = params) do
-    user = Repo.get!(User, user_id)
+    user = UserManager.get_user!(user_id)
     changeset = User.resend_confirmation_changeset(user)
     redirect_to = params["redirect_to"] || Routes.page_path(conn, :index)
 
@@ -88,7 +88,7 @@ defmodule HexletBasicsWeb.UserController do
           )
 
         email
-        |> Mailer.deliver_now()
+        |> Notifier.send_email(user)
 
         conn
         |> put_flash(

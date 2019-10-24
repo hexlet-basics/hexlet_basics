@@ -76,7 +76,7 @@ defmodule HexletBasics.User do
 
   def remove_changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:state])
+    |> cast(attrs, [:state, :email_delivery_state])
     |> clean_attrs
   end
 

@@ -1,6 +1,6 @@
 defmodule HexletBasicsWeb.PasswordControllerTest do
   use HexletBasicsWeb.ConnCase, async: true
-  alias HexletBasics.{UserManager.Guardian, User, Repo}
+  alias HexletBasics.{UserManager.Guardian, UserManager}
 
   @reset_password_token "123456"
   @create_attrs %{
@@ -46,7 +46,7 @@ defmodule HexletBasicsWeb.PasswordControllerTest do
       |> Guardian.Plug.sign_in(user)
       |> post(password_path(conn, :reset_password, redirect_to: profile_path(conn, :show)))
 
-    reset_password_user = Repo.get(User, user.id)
+    reset_password_user = UserManager.get_user!(user.id)
     assert redirected_to(conn) == profile_path(conn, :show)
     assert user.reset_password_token != reset_password_user.reset_password_token
   end
