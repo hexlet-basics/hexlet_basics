@@ -1,3 +1,5 @@
+// @ts-check
+
 import { connect } from 'react-redux';
 import * as actionCreators from './actions';
 

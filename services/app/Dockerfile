@@ -1,9 +1,9 @@
-FROM elixir:1.9
+FROM elixir:1.9.2
 
 ENV HOME /home/shared
 WORKDIR /app
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
 
 RUN apt-get update && apt-get install -y inotify-tools
 RUN apt-get update && apt-get install -y nodejs
@@ -14,10 +14,10 @@ RUN npm install -g npm-check-updates env-cmd
 RUN mix local.hex --force
 # Install rebar (Erlang build tool)
 RUN mix local.rebar --force
-RUN mix archive.install hex phx_new 1.4.9
+RUN mix archive.install hex phx_new 1.4.10
 
 ENV DOCKER_CHANNEL edge
-ENV DOCKER_VERSION 19.03.0
+ENV DOCKER_VERSION 19.03.4
 RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_64/docker-${DOCKER_VERSION}.tgz" \
   | tar -xzC /usr/local/bin --strip=1 docker/docker
 

@@ -2,8 +2,7 @@
   "repository": {},
   "license": "MIT",
   "browserslist": [
-    "> 2%",
-    "last 3 versions"
+    "defaults"
   ],
   "scripts": {
     "lint": "eslint",
@@ -11,8 +10,9 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.6.0",
     "@fortawesome/fontawesome-free": "^5.11.2",
+    "core-js": "^3.3.5",
+    "regenerator-runtime": "^0.13.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/react-fontawesome": "^0.1.7",
     "@types/classnames": "^2.2.9",
@@ -20,7 +20,6 @@
     "@types/markdown-it": "0.0.9",
     "@types/react-dom": "^16.9.3",
     "@types/react-redux": "^7.1.5",
-    "@types/reactstrap": "^8.0.6",
     "ansi_up": "^4.0.4",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
@@ -40,8 +39,7 @@
     "popper.js": "^1.16.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
-    "react-bootstrap": "^1.0.0-beta.9",
-    "react-bs-notifier": "^5.0.0",
+    "react-bootstrap": "^1.0.0-beta.14444",
     "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.11.0",
     "react-fast-highlight": "^2.2.2",
@@ -51,12 +49,7 @@
     "react-monaco-editor": "0.31.1",
     "react-redux": "^7.1.1",
     "react-resize-aware": "^2.7.2",
-    "react-tabs": "^3.0.0",
-    "reactstrap": "^8.1.1",
     "redux": "^4.0.4",
-    "redux-actions": "^2.6.5",
-    "redux-logger": "^3.0.6",
-    "redux-promise": "^0.6.0",
     "redux-starter-kit": "^1.0.0",
     "redux-thunk": "^2.3.0",
     "sanitize-html": "^1.20.1",
@@ -74,6 +67,7 @@
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
+    "autoprefixer": "^9.7.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "cache-loader": "^4.1.0",

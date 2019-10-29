@@ -1,3 +1,5 @@
+// @ts-check
+
 import '../css/app.scss';
 import './shared';
 // import 'jquery';

@@ -74,6 +74,8 @@ $hexlet-basics-go-bg: #59d8f9;
   background-color: $hexlet-basics-go-bg;
 }
 
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
 @import "~bootstrap/scss/bootstrap";
 
 @each $breakpoint in map-keys($grid-breakpoints) {
