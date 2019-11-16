@@ -60,6 +60,8 @@ html.h-100 lang="#{@locale}"
                 span property="legalName" Hexlet Ltd.
                 span property="address" &nbsp;Puolikkotie 8, 02230 Espoo, Finland.
               br
+              span.small property="telephone" +44 20 3514 2938
+              br
               small.small
                 = gettext "Credits"
               br
