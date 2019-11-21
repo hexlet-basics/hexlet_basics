@@ -17,11 +17,13 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Start"
 msgstr "Начать"
 
-#: lib/hexlet_basics_web/controllers/auth_controller.ex:14
-#: lib/hexlet_basics_web/controllers/auth_controller.ex:44
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:16
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:46
 msgid "Failed to authenticate."
 msgstr "Ошибка аутентификации"
 
@@ -43,7 +45,7 @@ msgstr "Войти"
 msgid "Sign Out"
 msgstr "Выйти"
 
-#: lib/hexlet_basics_web/controllers/auth_controller.ex:39
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:41
 msgid "Successfully authenticated."
 msgstr "Вы авторизовались"
 
@@ -51,7 +53,7 @@ msgstr "Вы авторизовались"
 msgid "You did it!"
 msgstr "Вы прошли все доступные упражнения. Скоро появятся новые."
 
-#: lib/hexlet_basics_web/controllers/session_controller.ex:23
+#: lib/hexlet_basics_web/controllers/session_controller.ex:25
 msgid "You have been logged out!"
 msgstr "Вы вышли"
 
@@ -173,6 +175,12 @@ msgstr "Code Basics: основы программирования"
 msgid "From the creators of Hexlet"
 msgstr "От создателей Хекслета"
 
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "About"
+msgstr "О проекте"
+
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Courses in development"
 msgstr "Курсы в разработке"
@@ -180,12 +188,6 @@ msgstr "Курсы в разработке"
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Courses in development description"
 msgstr "Данные курсы находятся в разработке и не являются финальной версией. Вы можете помочь в разработке, прислав Pull Request в репозиторий GitHub"
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
-#: lib/hexlet_basics_web/templates/page/about.html.slime:1
-msgid "About"
-msgstr "О проекте"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
@@ -202,6 +204,8 @@ msgid "Please Sign In"
 msgstr "Пожалуйста, авторизуйтесь, это необходимо для отслеживания прогресса выполнения уроков. Если у вас ещё нет учётной записи, то сейчас самое время создать аккаунт."
 
 #, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
@@ -382,7 +386,7 @@ msgid "Sign Up"
 msgstr "Регистрация"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:1
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
 #: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
 #: lib/hexlet_basics_web/templates/session/new.html.slime:1
 #: lib/hexlet_basics_web/templates/user/new.html.slime:1
@@ -427,7 +431,7 @@ msgid "Trying sign in?"
 msgstr "Пытаетесь войти?"
 
 #, elixir-format
-#: lib/hexlet_basics/email.ex:15
+#: lib/hexlet_basics/email.ex:17
 msgid "Confirm registration"
 msgstr "Подтверждение регистрации"
 
@@ -438,7 +442,7 @@ msgstr "Забыли пароль?"
 
 #, elixir-format
 #: lib/hexlet_basics_web/controllers/password_controller.ex:62
-#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:30
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:28
 msgid "Message with instructions for reset password was sent"
 msgstr "Сообщение с инструкциями по сбросу пароля было отправлено на вашу почту"
 
@@ -448,13 +452,13 @@ msgid "Password was change"
 msgstr "Пароль был успешно изменен"
 
 #, elixir-format
-#: lib/hexlet_basics/email.ex:31
+#: lib/hexlet_basics/email.ex:33
 msgid "Reset password"
 msgstr "Сброс пароля"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/password/edit.html.slime:1
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
 msgid "Update Password"
 msgstr "Обновить Пароль"
 
@@ -462,13 +466,13 @@ msgstr "Обновить Пароль"
 #: lib/hexlet_basics_web/controllers/password_controller.ex:14
 #: lib/hexlet_basics_web/controllers/password_controller.ex:21
 #: lib/hexlet_basics_web/controllers/password_controller.ex:38
-#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:34
-#: lib/hexlet_basics_web/controllers/user_controller.ex:77
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:32
+#: lib/hexlet_basics_web/controllers/user_controller.ex:71
 msgid "User not found"
 msgstr "Пользователь не найден"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/session_controller.ex:29
+#: lib/hexlet_basics_web/controllers/session_controller.ex:31
 msgid "Signed in successfully."
 msgstr "Вы авторизованы"
 
@@ -478,17 +482,17 @@ msgid "Change Password"
 msgstr "Задать новый пароль"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/user_controller.ex:46
+#: lib/hexlet_basics_web/controllers/user_controller.ex:40
 msgid "User created! Check your email for confirm registration"
 msgstr "Пользователь успешно создан! Мы выслали вам на почту письмо со ссылкой. Перейдите по ней чтобы завершить регистрацию и войти"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/user_controller.ex:72
+#: lib/hexlet_basics_web/controllers/user_controller.ex:66
 msgid "Registration confirmed! Welcome!"
 msgstr " Ваш e-mail подтвержден, и вы авторизованы. Добро пожаловать!"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/session_controller.ex:36
+#: lib/hexlet_basics_web/controllers/session_controller.ex:38
 msgid "There was a problem with your email/password"
 msgstr " Неправильные email/пароль"
 
@@ -499,7 +503,7 @@ msgid "Switch language to"
 msgstr "Сменить язык на"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/auth_controller.ex:27
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:29
 msgid "Please confirm the email in your %{provider} account, then try again"
 msgstr "Пожалуйста, подтвердите email в аккаунте %{provider}, затем повторите попытку "
 
@@ -509,33 +513,33 @@ msgid "Sign In Github"
 msgstr "Войти через Github"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
 msgid "Delete account"
 msgstr "Удалить аккаунт"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:7
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
 msgid "Do you really want to delete your account?"
 msgstr "Вы уверены, что хотите удалить свой аккаунт"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:1
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
 msgid "Email is not confirmed"
 msgstr "Е-mail не подтвержден"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:4
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
 msgid "First name"
 msgstr "Имя"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:4
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
 msgid "Last name"
 msgstr "Фамилия"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:4
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
 msgid "Nickname"
 msgstr "Никнейм"
 
@@ -545,29 +549,29 @@ msgid "Sorry, you have to sign in."
 msgstr "Извините, сначала нужно войти"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:1
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
 msgid "Send an email with a confirmation link again."
 msgstr "Выслать письмо со ссылкой для подтверждения заново."
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/user_controller.ex:102
+#: lib/hexlet_basics_web/controllers/user_controller.ex:96
 msgid "We sent an email to confirm the email - %{email}, follow the link from the email to complete the procedure. Please contact support <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
 msgstr "Мы отправили письмо для подтверждения email - %{email}, перейдите по ссылке из письма, чтобы завершить процедуру. Если письмо не пришло, пожалуйста, обратитесь в службу поддержки <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
 msgid "Change password"
 msgstr "Изменить пароль"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/auth_controller.ex:51
-msgid "Account %{provider} successfully added."
-msgstr "Аккаунт %{provider} успешно подключен"
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:53
+msgid "Account successfully added."
+msgstr "Аккаунт успешно подключен"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/auth_controller.ex:55
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:57
 msgid "Error adding account."
-msgstr "Произошла ошибка при подключении аккаунта"
+msgstr "Ваш аккаунт уже подключен. Войдите через него и отвяжите социальную сеть в настройках аккаунта. После этого повторите подключение на текущем аккаунте"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
@@ -575,38 +579,43 @@ msgid "Profile"
 msgstr "Профиль"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:4
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:1
 msgid "Social networks"
 msgstr "Социальные сети"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/profile_controller.ex:28
-#: lib/hexlet_basics_web/controllers/profile_controller.ex:54
-#: lib/hexlet_basics_web/controllers/user_controller.ex:113
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:31
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:57
+#: lib/hexlet_basics_web/controllers/user_controller.ex:107
 msgid "Something went wrong! Please contact support <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
 msgstr "Произошла ошибка!Пожалуйста, обратитесь в службу поддержки <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:1
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
 msgid "User information"
 msgstr "Информация о пользователе"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/profile_controller.ex:46
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:49
 msgid "Your %{provider} account has been successfully deleted"
 msgstr "Ваш %{provider} аккаунт успешно отключен"
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/profile_controller.ex:22
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:25
 msgid "Your account has been successfully deleted"
 msgstr "Ваш аккаунт успешно удален"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
 msgid "Add %{provider} account"
 msgstr "Подключить %{provider}"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/profile/show.html.slime:4
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
 msgid "Delete %{provider} account"
 msgstr "Отключить %{provider}"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:1
+msgid "There were problems with the delivery of letters to your address. Please check that emails reach your inbox."
+msgstr "Возникли проблемы с доставкой писем на ваш адрес. Пожалуйста, проверьте, что до вашего электронного ящика доходят письма."

@@ -1,67 +1,73 @@
-.row.bg-light.text-dark.p-5
-  .col-md-4.order-1.order-md-0
-    .mb-4
-      h3.h4.font-weight-bold.text-black-50
-        = gettext("Social networks")
-      .d-flex.align-items-center
-        = if @github_account do
-          = link to: Routes.profile_path(@conn, :delete_account, @github_account, redirect_to: redirect_current_path(@conn), provider: "github"),
-            class: "btn btn-black d-flex align-items-center", method: :delete do
-              i.fab.mr-2.fa-github.fa-2x
-              = gettext("Delete %{provider} account", provider: "GitHub")
-        - else
-          = link to: Routes.auth_path(@conn, :request, "github"), class: "btn btn-black d-flex align-items-center" do
-            i.fab.mr-2.fa-github.fa-2x
-            = gettext("Add %{provider} account", provider: "GitHub")
-    .mb-4
-      = if @user_active? do
+= if @user_delivery_state_disabled? do
+  .alert class="alert-dismissible fade show alert-warning" role="alert"
+    == gettext("There were problems with the delivery of letters to your address. Please check that emails reach your inbox.")
+    button.close type="button" data-dismiss="alert" aria-label="Close"
+      span aria-hidden="true" &times;
+.container
+  .row.bg-light.text-dark.p-5
+    .col-md-4.order-1.order-md-0
+      .mb-4
         h3.h4.font-weight-bold.text-black-50
-          = gettext("Update Password")
+          = gettext("Social networks")
+        .d-flex.align-items-center
+          = if @github_account do
+            = link to: Routes.profile_path(@conn, :delete_account, @github_account, redirect_to: redirect_current_path(@conn), provider: "github"),
+              class: "btn btn-black d-flex align-items-center", method: :delete do
+                i.fab.mr-2.fa-github.fa-2x
+                = gettext("Delete %{provider} account", provider: "GitHub")
+          - else
+            = link to: Routes.auth_path(@conn, :request, "github"), class: "btn btn-black d-flex align-items-center" do
+              i.fab.mr-2.fa-github.fa-2x
+              = gettext("Add %{provider} account", provider: "GitHub")
+      .mb-4
+        = if @user_active? do
+          h3.h4.font-weight-bold.text-black-50
+            = gettext("Update Password")
 
-        = link gettext("Change password"), to: Routes.password_path(@conn, :reset_password, redirect_to: redirect_current_path(@conn)), class: "btn btn-primary", method: :post
-    .mb-4
-      h3.h4.font-weight-bold.text-black-50
-        = gettext("Delete account")
-      = link gettext("Delete account"), to: Routes.profile_path(@conn, :delete),
-        class: "btn btn-danger text-white", data: [confirm: gettext("Do you really want to delete your account?")], method: :delete
+          = link gettext("Change password"), to: Routes.password_path(@conn, :reset_password, redirect_to: redirect_current_path(@conn)), class: "btn btn-primary", method: :post
+      .mb-4
+        h3.h4.font-weight-bold.text-black-50
+          = gettext("Delete account")
+        = link gettext("Delete account"), to: Routes.profile_path(@conn, :delete),
+          class: "btn btn-danger text-white", data: [confirm: gettext("Do you really want to delete your account?")], method: :delete
 
 
-  .col-md-8.order-0.order-md-1
-    h1.h2.font-weight-bold
-      = gettext("User information")
-    = if @user_active? do
-      p
-        span.font-weight-bold
-          = gettext("Email")
+    .col-md-8.order-0.order-md-1
+      h1.h2.font-weight-bold
+        = gettext("User information")
+      = if @user_active? do
+        p
+          span.font-weight-bold
+            = gettext("Email")
+            |: &nbsp;
+          = @user.email
+      - else
+        p
+          span.font-weight-bold
+            = gettext("Email is not confirmed")
+            |: &nbsp;
+          = @user.email
+        p
+          = link gettext("Send an email with a confirmation link again."),
+            to: Routes.user_path(@conn, :resend_confirmation, @user, redirect_to: redirect_current_path(@conn)),
+            class: "ml-auto",
+            method: :post
+      = if @user.nickname do
+        p
+          span.font-weight-bold
+            = gettext("Nickname")
           |: &nbsp;
-        = @user.email
-    - else
-      p
-        span.font-weight-bold
-          = gettext("Email is not confirmed")
-          |: &nbsp;
-        = @user.email
-      p
-        = link gettext("Send an email with a confirmation link again."),
-          to: Routes.user_path(@conn, :resend_confirmation, @user, redirect_to: redirect_current_path(@conn)),
-          class: "ml-auto",
-          method: :post
-    = if @user.nickname do
-      p
-        span.font-weight-bold
-          = gettext("Nickname")
-        |: &nbsp;
-        = @user.nickname
+          = @user.nickname
 
-    = if @user.first_name do
-      p
-        span.font-weight-bold
-          = gettext("First name")
-        |: &nbsp;
-        = @user.first_name
-    = if @user.last_name do
-      p
-        span.font-weight-bold
-          = gettext("Last name")
-        |: &nbsp;
-        = @user.last_name
+      = if @user.first_name do
+        p
+          span.font-weight-bold
+            = gettext("First name")
+          |: &nbsp;
+          = @user.first_name
+      = if @user.last_name do
+        p
+          span.font-weight-bold
+            = gettext("Last name")
+          |: &nbsp;
+          = @user.last_name

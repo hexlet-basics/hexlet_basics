@@ -49,7 +49,8 @@ defmodule HexletBasics.UserManager do
       |> Repo.preload(:user)
 
     if account do
-      user = activate_user!(account.user)
+      user = activate_account_user_if_can!(account, email)
+   
       {:ok, user}
     else
       user = user_get_by(email: email) || %User{}
@@ -76,26 +77,27 @@ defmodule HexletBasics.UserManager do
         info: %{email: email},
         uid: uid,
         provider: provider
-      }) do
+      }, user) do
     uid = if is_binary(uid), do: uid, else: to_string(uid)
     provider = Atom.to_string(provider)
 
-    account =
+    existing_account =
       get_account(%{provider: provider, uid: uid})
       |> Repo.preload(:user)
 
-    if account do
-      user = activate_user!(account.user)
-      {:ok, user}
-    else
-      user = user_get_by(email: email)
+    cond do
+      !existing_account ->
+        {:ok, account} = create_account(%{provider: provider, uid: uid, user_id: user.id})
+        account = account |> Repo.preload(:user)
+        user = activate_account_user_if_can!(account, email)
+        {:ok, user}
 
-      Repo.transaction(fn ->
-        activate_user!(user)
+      existing_account.user == user ->
+        user = activate_account_user_if_can!(existing_account, email)
+        {:ok, user}
 
-        create_account(%{provider: provider, uid: uid, user_id: user.id})
-        user
-      end)
+      true ->
+        {:error, "Error adding account"}
     end
   end
 
@@ -123,14 +125,6 @@ defmodule HexletBasics.UserManager do
     |> Repo.update!()
   end
 
-  defp activate_user!(user) do
-    {:ok, %User{state: state}} = Machinery.transition_to(user, UserStateMachine, "active")
-
-    user
-    |> User.state_changeset(%{state: state})
-    |> Repo.update!()
-  end
-
   def remove_user!(user) do
     Repo.transaction(fn ->
       assoc(user, :accounts) |> Repo.delete_all()
@@ -154,6 +148,23 @@ defmodule HexletBasics.UserManager do
 
     account
     |> Repo.delete()
+  end
+
+
+  defp activate_user!(user) do
+    {:ok, %User{state: state}} = Machinery.transition_to(user, UserStateMachine, "active")
+
+    user
+    |> User.state_changeset(%{state: state})
+    |> Repo.update!()
+  end
+
+  defp activate_account_user_if_can!(account, email) do
+    if account.user.email == email do
+      activate_user!(account.user)
+    else
+      account.user
+    end
   end
 
   defp new_record?(user) do

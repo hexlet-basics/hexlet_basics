@@ -224,7 +224,7 @@ defmodule HexletBasics.UserManagerTest do
   test "link_user_social_network_account/1 github" do
     user = insert(:user, email: "user@user.ru")
     user_auth = Map.replace!(@github_auth, :info, %{email: user.email, nickname: user.nickname})
-     {:ok, user} = UserManager.link_user_social_network_account(user_auth)
+     {:ok, user} = UserManager.link_user_social_network_account(user_auth, user)
 
     account =
       UserManager.get_account(%{
@@ -239,7 +239,7 @@ defmodule HexletBasics.UserManagerTest do
   test "link_user_social_network_account/1 facebook" do
     user = insert(:user, email: "user@user.ru")
     user_auth = Map.replace!(@facebook_auth, :info, %{email: user.email, nickname: user.nickname})
-     {:ok, user} = UserManager.link_user_social_network_account(user_auth)
+     {:ok, user} = UserManager.link_user_social_network_account(user_auth, user)
 
     account =
       UserManager.get_account(%{

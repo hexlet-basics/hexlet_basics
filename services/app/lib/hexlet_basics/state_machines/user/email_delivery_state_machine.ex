@@ -3,7 +3,7 @@ defmodule HexletBasics.StateMachines.User.EmailDeliveryStateMachine do
     field: :email_delivery_state,
     states: ["enabled", "disabled"],
     transitions: %{
-      "enabled" =>  "disabled",
-      "disabled" => "enabled"
+      "disabled" => "enabled",
+      "*" =>  "disabled"
     }
 end

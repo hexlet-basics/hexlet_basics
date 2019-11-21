@@ -4,7 +4,6 @@ defmodule HexletBasicsWeb.ProfileController do
   alias HexletBasicsWeb.Plugs.{DetectDomainForRoot}
   alias HexletBasics.{User, UserManager, UserManager.Guardian}
   import Ecto
-
   plug DetectDomainForRoot when action in [:show]
 
   def show(%{assigns: %{current_user: current_user}} = conn, _params) do
@@ -13,7 +12,8 @@ defmodule HexletBasicsWeb.ProfileController do
     render(conn, "show.html",
       user: current_user,
       github_account: github_account,
-      user_active?: User.active?(current_user)
+      user_active?: User.active?(current_user),
+      user_delivery_state_disabled?: User.disabled_delivery?(current_user)
     )
   end
 

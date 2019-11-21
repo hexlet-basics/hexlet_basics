@@ -47,7 +47,7 @@ defmodule HexletBasicsWeb.AuthController do
           |> redirect(to: Routes.page_path(conn, :index))
       end
     else
-      case UserManager.link_user_social_network_account(auth) do
+      case UserManager.link_user_social_network_account(auth, current_user) do
         {:ok, _} ->
           conn
           |> put_flash(:info, gettext("Account successfully added."))
