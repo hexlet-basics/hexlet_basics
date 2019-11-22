@@ -34,11 +34,11 @@ defmodule HexletBasicsWeb.LessonControllerTest do
       })
 
     user_with_all_finished_lessons = insert(:user)
-    first_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: finished_lesson, user: user_with_all_finished_lessons})
-    second_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: not_finished_lesson, user: user_with_all_finished_lessons})
+    _first_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: finished_lesson, user: user_with_all_finished_lessons})
+    _second_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: not_finished_lesson, user: user_with_all_finished_lessons})
 
     user_with_last_finished_lesson = insert(:user)
-    last_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: finished_lesson, user: user_with_last_finished_lesson})
+    _last_finished_lesson = insert(:user_finished_lesson, %{language_module_lesson: finished_lesson, user: user_with_last_finished_lesson})
 
     conn =  conn
             |> Guardian.Plug.sign_in(user_with_last_finished_lesson)

@@ -1,6 +1,6 @@
 defmodule HexletBasicsWeb.UserController do
   use HexletBasicsWeb, :controller
-  alias HexletBasics.{User, Repo, UserManager.Guardian, StateMachines.UserStateMachine}
+  alias HexletBasics.{User, Repo, UserManager, UserManager.Guardian, StateMachines.UserStateMachine}
   alias HexletBasics.{Email, Notifier}
   alias HexletBasicsWeb.Plugs.CheckAuthentication
   alias HexletBasicsWeb.Plugs.DetectLocaleByHost
@@ -47,7 +47,7 @@ defmodule HexletBasicsWeb.UserController do
   end
 
   def confirm(conn, params) do
-    user = Repo.get_by(User, confirmation_token: params["confirmation_token"])
+    user = UserManager.user_get_by(confirmation_token: params["confirmation_token"])
 
     if user do
       if User.active?(user) do
@@ -70,6 +70,46 @@ defmodule HexletBasicsWeb.UserController do
       conn
       |> put_flash(:error, gettext("User not found"))
       |> redirect(to: "/")
+    end
+  end
+
+  def resend_confirmation(conn, %{"user_id" => user_id} = params) do
+    user = UserManager.get_user!(user_id)
+    changeset = User.resend_confirmation_changeset(user)
+    redirect_to = params["redirect_to"] || Routes.page_path(conn, :index)
+
+    case Repo.update(changeset) do
+      {:ok, user} ->
+        email =
+          Email.confirmation_html_email(
+            conn,
+            user,
+            Routes.user_url(conn, :confirm, confirmation_token: user.confirmation_token)
+          )
+
+        email
+        |> Notifier.send_email(user)
+
+        conn
+        |> put_flash(
+          :info,
+          gettext(
+            "We sent an email to confirm the email - %{email}, follow the link from the email to complete the procedure. Please contact support <a href=mailto:support@hexlet.io> support@hexlet.io </a>.",
+            email: user.email
+          )
+        )
+        |> redirect(to: redirect_to)
+
+      {:error, _} ->
+        conn
+        |> put_flash(
+          :error,
+          gettext(
+            "Something went wrong! Please contact support <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
+          )
+        )
+
+        |> redirect(to: redirect_to)
     end
   end
 end

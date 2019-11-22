@@ -3,11 +3,12 @@ defmodule HexletBasics.UserManager do
   alias HexletBasics.{User, User.Account}
   alias HexletBasics.StateMachines.{UserStateMachine, User.EmailDeliveryStateMachine}
   import Ecto.Query, warn: false
+  import Ecto
   alias HexletBasics.Repo
 
-  def get_user!(id), do: Repo.get!(User, id)
-  def get_user(id), do: Repo.get(User, id)
-  def user_get_by(params), do: Repo.get_by(User, params)
+  def get_user!(id), do: User.Scope.not_removed(User) |> Repo.get!(id)
+  def get_user(id), do: User.Scope.not_removed(User) |> Repo.get(id)
+  def user_get_by(params), do: User.Scope.not_removed(User) |> Repo.get_by(params)
 
   def set_locale!(%User{} = user, locale) do
     user
@@ -48,7 +49,8 @@ defmodule HexletBasics.UserManager do
       |> Repo.preload(:user)
 
     if account do
-      user = activate_user!(account.user)
+      user = activate_account_user_if_can!(account, email)
+   
       {:ok, user}
     else
       user = user_get_by(email: email) || %User{}
@@ -68,6 +70,34 @@ defmodule HexletBasics.UserManager do
         create_account(%{provider: provider, uid: uid, user_id: user.id})
         user
       end)
+    end
+  end
+
+  def link_user_social_network_account(%{
+        info: %{email: email},
+        uid: uid,
+        provider: provider
+      }, user) do
+    uid = if is_binary(uid), do: uid, else: to_string(uid)
+    provider = Atom.to_string(provider)
+
+    existing_account =
+      get_account(%{provider: provider, uid: uid})
+      |> Repo.preload(:user)
+
+    cond do
+      !existing_account ->
+        {:ok, account} = create_account(%{provider: provider, uid: uid, user_id: user.id})
+        account = account |> Repo.preload(:user)
+        user = activate_account_user_if_can!(account, email)
+        {:ok, user}
+
+      existing_account.user == user ->
+        user = activate_account_user_if_can!(existing_account, email)
+        {:ok, user}
+
+      true ->
+        {:error, "Error adding account"}
     end
   end
 
@@ -95,13 +125,46 @@ defmodule HexletBasics.UserManager do
     |> Repo.update!()
   end
 
+  def remove_user!(user) do
+    Repo.transaction(fn ->
+      assoc(user, :accounts) |> Repo.delete_all()
+
+      {:ok, %User{state: state}} = Machinery.transition_to(user, UserStateMachine, "removed")
+      {:ok, %User{email_delivery_state: email_delivery_state}} = Machinery.transition_to(user, EmailDeliveryStateMachine, "disabled")
+
+      user
+      |> User.remove_changeset(%{
+        state: state,
+        email_delivery_state: email_delivery_state
+      })
+      |> Repo.update!()
+    end)
+  end
+
+  def delete_account(user, account_id) do
+    account =
+      assoc(user, :accounts)
+      |> Repo.get(account_id)
+
+    account
+    |> Repo.delete()
+  end
+
+
   defp activate_user!(user) do
-    {:ok, %User{state: state}} =
-      Machinery.transition_to(user, UserStateMachine, "active")
+    {:ok, %User{state: state}} = Machinery.transition_to(user, UserStateMachine, "active")
 
     user
     |> User.state_changeset(%{state: state})
     |> Repo.update!()
+  end
+
+  defp activate_account_user_if_can!(account, email) do
+    if account.user.email == email do
+      activate_user!(account.user)
+    else
+      account.user
+    end
   end
 
   defp new_record?(user) do

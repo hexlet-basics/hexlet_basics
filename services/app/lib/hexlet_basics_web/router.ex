@@ -50,6 +50,10 @@ defmodule HexletBasicsWeb.Router do
     plug(HexletBasicsWeb.Plugs.SetUrl)
   end
 
+  pipeline :ensure_auth do
+    plug Guardian.Plug.EnsureAuthenticated
+  end
+
   pipeline :api do
     plug(:accepts, ["json"])
     plug(:fetch_session)
@@ -94,10 +98,13 @@ defmodule HexletBasicsWeb.Router do
     get("/robots.txt", PageController, :robots)
 
     resources("/session", SessionController, singleton: true)
-    resources("/remind-password", RemindPasswordController, only: [:new, :create])
     resources "/registrations", UserController, only: [:create, :new]
+    post("/user/:user_id/resend_confirmation", UserController, :resend_confirmation)
     get("/confirm", UserController, :confirm)
+
     get("/switch", LocaleController, :switch)
+ 
+    resources("/remind-password", RemindPasswordController, only: [:new, :create])
     resources("/password", PasswordController, only: [:edit, :update], singleton: true)
 
     resources "/languages", LanguageController do
@@ -109,6 +116,15 @@ defmodule HexletBasicsWeb.Router do
     resources "/lessons", LessonController, include: [] do
       get("/redirect-to-next", LessonController, :next, as: :member)
     end
+  end
+
+  scope "/", HexletBasicsWeb do
+    pipe_through [:browser, :ensure_auth]
+ 
+    resources "/profile", ProfileController, only: [:show, :delete], singleton: true
+    delete("/profile/delete_account/:account_id", ProfileController, :delete_account)
+
+    post("/reset_password", PasswordController, :reset_password)
   end
 
   # Other scopes may use custom stacks.
