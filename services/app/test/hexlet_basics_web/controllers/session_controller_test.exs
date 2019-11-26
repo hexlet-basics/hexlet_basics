@@ -17,6 +17,15 @@ defmodule HexletBasicsWeb.SessionControllerTest do
     assert redirected_to(conn) == page_path(conn, :index)
   end
 
+  test "#create with whitespace" do
+    _user = insert(:user, @create_attrs)
+
+    session_attrs = %{password: "password", email: "user@mail.ru   "}
+    conn = post conn, session_path(conn, :create), session: session_attrs
+
+    assert redirected_to(conn) == page_path(conn, :index)
+  end
+
   test "#create when user doesnt have encrypted_password", %{conn: conn} do
     _user = insert(:user, %{email: "user@mail.ru"})
     conn = post conn, session_path(conn, :create), session: @session_attrs
