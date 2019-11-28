@@ -12,7 +12,7 @@ defmodule HexletBasicsWeb.SessionController do
   end
 
   def create(conn, %{"session" => %{"email" => email, "password" => password}}) do
-    auth = UserManager.authenticate_user(email, password)
+    auth = UserManager.authenticate_user(String.trim(email), password)
 
     auth
     |> login_reply(conn)
