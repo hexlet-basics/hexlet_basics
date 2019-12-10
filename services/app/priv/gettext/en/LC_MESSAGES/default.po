@@ -19,6 +19,7 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Start"
 msgstr ""
 
@@ -213,6 +214,7 @@ msgstr "Please sign in with your GitHub account, this is necessary to track the 
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Continue"
 msgstr ""
 
@@ -310,6 +312,14 @@ msgstr "Code Basics: basics of programming on Elixir"
 msgid "OG description elixir"
 msgstr "Elixir is a programming language that runs on top of Erlang. How this happens is a functional language with rigorous computations, unambiguous assignment and dynamic typing, creation to support distributed, fault-tolerant, non-stop, hot-swappable applications."
 
+## For meta tags in language_controller
+msgid "OG title go"
+msgstr "Code Basics: basics of programming on Go"
+
+## For meta tags in language_controller
+msgid "OG description go"
+msgstr "Go is a general-purpose language with rich features and clear syntax. Thanks to its multi-platform, reliable, well-documented standard library and focus on convenient approaches to the development itself, Go is an ideal language for the first steps in programming."
+
 ## Header in module page
 msgid "Header php"
 msgstr "PHP for beginners"
@@ -345,6 +355,10 @@ msgstr "Ruby for beginners"
 ## Header in module page
 msgid "Header elixir"
 msgstr "Elixir for beginners"
+
+## Header in module page
+msgid "Header go"
+msgstr "Go for beginners"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
@@ -619,3 +633,5 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/profile/show.html.slime:1
 msgid "There were problems with the delivery of letters to your address. Please check that emails reach your inbox."
 msgstr ""
+
+

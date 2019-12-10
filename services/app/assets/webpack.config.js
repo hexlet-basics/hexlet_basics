@@ -71,7 +71,7 @@ module.exports = {
     new MiniCssExtractPlugin({ filename: '../css/[name].css' }),
     new CopyWebpackPlugin([{ from: 'static/', to: '../' }]),
     new MonacoWebpackPlugin({
-      languages: ['javascript', 'php', 'java', 'python', 'scheme', 'html', 'ruby'],
+      languages: ['javascript', 'php', 'java', 'python', 'scheme', 'html', 'ruby', 'go'],
     }),
   ],
 };

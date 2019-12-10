@@ -8,7 +8,7 @@ init:
 	helm repo add rimusz https://charts.rimusz.net
 	helm repo update
 
-apply-exercises: apply-exercises-ruby apply-exercises-elixir apply-exercises-html apply-exercises-css apply-exercises-js apply-exercises-java apply-exercises-racket apply-exercises-php apply-exercises-python
+apply-exercises: apply-exercises-go apply-exercises-ruby apply-exercises-elixir apply-exercises-html apply-exercises-css apply-exercises-js apply-exercises-java apply-exercises-racket apply-exercises-php apply-exercises-python
 
 apply-exercises-ruby:
 	kubectl delete jobs exercises-ruby-job || true
@@ -45,6 +45,10 @@ apply-exercises-php:
 apply-exercises-python:
 	kubectl delete jobs exercises-python-job || true
 	kubectl apply -f $(CURRENT_DIR)/exercises-python.job.yml
+
+apply-exercises-go:
+	kubectl delete jobs exercises-go-job || true
+	kubectl apply -f $(CURRENT_DIR)/exercises-go.job.yml
 
 # helm install --name app ./app-chart
 helm-upgrade-app:

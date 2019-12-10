@@ -19,6 +19,7 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Start"
 msgstr ""
 
@@ -213,6 +214,7 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Continue"
 msgstr ""
 
@@ -310,6 +312,14 @@ msgstr ""
 msgid "OG description elixir"
 msgstr ""
 
+## For meta tags in language_controller
+msgid "OG title go"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description go"
+msgstr ""
+
 ## Header in module page
 msgid "Header php"
 msgstr ""
@@ -344,6 +354,10 @@ msgstr ""
 
 ## Header in module page
 msgid "Header elixir"
+msgstr ""
+
+## Header in module page
+msgid "Header go"
 msgstr ""
 
 #, elixir-format

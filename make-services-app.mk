@@ -82,3 +82,9 @@ app-exercises-load-elixir:
 	rm -rf tmp/hexletbasics/exercises-elixir
 	docker run --rm -v $(CURDIR)/tmp/hexletbasics/exercises-elixir:/out hexletbasics/exercises-elixir bash -c "cp -r /exercises-elixir/* /out"
 	docker-compose run --rm app mix x.exercises.load elixir
+
+app-exercises-load-go:
+	docker pull hexletbasics/exercises-go
+	rm -rf tmp/hexletbasics/exercises-go
+	docker run --rm -v $(CURDIR)/tmp/hexletbasics/exercises-go:/out hexletbasics/exercises-go bash -c "cp -r /exercises-go/* /out"
+	docker-compose run --rm app mix x.exercises.load go
