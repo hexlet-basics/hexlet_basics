@@ -32,6 +32,7 @@ $hexlet-basics-racket-bg: #f9ae58;
 $hexlet-basics-python-bg: #c594c5;
 $hexlet-basics-ruby-bg: #db625c;
 $hexlet-basics-elixir-bg: #9976d6;
+$hexlet-basics-go-bg: #59d8f9;
 
 .hexlet-basics-html-bg {
   background-color: $hexlet-basics-html-bg;
@@ -67,6 +68,10 @@ $hexlet-basics-elixir-bg: #9976d6;
 
 .hexlet-basics-elixir-bg {
   background-color: $hexlet-basics-elixir-bg;
+}
+
+.hexlet-basics-go-bg {
+  background-color: $hexlet-basics-go-bg;
 }
 
 @import "~bootstrap/scss/bootstrap";

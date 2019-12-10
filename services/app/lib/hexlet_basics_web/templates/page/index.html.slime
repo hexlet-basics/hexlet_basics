@@ -78,3 +78,10 @@
         img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/elixir.png") alt="elixir programming lessons")
         - elixirAnchor = if Enum.member?(@started_languages_by_slug, "elixir"), do: gettext("Continue"), else: gettext("Start")
         = link elixirAnchor, to: Routes.language_path(@conn, :show, "elixir"), class: "btn btn-light btn-block stretched-link"
+  .col-12.col-sm-6.col-lg-3.mb-4
+    .card.h-100
+      .card-body.hexlet-basics-go-bg
+        h2.h4.font-weight-light.card-title.text-center Go
+        img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/go.png") alt="go programming lessons")
+        - goAnchor = if Enum.member?(@started_languages_by_slug, "go"), do: gettext("Continue"), else: gettext("Start")
+        = link goAnchor, to: Routes.language_path(@conn, :show, "go"), class: "btn btn-light btn-block stretched-link"
