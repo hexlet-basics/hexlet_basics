@@ -71,12 +71,21 @@ export default class Editor extends React.Component {
     };
 
     const { language, defaultValue } = this.props;
+    const getEditorLanguage = () => {
+      switch (get(languageMapping, language, language)) {
+        case 'css':
+        case 'html':
+          return 'html';
+        default:
+          return get(languageMapping, language, language);
+      }
+    };
 
     return (
       <MonacoEditor
         theme="vs-dark"
         options={options}
-        language={get(languageMapping, language, language)}
+        language={getEditorLanguage()}
         editorDidMount={this.editorDidMount}
         defaultValue={defaultValue}
         onChange={this.handleChange}
