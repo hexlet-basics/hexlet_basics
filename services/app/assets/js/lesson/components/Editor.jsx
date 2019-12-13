@@ -8,6 +8,7 @@ import { get } from 'lodash';
 
 export const languageMapping = {
   racket: 'scheme',
+  css: 'html',
 };
 
 const langToTabSizeMapping = {
