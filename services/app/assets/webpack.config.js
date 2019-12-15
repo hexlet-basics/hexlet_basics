@@ -44,6 +44,7 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
+          'resolve-url-loader',
           'sass-loader',
         ],
       },
@@ -55,11 +56,17 @@ module.exports = {
           'postcss-loader',
         ],
       },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)/,
+        use: [
+          'file-loader',
+        ],
+      },
     ],
   },
   entry: {
     app: './js/app.js',
-    lesson: './js/lesson/index.jsx',
+    lesson: './js/lesson/index.js',
   },
   output: {
     publicPath: '/js/',
@@ -71,7 +78,7 @@ module.exports = {
     new MiniCssExtractPlugin({ filename: '../css/[name].css' }),
     new CopyWebpackPlugin([{ from: 'static/', to: '../' }]),
     new MonacoWebpackPlugin({
-      languages: ['javascript', 'php', 'java', 'python', 'scheme', 'html', 'ruby', 'go'],
+      languages: ['javascript', 'php', 'java', 'python', 'scheme', 'html', 'ruby', 'go', 'css'],
     }),
   ],
 };

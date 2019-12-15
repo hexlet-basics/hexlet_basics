@@ -1,4 +1,4 @@
-FROM elixir:1.9.2
+FROM elixir:1.9.4
 
 ENV HOME /home/shared
 WORKDIR /app
@@ -14,7 +14,7 @@ RUN npm install -g npm-check-updates env-cmd
 RUN mix local.hex --force
 # Install rebar (Erlang build tool)
 RUN mix local.rebar --force
-RUN mix archive.install hex phx_new 1.4.10
+RUN mix archive.install hex phx_new 1.4.11
 
 ENV DOCKER_CHANNEL edge
 ENV DOCKER_VERSION 19.03.4
@@ -33,8 +33,8 @@ RUN cd assets && npm ci
 
 COPY . .
 
-RUN MIX_ENV=prod env-cmd -f .env.docker mix compile
-RUN NODE_ENV=production cd assets && npm run deploy
-RUN MIX_ENV=prod env-cmd -f .env.docker mix phx.digest
+# RUN MIX_ENV=prod env-cmd -f .env.docker mix compile
+# RUN NODE_ENV=production cd assets && npm run deploy
+# RUN MIX_ENV=prod env-cmd -f .env.docker mix phx.digest
 
 CMD ["mix", "phx.server"]

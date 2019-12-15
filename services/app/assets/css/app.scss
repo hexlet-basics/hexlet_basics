@@ -1,4 +1,8 @@
-@import "~highlight.js/styles/vs";
+@import "highlight.js/styles/vs";
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import "bootstrap/scss/bootstrap";
+
 
 // Basic Colors
 $blue:    #6699cc !default;

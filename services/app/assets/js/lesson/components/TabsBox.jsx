@@ -5,11 +5,10 @@ import { withTranslation } from 'react-i18next';
 import cn from 'classnames';
 import {
   TabContent, TabPane, Nav, NavItem, NavLink,
-} from 'reactstrap';
+} from 'react-bootstrap';
 import Editor from './Editor';
 import Console from './Console';
 import Solution from './Solution';
-import withActive from '../hoc/withActive';
 import connect from '../connect';
 import EntityContext from '../EntityContext';
 
@@ -20,7 +19,6 @@ const mapStateToProps = (state) => {
 };
 
 @connect(mapStateToProps)
-@withActive()
 @withTranslation()
 class TabsBox extends React.Component {
   static contextType = EntityContext;

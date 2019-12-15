@@ -21,7 +21,6 @@ import './shared';
 // import '../css/app.scss';
 // import '../css/lesson.scss';
 
-// import '@babel/polyfill';
 // import 'react';
 // import 'react-dom';
 // import 'react-redux';

@@ -1,10 +1,7 @@
 // @ts-check
 
 import { combineReducers } from 'redux';
-import { handleActions } from 'redux-actions';
 import { addMinutes } from 'date-fns';
-
-import * as actions from '../actions';
 
 const code = handleActions({
   [actions.changeCode]: (_state, { payload }) => {
@@ -25,41 +22,41 @@ const currentTabInfo = handleActions({
   },
 }, { current: 'editor', clicksCount: 0 });
 
-const notification = handleActions({
-  // [actions.dismissNotification]: () => {
-  //   const info = null;
-  //   return info;
-  // },
-  [actions.runCheckFailure]: (_state, { payload }) => {
-    let message;
-    switch (payload.code) {
-      case 403:
-        message = 'alert.error.forbidden';
-        break;
-      default:
-        message = 'alert.error.message';
-        break;
-    }
-    const msg = { type: 'danger', headline: 'alert.error.headline', message };
-    return msg;
-  },
-  [actions.runCheckRequest]: () => {
-    const info = null;
-    return info;
-  },
-  [actions.runCheckSuccess]: (_, { payload }) => {
-    const { check: { data: { attributes } } } = payload;
-    if (attributes.passed) {
-      return { type: 'success', headline: 'alert.passed.headline', message: 'alert.passed.message' };
-    }
+// const notification = handleActions({
+//   // [actions.dismissNotification]: () => {
+//   //   const info = null;
+//   //   return info;
+//   // },
+//   [actions.runCheckFailure]: (_state, { payload }) => {
+//     let message;
+//     switch (payload.code) {
+//       case 403:
+//         message = 'alert.error.forbidden';
+//         break;
+//       default:
+//         message = 'alert.error.message';
+//         break;
+//     }
+//     const msg = { type: 'danger', headline: 'alert.error.headline', message };
+//     return msg;
+//   },
+//   [actions.runCheckRequest]: () => {
+//     const info = null;
+//     return info;
+//   },
+//   [actions.runCheckSuccess]: (_, { payload }) => {
+//     const { check: { data: { attributes } } } = payload;
+//     if (attributes.passed) {
+//       return { type: 'success', headline: 'alert.passed.headline', message: 'alert.passed.message' };
+//     }
 
-    return {
-      type: 'warning',
-      headline: `alert.${attributes.result}.headline`,
-      message: `alert.${attributes.result}.message`,
-    };
-  },
-}, null);
+//     return {
+//       type: 'warning',
+//       headline: `alert.${attributes.result}.headline`,
+//       message: `alert.${attributes.result}.message`,
+//     };
+//   },
+// }, null);
 
 const checkInfo = handleActions({
   [actions.runCheckRequest]: (state) => {
@@ -144,3 +141,52 @@ export default combineReducers({
   lessonState,
   solutionState,
 });
+
+// import Routes from 'routes';
+import axios from 'axios';
+
+export const init = createAction('INIT');
+export const makeSolutionAvailable = createAction('SOLUTION/MAKE/AVAILABLE');
+
+export const runCheckRequest = createAction('CHECK/RUN/REQUEST');
+export const runCheckSuccess = createAction('CHECK/RUN/SUCCESS');
+export const runCheckFailure = createAction('CHECK/RUN/FAILURE');
+
+export const changeCode = createAction('CODE/CHANGE');
+export const selectTab = createAction('TAB/SELECT');
+
+// export const dismissNotification = createAction('NOTIFICATION/DISMISS');
+
+export const runCheck = ({ lesson, code }) => async (dispatch) => {
+  dispatch(runCheckRequest());
+  const url = `/api/lessons/${lesson.id}/checks`; // TOOO: jsroutes
+  const data = {
+    type: 'check',
+    attributes: {
+      code,
+    },
+  };
+  try {
+    const response = await axios.post(url, { data });
+    dispatch(runCheckSuccess({ check: response.data }));
+  } catch (e) {
+    console.log(e);
+    dispatch(runCheckFailure({ code: e.response.status }));
+  }
+};
+
+export const updateCountdown = createAction('COUNTDOWN/UPDATE', () => ({ currentTime: Date.now() }));
+
+const checkingInterval = 1000;
+
+export const updateCountdownTimer = (store) => {
+  const { countdown: { currentTime, finishTime } } = store.getState();
+  if (currentTime >= finishTime) {
+    store.dispatch(makeSolutionAvailable());
+    return;
+  }
+  store.dispatch(updateCountdown());
+  setTimeout(() => updateCountdownTimer(store), checkingInterval);
+};
+
+export const showSolution = createAction('SOLUTION/SHOW');
