@@ -50,17 +50,17 @@ defmodule HexletBasics.Mixfile do
       {:phoenix_pubsub, "~> 1.0"},
       {:ecto_sql, "~> 3.1"},
       {:phoenix_ecto, "~> 4.0"},
-      {:postgrex, ">= 0.0.0"},
+      {:postgrex, "~> 0.15.3"},
       {:jason, "~> 1.0"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:plug_cowboy, "~> 2.0"},
-      {:phoenix_slime, github: "slime-lang/phoenix_slime"},
+      {:phoenix_slime, "~> 0.13"},
       {:ecto_state_machine, "~> 0.3.0"},
       {:phoenix_jsroutes, "~> 0.0.4"},
       {:ex_machina, github: "thoughtbot/ex_machina", only: :test},
-      {:earmark, git: "https://github.com/Hexlet/earmark.git", branch: "master"},
+      {:earmark, "~> 1.4.3"},
       {:faker, "~> 0.9", only: :test},
       {:yaml_elixir, "~> 2.1.0"},
       {:rollbax, ">= 0.0.0"},
@@ -77,9 +77,9 @@ defmodule HexletBasics.Mixfile do
       {:bamboo, "~> 1.3"},
       {:bamboo_smtp, "~> 1.7.0"},
       {:hackney, github: "benoitc/hackney", override: true},
-      {:machinery, git: "https://github.com/joaomdmoura/machinery.git"},
+      {:machinery, "~> 1.0.0"},
       {:guardian, "~> 1.2"},
-      {:cowboy, "~> 2.5", override: true} # TODO: https://github.com/joaomdmoura/machinery/issues/40
+      {:cowboy, "~> 2.5"}
     ]
   end
 
