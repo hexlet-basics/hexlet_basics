@@ -40,6 +40,7 @@ defmodule HexletBasicsWeb.Router do
   pipeline :browser do
     plug(:accepts, ["html"])
     plug(:fetch_session)
+    plug(PhoenixGon.Pipeline)
     plug(HexletBasics.UserManager.Pipeline)
     plug(HexletBasicsWeb.Plugs.AssignCurrentUser)
     plug(HexletBasicsWeb.Plugs.SetLocale)
@@ -103,7 +104,7 @@ defmodule HexletBasicsWeb.Router do
     get("/confirm", UserController, :confirm)
 
     get("/switch", LocaleController, :switch)
- 
+
     resources("/remind-password", RemindPasswordController, only: [:new, :create])
     resources("/password", PasswordController, only: [:edit, :update], singleton: true)
 
@@ -120,7 +121,7 @@ defmodule HexletBasicsWeb.Router do
 
   scope "/", HexletBasicsWeb do
     pipe_through [:browser, :ensure_auth]
- 
+
     resources "/profile", ProfileController, only: [:show, :delete], singleton: true
     delete("/profile/delete_account/:account_id", ProfileController, :delete_account)
 

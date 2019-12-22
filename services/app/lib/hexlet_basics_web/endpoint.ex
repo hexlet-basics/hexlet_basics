@@ -49,7 +49,6 @@ defmodule HexletBasicsWeb.Endpoint do
     domain: System.fetch_env!("APP_HOST")
   )
 
-  plug(PhoenixGon.Pipeline)
   plug(HexletBasicsWeb.Router)
 
   # Callback invoked for dynamically configuring the endpoint.
