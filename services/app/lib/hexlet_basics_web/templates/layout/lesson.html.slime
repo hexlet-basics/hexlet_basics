@@ -11,7 +11,7 @@ html.h-md-100 lang="#{@locale}"
     = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html"
     .container-fluid.h-md-100.d-flex.flex-column
       header.header
-        nav.navbar.navbar-expand-lg.navbar-dark role="navigation"
+        nav.navbar.navbar-expand-lg
           .navbar-text.pr-3.mr-auto(itemscope itemtype="http://schema.org/BreadcrumbList")
             span(itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem")
               a href="/" title="Главная" itemprop="item"
@@ -40,6 +40,6 @@ html.h-md-100 lang="#{@locale}"
 
       main.h-md-100.overflow-hidden role="main"
         = render @view_module, @view_template, assigns
-      footer.mt-1
+      / footer.mt-1
 
     script src="#{Routes.static_path(@conn, "/js/lesson.js")}"

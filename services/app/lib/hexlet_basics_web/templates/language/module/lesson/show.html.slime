@@ -1,8 +1,8 @@
 .row.h-md-100
   .col-12.col-md-5.h-md-100.mb-3.mb-md-0
-    .card.hexlet-basics-theory-card.text-dark.h-md-100
-      .card-header.py-0
-        ul.nav.nav-pills.card-header-pills.justify-content-center(role="tablist")
+    .card
+      .card-header
+        ul.nav.nav-pills.card-header-pills.justify-content-center
           li.nav-item
             a.nav-link.btn-light.active href="#lesson-tab" data-toggle="pill" role="tab"= gettext "lesson"
           li.nav-item

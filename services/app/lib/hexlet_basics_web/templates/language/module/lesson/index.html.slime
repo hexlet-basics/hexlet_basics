@@ -15,12 +15,12 @@ div(itemscope itemtype="http://schema.org/Course")
           - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
           .mb-2
             .card
-              .card-body.py-3.bg-secondary
+              .card-body.py-3
                 .card-text
                   = if finished_lesson do
                     img.img-fluid.hexlet-basics-finished-lesson-sticker(src=Routes.static_path(@conn, "/images/finished_lesson_pin.png"))
                   - url = Routes.language_module_lesson_path(@conn, :show, @language.slug, @module.slug, lesson.slug)
-                  = link to: url, class: "stretched-link text-light text-decoration-none" do
+                  = link to: url, class: "stretched-link text-decoration-none" do
                     = lesson.natural_order
                     | .&nbsp;
                     = lesson_description.name
