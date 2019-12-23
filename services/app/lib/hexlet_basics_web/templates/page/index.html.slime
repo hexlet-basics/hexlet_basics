@@ -60,7 +60,7 @@
 
 .row.justify-content-center.mb-5.mt-5
   .col-12.col-md-9.text-center
-    h1.h3.font-weight-light = gettext("Courses in development")
+    h2.h3.font-weight-light = gettext("Courses in development")
     p = gettext("Courses in development description")
 
 .row
