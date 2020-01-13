@@ -94,7 +94,7 @@ defmodule HexletBasicsWeb.UserController do
         |> put_flash(
           :info,
           gettext(
-            "We sent an email to confirm the email - %{email}, follow the link from the email to complete the procedure. Please contact support <a href=mailto:support@hexlet.io> support@hexlet.io </a>.",
+            "We sent an email to confirm the email - %{email}, follow the link from the email to complete the procedure.",
             email: user.email
           )
         )

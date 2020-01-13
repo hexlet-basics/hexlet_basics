@@ -11,14 +11,10 @@ msgstr ""
 "Language: ru_RU\n"
 
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Start"
 msgstr "Начать"
@@ -33,12 +29,9 @@ msgid "Require auth"
 msgstr "Требуется аутентификация"
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
-#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
-#: lib/hexlet_basics_web/templates/session/new.html.slime:1
-#: lib/hexlet_basics_web/templates/session/new.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1 lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1 lib/hexlet_basics_web/templates/session/new.html.slime:1
 msgid "Sign In"
 msgstr "Войти"
 
@@ -59,26 +52,22 @@ msgid "You have been logged out!"
 msgstr "Вы вышли"
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "Exercise available only for signed in users"
 msgstr "Упражнение доступно только для авторизованных пользователей"
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "discuss"
 msgstr "Обсуждение"
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "instructions"
 msgstr "Задание"
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "lesson"
 msgstr "Урок"
 
@@ -128,14 +117,12 @@ msgid "Source code"
 msgstr "Исходный код"
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "tips"
 msgstr "Советы"
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "definitions"
 msgstr "Определения"
 
@@ -148,20 +135,15 @@ msgid "All lessons completed!"
 msgstr "Все уроки завершены!"
 
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1 lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Code Basics Description"
 msgstr "Бесплатные практические уроки по программированию для тех, кто начинает с нуля"
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Author"
 msgstr "Кирилл Мокевнин, Рахим Давлеткалиев, Наталия Басс"
@@ -192,36 +174,29 @@ msgstr "Данные курсы находятся в разработке и н
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "Only for signed users"
 msgstr "Упражнение доступно только авторизованным пользователям."
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "Please Sign In"
 msgstr "Пожалуйста, авторизуйтесь, это необходимо для отслеживания прогресса выполнения уроков. Если у вас ещё нет учётной записи, то сейчас самое время создать аккаунт."
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Continue"
 msgstr "Продолжить"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "issues"
 msgstr "Нашли ошибку? Есть что добавить? Пулреквесты приветствуются"
 
@@ -394,23 +369,20 @@ msgstr "Попробуйте наши %{courses} или вступайте в %{
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
-#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
-#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1 lib/hexlet_basics_web/templates/user/new.html.slime:1
 msgid "Sign Up"
 msgstr "Регистрация"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/profile/show.html.slime:3
-#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
-#: lib/hexlet_basics_web/templates/session/new.html.slime:1
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1 lib/hexlet_basics_web/templates/session/new.html.slime:1
 #: lib/hexlet_basics_web/templates/user/new.html.slime:1
 msgid "Email"
 msgstr "E-mail"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/password/edit.html.slime:1
-#: lib/hexlet_basics_web/templates/session/new.html.slime:1
-#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1 lib/hexlet_basics_web/templates/user/new.html.slime:1
 msgid "Password"
 msgstr "Пароль"
 
@@ -478,10 +450,8 @@ msgstr "Обновить Пароль"
 
 #, elixir-format
 #: lib/hexlet_basics_web/controllers/password_controller.ex:14
-#: lib/hexlet_basics_web/controllers/password_controller.ex:21
-#: lib/hexlet_basics_web/controllers/password_controller.ex:38
-#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:32
-#: lib/hexlet_basics_web/controllers/user_controller.ex:71
+#: lib/hexlet_basics_web/controllers/password_controller.ex:21 lib/hexlet_basics_web/controllers/password_controller.ex:38
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:32 lib/hexlet_basics_web/controllers/user_controller.ex:71
 msgid "User not found"
 msgstr "Пользователь не найден"
 
@@ -568,11 +538,6 @@ msgid "Send an email with a confirmation link again."
 msgstr "Выслать письмо со ссылкой для подтверждения заново."
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/user_controller.ex:96
-msgid "We sent an email to confirm the email - %{email}, follow the link from the email to complete the procedure. Please contact support <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
-msgstr "Мы отправили письмо для подтверждения email - %{email}, перейдите по ссылке из письма, чтобы завершить процедуру. Если письмо не пришло, пожалуйста, обратитесь в службу поддержки <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
-
-#, elixir-format
 #: lib/hexlet_basics_web/templates/profile/show.html.slime:2
 msgid "Change password"
 msgstr "Изменить пароль"
@@ -599,8 +564,7 @@ msgstr "Социальные сети"
 
 #, elixir-format
 #: lib/hexlet_basics_web/controllers/profile_controller.ex:31
-#: lib/hexlet_basics_web/controllers/profile_controller.ex:57
-#: lib/hexlet_basics_web/controllers/user_controller.ex:107
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:57 lib/hexlet_basics_web/controllers/user_controller.ex:107
 msgid "Something went wrong! Please contact support <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
 msgstr "Произошла ошибка!Пожалуйста, обратитесь в службу поддержки <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
 
@@ -633,3 +597,8 @@ msgstr "Отключить %{provider}"
 #: lib/hexlet_basics_web/templates/profile/show.html.slime:1
 msgid "There were problems with the delivery of letters to your address. Please check that emails reach your inbox."
 msgstr "Возникли проблемы с доставкой писем на ваш адрес. Пожалуйста, проверьте, что до вашего электронного ящика доходят письма."
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/user_controller.ex:96
+msgid "We sent an email to confirm the email - %{email}, follow the link from the email to complete the procedure."
+msgstr "Мы отправили письмо для подтверждения email - %{email}, перейдите по ссылке из письма, чтобы завершить процедуру."
