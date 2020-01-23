@@ -7,10 +7,11 @@ defmodule HexletBasicsWeb.Api.Lesson.CheckControllerTest do
     lesson = insert(:language_module_lesson)
     data = %{
       attributes: %{
-        code: "<?php
+        code: %{ content: "<?php
         sleep(10);
         print_r('HELLOOO FROM PHP!!!');
         "
+        }
       }
     }
     user = insert(:user)
