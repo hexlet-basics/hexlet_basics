@@ -8,6 +8,7 @@ include make-gcp.mk
 include k8s/Makefile
 
 project-setup: project-files-touch docker-ansible-build-image project-env-generate compose-setup
+	npm install
 
 project-files-touch:
 	mkdir -p tmp

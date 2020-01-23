@@ -1,15 +1,14 @@
 // @ts-check
 
-import React from 'react';
-import { withTranslation } from 'react-i18next';
-import cn from 'classnames';
+import React, { useState, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+// import cn from 'classnames';
 import {
-  TabContent, TabPane, Nav, NavItem, NavLink,
-} from 'reactstrap';
+  Tabs, Tab,
+} from 'react-bootstrap';
 import Editor from './Editor';
 import Console from './Console';
 import Solution from './Solution';
-import withActive from '../hoc/withActive';
 import connect from '../connect';
 import EntityContext from '../EntityContext';
 
@@ -19,85 +18,49 @@ const mapStateToProps = (state) => {
   return props;
 };
 
-@connect(mapStateToProps)
-@withActive()
-@withTranslation()
-class TabsBox extends React.Component {
-  static contextType = EntityContext;
+// @connect(mapStateToProps)
+// @withTranslation()
+// class TabsBox extends React.Component {
+//   static contextType = EntityContext;
 
-  render() {
-    const {
-      className,
-      checkInfo,
-      currentTabInfo,
-      setActive,
-      notification,
-      changeCode,
-      userFinishedLesson,
-      active,
-      activeClass,
-      t,
-    } = this.props;
+const TabsBox = (props) => {
+  const {
+    // className,
+    checkInfo,
+    currentTabInfo,
+    // notification,
+    changeCode,
+    userFinishedLesson,
+    startTime,
+    selectTab,
+  } = props;
 
-    const {
-      lesson,
-      language,
-    } = this.context;
+  const { t } = useTranslation();
+  const { lesson, language } = useContext(EntityContext);
 
-    const activateNavLink = activeClass('active bg-black');
-    const activateTabPane = activeClass('d-flex flex-column overflow-auto h-100 w-100');
+  return (
+    <Tabs id="tabs" activeKey={currentTabInfo.title} onSelect={selectTab}>
+      <Tab eventKey="editor" title={t('editor')}>
+        <Editor
+          defaultValue={lesson.prepared_code}
+          onCodeChange={changeCode}
+          language={language.slug}
+          current={currentTabInfo.title === 'editor'}
+        />
+      </Tab>
+      <Tab eventKey="console" title={t('console')}>
+        <Console output={checkInfo.output} />
+      </Tab>
+      <Tab eventKey="solution" title={t('solution')}>
+        <Solution
+          startTime={startTime}
+          defaultValue={lesson.original_code}
+          language={language.slug}
+          userFinishedLesson={userFinishedLesson}
+        />
+      </Tab>
+    </Tabs>
+  );
+};
 
-    const tabNames = ['editor', 'console', 'solution'];
-
-    const badgeClassName = cn('badge mb-2 mb-sm-0 p-2', {
-      [`badge-${notification && notification.type}`]: true,
-    });
-
-    const elements = tabNames.map((name) => {
-      const className = `text-light ${activateNavLink(name)}`;
-      return (
-        <NavItem key={name} className="flex-fill">
-          <NavLink href="#" onClick={setActive(name)} className={className}>
-            {t(name)}
-          </NavLink>
-        </NavItem>
-      );
-    });
-
-    return (
-      <React.Fragment>
-        <div className="d-flex flex-column flex-sm-row-reverse">
-          <div className="my-auto">
-            <span className={badgeClassName}>{notification && t(notification.headline)}</span>
-          </div>
-          <div className="mr-auto">
-            <Nav tabs className="flex-nowrap">{elements}</Nav>
-          </div>
-        </div>
-        <TabContent className={`d-flex ${className}`} activeTab={active}>
-          <TabPane tabId="editor" className={activateTabPane('editor')}>
-            <Editor
-              defaultValue={lesson.prepared_code}
-              onCodeChange={changeCode}
-              language={language.slug}
-              current={currentTabInfo.current === 'editor'}
-              clicksCount={currentTabInfo.clicksCount}
-            />
-          </TabPane>
-          <TabPane tabId="console" className={activateTabPane('console')}>
-            <Console output={checkInfo.output} />
-          </TabPane>
-          <TabPane tabId="solution" className={activateTabPane('solution')}>
-            <Solution
-              defaultValue={lesson.original_code}
-              language={language.slug}
-              userFinishedLesson={userFinishedLesson}
-            />
-          </TabPane>
-        </TabContent>
-      </React.Fragment>
-    );
-  }
-}
-
-export default TabsBox;
+export default connect(mapStateToProps)(TabsBox);

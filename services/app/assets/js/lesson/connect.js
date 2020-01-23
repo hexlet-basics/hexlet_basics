@@ -1,4 +1,6 @@
-import { connect } from 'react-redux';
-import * as actionCreators from './actions';
+// @ts-check
 
-export default mapStateToProps => Component => connect(mapStateToProps, actionCreators)(Component);
+import { connect } from 'react-redux';
+import { actions } from './slices';
+
+export default (mapStateToProps = () => ({}), mapDispatch = {}) => (Component) => connect(mapStateToProps, { ...actions, ...mapDispatch })(Component);

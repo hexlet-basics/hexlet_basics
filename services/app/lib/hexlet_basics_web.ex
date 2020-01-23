@@ -47,6 +47,7 @@ defmodule HexletBasicsWeb do
       import HexletBasicsWeb.Helpers.Auth, only: [signed_in?: 1]
       import Formulator
       import HexletBasicsWeb.Helpers.CustomUrl
+      import HexletBasicsWeb.Helpers.LanguageStyles
 
       def current_user(conn) do
         conn.assigns[:current_user]

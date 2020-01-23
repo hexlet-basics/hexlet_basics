@@ -135,8 +135,7 @@ msgid "All lessons completed!"
 msgstr "Все уроки завершены!"
 
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1 lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Description"
 msgstr "Бесплатные практические уроки по программированию для тех, кто начинает с нуля"
 
@@ -144,19 +143,12 @@ msgstr "Бесплатные практические уроки по прогр
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Author"
 msgstr "Кирилл Мокевнин, Рахим Давлеткалиев, Наталия Басс"
 
 #: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Title"
 msgstr "Code Basics: основы программирования"
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
-msgid "From the creators of Hexlet"
-msgstr "От создателей Хекслета"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
@@ -602,3 +594,28 @@ msgstr "Возникли проблемы с доставкой писем на 
 #: lib/hexlet_basics_web/controllers/user_controller.ex:96
 msgid "We sent an email to confirm the email - %{email}, follow the link from the email to complete the procedure."
 msgstr "Мы отправили письмо для подтверждения email - %{email}, перейдите по ссылке из письма, чтобы завершить процедуру."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "For beginners"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Free programming courses"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Information"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Resources"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Social"
+msgstr ""

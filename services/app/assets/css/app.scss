@@ -1,80 +1,94 @@
-@import "~highlight.js/styles/vs";
+@import 'tabler/scss/tabler';
+// @import "highlight.js/styles/vs";
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+// @import "bootstrap/scss/bootstrap";
 
-// Basic Colors
-$blue:    #6699cc !default;
-$indigo:  #7986CB !default;
-$purple:  #c594c5 !default;
-$pink:    #EC5f67 !default;
-$red:     #F07178 !default;
-$orange:  #F9AE58 !default;
-$yellow:  #ffc107 !default;
-$green:   #99C794 !default;
-$teal:    #5fb3b3 !default;
-$cyan:    #89DDF3 !default;
 
-$enable-rounded: false;
-$enable-responsive-font-sizes: true;
-$border-width: 0;
+// // Basic Colors
+// $blue:    #6699cc !default;
+// $indigo:  #7986CB !default;
+// $purple:  #c594c5 !default;
+// $pink:    #EC5f67 !default;
+// $red:     #F07178 !default;
+// $orange:  #F9AE58 !default;
+// $yellow:  #ffc107 !default;
+// $green:   #99C794 !default;
+// $teal:    #5fb3b3 !default;
+// $cyan:    #89DDF3 !default;
 
-$theme-colors: (
-  "black": #1e1e1e
+// $enable-rounded: false;
+// $enable-responsive-font-sizes: true;
+// $border-width: 0;
+
+// $theme-colors: (
+//   "black": #1e1e1e
+// );
+
+// $body-color: #f8f8f2;
+// $body-bg: #343d46;
+
+// $hexlet-basics-html-bg: #99C794;
+// $hexlet-basics-php-bg: #5fb3b3;
+// $hexlet-basics-css-bg: $red;
+// $hexlet-basics-java-bg: #89ddf3;
+// $hexlet-basics-javascript-bg: #7986cb;
+// $hexlet-basics-racket-bg: #f9ae58;
+// $hexlet-basics-python-bg: #c594c5;
+// $hexlet-basics-ruby-bg: #db625c;
+// $hexlet-basics-elixir-bg: #9976d6;
+// $hexlet-basics-go-bg: #59d8f9;
+
+// .hexlet-basics-html-bg {
+//   background-color: $hexlet-basics-html-bg;
+// }
+
+// .hexlet-basics-php-bg {
+//   background-color: $hexlet-basics-php-bg;
+// }
+
+// .hexlet-basics-css-bg {
+//   background-color: $hexlet-basics-css-bg;
+// }
+
+// .hexlet-basics-java-bg {
+//   background-color: $hexlet-basics-java-bg;
+// }
+
+// .hexlet-basics-javascript-bg {
+//   background-color: $hexlet-basics-javascript-bg;
+// }
+
+// .hexlet-basics-racket-bg {
+//   background-color: $hexlet-basics-racket-bg;
+// }
+
+// .hexlet-basics-python-bg {
+//   background-color: $hexlet-basics-python-bg;
+// }
+
+// .hexlet-basics-ruby-bg {
+//   background-color: $hexlet-basics-ruby-bg;
+// }
+
+// .hexlet-basics-elixir-bg {
+//   background-color: $hexlet-basics-elixir-bg;
+// }
+
+// .hexlet-basics-go-bg {
+//   background-color: $hexlet-basics-go-bg;
+// }
+
+// @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+// @import '~@fortawesome/fontawesome-free/scss/solid';
+// @import "~bootstrap/scss/bootstrap";
+
+$sizes: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%,
 );
-
-$body-color: #f8f8f2;
-$body-bg: #343d46;
-
-$hexlet-basics-html-bg: #99C794;
-$hexlet-basics-php-bg: #5fb3b3;
-$hexlet-basics-css-bg: $red;
-$hexlet-basics-java-bg: #89ddf3;
-$hexlet-basics-javascript-bg: #7986cb;
-$hexlet-basics-racket-bg: #f9ae58;
-$hexlet-basics-python-bg: #c594c5;
-$hexlet-basics-ruby-bg: #db625c;
-$hexlet-basics-elixir-bg: #9976d6;
-$hexlet-basics-go-bg: #59d8f9;
-
-.hexlet-basics-html-bg {
-  background-color: $hexlet-basics-html-bg;
-}
-
-.hexlet-basics-php-bg {
-  background-color: $hexlet-basics-php-bg;
-}
-
-.hexlet-basics-css-bg {
-  background-color: $hexlet-basics-css-bg;
-}
-
-.hexlet-basics-java-bg {
-  background-color: $hexlet-basics-java-bg;
-}
-
-.hexlet-basics-javascript-bg {
-  background-color: $hexlet-basics-javascript-bg;
-}
-
-.hexlet-basics-racket-bg {
-  background-color: $hexlet-basics-racket-bg;
-}
-
-.hexlet-basics-python-bg {
-  background-color: $hexlet-basics-python-bg;
-}
-
-.hexlet-basics-ruby-bg {
-  background-color: $hexlet-basics-ruby-bg;
-}
-
-.hexlet-basics-elixir-bg {
-  background-color: $hexlet-basics-elixir-bg;
-}
-
-.hexlet-basics-go-bg {
-  background-color: $hexlet-basics-go-bg;
-}
-
-@import "~bootstrap/scss/bootstrap";
 
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
@@ -98,80 +112,89 @@ $hexlet-basics-go-bg: #59d8f9;
   }
 }
 
-%hexlet-output {
-  border: 1px dashed $indigo;
-  padding: 8px;
-}
+// %hexlet-output {
+//   border: 1px dashed $indigo;
+//   padding: 8px;
+// }
 
-img.hexlet-basics-finished-lesson-sticker {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 100;
-  height: 40px;
-  width: auto;
-}
+// img.hexlet-basics-finished-lesson-sticker {
+//   position: absolute;
+//   bottom: 0;
+//   right: 0;
+//   z-index: 100;
+//   height: 40px;
+//   width: auto;
+// }
 
-/* the only light, non-standard block, has to be customized directly */
-.hexlet-basics-theory-card {
-  img {
-    max-width: 100%;
-  }
+// /* the only light, non-standard block, has to be customized directly */
+// .hexlet-basics-theory-card {
+//   img {
+//     max-width: 100%;
+//   }
 
-  table {
-    @extend .table;
+//   table {
+//     @extend .table;
 
-    color: inherit;
-    width: auto;
+//     color: inherit;
+//     width: auto;
 
-    thead {
-      th {
-        border-bottom: 2px solid $table-border-color;
-        border-top: 1px solid $table-border-color;
-      }
+//     thead {
+//       th {
+//         border-bottom: 2px solid $table-border-color;
+//         border-top: 1px solid $table-border-color;
+//       }
+//     }
+
+//     tbody {
+//       td {
+//         border-top: 1px solid $table-border-color;
+//       }
+//     }
+//   }
+
+//   pre {
+//     @extend %hexlet-output;
+
+//     code {
+//       @extend .pb-2;
+//     }
+//   }
+
+//   .hexlet-basics-example {
+//     @extend %hexlet-output;
+//   }
+
+//   pre.hexlet-basics-output {
+//     display: inline-block;
+//     background-color: $black;
+//     color: white;
+//     min-width: 220px;
+//     max-width: 100%;
+//     padding: 0 10px 12px 15px;
+//     margin-bottom: 0;
+//     border: none;
+//   }
+
+//   pre.hexlet-basics-output:before {
+//     content: '';
+//     background:url('/images/fake_output_topbar.png');
+//     background-repeat: no-repeat;
+//     background-size: contain;
+//     width: 210px;
+//     height: 27px;
+//     display: block;
+//     margin-bottom: 10px;
+//     background-color: #353d46;
+//     width: calc(100% + 15px);
+//     margin-left: -15px;
+//   }
+// }
+
+#basics-lesson-container {
+  .tab-content {
+    @extend .h-md-100;
+    .tab-pane {
+      @extend .h-md-100;
     }
-
-    tbody {
-      td {
-        border-top: 1px solid $table-border-color;
-      }
-    }
-  }
-
-  pre {
-    @extend %hexlet-output;
-
-    code {
-      @extend .pb-2;
-    }
-  }
-
-  .hexlet-basics-example {
-    @extend %hexlet-output;
-  }
-
-  pre.hexlet-basics-output {
-    display: inline-block;
-    background-color: $black;
-    color: white;
-    min-width: 220px;
-    max-width: 100%;
-    padding: 0 10px 12px 15px;
-    margin-bottom: 0;
-    border: none;
-  }
-
-  pre.hexlet-basics-output:before {
-    content: '';
-    background:url('/images/fake_output_topbar.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 210px;
-    height: 27px;
-    display: block;
-    margin-bottom: 10px;
-    background-color: #353d46;
-    width: calc(100% + 15px);
-    margin-left: -15px;
   }
 }

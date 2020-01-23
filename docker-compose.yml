@@ -40,7 +40,7 @@ services:
       - ".bashrc:/root/.bashrc:cached"
       - '/var/run/docker.sock:/var/run/docker.sock'
       # - "/var/tmp:/var/tmp:cached"
-      - "/tmp:/tmp:cached"
+      - "/tmp:/tmp"
     depends_on:
       - db
 

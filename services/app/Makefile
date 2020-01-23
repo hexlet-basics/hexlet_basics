@@ -10,3 +10,6 @@ update:
 
 console:
 	iex -S mix
+
+locales-build:
+	mix gettext.merge priv/gettext

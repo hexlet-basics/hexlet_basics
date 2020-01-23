@@ -1,12 +1,11 @@
 .row.h-md-100
-  .col-12.col-md-5.h-md-100.mb-3.mb-md-0
-    .card.hexlet-basics-theory-card.text-dark.h-md-100
-      .card-header.py-0
-        ul.nav.nav-pills.card-header-pills.justify-content-center(role="tablist")
-          li.nav-item
-            a.nav-link.btn-light.active href="#lesson-tab" data-toggle="pill" role="tab"= gettext "lesson"
-          li.nav-item
-            a.nav-link.btn-light href="#discuss-tab" data-toggle="pill" role="tab"= gettext "discuss"
+  .col-12.col-md-5.h-md-100
+    .card.h-md-100
+      ul.nav.nav-tabs.justify-content-center data-toggle="tabs"
+        li.nav-item
+          a.nav-link.active href="#lesson-tab" data-toggle="tab" role="tab"= gettext "lesson"
+        li.nav-item
+          a.nav-link href="#discuss-tab" data-toggle="tab" role="tab"= gettext "discuss"
 
       .card-body.overflow-auto
         .tab-content(itemscope itemtype="http://schema.org/TechArticle")
@@ -21,19 +20,19 @@
             = render HexletBasicsWeb.LayoutView, "shared/schemas/company.html", assigns
 
           .tab-pane.fade.show.active#lesson-tab(role="tabpanel")
-            h1.h3(itemprop="headline")= @lesson_description.name
+            h1(itemprop="headline")= @lesson_description.name
             == @lesson_theory_html
-            h2.h3= gettext "instructions"
+            h2= gettext "instructions"
             == @lesson_instructions_html
             = if (Enum.count(@lesson_description.tips) + Enum.count(@lesson_description.definitions)) > 0 do
               hr.my-4
             = if !Enum.empty?(@lesson_description.tips) do
-              h3.h6.mt-4= gettext "tips"
+              h3.mt-4= gettext "tips"
               ul.pl-4
                 = for tip <- @lesson_description.tips do
                   li== Earmark.as_html!(tip)
             = if !Enum.empty?(@lesson_description.definitions) do
-              h3.h6= gettext "definitions"
+              h3= gettext "definitions"
               ul.pl-4
                 = for definition <- @lesson_description.definitions do
                   li== Earmark.as_html!("#{definition["name"]} — #{definition["description"]}")

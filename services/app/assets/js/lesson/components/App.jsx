@@ -39,23 +39,22 @@ class App extends React.Component {
   }
 
   render() {
-    const { currentTabInfo, userFinishedLesson, language } = this.props;
+    const { currentTabInfo, userFinishedLesson, language, startTime } = this.props;
 
     const currentViewOptions = getViewOptions(language.name, this.props);
 
     return (
-      <React.Fragment>
+      <>
         <TabsBox
+          startTime={startTime}
           className={currentViewOptions.tabsBoxClassName}
           onSelectActive={this.handleSelectTab}
           active={currentTabInfo.current}
           userFinishedLesson={userFinishedLesson}
         />
         {currentViewOptions.component}
-        <div className="mt-2">
-          <ControlBox userFinishedLesson={userFinishedLesson} />
-        </div>
-      </React.Fragment>
+        <ControlBox userFinishedLesson={userFinishedLesson} />
+      </>
     );
   }
 }

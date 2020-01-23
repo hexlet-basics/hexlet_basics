@@ -1,3 +1,4 @@
-import '@fortawesome/fontawesome-free/js/all';
+// @ts-check
+
 import 'bootstrap';
 import 'phoenix_html';
