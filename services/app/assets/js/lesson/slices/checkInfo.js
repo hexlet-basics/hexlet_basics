@@ -2,6 +2,8 @@
 /* eslint-disable no-param-reassign */
 
 import { createSlice } from '@reduxjs/toolkit';
+import i18next from 'i18next';
+import { toast  } from 'react-toastify';
 import axios from 'axios';
 
 const slice = createSlice({
@@ -23,6 +25,8 @@ const slice = createSlice({
   },
 });
 
+const { runCheckRequest, runCheckSuccess, runCheckFailure } = slice.actions;
+
 const runCheck = ({ lesson, code }) => async (dispatch) => {
   dispatch(runCheckRequest());
   const url = `/api/lessons/${lesson.id}/checks`; // TOOO: jsroutes
@@ -36,11 +40,13 @@ const runCheck = ({ lesson, code }) => async (dispatch) => {
     const response = await axios.post(url, { data });
     dispatch(runCheckSuccess({ check: response.data }));
   } catch (e) {
-    console.log(e);
     dispatch(runCheckFailure({ code: e.response.status }));
+    const key = e.response ? 'server' : 'network';
+    toast(i18next.t(`errors.${key}`));
+    throw e;
   }
 };
 
 const actions = { ...slice.actions, runCheck };
-export const { actions };
+export { actions };
 export default slice.reducer;

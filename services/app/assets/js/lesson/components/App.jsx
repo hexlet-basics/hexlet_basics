@@ -53,9 +53,7 @@ class App extends React.Component {
           userFinishedLesson={userFinishedLesson}
         />
         {currentViewOptions.component}
-        <div className="mt-2">
-          <ControlBox userFinishedLesson={userFinishedLesson} />
-        </div>
+        <ControlBox userFinishedLesson={userFinishedLesson} />
       </>
     );
   }

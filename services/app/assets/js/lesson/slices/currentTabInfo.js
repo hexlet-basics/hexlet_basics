@@ -2,17 +2,21 @@
 /* eslint-disable no-param-reassign */
 
 import { createSlice } from '@reduxjs/toolkit';
+import { actions as checkInfoActions } from './checkInfo';
 
 const slice = createSlice({
   name: 'currentTabInfo',
-  initialState: { current: 'editor', clicksCount: 0 },
+  initialState: { title: 'editor', clicksCount: 0 },
   reducers: {
-    runCheckRequest(state) {
-      state.current = 'console';
-    },
     selectTab(state, { payload }) {
-      const { current } = payload;
-      state.clicksCount = state.current === current ? state.clicksCount + 1 : 0;
+      state.clicksCount = state.title === payload ? state.clicksCount + 1 : 0;
+      state.title = payload;
+    },
+  },
+  extraReducers: {
+    [checkInfoActions.runCheckRequest](state) {
+      state.title = 'console';
+      state.clicksCount = 0;
     },
   },
 });

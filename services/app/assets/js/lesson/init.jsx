@@ -1,10 +1,13 @@
 // @ts-check
 
+import 'react-toastify/dist/ReactToastify.css';
+
 import gon from 'gon';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import reducer, { actions } from './slices';
 
 // import configureStore from '../lib/configureStore';
@@ -42,4 +45,5 @@ export default () => {
     </Provider>,
     document.getElementById('basics-lesson-container'),
   );
+  toast.configure();
 };

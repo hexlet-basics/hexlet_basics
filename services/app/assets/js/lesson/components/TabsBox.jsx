@@ -1,7 +1,7 @@
 // @ts-check
 
-import React from 'react';
-import { withTranslation } from 'react-i18next';
+import React, { useState, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 // import cn from 'classnames';
 import {
   Tabs, Tab,
@@ -18,53 +18,49 @@ const mapStateToProps = (state) => {
   return props;
 };
 
-@connect(mapStateToProps)
-@withTranslation()
-class TabsBox extends React.Component {
-  static contextType = EntityContext;
+// @connect(mapStateToProps)
+// @withTranslation()
+// class TabsBox extends React.Component {
+//   static contextType = EntityContext;
 
-  render() {
-    const {
-      // className,
-      checkInfo,
-      currentTabInfo,
-      // notification,
-      changeCode,
-      userFinishedLesson,
-      startTime,
-      t,
-    } = this.props;
+const TabsBox = (props) => {
+  const {
+    // className,
+    checkInfo,
+    currentTabInfo,
+    // notification,
+    changeCode,
+    userFinishedLesson,
+    startTime,
+    selectTab,
+  } = props;
 
-    const {
-      lesson,
-      language,
-    } = this.context;
+  const { t } = useTranslation();
+  const { lesson, language } = useContext(EntityContext);
 
-    return (
-      <Tabs id="workspace-tabs" defaultActiveKey="editor">
-        <Tab eventKey="editor" title={t('editor')}>
-          <Editor
-            defaultValue={lesson.prepared_code}
-            onCodeChange={changeCode}
-            language={language.slug}
-            current={currentTabInfo.current === 'editor'}
-            clicksCount={currentTabInfo.clicksCount}
-          />
-        </Tab>
-        <Tab eventKey="console" title={t('console')}>
-          <Console output={checkInfo.output} />
-        </Tab>
-        <Tab eventKey="solution" title={t('solution')}>
-          <Solution
-            startTime={startTime}
-            defaultValue={lesson.original_code}
-            language={language.slug}
-            userFinishedLesson={userFinishedLesson}
-          />
-        </Tab>
-      </Tabs>
-    );
-  }
-}
+  return (
+    <Tabs id="tabs" activeKey={currentTabInfo.title} onSelect={selectTab}>
+      <Tab eventKey="editor" title={t('editor')}>
+        <Editor
+          defaultValue={lesson.prepared_code}
+          onCodeChange={changeCode}
+          language={language.slug}
+          current={currentTabInfo.title === 'editor'}
+        />
+      </Tab>
+      <Tab eventKey="console" title={t('console')}>
+        <Console output={checkInfo.output} />
+      </Tab>
+      <Tab eventKey="solution" title={t('solution')}>
+        <Solution
+          startTime={startTime}
+          defaultValue={lesson.original_code}
+          language={language.slug}
+          userFinishedLesson={userFinishedLesson}
+        />
+      </Tab>
+    </Tabs>
+  );
+};
 
-export default TabsBox;
+export default connect(mapStateToProps)(TabsBox);

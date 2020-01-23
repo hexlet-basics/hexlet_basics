@@ -43,6 +43,7 @@
     "react-monaco-editor": "0.33.0",
     "react-redux": "^7.1.3",
     "react-resize-aware": "^3.0.0",
+    "react-toastify": "^5.5.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.3",

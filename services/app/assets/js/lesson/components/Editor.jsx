@@ -62,7 +62,6 @@ export default class Editor extends React.Component {
 
     return (
       <MonacoEditor
-        theme="vs-dark"
         options={options}
         language={get(languageMapping, language, language)}
         editorDidMount={this.editorDidMount}
