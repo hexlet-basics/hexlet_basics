@@ -3,7 +3,7 @@
     h1.display-4= gettext("Free programming courses")
     .h2.font-weight-light= gettext("For beginners")
 
-.row.row-cols-2.row-cols-sm-3.row-cols-md-4.row-cols-lg-4
+.row.row-cols-1.row-cols-md-3.row-cols-sm-2.row-cols-lg-4
   .col.mb-5
     .card.h-100
       .card-body class=style_for_lang(:php, :bg)
