@@ -1,31 +1,31 @@
 defmodule HexletBasicsWeb.Helpers.LanguageStyles do
   @mapping %{
     php: %{
-      bg: "bg-indigo-dark",
-    },
-    javascript: %{
-      bg: "bg-green-dark",
-    },
-    java: %{
-      bg: "bg-red-dark",
-    },
-    python: %{
-      bg: "bg-yellow",
-    },
-    html: %{
-      bg: "bg-orange",
-    },
-    css: %{
       bg: "bg-blue",
     },
+    javascript: %{
+      bg: "bg-indigo",
+    },
+    java: %{
+      bg: "bg-azure",
+    },
+    python: %{
+      bg: "bg-purple",
+    },
+    html: %{
+      bg: "bg-green",
+    },
+    css: %{
+      bg: "bg-yellow",
+    },
     racket: %{
-      bg: "bg-blue-dark",
+      bg: "bg-orange",
     },
     ruby: %{
-      bg: "bg-red-dark",
+      bg: "bg-red",
     },
     elixir: %{
-      bg: "bg-indigo-dark",
+      bg: "bg-indigo",
     },
     go: %{
       bg: "bg-cyan",
@@ -36,4 +36,3 @@ defmodule HexletBasicsWeb.Helpers.LanguageStyles do
     @mapping[lang][style]
   end
 end
-
