@@ -9,7 +9,7 @@ html.h-100 lang=@locale
 
   body.h-100.d-flex.flex-column
     = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html", assigns
-    header
+    header.px-3
       nav.navbar.navbar-expand-lg.navbar-light.bg-light
         a.navbar-brand href="/"
           img width="30px" src=Routes.static_path(@conn, "/images/logo.png") alt="Code Basics Logo"
@@ -21,7 +21,7 @@ html.h-100 lang=@locale
         )
           span.navbar-toggler-icon
         #navbarToggler.collapse.navbar-collapse
-          ul.navbar-nav.mr-auto
+          ul.navbar-nav.mr-auto.px-3
             li.nav-item
               a.nav-link target="_blank" href="http://guides.hexlet.io"= gettext "Guides"
             li.nav-item
@@ -36,14 +36,14 @@ html.h-100 lang=@locale
 
           = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
-          ul.navbar-nav.mr-3
+          ul.navbar-nav
             li.nav-item
               - switch_map = locales_switch_map()
               = link to: Routes.locale_path(@conn, :switch, redirect_url: redirect_current_url(@conn, switch_map[@locale]), locale: switch_map[@locale]), class: "nav-link" do
-                img.ml-3(width="30px" src=Routes.static_path(@conn, "/images/flag-#{switch_map[@locale]}.svg") alt="#{gettext("Switch language to")} #{switch_map[@locale]}")
+                img.ml-3(width="25px" src=Routes.static_path(@conn, "/images/flag-#{switch_map[@locale]}.svg") alt="#{gettext("Switch language to")} #{switch_map[@locale]}")
 
     main.mt-5.flex-fill
-      .container-fluid.container-lg
+      .container-fluid.container-xl
         = for name <- [:info, :error] do
           - message = get_flash(@conn, name)
           = if message do
