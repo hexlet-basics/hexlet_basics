@@ -44,6 +44,7 @@ export default () => {
         <App
           userFinishedLesson={userFinishedLesson}
           language={language}
+          startTime={Date.now()}
         />
       </EntityContext.Provider>
     </Provider>,

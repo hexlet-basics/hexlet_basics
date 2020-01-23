@@ -3,10 +3,11 @@
 import React from 'react';
 import cn from 'classnames';
 import { Highlight } from 'react-fast-highlight';
+import Countdown from 'react-countdown';
 import { get } from 'lodash';
 import { withTranslation } from 'react-i18next';
-import formatDistanceStrict from 'date-fns/formatDistanceStrict'
-import dateFnsLocale from '../../lib/data-fns-locale';
+// import formatDistanceStrict from 'date-fns/formatDistanceStrict';
+// import dateFnsLocale from '../../lib/data-fns-locale';
 import connect from '../connect';
 
 const languageMapping = {
@@ -17,12 +18,12 @@ const mapStateToProps = (state) => {
   const {
     code,
     solutionState,
-    countdown,
+    // countdown,
   } = state;
   const props = {
     code,
     solutionState,
-    countdown,
+    // countdown,
   };
   return props;
 };
@@ -53,8 +54,8 @@ class Solution extends React.Component {
     );
   }
 
-  renderSolution(t) {
-    const { language, defaultValue } = this.props;
+  renderSolution(props) {
+    const { language, defaultValue, t } = props;
     const mappedLanguage = get(languageMapping, language, language);
 
     return (
@@ -68,8 +69,8 @@ class Solution extends React.Component {
     );
   }
 
-  renderShowButton(t) {
-    const { solutionState } = this.props;
+  renderShowButton(props) {
+    const { t, solutionState } = props;
     const showButtonClasses = cn({
       'btn btn-primary x-no-focus-outline x-cursor-pointer px-4 mr-3': true,
       disabled: !solutionState.canBeShown,
@@ -88,30 +89,26 @@ class Solution extends React.Component {
     );
   }
 
-  renderCountdownTimer(t) {
-    const { countdown } = this.props;
-    const remainingTime = formatDistanceStrict(
-      countdown.currentTime,
-      countdown.finishTime,
-      { locale: dateFnsLocale },
-    );
-    return <p>{t('solution_instructions', { remainingTime })}</p>;
-  }
+  renderContent = (props) => ({ total }) => {
+    const { solutionState, t } = props;
+    if (solutionState.shown) {
+      return this.renderSolution(props);
+    }
+    if (solutionState.canBeShown) {
+      return this.renderShowButton(props);
+    }
 
-  renderMessage(t) {
-    const { solutionState } = this.props;
-    return solutionState.canBeShown ? this.renderShowButton(t) : this.renderCountdownTimer(t);
+    return <p>{t('solution_instructions', { total })}</p>;
   }
 
   render() {
     const {
-      solutionState,
-      t,
+      startTime,
     } = this.props;
 
     return (
       <div className="p-3 pt-2 d-flex flex-column flex-fill bg-black text-white">
-        {solutionState.shown ? this.renderSolution(t) : this.renderMessage(t)}
+        <Countdown date={startTime + 1200} renderer={this.renderContent(this.props)} />,
       </div>
     );
   }

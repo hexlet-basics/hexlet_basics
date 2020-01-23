@@ -3,10 +3,10 @@
     .card
       .card-header
         ul.nav.nav-pills.card-header-pills.justify-content-center
+          li.nav-item.mr-3
+            a.nav-link.btn-sm.active href="#lesson-tab" data-toggle="pill" role="tab"= gettext "lesson"
           li.nav-item
-            a.nav-link.btn-light.active href="#lesson-tab" data-toggle="pill" role="tab"= gettext "lesson"
-          li.nav-item
-            a.nav-link.btn-light href="#discuss-tab" data-toggle="pill" role="tab"= gettext "discuss"
+            a.nav-link.btn-sm href="#discuss-tab" data-toggle="pill" role="tab"= gettext "discuss"
 
       .card-body.overflow-auto
         .tab-content(itemscope itemtype="http://schema.org/TechArticle")

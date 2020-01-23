@@ -3,6 +3,7 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import hljs from 'highlight.js';
+import gon from 'gon';
 import run from './init';
 import '../../css/app.scss';
 import '../shared';
