@@ -4,7 +4,6 @@ import React from 'react';
 import cn from 'classnames';
 import { withTranslation } from 'react-i18next';
 import Hotkeys from 'react-hot-keys';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import connect from '../connect';
 import routes from '../routes';
 import EntityContext from '../EntityContext';
@@ -71,22 +70,22 @@ class ControlBox extends React.Component {
               title={t('reset_code')}
               data-confirm={t('confirm')}
             >
-              <FontAwesomeIcon icon="sync-alt" />
+              <i className="fas fa-sync-alt" />
             </a>
             <a className={prevButtonClasses} href={prevLessonPath}>
-              <FontAwesomeIcon icon="chevron-circle-left" className="mr-xl-2" />
+              <i className="fas fa-chevron-circle-left mr-xl-2" />
               <span className="d-none d-xl-inline">{t('prev_lesson')}</span>
             </a>
             <button type="button" className={runButtonClasses} onClick={this.handleRunCheck}>
               <span className="text-secondary x-1em-inline-block mr-2">
-                {checkInfo.processing && <FontAwesomeIcon icon="spinner" pulse />}
-                {!checkInfo.processing && <FontAwesomeIcon icon="play-circle" />}
+                {checkInfo.processing && <i className="fas fa-spinner" />}
+                {!checkInfo.processing && <i className="fas fa-play-circle" />}
               </span>
               <span className="">{t('run')}</span>
             </button>
             <a className={nextButtonClasses} href={nextLessonPath}>
               <span className="d-none d-xl-inline">{t('next_lesson')}</span>
-              <FontAwesomeIcon icon="chevron-circle-right" className="ml-xl-2" />
+              <i className="fas fa-chevron-circle-right ml-xl-2" />
             </a>
           </div>
         </div>

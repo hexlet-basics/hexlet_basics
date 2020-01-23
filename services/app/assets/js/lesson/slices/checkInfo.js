@@ -2,6 +2,7 @@
 /* eslint-disable no-param-reassign */
 
 import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const slice = createSlice({
   name: 'checkInfo',
@@ -22,5 +23,24 @@ const slice = createSlice({
   },
 });
 
-export const { actions } = slice;
+const runCheck = ({ lesson, code }) => async (dispatch) => {
+  dispatch(runCheckRequest());
+  const url = `/api/lessons/${lesson.id}/checks`; // TOOO: jsroutes
+  const data = {
+    type: 'check',
+    attributes: {
+      code,
+    },
+  };
+  try {
+    const response = await axios.post(url, { data });
+    dispatch(runCheckSuccess({ check: response.data }));
+  } catch (e) {
+    console.log(e);
+    dispatch(runCheckFailure({ code: e.response.status }));
+  }
+};
+
+const actions = { ...slice.actions, runCheck };
+export const { actions };
 export default slice.reducer;

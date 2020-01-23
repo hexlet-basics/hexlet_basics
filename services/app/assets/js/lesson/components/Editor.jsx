@@ -3,7 +3,6 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
 import { get } from 'lodash';
-// import { registerRulesForLanguage } from 'monaco-ace-tokenizer';
 
 
 export const languageMapping = {
@@ -31,15 +30,6 @@ export default class Editor extends React.Component {
     }
   }
 
-  // loadHightLightForNotIncludeSyntax = async (syntax) => {
-  //   const { default: HighlightRules } = await import(`monaco-ace-tokenizer/lib/ace/definitions/${syntax}`);
-  //   this.monaco.languages.register({
-  //     id: syntax,
-  //   });
-  //   registerRulesForLanguage(syntax, new HighlightRules());
-  // }
-
-
   handleResize = () => this.editor.layout();
 
   handleChange = (content) => {
@@ -52,11 +42,8 @@ export default class Editor extends React.Component {
     this.editor = editor;
     this.monaco = monaco;
     this.editor.focus();
-    this.editor.getModel().updateOptions({ tabSize: get(langToTabSizeMapping, language, defaultTabSize)});
-    // this.editor.getModel().updateOptions({ tabSize: this.tabSize });
-    // if (language === 'racket') {
-    //   this.loadHightLightForNotIncludeSyntax(language);
-    // }
+    const model = this.editor.getModel();
+    model.updateOptions({ tabSize: get(langToTabSizeMapping, language, defaultTabSize)});
     window.addEventListener('resize', this.handleResize);
   }
 

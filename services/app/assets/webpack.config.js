@@ -15,7 +15,18 @@ module.exports = {
     minimizer: [
       new TerserPlugin({ cache: true, parallel: true, sourceMap: false }),
       new OptimizeCSSAssetsPlugin({}),
-    ]
+    ],
+    runtimeChunk: 'single',
+    // moduleIds: 'deterministic',
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
   },
   resolve: {
     extensions: ['.js', '.jsx'],

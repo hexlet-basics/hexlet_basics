@@ -83,27 +83,34 @@
 // @import '~@fortawesome/fontawesome-free/scss/solid';
 // @import "~bootstrap/scss/bootstrap";
 
-// @each $breakpoint in map-keys($grid-breakpoints) {
-//   @include media-breakpoint-up($breakpoint) {
-//     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-//     @each $prop, $unit in (height: vh) {
-//       @each $size in (25, 50, 75, 100) {
-//         .#{$unit}#{$infix}-#{$size} { #{$prop}: #{$size}#{$unit} !important; }
-//       }
-//     }
-//   }
-// }
+$sizes: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%,
+);
 
-// @each $breakpoint in map-keys($grid-breakpoints) {
-//   @include media-breakpoint-up($breakpoint) {
-//     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-//     @each $prop, $abbrev in (width: w, height: h) {
-//       @each $size, $length in $sizes {
-//         .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
-//       }
-//     }
-//   }
-// }
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $prop, $unit in (height: vh) {
+      @each $size in (25, 50, 75, 100) {
+        .#{$unit}#{$infix}-#{$size} { #{$prop}: #{$size}#{$unit} !important; }
+      }
+    }
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $prop, $abbrev in (width: w, height: h) {
+      @each $size, $length in $sizes {
+        .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+      }
+    }
+  }
+}
 
 // %hexlet-output {
 //   border: 1px dashed $indigo;
@@ -182,3 +189,12 @@
 //     margin-left: -15px;
 //   }
 // }
+
+#basics-lesson-container {
+  .tab-content {
+    @extend .h-md-100;
+    .tab-pane {
+      @extend .h-md-100;
+    }
+  }
+}

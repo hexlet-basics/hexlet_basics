@@ -98,7 +98,7 @@ class Solution extends React.Component {
       return this.renderShowButton(props);
     }
 
-    return <p>{t('solution_instructions', { total })}</p>;
+    return <p>{t('solution_instructions', { remainingTime: total })}</p>;
   }
 
   render() {
@@ -107,8 +107,8 @@ class Solution extends React.Component {
     } = this.props;
 
     return (
-      <div className="p-3 pt-2 d-flex flex-column flex-fill bg-black text-white">
-        <Countdown date={startTime + 1200} renderer={this.renderContent(this.props)} />,
+      <div className="p-3 pt-2 d-flex flex-column flex-fill">
+        <Countdown date={startTime + 1200} renderer={this.renderContent(this.props)} />
       </div>
     );
   }

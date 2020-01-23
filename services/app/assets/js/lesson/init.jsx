@@ -23,19 +23,11 @@ export default () => {
     // code: lesson.prepared_code,
   });
 
-
-  // store.dispatch(actions.init({
-  //   startTime: Date.now(),
-  //   userFinishedLesson,
-  // }));
-  // actions.updateCountdownTimer(store);
-
-
   const entities = {
     prevLesson,
     language,
     lesson,
-    lessonDescription
+    lessonDescription,
   };
 
   ReactDOM.render(
