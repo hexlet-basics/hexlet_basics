@@ -1,7 +1,7 @@
 ul.navbar-nav
   li.nav-item
     = if @current_user.email do
-      .navbar-text.mr-3= @current_user.email
+      .navbar-text= @current_user.email
   = if signed_in?(@conn) do
     li.nav-item
       = link gettext("Sign Out"), to: Routes.session_path(@conn, :delete), method: "delete", class: "nav-link"
