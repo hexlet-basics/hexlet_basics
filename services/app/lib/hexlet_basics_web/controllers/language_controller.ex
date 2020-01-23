@@ -88,7 +88,7 @@ defmodule HexletBasicsWeb.LanguageController do
       %{property: "og:image", content: Routes.static_url(conn, "/images/#{language.slug}.png")},
       %{property: "og:url", content: Routes.language_url(conn, :show, language.slug)},
       %{property: "name", content: Gettext.gettext(HexletBasicsWeb.Gettext, "OG title #{language.slug}")},
-      %{property: "description", content: Gettext.gettext(HexletBasicsWeb.Gettext, "OG description #{language.slug}")},
+      %{property: "description", content: Gettext.gettext(HexletBasicsWeb.Gettext, "Description #{language.slug}")},
       %{property: "image", content: Routes.static_url(conn, "/images/#{language.slug}.png")}
     ]
     link_attrs = [

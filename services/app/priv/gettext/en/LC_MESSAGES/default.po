@@ -134,8 +134,8 @@ msgstr "With the help of Hexlet Community."
 msgid "All lessons completed!"
 msgstr "All lessons completed!"
 
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/controllers/page_controller.ex:28
+#: lib/hexlet_basics_web/controllers/page_controller.ex:31
 msgid "Code Basics Description"
 msgstr "Learn the basics of programming for free with interactive exercises. No prior experience required!"
 
@@ -146,7 +146,8 @@ msgstr "Learn the basics of programming for free with interactive exercises. No 
 msgid "Code Basics Author"
 msgstr "Kirill Mokevnin, Rakhim Davletkaliyev, Natalia Bass"
 
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/controllers/page_controller.ex:27
+#: lib/hexlet_basics_web/controllers/page_controller.ex:39
 msgid "Code Basics Title"
 msgstr "Code Basics: basics of programming"
 
@@ -618,4 +619,64 @@ msgstr ""
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Social"
+msgstr ""
+
+# Description for php
+msgid "Description php"
+msgstr "Learn the basics of programming in PHP for free with interactive exercises. No prior experience required!"
+
+# Description for javascript
+msgid "Description javascript"
+msgstr "Learn the basics of programming in Javascript for free with interactive exercises. No prior experience required!"
+
+# Description for python
+msgid "Description python"
+msgstr "Learn the basics of programming in Python for free with interactive exercises. No prior experience required!"
+
+# Description for racket
+msgid "Description racket"
+msgstr "Learn the basics of programming in Racket for free with interactive exercises. No prior experience required!"
+
+# Description for html
+msgid "Description html"
+msgstr "Learn the basics of HTML for free with interactive exercises. No prior experience required!"
+
+# Description for css
+msgid "Description css"
+msgstr "Learn the basics of CSS for free with interactive exercises. No prior experience required!"
+
+# Description for ruby
+msgid "Description ruby"
+msgstr "Learn the basics of programming in Ruby for free with interactive exercises. No prior experience required!"
+
+# Description for elixir
+msgid "Description elixir"
+msgstr "Learn the basics of programming in Elixir for free with interactive exercises. No prior experience required!"
+
+# Description for go
+msgid "Description go"
+msgstr "Learn the basics of programming in Go for free with interactive exercises. No prior experience required!"
+
+# Description for about
+msgid "Code Basics Description about"
+msgstr ""
+
+# Description for about
+msgid "Code Basics Description privacy"
+msgstr ""
+
+# Description for about
+msgid "Code Basics Description tos"
+msgstr ""
+
+# Title for about
+msgid "Code Basics Title about"
+msgstr ""
+
+# Title for about
+msgid "Code Basics Title privacy"
+msgstr ""
+
+# Title for about
+msgid "Code Basics Title tos"
 msgstr ""
