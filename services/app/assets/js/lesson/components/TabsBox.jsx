@@ -4,7 +4,7 @@ import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 // import cn from 'classnames';
 import {
-  Tabs, Tab,
+  Tabs, Tab, Nav,
 } from 'react-bootstrap';
 import Editor from './Editor';
 import Console from './Console';
@@ -39,27 +39,40 @@ const TabsBox = (props) => {
   const { lesson, language } = useContext(EntityContext);
 
   return (
-    <Tabs id="tabs" activeKey={currentTabInfo.title} onSelect={selectTab}>
-      <Tab eventKey="editor" title={t('editor')}>
-        <Editor
-          defaultValue={lesson.prepared_code}
-          onCodeChange={changeCode}
-          language={language.slug}
-          current={currentTabInfo.title === 'editor'}
-        />
-      </Tab>
-      <Tab eventKey="console" title={t('console')}>
-        <Console output={checkInfo.output} />
-      </Tab>
-      <Tab eventKey="solution" title={t('solution')}>
-        <Solution
-          startTime={startTime}
-          defaultValue={lesson.original_code}
-          language={language.slug}
-          userFinishedLesson={userFinishedLesson}
-        />
-      </Tab>
-    </Tabs>
+    <Tab.Container id="tabs" activeKey={currentTabInfo.title} onSelect={selectTab}>
+      <Nav variant="tabs">
+        <Nav.Item>
+          <Nav.Link eventKey="editor" title={t('editor')}>{t('editor')}</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="console" title={t('console')}>{t('console')}</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="solution" title={t('solution')}>{t('solution')}</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      <Tab.Content bsPrefix="h-100 tab-content">
+        <Tab.Pane eventKey="editor" bsPrefix="tab-pane h-100">
+          <Editor
+            defaultValue={lesson.prepared_code}
+            onCodeChange={changeCode}
+            language={language.slug}
+            current={currentTabInfo.title === 'editor'}
+          />
+        </Tab.Pane>
+        <Tab.Pane eventKey="console" bsPrefix="tab-pane h-100">
+          <Console output={checkInfo.output} />
+        </Tab.Pane>
+        <Tab.Pane eventKey="solution" bsPrefix="tab-pane h-100">
+          <Solution
+            startTime={startTime}
+            defaultValue={lesson.original_code}
+            language={language.slug}
+            userFinishedLesson={userFinishedLesson}
+          />
+        </Tab.Pane>
+      </Tab.Content>
+    </Tab.Container>
   );
 };
 
