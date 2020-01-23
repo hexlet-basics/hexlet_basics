@@ -680,3 +680,28 @@ msgstr "Политика конфиденциальности"
 # Title for tos
 msgid "Code Basics Title tos"
 msgstr "Условия использования образовательной платформы"
+
+# Description for session
+msgid "Code Basics Login Description"
+msgstr "Вход"
+
+# Description for session
+msgid "Code Basics Login Title"
+msgstr "Вход"
+
+# Description for registration
+msgid "Code Basics Registration Description"
+msgstr "Регистрация"
+
+# Description for registration
+msgid "Code Basics Registration Title"
+msgstr "Регистрация"
+
+# Description for remind password
+msgid "Code Basics Remind Password Description"
+msgstr "Восстановление пароля"
+
+# Description for remind password
+msgid "Code Basics Remind Password Title"
+msgstr "Восстановление пароля"
+

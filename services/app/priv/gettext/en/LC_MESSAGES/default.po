@@ -680,3 +680,28 @@ msgstr ""
 # Title for about
 msgid "Code Basics Title tos"
 msgstr ""
+
+# Description for session
+msgid "Code Basics Login Description"
+msgstr "Login"
+
+# Description for session
+msgid "Code Basics Login Title"
+msgstr "Login"
+
+# Description for registration
+msgid "Code Basics Registration Description"
+msgstr "Registration"
+
+# Description for registration
+msgid "Code Basics Registration Title"
+msgstr "Registration"
+
+# Description for remind password
+msgid "Code Basics Remind Password Description"
+msgstr "Remind password"
+
+# Description for remind password
+msgid "Code Basics Remind Password Title"
+msgstr "Remind password"
+
