@@ -1,12 +1,15 @@
 meta charset="utf-8"
 meta content="IE=edge" http-equiv="X-UA-Compatible"
 meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport"
-meta content=gettext("Code Basics Description") name="description"
+/ meta content=gettext("Code Basics Description") name="description"
 meta content=gettext("Code Basics Author") name="author"
-meta content=gettext("Code Basics Title") property="og:title"
-meta content=gettext("Code Basics Description") property="og:description"
-meta content="/images/smm_cover.jpg" property="og:image"
+/ meta content=gettext("Code Basics Title") property="og:title"
+/ meta content=gettext("Code Basics Description") property="og:description"
+/ meta content="/images/smm_cover.jpg" property="og:image"
 meta content="webiste" property="og:type"
+title= @title
+= meta_tags(@meta_attrs)
+= link_tags(@link_attrs)
 
 link rel="apple-touch-icon-precomposed" href=Routes.static_path(@conn, "/images/favicons/apple-touch-icon.png")
 link rel="apple-touch-icon" href="#{Routes.static_path(@conn, "/images/favicons/apple-touch-icon.png")}"

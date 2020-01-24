@@ -134,8 +134,8 @@ msgstr "При поддержке сообщества Хекслет."
 msgid "All lessons completed!"
 msgstr "Все уроки завершены!"
 
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/controllers/page_controller.ex:28
+#: lib/hexlet_basics_web/controllers/page_controller.ex:31
 msgid "Code Basics Description"
 msgstr "Бесплатные практические уроки по программированию для тех, кто начинает с нуля"
 
@@ -146,7 +146,8 @@ msgstr "Бесплатные практические уроки по прогр
 msgid "Code Basics Author"
 msgstr "Кирилл Мокевнин, Рахим Давлеткалиев, Наталия Басс"
 
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/controllers/page_controller.ex:27
+#: lib/hexlet_basics_web/controllers/page_controller.ex:39
 msgid "Code Basics Title"
 msgstr "Code Basics: основы программирования"
 
@@ -619,3 +620,88 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Social"
 msgstr ""
+
+# Description for php
+msgid "Description php"
+msgstr "Бесплатные практические уроки по программированию на PHP для тех, кто начинает с нуля"
+
+# Description for javascript
+msgid "Description javascript"
+msgstr "Бесплатные практические уроки по программированию на Javascript для тех, кто начинает с нуля"
+
+# Description for python
+msgid "Description python"
+msgstr "Бесплатные практические уроки по программированию на Python для тех, кто начинает с нуля"
+
+# Description for racket
+msgid "Description racket"
+msgstr "Бесплатные практические уроки по программированию на Racket для тех, кто начинает с нуля"
+
+# Description for html
+msgid "Description html"
+msgstr "Бесплатные практические уроки по HTML для тех, кто начинает с нуля"
+
+# Description for css
+msgid "Description css"
+msgstr "Бесплатные практические уроки по CSS для тех, кто начинает с нуля"
+
+# Description for ruby
+msgid "Description ruby"
+msgstr "Бесплатные практические уроки по программированию на Ruby для тех, кто начинает с нуля"
+
+# Description for elixir
+msgid "Description elixir"
+msgstr "Бесплатные практические уроки по программированию на Elixir для тех, кто начинает с нуля"
+
+# Description for go
+msgid "Description go"
+msgstr "Бесплатные практические уроки по программированию на Go для тех, кто начинает с нуля"
+
+# Description for about
+msgid "Code Basics Description about"
+msgstr "Code Basics — качественные интерактивные уроки по основам программирования бесплатно, для всех."
+
+# Description for privacy
+msgid "Code Basics Description privacy"
+msgstr "Политика конфиденциальности Code Basics"
+
+# Description for tos
+msgid "Code Basics Description tos"
+msgstr "Условия использования образовательной платформы Code Basics"
+
+# Title for about
+msgid "Code Basics Title about"
+msgstr "О проекте"
+
+# Title for privacy 
+msgid "Code Basics Title privacy"
+msgstr "Политика конфиденциальности"
+
+# Title for tos
+msgid "Code Basics Title tos"
+msgstr "Условия использования образовательной платформы"
+
+# Description for session
+msgid "Code Basics Login Description"
+msgstr "Вход"
+
+# Description for session
+msgid "Code Basics Login Title"
+msgstr "Вход"
+
+# Description for registration
+msgid "Code Basics Registration Description"
+msgstr "Регистрация"
+
+# Description for registration
+msgid "Code Basics Registration Title"
+msgstr "Регистрация"
+
+# Description for remind password
+msgid "Code Basics Remind Password Description"
+msgstr "Восстановление пароля"
+
+# Description for remind password
+msgid "Code Basics Remind Password Title"
+msgstr "Восстановление пароля"
+

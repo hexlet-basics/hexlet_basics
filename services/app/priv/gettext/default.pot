@@ -134,8 +134,8 @@ msgstr ""
 msgid "All lessons completed!"
 msgstr ""
 
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/controllers/page_controller.ex:28
+#: lib/hexlet_basics_web/controllers/page_controller.ex:31
 msgid "Code Basics Description"
 msgstr ""
 
@@ -146,7 +146,8 @@ msgstr ""
 msgid "Code Basics Author"
 msgstr ""
 
-#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/controllers/page_controller.ex:27
+#: lib/hexlet_basics_web/controllers/page_controller.ex:39
 msgid "Code Basics Title"
 msgstr ""
 
@@ -619,3 +620,88 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Social"
 msgstr ""
+
+# Description for php
+msgid "Description php"
+msgstr ""
+
+# Description for javascript
+msgid "Description javascript"
+msgstr ""
+
+# Description for python
+msgid "Description python"
+msgstr ""
+
+# Description for racket
+msgid "Description racket"
+msgstr ""
+
+# Description for html
+msgid "Description html"
+msgstr ""
+
+# Description for css
+msgid "Description css"
+msgstr ""
+
+# Description for ruby
+msgid "Description ruby"
+msgstr ""
+
+# Description for elixir
+msgid "Description elixir"
+msgstr ""
+
+# Description for go
+msgid "Description go"
+msgstr ""
+
+# Description for about
+msgid "Code Basics Description about"
+msgstr ""
+
+# Description for about
+msgid "Code Basics Description privacy"
+msgstr ""
+
+# Description for about
+msgid "Code Basics Description tos"
+msgstr ""
+
+# Description for session
+msgid "Code Basics Login Description"
+msgstr ""
+
+# Description for session
+msgid "Code Basics Login Title"
+msgstr ""
+
+# Title for about
+msgid "Code Basics Title about"
+msgstr ""
+
+# Title for about
+msgid "Code Basics Title privacy"
+msgstr ""
+
+# Title for about
+msgid "Code Basics Title tos"
+msgstr ""
+
+# Description for registration
+msgid "Code Basics Registration Description"
+msgstr ""
+
+# Description for registration
+msgid "Code Basics Registration Title"
+msgstr ""
+
+# Description for remind password
+msgid "Code Basics Remind Password Description"
+msgstr ""
+
+# Description for remind password
+msgid "Code Basics Remind Password Title"
+msgstr ""
+

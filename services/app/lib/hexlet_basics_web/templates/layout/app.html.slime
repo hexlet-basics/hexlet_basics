@@ -2,9 +2,6 @@ doctype html
 html.h-100 lang=@locale
   head
     link rel="stylesheet" href=Routes.static_path(@conn, "/css/app.css")
-    title= @title
-    = meta_tags(@meta_attrs)
-    = link_tags(@link_attrs)
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
   body.h-100.d-flex.flex-column

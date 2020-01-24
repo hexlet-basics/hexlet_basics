@@ -1,7 +1,7 @@
 .container-fluid
   .row.justify-content-center.pb-5.mt-5
     .col-12.col-sm-8.col-md-7.col-lg-4
-        h2.h3.mb-4.mt-3.text-center
+        h1.h3.mb-4.mt-3.text-center
           = gettext("Forgot Password")
         = form_for @conn, Routes.remind_password_path(@conn, :create), [as: :user], fn f -> 
           = input f, :email, placeholder: gettext("Email"), class: "form-control", label: false, required: true
