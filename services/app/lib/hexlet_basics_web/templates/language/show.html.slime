@@ -15,14 +15,11 @@ h1.text-center.display-3= @header
     == gettext("Try Hexlet %{courses} or join to %{professions}", courses: safe_to_string(course_link), professions: safe_to_string(professions_link))
 
 = for module <- @modules do
-  div(itemscope itemtype="http://schema.org/Course")
-    span(itemprop="provider" itemscope itemtype="http://schema.org/Organization")
-      = render HexletBasicsWeb.LayoutView, "shared/schemas/company.html", assigns
-
+  div
     .row.mt-5.d-flex.flex-row
       .col-12
         - module_description = @descriptions_by_module[module.id]
-        h2 itemprop="name"
+        h2
           = module_description.name
     .row.d-flex.flex-row
       .col-12.col-md-6.mt-4
@@ -41,4 +38,5 @@ h1.text-center.display-3= @header
                   i class="text-primary fas fa-check"
 
       .col-12.col-md-6.mt-3
-        div itemprop="description"= module_description.description
+        div
+          = module_description.description

@@ -3,6 +3,9 @@ html.h-md-100 lang="#{@locale}"
   head
     link rel="stylesheet" href="#{Routes.static_path(@conn, "/css/vendors.css")}"
     link rel="stylesheet" href="#{Routes.static_path(@conn, "/css/lesson.css")}"
+    = if assigns[:schema] do
+      script type="application/ld+json"
+        | #{raw(render_schema(@schema))}
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
   body.h-md-100

@@ -79,7 +79,8 @@ defmodule HexletBasics.Mixfile do
       {:hackney, github: "benoitc/hackney", override: true},
       {:machinery, "~> 1.0.0"},
       {:guardian, "~> 1.2"},
-      {:cowboy, "~> 2.5"}
+      {:cowboy, "~> 2.5"},
+      {:html_sanitize_ex, "~> 1.3.0-rc3"}
     ]
   end
 

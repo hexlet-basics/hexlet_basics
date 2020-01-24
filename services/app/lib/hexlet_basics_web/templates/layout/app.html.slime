@@ -2,6 +2,9 @@ doctype html
 html.h-100 lang=@locale
   head
     link rel="stylesheet" href=Routes.static_path(@conn, "/css/app.css")
+    = if assigns[:schema] do
+      script type="application/ld+json"
+        | #{raw(render_schema(@schema))}
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
   body.h-100.d-flex.flex-column
@@ -55,16 +58,16 @@ html.h-100 lang=@locale
       .container.mt-7.pt-6.pb-3.border-top
         .row
           .col
-            div vocab="http://schema.org/" typeof="Organization"
+            div
               .h4.mb-2
                 | &copy; Hexlet,&nbsp;
                 = Date.utc_today().year
               div
-                span property="legalName" Hexlet Ltd.
-                span property="address" &nbsp;Puolikkotie 8, 02230 Espoo, Finland.
-              div property="telephone" +44 20 3514 2938
+                span Hexlet Ltd.
+                span &nbsp;Puolikkotie 8, 02230 Espoo, Finland.
+              div +44 20 3514 2938
               div
-                a href="mailto:support@hexlet.io" property="email" typeof="Text" support@hexlet.io
+                a href="mailto:support@hexlet.io" support@hexlet.io
 
           .col
             h3.h2= gettext "Information"

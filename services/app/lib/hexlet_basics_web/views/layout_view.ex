@@ -30,4 +30,8 @@ defmodule HexletBasicsWeb.LayoutView do
   def link_tag(attrs) do
     tag(:link, Enum.into(attrs, []))
   end
+
+  def render_schema(schema) do
+    Jason.encode!(schema)
+  end
 end
