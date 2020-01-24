@@ -12,7 +12,7 @@ config :ueberauth, Ueberauth,
     github:
       {Ueberauth.Strategy.Github,
        [
-         default_scope: "read:user,user:email",
+         default_scope: "user:email",
          send_redirect_uri: false
        ]},
     facebook: {Ueberauth.Strategy.Facebook, []}
