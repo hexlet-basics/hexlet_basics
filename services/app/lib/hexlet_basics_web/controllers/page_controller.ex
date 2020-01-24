@@ -73,7 +73,7 @@ defmodule HexletBasicsWeb.PageController do
       :"#{id}",
         link_attrs: link_attrs,
         meta_attrs: meta_attrs,
-        title: title_text,
+        title: title_text
       )
     else
       message = "Cannot find page '#{id}'"

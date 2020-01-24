@@ -36,7 +36,6 @@ defmodule HexletBasicsWeb.LanguageController do
       |> Repo.all()
       |> ExtEnum.key_by(:module_id)
 
-
     lesson_descriptions_assoc = Ecto.assoc(language, :lesson_descriptions)
 
     lesson_description_query =
