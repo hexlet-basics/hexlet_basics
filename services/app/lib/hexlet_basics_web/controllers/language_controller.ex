@@ -1,6 +1,7 @@
 defmodule HexletBasicsWeb.LanguageController do
   use HexletBasicsWeb, :controller
   alias HexletBasics.Repo
+  alias HexletBasicsWeb.Schemas.Language.ModuleSchema
   alias HexletBasics.{Language, Language.Module, Language.Module.Lesson}
   import Ecto.Query
 
@@ -34,6 +35,7 @@ defmodule HexletBasicsWeb.LanguageController do
       module_description_query
       |> Repo.all()
       |> ExtEnum.key_by(:module_id)
+
 
     lesson_descriptions_assoc = Ecto.assoc(language, :lesson_descriptions)
 
@@ -78,6 +80,7 @@ defmodule HexletBasicsWeb.LanguageController do
 
     next_lesson = next_lesson |> Repo.preload(:module)
 
+    schema = Enum.map(modules, fn module -> ModuleSchema.build(conn, module, descriptions_by_module[module.id], language) end)
     title_text = Gettext.gettext(HexletBasicsWeb.Gettext, "OG title #{language.slug}")
     header = Gettext.gettext(HexletBasicsWeb.Gettext, "Header #{language.slug}")
 
@@ -107,7 +110,8 @@ defmodule HexletBasicsWeb.LanguageController do
       meta_attrs: meta_attrs,
       link_attrs: link_attrs,
       title: title_text,
-      header: header
+      header: header,
+      schema: schema
     )
   end
 end

@@ -2,6 +2,8 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
   use HexletBasicsWeb, :controller
   alias HexletBasics.Repo
   alias HexletBasicsWeb.Serializers
+  alias HexletBasicsWeb.Schemas.Language.ModuleSchema
+  alias HexletBasicsWeb.Schemas.Language.Module.LessonSchema
   alias HexletBasics.User
   alias HexletBasics.Language
   alias HexletBasics.Language.Module.Lesson
@@ -41,7 +43,7 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
       where: l.language_id == ^language.id and l.upload_id == ^language.upload_id and l.module_id == ^module.id,
       order_by: [asc: l.order]
     lessons = Repo.all(query)
-
+    schema = ModuleSchema.build(conn, module, module_description, language)
     render(
       conn,
       language: language,
@@ -49,7 +51,8 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
       lessons: lessons,
       user_finished_lessons_by_lesson: user_finished_lessons_by_lesson,
       descriptions_by_lesson: descriptions_by_lesson,
-      module_description: module_description
+      module_description: module_description,
+      schema: schema
     )
   end
 
@@ -138,6 +141,7 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
       %{rel: 'image_src', href: Routes.static_url(conn, "/images/#{language.slug}.png")}
     ]
 
+    schema = LessonSchema.build(conn, lesson, lesson_description, lesson_theory_html)
     render(conn,
       language: language,
       module: module,
@@ -151,6 +155,7 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
       lessons_count: lessons_count,
       meta_attrs: meta_attrs,
       link_attrs: link_attrs,
+      schema: schema,
       layout: {HexletBasicsWeb.LayoutView, "lesson.html"}
     )
   end

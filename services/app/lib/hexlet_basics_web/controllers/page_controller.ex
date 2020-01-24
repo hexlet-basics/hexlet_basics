@@ -1,6 +1,7 @@
 defmodule HexletBasicsWeb.PageController do
   use HexletBasicsWeb, :controller
   alias HexletBasicsWeb.Plugs.DetectDomainForRoot
+  alias HexletBasicsWeb.Schemas.CompanySchema
 
   plug DetectDomainForRoot when action in [:index]
 
@@ -43,7 +44,8 @@ defmodule HexletBasicsWeb.PageController do
       started_languages_by_slug: started_languages_by_slug,
       meta_attrs: meta_attrs,
       link_attrs: link_attrs,
-      title: title_text
+      title: title_text,
+      schema: CompanySchema.build(conn)
     )
   end
 
@@ -71,7 +73,7 @@ defmodule HexletBasicsWeb.PageController do
       :"#{id}",
         link_attrs: link_attrs,
         meta_attrs: meta_attrs,
-        title: title_text
+        title: title_text,
       )
     else
       message = "Cannot find page '#{id}'"
