@@ -4,7 +4,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const slice = createSlice({
-  name: 'code',
+  name: 'editor',
   initialState: { content: '' },
   reducers: {
     changeCode(state, { payload }) {

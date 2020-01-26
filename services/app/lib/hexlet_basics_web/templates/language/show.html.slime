@@ -4,7 +4,7 @@ h1.text-center.display-3= @header
 = if @next_lesson do
   .text-center
     = link anchor, to: Routes.language_module_lesson_path(@conn, :show, @language.slug, @next_lesson.module.slug, @next_lesson.slug),
-      class: 'btn btn-lg btn-success px-4 mb-3 mt-2'
+      class: 'btn btn-lg btn-primary px-4 mb-3 mt-2'
 
 - else
   .h3.text-center.text-success

@@ -2,7 +2,7 @@
 
 import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-// import cn from 'classnames';
+import cn from 'classnames';
 import {
   Tabs, Tab, Nav,
 } from 'react-bootstrap';
@@ -13,22 +13,15 @@ import connect from '../connect';
 import EntityContext from '../EntityContext';
 
 const mapStateToProps = (state) => {
-  const { notification, checkInfo, currentTabInfo } = state;
-  const props = { checkInfo, currentTabInfo, notification };
+  const { checkInfo, currentTabInfo } = state;
+  const props = { checkInfo, currentTabInfo };
   return props;
 };
 
-// @connect(mapStateToProps)
-// @withTranslation()
-// class TabsBox extends React.Component {
-//   static contextType = EntityContext;
-
 const TabsBox = (props) => {
   const {
-    // className,
     checkInfo,
     currentTabInfo,
-    // notification,
     changeCode,
     userFinishedLesson,
     startTime,
@@ -38,19 +31,33 @@ const TabsBox = (props) => {
   const { t } = useTranslation();
   const { lesson, language } = useContext(EntityContext);
 
+  // TODO: badge-<classes> does not work. It seems tabler has a bug.
+  const badgeClassName = cn('badge mb-2 mb-sm-0 p-2', {
+    'text-success': checkInfo.passed,
+    'text-warning': !checkInfo.passed,
+  });
+  const headline = checkInfo.result ? t(`check.${checkInfo.result}.headline`) : null;
+
   return (
     <Tab.Container id="tabs" activeKey={currentTabInfo.title} onSelect={selectTab}>
-      <Nav variant="tabs">
-        <Nav.Item>
-          <Nav.Link eventKey="editor" title={t('editor')}>{t('editor')}</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="console" title={t('console')}>{t('console')}</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="solution" title={t('solution')}>{t('solution')}</Nav.Link>
-        </Nav.Item>
-      </Nav>
+      <div className="d-flex flex-column flex-sm-row-reverse">
+        <div className="my-auto">
+          {headline && <span className={badgeClassName}>{headline}</span>}
+        </div>
+        <div className="mr-auto">
+          <Nav variant="tabs">
+            <Nav.Item>
+              <Nav.Link eventKey="editor" title={t('editor')}>{t('editor')}</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="console" title={t('console')}>{t('console')}</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="solution" title={t('solution')}>{t('solution')}</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </div>
+      </div>
       <Tab.Content bsPrefix="h-100 tab-content">
         <Tab.Pane eventKey="editor" bsPrefix="tab-pane h-100">
           <Editor
@@ -61,7 +68,7 @@ const TabsBox = (props) => {
           />
         </Tab.Pane>
         <Tab.Pane eventKey="console" bsPrefix="tab-pane h-100">
-          <Console output={checkInfo.output} />
+          <Console checkInfo={checkInfo} />
         </Tab.Pane>
         <Tab.Pane eventKey="solution" bsPrefix="tab-pane h-100">
           <Solution

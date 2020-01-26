@@ -1,9 +1,9 @@
 // @ts-check
 
 import React from 'react';
-import cn from 'classnames';
+// import cn from 'classnames';
 import { Highlight } from 'react-fast-highlight';
-import Countdown from 'react-countdown';
+import Countdown, { zeroPad } from 'react-countdown';
 import { get } from 'lodash';
 import { withTranslation } from 'react-i18next';
 // import formatDistanceStrict from 'date-fns/formatDistanceStrict';
@@ -16,12 +16,12 @@ const languageMapping = {
 
 const mapStateToProps = (state) => {
   const {
-    code,
+    editor,
     solutionState,
     // countdown,
   } = state;
   const props = {
-    code,
+    editor,
     solutionState,
     // countdown,
   };
@@ -37,8 +37,8 @@ class Solution extends React.Component {
   }
 
   renderUserCode(t) {
-    const { code, language } = this.props;
-    if (!code) {
+    const { editor, language } = this.props;
+    if (!editor.content) {
       return <p className="mt-3">{t('user_code_instructions')}</p>;
     }
 
@@ -48,7 +48,7 @@ class Solution extends React.Component {
       <div>
         <p className="mt-3 mb-0">{t('user_code')}</p>
         <Highlight languages={[mappedLanguage]}>
-          {code}
+          {editor.content}
         </Highlight>
       </div>
     );
@@ -70,35 +70,37 @@ class Solution extends React.Component {
   }
 
   renderShowButton(props) {
-    const { t, solutionState } = props;
-    const showButtonClasses = cn({
-      'btn btn-primary x-no-focus-outline x-cursor-pointer px-4 mr-3': true,
-      disabled: !solutionState.canBeShown,
-    });
+    const { t } = props;
     return (
-      <p>
-        {t('solution_notice')}
-        <button
-          type="button"
-          className={showButtonClasses}
-          onClick={this.handleShowSolution}
-        >
-          {t('show_solution')}
-        </button>
-      </p>
+      <>
+        <p>{t('solution_notice')}</p>
+        <div className="text-center">
+          <button
+            type="button"
+            className="btn btn-secondary px-4 mr-3"
+            onClick={this.handleShowSolution}
+          >
+            {t('show_solution')}
+          </button>
+        </div>
+      </>
     );
   }
 
-  renderContent = (props) => ({ total }) => {
+  renderContent = (props) => (countdownData) => {
     const { solutionState, t } = props;
+    const { minutes, seconds, completed } = countdownData;
+
     if (solutionState.shown) {
       return this.renderSolution(props);
     }
-    if (solutionState.canBeShown) {
+    if (completed || solutionState.canBeShown) {
       return this.renderShowButton(props);
     }
 
-    return <p>{t('solution_instructions', { remainingTime: total })}</p>;
+    const remainingTime = `${zeroPad(minutes)}:${zeroPad(seconds)}`;
+
+    return <p>{t('solution_instructions', { remainingTime })}</p>;
   }
 
   render() {
@@ -106,9 +108,11 @@ class Solution extends React.Component {
       startTime,
     } = this.props;
 
+    const waitingTime = 20 * 60 * 1000;
+
     return (
       <div className="p-3 pt-2 d-flex flex-column flex-fill">
-        <Countdown date={startTime + 1200} renderer={this.renderContent(this.props)} />
+        <Countdown date={startTime + waitingTime} renderer={this.renderContent(this.props)} />
       </div>
     );
   }

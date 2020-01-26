@@ -10,8 +10,8 @@ import routes from '../routes';
 import EntityContext from '../EntityContext';
 
 const mapStateToProps = (state) => {
-  const { checkInfo, code, lessonState } = state;
-  const props = { checkInfo, code, lessonState };
+  const { checkInfo, editor, lessonState } = state;
+  const props = { checkInfo, editor, lessonState };
   return props;
 };
 
@@ -21,9 +21,9 @@ class ControlBox extends React.Component {
   static contextType = EntityContext;
 
   handleRunCheck = () => {
-    const { code, runCheck } = this.props;
+    const { editor, runCheck } = this.props;
     const { lesson } = this.context;
-    runCheck({ lesson, code });
+    runCheck({ lesson, editor });
   }
 
   render() {

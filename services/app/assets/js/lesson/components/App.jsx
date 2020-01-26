@@ -8,8 +8,8 @@ import HTMLPreview from './HTMLPreview';
 import ControlBox from './ControlBox';
 
 const mapStateToProps = (state) => {
-  const { code, checkInfo, currentTabInfo } = state;
-  const props = { code, checkInfo, currentTabInfo };
+  const { editor, checkInfo, currentTabInfo } = state;
+  const props = { editor, checkInfo, currentTabInfo };
   return props;
 };
 
@@ -19,7 +19,7 @@ const getViewOptions = (languageName, props) => {
     case 'html':
       return {
         tabsBoxClassName: 'h-50',
-        component: <HTMLPreview html={props.code.content} />,
+        component: <HTMLPreview html={props.editor.content} />,
       };
     default:
       return {

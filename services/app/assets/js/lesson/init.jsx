@@ -26,6 +26,10 @@ export default () => {
     // code: lesson.prepared_code,
   });
 
+  store.dispatch(actions.initLessonState({
+    userFinishedLesson,
+  }));
+
   const entities = {
     prevLesson,
     language,

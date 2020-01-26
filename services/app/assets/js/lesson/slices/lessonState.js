@@ -2,16 +2,19 @@
 /* eslint-disable no-param-reassign */
 
 import { createSlice } from '@reduxjs/toolkit';
+import { actions as checkInfoActions } from './checkInfo';
 
 const slice = createSlice({
   name: 'lesson',
   initialState: { finished: null },
   reducers: {
-    init: (state, { payload }) => {
+    initLessonState: (state, { payload }) => {
       const { userFinishedLesson } = payload;
       state.finished = !!userFinishedLesson;
     },
-    runCheckSuccess: (state, { payload }) => {
+  },
+  extraReducers: {
+    [checkInfoActions.runCheckSuccess]: (state, { payload }) => {
       if (state.finished) {
         return;
       }
