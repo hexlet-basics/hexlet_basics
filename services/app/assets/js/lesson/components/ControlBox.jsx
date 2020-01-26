@@ -15,6 +15,26 @@ const mapStateToProps = (state) => {
   return props;
 };
 
+const renderRunButtonContent = ({ checkInfo }, t) => {
+  const text = t('run');
+  if (checkInfo.processing) {
+    return (
+      <>
+        <Spinner className="mr-1" as="span" animation="border" size="sm" role="status" aria-hidden="true" />
+        <span className="sr-only">Loading...</span>
+        {text}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <i className="fas fa-play-circle mr-1" />
+      {text}
+    </>
+  );
+};
+
 @connect(mapStateToProps)
 @withTranslation()
 class ControlBox extends React.Component {
@@ -68,15 +88,7 @@ class ControlBox extends React.Component {
               <span className="d-none d-xl-inline">{t('prev_lesson')}</span>
             </a>
             <Button variant="primary" className="mr-3" onClick={this.handleRunCheck} disabled={checkInfo.processing}>
-              {checkInfo.processing && <Spinner
-                as="span"
-                animation="border"
-                size="sm"
-                role="status"
-                aria-hidden="true"
-              />}
-              <span className="sr-only">Loading...</span>
-              {t('run')}
+              {renderRunButtonContent(this.props, t)}
             </Button>
             <a className={nextButtonClasses} href={nextLessonPath}>
               <span className="d-none d-xl-inline">{t('next_lesson')}</span>

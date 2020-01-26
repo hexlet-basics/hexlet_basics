@@ -39,7 +39,7 @@ const { runCheckRequest, runCheckSuccess, runCheckFailure } = slice.actions;
 
 const runCheck = ({ lesson, editor }) => async (dispatch) => {
   dispatch(runCheckRequest());
-  const url = routes.lessonCheck(lesson);
+  const url = routes.lessonChecksPath(lesson);
   const data = {
     type: 'check',
     attributes: {

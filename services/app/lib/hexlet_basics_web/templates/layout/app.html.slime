@@ -1,6 +1,7 @@
 doctype html
 html.h-100 lang=@locale
   head
+    link rel="stylesheet" href=Routes.static_path(@conn, "/css/vendors.css")
     link rel="stylesheet" href=Routes.static_path(@conn, "/css/app.css")
     = if assigns[:schema] do
       script type="application/ld+json"
@@ -30,9 +31,6 @@ html.h-100 lang=@locale
               a.nav-link target="_blank" href="https://ru.hexlet.io/professions"= gettext "Professions"
             li.nav-item
               a.nav-link target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Community"
-            = if signed_in?(@conn) do
-              li.nav-item
-                = link gettext("Profile"), to: Routes.profile_path(@conn, :show), class: "nav-link"
 
           = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
@@ -99,4 +97,6 @@ html.h-100 lang=@locale
                   = gettext "Source code"
                   span.fas.fa-link.ml-2
 
+    script src="#{Routes.static_path(@conn, "/js/runtime.js")}"
+    script src="#{Routes.static_path(@conn, "/js/vendors.js")}"
     script src="#{Routes.static_path(@conn, "/js/app.js")}"
