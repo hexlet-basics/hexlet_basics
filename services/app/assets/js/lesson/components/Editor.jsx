@@ -26,6 +26,7 @@ export default class Editor extends React.Component {
   componentDidUpdate() {
     const { current } = this.props;
     if (this.editor && current) {
+      this.editor.layout();
       this.editor.focus();
     }
   }

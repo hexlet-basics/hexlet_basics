@@ -1,16 +1,20 @@
-section.d-flex.align-items-center.flex-column
-  .col-lg-5.col-md-8.col-12.bg-light.p-5.text-black
-    h1.mb-4
-      = gettext("Sign Up")
-    = form_for @changeset, Routes.user_path(@conn, :create), fn form ->
-      = if @changeset.action do
-        .alert.alert-danger
-          p
-            = gettext("Oops, something went wrong! Please check the errors below.")
+.row.justify-content-center.pb-5.mt-5
+  .col-12.col-sm-8.col-md-7.col-lg-4
+    .card.border-top
+      .card-body
+        h1.mb-4.text-center= gettext("Sign Up")
+        = form_for @changeset, Routes.user_path(@conn, :create), fn form ->
+          = if @changeset.action do
+            .alert.alert-danger
+              p
+                = gettext("Oops, something went wrong! Please check the errors below.")
+          = input form, :email, as: :email, class: "form-control mb-3", placeholder: gettext("Email"), label: false, required: true
+          = input form, :password, as: :password, class: "form-control mb-3", placeholder: gettext("Password"), label: false, required: true
 
-      = input form, :email, as: :email, class: "form-control", placeholder: gettext("Email"), label: false, required: true
-      = input form, :password, as: :password, class: "form-control", placeholder: gettext("Password"), label: false, required: true
-
-      .form-group
-        = submit gettext("Registration"), class: "btn btn-primary mb-2 w-100"
-        = render HexletBasicsWeb.SharedView, "social_sign_in.html", assigns
+          .form-group
+            = submit gettext("Registration"), class: "btn btn-primary mb-2 w-100"
+            = render HexletBasicsWeb.SharedView, "social_sign_in.html", assigns
+      .card-footer.text-center
+        span.mr-1
+          = gettext("Have an account?")
+        = link gettext("Sign In"), to: Routes.session_path(@conn, :new)

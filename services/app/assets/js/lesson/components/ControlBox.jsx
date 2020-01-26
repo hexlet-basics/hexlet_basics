@@ -74,26 +74,24 @@ class ControlBox extends React.Component {
 
     return (
       <Hotkeys keyName="ctrl+Enter" onKeyUp={this.handleRunCheck}>
-        <div className="row">
-          <div className="col d-flex d-xl-block text-center mt-1">
-            <a
-              className="btn btn-outline-secondary mr-xl-3 d-inline-flex align-items-center"
-              href={window.location.href}
-              title={t('reset_code')}
-              data-confirm={t('confirm')}
-            >
-              <i className="fas fa-sync-alt" />
-            </a>
-            <a className={prevButtonClasses} href={prevLessonPath}>
-              <span className="d-none d-xl-inline">{t('prev_lesson')}</span>
-            </a>
-            <Button variant="primary" className="mr-3" onClick={this.handleRunCheck} disabled={checkInfo.processing}>
-              {renderRunButtonContent(this.props, t)}
-            </Button>
-            <a className={nextButtonClasses} href={nextLessonPath}>
-              <span className="d-none d-xl-inline">{t('next_lesson')}</span>
-            </a>
-          </div>
+        <div className="mx-auto align-items-center d-flex text-center mt-1">
+          <a
+            className="btn btn-outline-secondary mr-3"
+            href={window.location.href}
+            title={t('reset_code')}
+            data-confirm={t('confirm')}
+          >
+            <i className="fas fa-sync-alt" />
+          </a>
+          <a className={prevButtonClasses} href={prevLessonPath}>
+            <span>{t('prev_lesson')}</span>
+          </a>
+          <Button variant="primary" className="mr-3" onClick={this.handleRunCheck} disabled={checkInfo.processing}>
+            {renderRunButtonContent(this.props, t)}
+          </Button>
+          <a className={nextButtonClasses} href={nextLessonPath}>
+            <span>{t('next_lesson')}</span>
+          </a>
         </div>
       </Hotkeys>
     );

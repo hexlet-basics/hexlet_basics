@@ -52,7 +52,7 @@ class App extends React.Component {
           active={currentTabInfo.current}
           userFinishedLesson={userFinishedLesson}
         />
-        {currentViewOptions.component}
+        {currentTabInfo.title === 'editor' && currentViewOptions.component}
         <ControlBox userFinishedLesson={userFinishedLesson} />
       </>
     );

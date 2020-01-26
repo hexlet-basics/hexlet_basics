@@ -111,7 +111,7 @@ class Solution extends React.Component {
     const waitingTime = 20 * 60 * 1000;
 
     return (
-      <div className="p-3 pt-2 d-flex flex-column flex-fill">
+      <div className="p-3 pt-2 d-flex flex-column flex-fill h-100 w-100">
         <Countdown date={startTime + waitingTime} renderer={this.renderContent(this.props)} />
       </div>
     );

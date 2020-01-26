@@ -1,6 +1,6 @@
 = if @current_user.guest do
-  = link to: Routes.auth_path(@conn, :request, "github"), class: "align-items-center btn btn-black d-flex justify-content-center w-100" do
-    i.fab.mr-2.fa-github.fa-2x
+  = link to: Routes.auth_path(@conn, :request, "github"), class: "btn btn-secondary btn-block" do
+    i.fab.mr-2.fa-github
     = gettext("Sign In Github")
   / .row.mt-3
   /   .col-12

@@ -58,8 +58,8 @@ const TabsBox = (props) => {
           </Nav>
         </div>
       </div>
-      <Tab.Content bsPrefix="h-100 tab-content">
-        <Tab.Pane eventKey="editor" bsPrefix="tab-pane h-100">
+      <Tab.Content bsPrefix="d-flex h-100 tab-content">
+        <Tab.Pane eventKey="editor" bsPrefix="tab-pane h-100 w-100">
           <Editor
             defaultValue={lesson.prepared_code}
             onCodeChange={changeCode}
@@ -67,10 +67,10 @@ const TabsBox = (props) => {
             current={currentTabInfo.title === 'editor'}
           />
         </Tab.Pane>
-        <Tab.Pane eventKey="console" bsPrefix="tab-pane h-100">
+        <Tab.Pane eventKey="console" bsPrefix="tab-pane h-100 w-100">
           <Console checkInfo={checkInfo} />
         </Tab.Pane>
-        <Tab.Pane eventKey="solution" bsPrefix="tab-pane h-100">
+        <Tab.Pane eventKey="solution" bsPrefix="tab-pane h-100 w-100">
           <Solution
             startTime={startTime}
             defaultValue={lesson.original_code}

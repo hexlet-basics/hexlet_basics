@@ -1,13 +1,19 @@
-section.d-flex.align-items-center.flex-column
-  .col-lg-5.col-md-8.col-12.bg-light.p-5.text-black
-    h1.mb-4
-      = gettext("Sign In")
-    = form_for @conn, Routes.session_path(@conn, :create), [as: :session], fn f ->
-      = input f, :email, placeholder: gettext("Email"), class: "form-control", label: false
-      = input f, :password, as: :password, placeholder: gettext("Password"), class: "form-control", label: false
-      .form-group
-        = submit gettext("Sign In"), class: "btn btn-primary mb-2 w-100"
-        = render HexletBasicsWeb.SharedView, "social_sign_in.html", assigns
+.row.justify-content-center.pb-5.mt-5
+  .col-12.col-sm-8.col-md-7.col-lg-4
+    .card.border-top
+      .card-body
+        h1.mb-4.text-center= gettext("Sign In")
+        = form_for @conn, Routes.session_path(@conn, :create), [as: :session], fn f ->
+          = input f, :email, placeholder: gettext("Email"), class: "form-control mb-3", label: false
+          = input f, :password, as: :password, placeholder: gettext("Password"), class: "form-control mb-3", label: false
+          .text-right.mb-3
+            = link gettext("Forgot password?"), to: Routes.remind_password_path(@conn, :new)
 
-  .bg-secondary.col-12.col-lg-5.col-md-8.p-0
-    = link gettext("Forgot password?"), to: Routes.remind_password_path(@conn, :new), class: "d-block p-4 stretched-link text-center text-white"
+          .form-group
+            = submit gettext("Sign In"), class: "btn btn-primary mb-2 btn-block"
+            = render HexletBasicsWeb.SharedView, "social_sign_in.html", assigns
+
+      .card-footer.text-center
+        span.mr-1
+          = gettext("Dont have an account?")
+        = link gettext("Sign Up"), to: Routes.user_path(@conn, :new)
