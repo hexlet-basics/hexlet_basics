@@ -13,10 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # - run: apt install make
       - uses: actions/checkout@v1
       - name: Run tests
         run: |
-          # docker-compose --file docker-compose.test.yml build
+          make project-env-generate
           docker-compose --file docker-compose.test.yml run sut
       # - name: Build the Docker image
       #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
