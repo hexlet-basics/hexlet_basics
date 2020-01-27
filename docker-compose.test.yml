@@ -5,4 +5,7 @@ version: '3'
 services:
 
   sut:
+    build:
+      context: services/app
+      dockerfile: Dockerfile
     command: echo 'works!'
