@@ -1,3 +1,5 @@
+[![Docker Image CI](https://github.com/hexlet-basics/hexlet_basics/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/hexlet-basics/hexlet_basics/actions)
+
 ##
 [![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/hexletguides.github.io/master/images/hexlet_logo128.png)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=hexlet-basics)
 
