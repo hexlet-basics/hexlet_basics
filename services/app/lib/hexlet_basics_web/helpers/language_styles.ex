@@ -4,22 +4,22 @@ defmodule HexletBasicsWeb.Helpers.LanguageStyles do
       bg: "bg-blue",
     },
     javascript: %{
-      bg: "bg-indigo",
+      bg: "bg-yellow",
     },
     java: %{
       bg: "bg-azure",
     },
     python: %{
-      bg: "bg-purple",
+      bg: "bg-orange",
     },
     html: %{
-      bg: "bg-green",
+      bg: "bg-orange",
     },
     css: %{
-      bg: "bg-yellow",
+      bg: "bg-azure",
     },
     racket: %{
-      bg: "bg-orange",
+      bg: "bg-red",
     },
     ruby: %{
       bg: "bg-red",
