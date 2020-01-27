@@ -58,8 +58,8 @@ const TabsBox = (props) => {
           </Nav>
         </div>
       </div>
-      <Tab.Content bsPrefix="d-flex h-100 tab-content">
-        <Tab.Pane eventKey="editor" bsPrefix="tab-pane h-100 w-100">
+      <Tab.Content bsPrefix="d-flex h-100 tab-content overflow-auto">
+        <Tab.Pane eventKey="editor" bsPrefix="tab-pane h-100 w-100 overflow-hidden">
           <Editor
             defaultValue={lesson.prepared_code}
             onCodeChange={changeCode}
