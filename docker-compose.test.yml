@@ -8,4 +8,6 @@ services:
     build:
       context: services/app
       dockerfile: Dockerfile
-    command: echo 'works!'
+    command: mix test
+  db:
+    image: postgres:9.6
