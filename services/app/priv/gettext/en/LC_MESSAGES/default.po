@@ -32,6 +32,7 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1 lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
 #: lib/hexlet_basics_web/templates/session/new.html.slime:1 lib/hexlet_basics_web/templates/session/new.html.slime:1
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
 msgid "Sign In"
 msgstr ""
 
@@ -47,7 +48,7 @@ msgstr ""
 msgid "You did it!"
 msgstr ""
 
-#: lib/hexlet_basics_web/controllers/session_controller.ex:25
+#: lib/hexlet_basics_web/controllers/session_controller.ex:41
 msgid "You have been logged out!"
 msgstr ""
 
@@ -134,20 +135,17 @@ msgstr "With the help of Hexlet Community."
 msgid "All lessons completed!"
 msgstr "All lessons completed!"
 
-#: lib/hexlet_basics_web/controllers/page_controller.ex:28
-#: lib/hexlet_basics_web/controllers/page_controller.ex:31
+#: lib/hexlet_basics_web/controllers/page_controller.ex:29
+#: lib/hexlet_basics_web/controllers/page_controller.ex:32
 msgid "Code Basics Description"
 msgstr "Learn the basics of programming for free with interactive exercises. No prior experience required!"
 
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
 msgid "Code Basics Author"
 msgstr "Kirill Mokevnin, Rakhim Davletkaliyev, Natalia Bass"
 
-#: lib/hexlet_basics_web/controllers/page_controller.ex:27
-#: lib/hexlet_basics_web/controllers/page_controller.ex:39
+#: lib/hexlet_basics_web/controllers/page_controller.ex:28
+#: lib/hexlet_basics_web/controllers/page_controller.ex:40
 msgid "Code Basics Title"
 msgstr "Code Basics: basics of programming"
 
@@ -362,7 +360,8 @@ msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
-#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1 lib/hexlet_basics_web/templates/user/new.html.slime:1
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1 lib/hexlet_basics_web/templates/session/new.html.slime:1
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
 msgid "Sign Up"
 msgstr ""
 
@@ -421,7 +420,7 @@ msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/controllers/password_controller.ex:62
-#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:28
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:44
 msgid "Message with instructions for reset password was sent"
 msgstr ""
 
@@ -444,12 +443,12 @@ msgstr ""
 #, elixir-format
 #: lib/hexlet_basics_web/controllers/password_controller.ex:14
 #: lib/hexlet_basics_web/controllers/password_controller.ex:21 lib/hexlet_basics_web/controllers/password_controller.ex:38
-#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:32 lib/hexlet_basics_web/controllers/user_controller.ex:71
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:48 lib/hexlet_basics_web/controllers/user_controller.ex:87
 msgid "User not found"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/session_controller.ex:31
+#: lib/hexlet_basics_web/controllers/session_controller.ex:47
 msgid "Signed in successfully."
 msgstr ""
 
@@ -459,17 +458,17 @@ msgid "Change Password"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/user_controller.ex:40
+#: lib/hexlet_basics_web/controllers/user_controller.ex:56
 msgid "User created! Check your email for confirm registration"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/user_controller.ex:66
+#: lib/hexlet_basics_web/controllers/user_controller.ex:82
 msgid "Registration confirmed! Welcome!"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/session_controller.ex:38
+#: lib/hexlet_basics_web/controllers/session_controller.ex:54
 msgid "There was a problem with your email/password"
 msgstr ""
 
@@ -546,18 +545,13 @@ msgid "Error adding account."
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
-msgid "Profile"
-msgstr ""
-
-#, elixir-format
 #: lib/hexlet_basics_web/templates/profile/show.html.slime:1
 msgid "Social networks"
 msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/controllers/profile_controller.ex:31
-#: lib/hexlet_basics_web/controllers/profile_controller.ex:57 lib/hexlet_basics_web/controllers/user_controller.ex:107
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:57 lib/hexlet_basics_web/controllers/user_controller.ex:123
 msgid "Something went wrong! Please contact support <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
 msgstr ""
 
@@ -592,7 +586,7 @@ msgid "There were problems with the delivery of letters to your address. Please 
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/user_controller.ex:96
+#: lib/hexlet_basics_web/controllers/user_controller.ex:112
 msgid "We sent an email to confirm the email - %{email}, follow the link from the email to complete the procedure."
 msgstr ""
 
@@ -669,6 +663,18 @@ msgstr ""
 msgid "Code Basics Description tos"
 msgstr ""
 
+# Description for session
+#: lib/hexlet_basics_web/controllers/session_controller.ex:14
+#: lib/hexlet_basics_web/controllers/session_controller.ex:17
+msgid "Code Basics Login Description"
+msgstr "Login"
+
+# Description for session
+#: lib/hexlet_basics_web/controllers/session_controller.ex:13
+#: lib/hexlet_basics_web/controllers/session_controller.ex:25
+msgid "Code Basics Login Title"
+msgstr "Login"
+
 # Title for about
 msgid "Code Basics Title about"
 msgstr ""
@@ -681,27 +687,36 @@ msgstr ""
 msgid "Code Basics Title tos"
 msgstr ""
 
-# Description for session
-msgid "Code Basics Login Description"
-msgstr "Login"
-
-# Description for session
-msgid "Code Basics Login Title"
-msgstr "Login"
-
 # Description for registration
+#: lib/hexlet_basics_web/controllers/user_controller.ex:16
+#: lib/hexlet_basics_web/controllers/user_controller.ex:19
 msgid "Code Basics Registration Description"
 msgstr "Registration"
 
 # Description for registration
+#: lib/hexlet_basics_web/controllers/user_controller.ex:15
+#: lib/hexlet_basics_web/controllers/user_controller.ex:27
 msgid "Code Basics Registration Title"
 msgstr "Registration"
 
 # Description for remind password
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:11
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:14
 msgid "Code Basics Remind Password Description"
 msgstr "Remind password"
 
 # Description for remind password
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:10
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:22
 msgid "Code Basics Remind Password Title"
 msgstr "Remind password"
 
+#, elixir-format, fuzzy
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1
+msgid "Dont have an account?"
+msgstr ""
+
+#, elixir-format, fuzzy
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Have an account?"
+msgstr ""

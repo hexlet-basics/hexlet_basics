@@ -1,6 +1,6 @@
 .row.justify-content-center.mb-5
   .col-12.col-md-10.col-lg-9.col-xl-7.text-center
-    h1.display-4= gettext("Free programming courses")
+    h1= gettext("Free programming courses")
     .h2.font-weight-light= gettext("For beginners")
 
 .row.row-cols-1.row-cols-md-3.row-cols-sm-2.row-cols-lg-4
