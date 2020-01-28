@@ -719,4 +719,4 @@ msgstr "Нет аккаунта?"
 #, elixir-format
 #: lib/hexlet_basics_web/templates/user/new.html.slime:1
 msgid "Have an account?"
-msgstr "Нет аккаунта?"
+msgstr "Есть аккаунт?"
