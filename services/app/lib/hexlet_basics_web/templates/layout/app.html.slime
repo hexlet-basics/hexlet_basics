@@ -41,7 +41,7 @@ html.h-100 lang=@locale
                 img.ml-3(width="25px" src=Routes.static_path(@conn, "/images/flag-#{switch_map[@locale]}.svg") alt="#{gettext("Switch language to")} #{switch_map[@locale]}")
 
     main.mt-5.flex-fill
-      .container-fluid.container-xl
+      .container-xl
         = for name <- [:info, :error] do
           - message = get_flash(@conn, name)
           = if message do
@@ -53,7 +53,7 @@ html.h-100 lang=@locale
         = render @view_module, @view_template, assigns
 
     footer
-      .container.mt-7.pt-6.pb-3.border-top
+      .container-xl.mt-7.pt-6.pb-3.border-top
         .row
           .col
             div
