@@ -5,7 +5,7 @@ div
       h2 
         = module_description.name
   .show id="module_#{@module.id}"
-    .row.d-flex.flex-row
+    .row
       .col-12.col-md-6.lead.mt-4
         = for lesson <- @lessons do
           - lesson_description = @descriptions_by_lesson[lesson.id]
@@ -22,5 +22,5 @@ div
                     | .&nbsp;
                     = lesson_description.name
 
-      .col-12.col-md-6.mt-3
+      .col-12.col-md-6.mt-4
         p.lead= module_description.description

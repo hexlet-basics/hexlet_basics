@@ -16,12 +16,12 @@ h1.text-center.display-3= @header
 
 = for module <- @modules do
   div
-    .row.mt-5.d-flex.flex-row
+    .row.mt-5
       .col-12
         - module_description = @descriptions_by_module[module.id]
         h2
           = module_description.name
-    .row.d-flex.flex-row
+    .row
       .col-12.col-md-6.mt-4
         ul class="list-group"
           = for lesson <- module.lessons do
@@ -37,6 +37,6 @@ h1.text-center.display-3= @header
                 .ml-auto
                   i class="text-primary fas fa-check"
 
-      .col-12.col-md-6.mt-3
+      .col-12.col-md-6.mt-4
         div
           = module_description.description
