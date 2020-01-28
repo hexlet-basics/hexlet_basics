@@ -13,11 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - run: apt install make
       - uses: actions/checkout@v1
+      - name: Prepare ansible
+        run: make docker-ansible-build-image
+      - name: Generate Env
+        run: make project-env-generate
       - name: Run tests
         run: |
-          make project-env-generate
           docker-compose --file docker-compose.test.yml run sut
       # - name: Build the Docker image
       #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
