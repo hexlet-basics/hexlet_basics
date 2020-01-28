@@ -38,5 +38,4 @@ h1.text-center.display-3= @header
                   i class="text-primary fas fa-check"
 
       .col-12.col-md-6.mt-4
-        div
-          = module_description.description
+        = module_description.description
