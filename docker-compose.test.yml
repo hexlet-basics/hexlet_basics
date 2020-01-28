@@ -9,6 +9,9 @@ services:
       context: services/app
       dockerfile: Dockerfile
     command: mix test
-    env_file: '.env'
+    # env_file: '.env'
+    environment:
+  depends_on:
+    - db
   db:
     image: postgres:9.6

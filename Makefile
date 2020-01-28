@@ -17,9 +17,6 @@ project-files-touch:
 project-env-generate:
 	docker run -v $(CURDIR):/app -w /app ansible ansible-playbook ansible/development.yml -i ansible/development -vv
 
-docker-init:
-	gcloud auth configure-docker
-
 terraform-vars-generate:
 	docker run -it -v $(CURDIR):/app -w /app ansible ansible-playbook ansible/terraform.yml -i ansible/production -vv --vault-password-file=tmp/ansible-vault-password
 
