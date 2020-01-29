@@ -1,10 +1,10 @@
-name: Docker Image CI
+name: |
+  Run tests && Build image && Push latest
 
 on:
   push:
     branches:
       - master
-  pull_request:
 
 jobs:
 
@@ -27,3 +27,4 @@ jobs:
         run: make caddy-docker-build-production
       - name: Push Caddy
         run: make caddy-docker-push
+
