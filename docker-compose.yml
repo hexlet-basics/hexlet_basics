@@ -30,7 +30,7 @@ services:
     env_file: '.env'
     volumes:
       - "web_static:/web/priv/static"
-      - "./services/web:/web"
+      - "./services/web:/app"
       - "~/.bash_history:/root/.bash_history:cached"
       - "./tmp/hexletbasics:/hexletbasics"
       - ".bashrc:/root/.bashrc:cached"
