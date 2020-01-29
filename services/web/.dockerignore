@@ -1,6 +1,6 @@
-_build
-deps
-node_modules
-priv/static
+**/_build
+**/deps
+**/node_modules
+**/priv/static
 .cache-loader
-.git
+**/.git
