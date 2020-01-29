@@ -28,3 +28,7 @@ jobs:
         run: make caddy-docker-build-production VERSION=$RELEASE_VERSION
       - name: Push Caddy
         run: make caddy-docker-push VERSION=$RELEASE_VERSION
+      - uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: '#code'
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
