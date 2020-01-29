@@ -1,9 +1,10 @@
 S := web
-TAG := latest
+VERSION := latest
 PROJECT := hexlet-basics
 
 include make-compose.mk
 include make-services-web.mk
+include make-services-caddy.mk
 include k8s/Makefile
 
 project-setup: project-files-touch docker-ansible-build-image project-env-generate compose-setup
@@ -30,6 +31,3 @@ ansible-vaults-edit:
 	docker run -it --rm \
 		-v $(CURDIR):/runner/project \
 		ansible/ansible-runner ansible-vault edit project/ansible/production/group_vars/all/vault.yml
-
-# tag:
-# 	git tag $(TAG) && git push --tags

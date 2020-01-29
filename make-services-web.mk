@@ -91,3 +91,9 @@ web-exercises-load-go:
 	rm -rf tmp/hexletbasics/exercises-go
 	docker run --rm -v $(CURDIR)/tmp/hexletbasics/exercises-go:/out hexletbasics/exercises-go bash -c "cp -r /exercises-go/* /out"
 	docker-compose run --rm web mix x.exercises.load go
+
+caddy-docker-build-production:
+	docker build --tag hexletbasics/services-web:$(VERSION) services/web
+
+caddy-docker-push:
+	docker push hexletbasics/services-caddy:$(VERSION)
