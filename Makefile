@@ -7,7 +7,7 @@ include make-services-web.mk
 include make-services-caddy.mk
 include k8s/Makefile
 
-project-setup: project-files-touch docker-ansible-build-image project-env-generate compose-setup
+project-setup: project-files-touch project-env-generate compose-setup
 	npm install
 
 project-files-touch:
