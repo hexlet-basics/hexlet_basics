@@ -1,6 +1,6 @@
 ---
 
-version: v247
+version: v253
 
 replicaCount: 1
 
@@ -14,7 +14,7 @@ web:
     repository: hexletbasics/services-web
     imagePullPolicy: Always
 
-slack_notification: ['/web/deploy-notify.sh']
+slack_notification: ['/app/deploy-notify.sh']
 
 resources: {}
 # We usually recommend not to specify default resources and to leave this as a conscious
