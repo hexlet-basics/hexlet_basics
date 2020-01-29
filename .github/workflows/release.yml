@@ -8,9 +8,8 @@ on:
 jobs:
 
   build:
-
+    if: github.repository == 'hexlet-basics/hexlet_basics'
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Run web tests
