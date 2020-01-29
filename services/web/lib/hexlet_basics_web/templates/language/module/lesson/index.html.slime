@@ -1,25 +1,35 @@
-div
-  .row.mt-5.d-flex.flex-row
-    .col-12
-      - module_description = @module_description
-      h2 
-        = module_description.name
-  .show id="module_#{@module.id}"
-    .row
-      .col-12.col-md-6.mt-4
-        ul class="list-group"
-        = for lesson <- @lessons do
-          - lesson_description = @descriptions_by_lesson[lesson.id]
-          - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
-          li class="list-group-item d-flex"
-            - url = Routes.language_module_lesson_path(@conn, :show, @language.slug, @module.slug, lesson.slug)
-            = link to: url, class: "stretched-link text-decoration-none" do
-              = lesson.natural_order
-              | .&nbsp;
-              = lesson_description.name
-            = if finished_lesson do
-              .ml-auto
-                i class="text-primary fas fa-check"
+= if @module_description do
+  div
+    .row.mt-5.d-flex.flex-row
+      .col-12
+        - module_description = @module_description
+        h2
+          = module_description.name
+    .show id="module_#{@module.id}"
+      .row
+        .col-12.col-md-6.mt-4
+          ul class="list-group"
+          = for lesson <- @lessons do
+            - lesson_description = @descriptions_by_lesson[lesson.id]
+            - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
+            li class="list-group-item d-flex"
+              - url = Routes.language_module_lesson_path(@conn, :show, @language.slug, @module.slug, lesson.slug)
+              = link to: url, class: "stretched-link text-decoration-none" do
+                = lesson.natural_order
+                | .&nbsp;
+                = lesson_description.name
+              = if finished_lesson do
+                .ml-auto
+                  i class="text-primary fas fa-check"
 
-      .col-12.col-md-6.mt-4
-        = module_description.description
+        .col-12.col-md-6.mt-4
+          = module_description.description
+- else
+  .d-flex.justify-content-center
+    p.lead
+      = gettext("Module available in ")
+      - switch_map = locales_switch_map()
+      = link to: Routes.locale_path(@conn, :switch, redirect_url: redirect_current_url(@conn, switch_map[@locale]), locale: switch_map[@locale]) do
+        = gettext("Russian only")
+        i.fas.fa-arrow-right.ml-1
+
