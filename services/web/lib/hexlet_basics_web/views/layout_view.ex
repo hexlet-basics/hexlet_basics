@@ -2,7 +2,7 @@ defmodule HexletBasicsWeb.LayoutView do
   use HexletBasicsWeb, :view
 
   import PhoenixGon.View
-  import HexletBasics.PageTitle
+  # import HexletBasics.PageTitle
 
   def locales_switch_map, do: %{"ru" => "en", "en" => "ru"}
 

@@ -6,8 +6,9 @@ services:
   db:
     image: postgres:9.6
   test:
-    image: app
+    build:
+      context: .
     command: mix test
-    env_file: "./.env.test.docker"
+    env_file: "./.env.docker"
     depends_on:
       - db

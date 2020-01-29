@@ -1,10 +1,9 @@
-S := app
+S := web
 TAG := latest
 PROJECT := hexlet-basics
 
 include make-compose.mk
-include make-services-app.mk
-include make-gcp.mk
+include make-services-web.mk
 include k8s/Makefile
 
 project-setup: project-files-touch docker-ansible-build-image project-env-generate compose-setup
@@ -15,16 +14,22 @@ project-files-touch:
 	touch tmp/ansible-vault-password
 
 project-env-generate:
-	docker run -v $(CURDIR):/app -w /app ansible ansible-playbook ansible/development.yml -i ansible/development -vv
+	docker run --rm -e RUNNER_PLAYBOOK=ansible/development.yml \
+		-v $(CURDIR)/ansible/development:/runner/inventory \
+		-v $(CURDIR):/runner/project \
+		ansible/ansible-runner
 
 terraform-vars-generate:
-	docker run -it -v $(CURDIR):/app -w /app ansible ansible-playbook ansible/terraform.yml -i ansible/production -vv --vault-password-file=tmp/ansible-vault-password
+	docker run --rm -e RUNNER_PLAYBOOK=ansible/terraform.yml \
+		-v $(CURDIR)/ansible/production:/runner/inventory \
+		-v $(CURDIR):/runner/project \
+		ansible/ansible-runner
 
 ansible-vaults-edit:
-	docker run -it -v $(CURDIR):/app -w /app ansible ansible-vault edit ansible/production/group_vars/all/vault.yml --vault-password-file=tmp/ansible-vault-password
+	# docker run -it -v $(CURDIR):/web -w /web ansible ansible-vault edit ansible/production/group_vars/all/vault.yml --vault-password-file=tmp/ansible-vault-password
+	docker run -it --rm \
+		-v $(CURDIR):/runner/project \
+		ansible/ansible-runner ansible-vault edit project/ansible/production/group_vars/all/vault.yml
 
-docker-ansible-build-image:
-	docker build -t ansible ansible
-
-tag:
-	git tag $(TAG) && git push --tags
+# tag:
+# 	git tag $(TAG) && git push --tags

@@ -21,6 +21,10 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
     host: System.fetch_env!("APP_HOST")
   ]
 
+# config :rollbax,
+#   access_token: System.fetch_env!("ROLLBAR_ACCESS_TOKEN"),
+#   environment: "production"
+
 config :hexlet_basics,
   code_directory: "/tmp/hexlet-basics/code",
   langs: %{System.fetch_env!("APP_RU_HOST") => "ru", System.fetch_env!("APP_HOST") => "en"},

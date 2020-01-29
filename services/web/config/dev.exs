@@ -13,6 +13,7 @@ use Mix.Config
 # with brunch.io to recompile .js and .css sources.
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
   url: [host: System.fetch_env!("APP_HOST"), scheme: System.fetch_env!("APP_SCHEME"), port: 443],
+  secret_key_base: System.fetch_env!("SECRET_KEY_BASE"),
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -61,7 +62,7 @@ config :hexlet_basics,
   ga: "gtag",
   gtm: "gtm"
 
-# config :rollbax, enabled: :log
+# config :rollbax, enabled: false
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

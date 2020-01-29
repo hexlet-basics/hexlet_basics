@@ -29,12 +29,12 @@ RUN MIX_ENV=prod mix deps.compile
 COPY assets/package.json ./assets/package.json
 COPY assets/package-lock.json ./assets/package-lock.json
 
-RUN cd assets && npm ci
+RUN npm ci --prefix ./assets
 
 COPY . .
 
 RUN MIX_ENV=prod env-cmd -f .env.docker mix compile
-RUN NODE_ENV=production cd assets && npm run deploy
+RUN NODE_ENV=production npm run deploy --prefix ./assets
 RUN MIX_ENV=prod env-cmd -f .env.docker mix phx.digest
 
 CMD ["mix", "phx.server"]

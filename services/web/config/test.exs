@@ -15,7 +15,7 @@ config :hexlet_basics,
   ga: "gtag",
   gtm: "gtm"
 
-config :rollbax, enabled: false
+# config :rollbax, enabled: false
 
 # Print only warnings and errors during test
 config :logger, level: :warn

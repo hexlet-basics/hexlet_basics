@@ -15,20 +15,18 @@ config :ueberauth, Ueberauth,
          default_scope: "user:email",
          send_redirect_uri: false
        ]},
-    facebook: {Ueberauth.Strategy.Facebook, []}
+    # facebook: {Ueberauth.Strategy.Facebook, []}
   ]
 
-config :rollbax,
-  access_token: System.fetch_env!("ROLLBAR_ACCESS_TOKEN"),
-  environment: "production"
+config :rollbax, enabled: false
 
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
   client_id: System.fetch_env!("GITHUB_CLIENT_ID"),
   client_secret: System.fetch_env!("GITHUB_CLIENT_SECRET")
 
-config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
-  client_id: System.fetch_env!("FACEBOOK_CLIENT_ID"),
-  client_secret: System.fetch_env!("FACEBOOK_CLIENT_SECRET")
+# config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
+#   client_id: System.fetch_env!("FACEBOOK_CLIENT_ID"),
+#   client_secret: System.fetch_env!("FACEBOOK_CLIENT_SECRET")
 
 # General application configuration
 config :hexlet_basics,
@@ -50,7 +48,6 @@ config :hexlet_basics, HexletBasics.Repo,
 config :hexlet_basics, HexletBasicsWeb.Endpoint,
   # url: [host: "localhost"],
   render_errors: [view: HexletBasicsWeb.ErrorView, accepts: ~w(html json), layout: false],
-  secret_key_base: System.fetch_env!("SECRET_KEY_BASE"),
   pubsub: [name: HexletBasics.PubSub, adapter: Phoenix.PubSub.PG2]
 
 config :hexlet_basics, HexletBasics.Mailer,

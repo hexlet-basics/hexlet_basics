@@ -25,7 +25,7 @@ defmodule HexletBasics.Mixfile do
         :logger,
         :runtime_tools,
         :yaml_elixir,
-        :rollbax,
+        # :rollbax,
         :ueberauth_github,
         :ueberauth_facebook,
         :ueberauth,

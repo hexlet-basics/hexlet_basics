@@ -1,6 +1,6 @@
 defmodule HexletBasics.UserManager.ErrorHandler do
   use HexletBasicsWeb, :controller
-  import Plug.Conn
+  # import Plug.Conn
   import HexletBasicsWeb.Gettext
   alias HexletBasicsWeb.Router.Helpers, as: Routes
 
