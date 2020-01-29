@@ -14,9 +14,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Run tests
+      - name: Run web tests
         run: |
-          docker-compose --file services/app/docker-compose.test.yml run sut
+          make web-ci-test
       # - name: Build the Docker image
       #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 

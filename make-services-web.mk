@@ -3,6 +3,9 @@ USER = "$(shell id -u):$(shell id -g)"
 web-test:
 	docker-compose run web mix test
 
+web-ci-test:
+	docker-compose --file services/web/docker-compose.test.yml run test
+
 web-console:
 	docker-compose run web iex -S mix
 
