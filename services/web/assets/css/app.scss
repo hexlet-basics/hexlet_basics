@@ -1,10 +1,11 @@
+$breadcrumb-divider: quote("→");
+
 @import 'tabler/scss/tabler';
-// @import "highlight.js/styles/vs";
+@import "highlight.js/styles/github";
 @import '@fortawesome/fontawesome-free/scss/fontawesome';
 @import '@fortawesome/fontawesome-free/scss/solid';
 @import '@fortawesome/fontawesome-free/scss/brands';
 // @import "bootstrap/scss/bootstrap";
-
 
 // // Basic Colors
 // $blue:    #6699cc !default;
@@ -190,12 +191,3 @@ $sizes: (
 //     margin-left: -15px;
 //   }
 // }
-
-#basics-lesson-container {
-  .tab-content {
-    @extend .h-md-100;
-    .tab-pane {
-      @extend .h-md-100;
-    }
-  }
-}

@@ -12,26 +12,20 @@ html.h-md-100 lang="#{@locale}"
     = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html"
     .container-fluid.h-md-100.d-flex.flex-column
       header.header
-        nav.navbar.navbar-expand-lg
-          .navbar-text.pr-3.mr-auto(itemscope itemtype="http://schema.org/BreadcrumbList")
-            span(itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem")
-              a href="/" title="Главная" itemprop="item"
-                meta itemprop="name" content="Главная"
+        nav.navbar.navbar-expand-lg.navbar-light
+          ol.breadcrumb.mr-auto
+            li.breadcrumb-item
+              a href="/" title=gettext("Home")
                 i.fas.fa-home
-                meta itemprop="position" content="1"
-            = " → "
-              span(itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem")
-                a href=Routes.language_path(@conn, :show, @language.slug) itemprop="item" title=@language.slug
-                  span itemprop="name"
-                    =@language.slug
-                meta itemprop="position" content="2"
-            = " → "
-              span
-                  =@module_description.name
-            | &nbsp;
-            = @lesson.natural_order
-            | /
-            = @lessons_count
+            li.breadcrumb-item
+              a href=Routes.language_path(@conn, :show, @language.slug) title=@language.slug
+                = @language.slug
+            li.breadcrumb-item.active.text-dark
+              = @module_description.name
+              | &nbsp;
+              = @lesson.natural_order
+              | /
+              = @lessons_count
 
           button.navbar-toggler.px-0(type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation")
             span.navbar-toggler-icon

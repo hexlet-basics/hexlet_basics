@@ -11,10 +11,10 @@ html.h-100 lang=@locale
   body.h-100.d-flex.flex-column
     = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html", assigns
     header.px-3
-      nav.navbar.navbar-expand-lg
+      nav.navbar.navbar-expand-lg.navbar-light
         a.navbar-brand href="/"
           img width="30px" src=Routes.static_path(@conn, "/images/logo.png") alt="Code Basics Logo"
-          = gettext("Code Basics")
+          / = gettext("Code Basics")
         button.navbar-toggler(
           type="button" data-toggle="collapse"
           data-target="#navbarToggler" aria-controls="navbarToggler"
@@ -33,12 +33,6 @@ html.h-100 lang=@locale
               a.nav-link target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Community"
 
           = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
-
-          ul.navbar-nav
-            li.nav-item
-              - switch_map = locales_switch_map()
-              = link to: Routes.locale_path(@conn, :switch, redirect_url: redirect_current_url(@conn, switch_map[@locale]), locale: switch_map[@locale]), class: "nav-link" do
-                img.ml-3(width="25px" src=Routes.static_path(@conn, "/images/flag-#{switch_map[@locale]}.svg") alt="#{gettext("Switch language to")} #{switch_map[@locale]}")
 
     main.mt-5.flex-fill
       .container-xl
@@ -65,35 +59,39 @@ html.h-100 lang=@locale
                 span &nbsp;Puolikkotie 8, 02230 Espoo, Finland.
               div +44 20 3514 2938
               div
-                a href="mailto:support@hexlet.io" support@hexlet.io
+                a class="text-muted" href="mailto:support@hexlet.io" support@hexlet.io
+
+              - switch_map = locales_switch_map()
+              = link to: Routes.locale_path(@conn, :switch, redirect_url: redirect_current_url(@conn, switch_map[@locale]), locale: switch_map[@locale]) do
+                img(width="25px" src=Routes.static_path(@conn, "/images/flag-#{switch_map[@locale]}.svg") alt="#{gettext("Switch language to")} #{switch_map[@locale]}")
 
           .col
             h3.h2= gettext "Information"
             ul.list-unstyled
               li
-                a href="#{Routes.page_path(@conn, :show, "about")}"= gettext "About"
+                a class="text-muted" href="#{Routes.page_path(@conn, :show, "about")}"= gettext "About"
               li
-                a href="#{Routes.page_path(@conn, :show, "tos")}"= gettext "Terms of Service"
+                a class="text-muted" href="#{Routes.page_path(@conn, :show, "tos")}"= gettext "Terms of Service"
               li
-                a href="#{Routes.page_path(@conn, :show, "privacy")}"= gettext "Privacy"
+                a class="text-muted" href="#{Routes.page_path(@conn, :show, "privacy")}"= gettext "Privacy"
           .col
             h3.h2= gettext "Social"
             ul.list-unstyled
               li
-                a target="_blank" href="https://www.facebook.com/codebasicsru/"= gettext "Facebook"
+                a target="_blank" class="text-muted" href="https://www.facebook.com/codebasicsru/"= gettext "Facebook"
 
 
           .col
             h3.h2= gettext "Resources"
             ul.list-unstyled
               li
-                a target="_blank" href="https://ru.hexlet.io/blog"= gettext "Blog"
+                a target="_blank" class="text-muted" href="https://ru.hexlet.io/blog"= gettext "Blog"
               li
-                a target="_blank" href="https://ru.hexlet.io/pages/recommended-books"= gettext "Recommended Books"
+                a target="_blank" class="text-muted" href="https://ru.hexlet.io/pages/recommended-books"= gettext "Recommended Books"
               li
-                a target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSr58Xg4DVX2WdmAkv3hE2ITJ3fPeNUmRFe0Ekro53U-ACFrhcUkV8PlUm4ddcn53Uh-5UIezZtZZgc/pubhtml"= gettext "Matrix"
+                a target="_blank" class="text-muted" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSr58Xg4DVX2WdmAkv3hE2ITJ3fPeNUmRFe0Ekro53U-ACFrhcUkV8PlUm4ddcn53Uh-5UIezZtZZgc/pubhtml"= gettext "Matrix"
               li
-                a target="_blank" href="https://github.com/hexlet-basics"
+                a target="_blank" class="text-muted" href="https://github.com/hexlet-basics"
                   = gettext "Source code"
                   span.fas.fa-link.ml-2
 
