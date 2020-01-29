@@ -1,5 +1,4 @@
-name: |
-  Run tests && Build image && Push latest
+name: On push
 
 on:
   push:

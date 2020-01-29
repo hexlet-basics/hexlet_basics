@@ -1,5 +1,4 @@
-name: |
-  Run tests && Build image && Release tag
+name: On release
 
 on:
   release:
