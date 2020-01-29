@@ -1,12 +1,14 @@
 ---
 
-version: '2'
+version: '3.7'
 
 services:
   db:
     image: postgres:9.6
   test:
     build:
+      cache_from:
+        - hexletbasics/services-web
       context: .
     command: mix test
     env_file: "./.env.docker"
