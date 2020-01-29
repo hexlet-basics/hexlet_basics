@@ -31,3 +31,6 @@ ansible-vaults-edit:
 	docker run -it --rm \
 		-v $(CURDIR):/runner/project \
 		ansible/ansible-runner ansible-vault edit project/ansible/production/group_vars/all/vault.yml
+
+gcloud-cluster-init:
+	gcloud container clusters get-credentials hexlet-basics-6 --region europe-west3-a --project ${PROJECT}
