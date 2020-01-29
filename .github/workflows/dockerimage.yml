@@ -14,7 +14,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Prepare ansible
       - name: Run tests
         run: |
           docker-compose --file services/app/docker-compose.test.yml run sut
