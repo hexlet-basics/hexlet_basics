@@ -1,4 +1,4 @@
-name: On push
+name: On Push
 
 on:
   push:

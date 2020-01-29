@@ -1,7 +1,9 @@
-name: On release
+name: On Release
 
 on:
-  release:
+  push:
+    tags:
+      - v*
 
 jobs:
 
