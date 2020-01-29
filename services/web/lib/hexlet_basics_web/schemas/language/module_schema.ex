@@ -2,6 +2,10 @@ defmodule HexletBasicsWeb.Schemas.Language.ModuleSchema do
   alias HexletBasicsWeb.Schemas.CompanySchema
   alias HexletBasicsWeb.Router.Helpers, as: Routes
 
+  def build(conn, _, nil, _) do
+    %{}
+  end
+
   def build(conn, module, module_description, language) do
     %{
       "@context": "https://schema.org",

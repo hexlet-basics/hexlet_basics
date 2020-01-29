@@ -720,3 +720,20 @@ msgstr "Нет аккаунта?"
 #: lib/hexlet_basics_web/templates/user/new.html.slime:1
 msgid "Have an account?"
 msgstr "Есть аккаунт?"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/lesson.html.slime:1
+msgid "Home"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+msgid "Module available in "
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+msgid "Russian only"
+msgstr ""

@@ -711,12 +711,29 @@ msgstr "Remind password"
 msgid "Code Basics Remind Password Title"
 msgstr "Remind password"
 
-#, elixir-format, fuzzy
+#, elixir-format
 #: lib/hexlet_basics_web/templates/session/new.html.slime:1
 msgid "Dont have an account?"
 msgstr ""
 
-#, elixir-format, fuzzy
+#, elixir-format
 #: lib/hexlet_basics_web/templates/user/new.html.slime:1
 msgid "Have an account?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/lesson.html.slime:1
+msgid "Home"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+msgid "Module available in "
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+msgid "Russian only"
 msgstr ""
