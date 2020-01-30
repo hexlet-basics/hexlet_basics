@@ -12,7 +12,7 @@ project-setup: project-files-touch project-env-generate compose-setup
 
 project-files-touch:
 	mkdir -p tmp
-	touch tmp/ansible-vault-password
+	if [ ! -f tmp/ansible-vault-password ]; then echo 'jopa' > tmp/ansible-vault-password; fi;
 
 project-env-generate:
 	docker run --rm -e RUNNER_PLAYBOOK=ansible/development.yml \
