@@ -63,22 +63,22 @@
     h3.h1.font-weight-light = gettext("Courses in development")
     p = gettext("Courses in development description")
 
-.row.row-cols-2.row-cols-sm-3.row-cols-md-4.row-cols-lg-4
-  .col.md-5
+.row.row-cols-1.row-cols-md-3.row-cols-sm-2.row-cols-lg-4
+  .col.mb-5
     .card.h-100
       .card-body class=style_for_lang(:ruby, :bg)
         h2.card-title.text-center.text-white Ruby
         img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/ruby.png") alt="ruby programming lessons")
         - rubyAnchor = if Enum.member?(@started_languages_by_slug, "ruby"), do: gettext("Continue"), else: gettext("Start")
         = link rubyAnchor, to: Routes.language_path(@conn, :show, "ruby"), class: "btn btn-light btn-block stretched-link"
-  .col.md-5
+  .col.mb-5
     .card.h-100
       .card-body class=style_for_lang(:elixir, :bg)
         h2.card-title.text-center.text-white Elixir
         img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/elixir.png") alt="elixir programming lessons")
         - elixirAnchor = if Enum.member?(@started_languages_by_slug, "elixir"), do: gettext("Continue"), else: gettext("Start")
         = link elixirAnchor, to: Routes.language_path(@conn, :show, "elixir"), class: "btn btn-light btn-block stretched-link"
-  .col.md-5
+  .col.mb-5
     .card.h-100
       .card-body class=style_for_lang(:go, :bg)
         h2.card-title.text-center.text-white Go
