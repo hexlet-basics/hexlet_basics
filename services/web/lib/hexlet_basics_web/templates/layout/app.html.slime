@@ -48,8 +48,8 @@ html.h-100 lang=@locale
 
     footer
       .container-xl.mt-7.pt-6.pb-3.border-top
-        .row
-          .col
+        .row.row-cols-1.row-cols-md-3.row-cols-sm-2.row-cols-lg-4
+          .col.mb-4.mb-lg-0.order-4.order-md-0
             div
               .h4.mb-2
                 | &copy; Hexlet,&nbsp;
@@ -65,7 +65,7 @@ html.h-100 lang=@locale
               = link to: Routes.locale_path(@conn, :switch, redirect_url: redirect_current_url(@conn, switch_map[@locale]), locale: switch_map[@locale]) do
                 img(width="25px" src=Routes.static_path(@conn, "/images/flag-#{switch_map[@locale]}.svg") alt="#{gettext("Switch language to")} #{switch_map[@locale]}")
 
-          .col
+          .col.mb-4.mb-lg-0.order-2.order-md-2
             h3.h2= gettext "Information"
             ul.list-unstyled
               li
@@ -74,7 +74,7 @@ html.h-100 lang=@locale
                 a class="text-muted" href="#{Routes.page_path(@conn, :show, "tos")}"= gettext "Terms of Service"
               li
                 a class="text-muted" href="#{Routes.page_path(@conn, :show, "privacy")}"= gettext "Privacy"
-          .col
+          .col.mb-4.mb-lg-0.order-0.order-md-3
             h3.h2= gettext "Social"
             .h1
               = link to: facebook_curl, target: :_blank, rel: "noopener noreferrer" do
@@ -88,7 +88,7 @@ html.h-100 lang=@locale
               = link to: slack_curl, target: :_blank, rel: "noopener noreferrer" do
                 span.fab.fa-slack.text-muted
 
-          .col
+          .col.mb-4.mb-lg-0.order-1.order-md-4
             h3.h2= gettext "Resources"
             ul.list-unstyled
               li
