@@ -592,11 +592,6 @@ msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
-msgid "For beginners"
-msgstr ""
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Free programming courses"
 msgstr ""
 
@@ -736,4 +731,19 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
 msgid "Russian only"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/lesson_controller.ex:38
+msgid "Congratulations! You have already finished all exercise! Now you are ready for studying on <a class='text-muted' href=%{hexlet_link}>Hexlet</a> "
+msgstr ""
+
+#, elixir-format, fuzzy
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "For beginners. From creators %{hexlet_link}"
+msgstr ""
+
+#, elixir-format, fuzzy
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "of Hexlet"
 msgstr ""
