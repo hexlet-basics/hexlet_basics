@@ -76,10 +76,17 @@ html.h-100 lang=@locale
                 a class="text-muted" href="#{Routes.page_path(@conn, :show, "privacy")}"= gettext "Privacy"
           .col
             h3.h2= gettext "Social"
-            ul.list-unstyled
-              li
-                a target="_blank" class="text-muted" href="https://www.facebook.com/codebasicsru/"= gettext "Facebook"
-
+            .h1
+              = link to: facebook_curl, target: :_blank, rel: "noopener noreferrer" do
+                span.fab.fa-facebook.mr-3.text-muted
+              = link to: telegram_curl, target: :_blank, rel: "noopener noreferrer" do
+                span.fab.fa-telegram.mr-3.text-muted
+              = link to: twitter_curl, target: :_blank, rel: "noopener noreferrer" do
+                span.fab.fa-twitter.mr-3.text-muted
+              = link to: youtube_curl, target: :_blank, rel: "noopener noreferrer" do
+                span.fab.fa-youtube.mr-3.text-muted
+              = link to: slack_curl, target: :_blank, rel: "noopener noreferrer" do
+                span.fab.fa-slack.text-muted
 
           .col
             h3.h2= gettext "Resources"

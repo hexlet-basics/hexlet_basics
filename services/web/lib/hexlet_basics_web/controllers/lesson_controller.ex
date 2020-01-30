@@ -4,6 +4,7 @@ defmodule HexletBasicsWeb.LessonController do
   alias HexletBasics.Language.Module.Lesson
   require Logger
   import Ecto.Query
+  import HexletBasicsWeb.Helpers.CustomUrl, only: [hexlet_link: 1]
 
   plug(HexletBasicsWeb.Plugs.RequireAuth)
 
@@ -32,7 +33,13 @@ defmodule HexletBasicsWeb.LessonController do
     case Repo.one(next_lesson_query) || Repo.one(next_not_finished_lesson_query) do
       nil ->
         conn
-        |> put_flash(:info, gettext("You did it!"))
+        |> put_flash(
+          :info,
+           gettext(
+            "Congratulations! You have already finished all exercise! Now you are ready for studying on <a class='text-muted' href=%{hexlet_link}>Hexlet</a> ",
+            hexlet_link: hexlet_link("/")
+          )
+        )
         |> redirect(to: Routes.page_path(conn, :index))
 
       next_lesson ->

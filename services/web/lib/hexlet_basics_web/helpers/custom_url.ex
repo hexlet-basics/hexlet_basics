@@ -14,4 +14,18 @@ defmodule HexletBasicsWeb.Helpers.CustomUrl do
   def redirect_current_path(conn) do
     current_path(conn)
   end
+
+  def hexlet_link(path \\ "/") do
+    utm = %{utm_campaign: "general", utm_source: "code-basics", utm_medium: "referral"}
+    utm_query = URI.encode_query(utm)
+    uri = %URI{ host: "hexlet.io", query: utm_query, scheme: "https", port: 443, path: path }
+
+    URI.to_string(uri)
+  end
+
+  def facebook_curl, do: "https://www.facebook.com/codebasicsru/"
+  def youtube_curl, do: "https://www.youtube.com/user/HexletUniversity"
+  def twitter_curl, do: "https://twitter.com/HexletHQ"
+  def telegram_curl, do: "https://t.me/hexlet_ru"
+  def slack_curl, do: "https://slack-ru.hexlet.io/"
 end
