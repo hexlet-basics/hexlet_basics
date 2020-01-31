@@ -4,7 +4,7 @@
     .h2.font-weight-light
      == gettext("For beginners. From creators %{hexlet_link}", hexlet_link: safe_to_string(link(gettext("of Hexlet"), to: hexlet_link, class: 'text-muted')))
 
-.row.row-cols-1.row-cols-md-3.row-cols-sm-2.row-cols-lg-4
+.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4
   .col.mb-5
     .card.h-100
       .card-body.text-center class=style_for_lang(:php, :bg)
@@ -63,7 +63,7 @@
     h3.h1.font-weight-light = gettext("Courses in development")
     p = gettext("Courses in development description")
 
-.row.row-cols-1.row-cols-md-3.row-cols-sm-2.row-cols-lg-4
+.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4
   .col.mb-5
     .card.h-100
       .card-body.text-center class=style_for_lang(:ruby, :bg)
