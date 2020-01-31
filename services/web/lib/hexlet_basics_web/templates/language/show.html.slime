@@ -11,7 +11,8 @@ h1.text-center.display-3= @header
     = gettext "All lessons completed!"
   .h5.text-center.text-primary
     - course_link = link(String.downcase(gettext("Courses")), to: hexlet_link("/courses"))
-    - professions_link = link(String.downcase(gettext("Professions")), to: hexlet_link("/professions"))
+    - profession_path = hexlet_profession_cpath(@language.slug)
+    - professions_link = link(String.downcase(gettext("Professions")), to: hexlet_link(profession_path))
     == gettext("Try Hexlet %{courses} or join to %{professions}", courses: safe_to_string(course_link), professions: safe_to_string(professions_link))
 
 = for module <- @modules do
