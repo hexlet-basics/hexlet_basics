@@ -48,7 +48,7 @@ html.h-100 lang=@locale
 
     footer
       .container-xl.mt-7.pt-6.pb-3.border-top
-        .row.row-cols-1.row-cols-md-3.row-cols-sm-2.row-cols-lg-4
+        .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4
           .col.mb-4.mb-lg-0.order-4.order-md-0
             div
               .h4.mb-2
