@@ -1,27 +1,18 @@
 // @ts-check
 
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import cn from 'classnames';
-import {
-  Tabs, Tab, Nav,
-} from 'react-bootstrap';
+import { Tab, Nav } from 'react-bootstrap';
 import Editor from './Editor';
 import Console from './Console';
 import Solution from './Solution';
 import connect from '../connect';
 import EntityContext from '../EntityContext';
 
-const mapStateToProps = (state) => {
-  const { checkInfo, currentTabInfo } = state;
-  const props = { checkInfo, currentTabInfo };
-  return props;
-};
-
 const TabsBox = (props) => {
   const {
-    checkInfo,
-    currentTabInfo,
     changeCode,
     userFinishedLesson,
     startTime,
@@ -30,6 +21,7 @@ const TabsBox = (props) => {
 
   const { t } = useTranslation();
   const { lesson, language } = useContext(EntityContext);
+  const { currentTabInfo, checkInfo } = useSelector((state) => state);
 
   // TODO: badge-<classes> does not work. It seems tabler has a bug.
   const badgeClassName = cn('badge mb-2 mb-sm-0 p-2', {
@@ -83,4 +75,4 @@ const TabsBox = (props) => {
   );
 };
 
-export default connect(mapStateToProps)(TabsBox);
+export default connect()(TabsBox);

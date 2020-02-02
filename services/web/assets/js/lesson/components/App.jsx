@@ -1,62 +1,52 @@
 // @ts-check
 
 import React from 'react';
-import { withTranslation } from 'react-i18next';
-import connect from '../connect';
+import { useSelector } from 'react-redux';
 import TabsBox from './TabsBox';
 import HTMLPreview from './HTMLPreview';
 import ControlBox from './ControlBox';
 
-const mapStateToProps = (state) => {
-  const { editor, checkInfo, currentTabInfo } = state;
-  const props = { editor, checkInfo, currentTabInfo };
-  return props;
-};
+const getViewOptions = (languageName) => {
+  const { editor } = useSelector((state) => state);
 
-const getViewOptions = (languageName, props) => {
   switch (languageName) {
     case 'css':
     case 'html':
       return {
         tabsBoxClassName: 'h-50',
-        component: <HTMLPreview html={props.editor.content} />,
+        component: <HTMLPreview html={editor.content} />,
       };
     default:
       return {
         tabsBoxClassName: 'h-100',
         component: null,
-      }
+      };
   }
-}
+};
 
+const App = (props) => {
+  const {
+    startTime,
+    language,
+    userFinishedLesson,
+  } = props;
 
-@connect(mapStateToProps)
-@withTranslation()
-class App extends React.Component {
-  handleSelectTab = (current) => {
-    const { selectTab } = this.props;
-    selectTab({ current });
-  }
+  const { currentTabInfo } = useSelector((state) => state);
 
-  render() {
-    const { currentTabInfo, userFinishedLesson, language, startTime } = this.props;
+  const currentViewOptions = getViewOptions(language.name);
 
-    const currentViewOptions = getViewOptions(language.name, this.props);
-
-    return (
-      <>
-        <TabsBox
-          startTime={startTime}
-          className={currentViewOptions.tabsBoxClassName}
-          onSelectActive={this.handleSelectTab}
-          active={currentTabInfo.current}
-          userFinishedLesson={userFinishedLesson}
-        />
-        {currentTabInfo.title === 'editor' && currentViewOptions.component}
-        <ControlBox userFinishedLesson={userFinishedLesson} />
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <TabsBox
+        startTime={startTime}
+        className={currentViewOptions.tabsBoxClassName}
+        active={currentTabInfo.current}
+        userFinishedLesson={userFinishedLesson}
+      />
+      {currentTabInfo.title === 'editor' && currentViewOptions.component}
+      <ControlBox userFinishedLesson={userFinishedLesson} />
+    </>
+  );
+};
 
 export default App;

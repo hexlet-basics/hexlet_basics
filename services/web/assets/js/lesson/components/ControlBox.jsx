@@ -1,19 +1,14 @@
 // @ts-check
 
-import React from 'react';
+import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import cn from 'classnames';
-import { withTranslation } from 'react-i18next';
 import Hotkeys from 'react-hot-keys';
 import { Button, Spinner } from 'react-bootstrap';
-import connect from '../connect';
+import { asyncActions } from '../slices';
 import routes from '../routes';
 import EntityContext from '../EntityContext';
-
-const mapStateToProps = (state) => {
-  const { checkInfo, editor, lessonState } = state;
-  const props = { checkInfo, editor, lessonState };
-  return props;
-};
 
 const renderRunButtonContent = ({ checkInfo }, t) => {
   const text = t('run');
@@ -35,67 +30,52 @@ const renderRunButtonContent = ({ checkInfo }, t) => {
   );
 };
 
-@connect(mapStateToProps)
-@withTranslation()
-class ControlBox extends React.Component {
-  static contextType = EntityContext;
+const ControlBox = () => {
+  const { t } = useTranslation();
+  const { lesson, language, prevLesson } = useContext(EntityContext);
+  const { checkInfo, lessonState, editor } = useSelector((state) => state);
+  const { useCheckInfoActions } = asyncActions;
+  const { runCheck } = useCheckInfoActions();
 
-  handleRunCheck = () => {
-    const { editor, runCheck } = this.props;
-    const { lesson } = this.context;
+  const handleRunCheck = () => {
     runCheck({ lesson, editor });
-  }
+  };
 
-  render() {
-    const {
-      checkInfo,
-      lessonState,
-      t,
-    } = this.props;
+  const nextButtonClasses = cn({
+    'text-muted disabled': !lessonState.finished,
+  });
 
-    const {
-      language,
-      lesson,
-      prevLesson,
-    } = this.context;
+  const prevButtonClasses = cn('mr-3', {
+    'text-muted disabled': !prevLesson,
+  });
 
-    const nextButtonClasses = cn({
-      'text-muted disabled': !lessonState.finished,
-    });
+  // TODO move to js routes
+  const nextLessonPath = routes.nextLessonPath(lesson);
+  const prevLessonPath = prevLesson ? routes.languageModuleLessonPath(language, prevLesson.module, prevLesson) : '#';
 
-    const prevButtonClasses = cn('mr-3', {
-      'text-muted disabled': !prevLesson,
-    });
-
-    // TODO move to js routes
-    const nextLessonPath = routes.nextLessonPath(lesson);
-    const prevLessonPath = prevLesson ? routes.languageModuleLessonPath(language, prevLesson.module, prevLesson) : '#';
-
-
-    return (
-      <Hotkeys keyName="ctrl+Enter" onKeyUp={this.handleRunCheck}>
-        <div className="mx-auto align-items-center d-flex text-center mt-1">
-          <a
-            className="btn btn-outline-secondary mr-3"
-            href={window.location.href}
-            title={t('reset_code')}
-            data-confirm={t('confirm')}
-          >
-            <i className="fas fa-sync-alt" />
-          </a>
-          <a className={prevButtonClasses} href={prevLessonPath}>
-            <span>{t('prev_lesson')}</span>
-          </a>
-          <Button variant="primary" className="mr-3" onClick={this.handleRunCheck} disabled={checkInfo.processing}>
-            {renderRunButtonContent(this.props, t)}
-          </Button>
-          <a className={nextButtonClasses} href={nextLessonPath}>
-            <span>{t('next_lesson')}</span>
-          </a>
-        </div>
-      </Hotkeys>
-    );
-  }
-}
+  return (
+    <Hotkeys keyName="ctrl+Enter" onKeyUp={handleRunCheck}>
+      <div className="mx-auto align-items-center d-flex text-center mt-1">
+        <a
+          className="btn btn-outline-secondary mr-3"
+          href={window.location.href}
+          title={t('reset_code')}
+          data-confirm={t('confirm')}
+        >
+          <i className="fas fa-sync-alt" />
+        </a>
+        <a className={prevButtonClasses} href={prevLessonPath}>
+          <span>{t('prev_lesson')}</span>
+        </a>
+        <Button variant="primary" className="mr-3" onClick={handleRunCheck} disabled={checkInfo.processing}>
+          {renderRunButtonContent({ checkInfo }, t)}
+        </Button>
+        <a className={nextButtonClasses} href={nextLessonPath}>
+          <span>{t('next_lesson')}</span>
+        </a>
+      </div>
+    </Hotkeys>
+  );
+};
 
 export default ControlBox;
