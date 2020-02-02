@@ -24,7 +24,7 @@ Add to _/etc/hosts_:
 ### Load content
 
 ```sh
-$ make app-exercises-load-php
+$ make web-exercises-load-php
 ```
 
 ### Run
