@@ -2,6 +2,7 @@
 /* eslint-disable no-param-reassign */
 
 import { createSlice } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
 import i18next from 'i18next';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -37,26 +38,34 @@ const slice = createSlice({
 
 const { runCheckRequest, runCheckSuccess, runCheckFailure } = slice.actions;
 
-const runCheck = ({ lesson, editor }) => async (dispatch) => {
-  dispatch(runCheckRequest());
-  const url = routes.lessonChecksPath(lesson);
-  const data = {
-    type: 'check',
-    attributes: {
-      code: editor.content,
-    },
+const useCheckInfoActions = () => {
+  const dispatch = useDispatch();
+
+  const runCheck = async ({ lesson, editor }) => {
+    dispatch(runCheckRequest());
+    const url = routes.lessonChecksPath(lesson);
+    const data = {
+      type: 'check',
+      attributes: {
+        code: editor.content,
+      },
+    };
+    try {
+      const response = await axios.post(url, { data });
+      dispatch(runCheckSuccess({ check: response.data }));
+    } catch (e) {
+      dispatch(runCheckFailure({ code: e.response.status }));
+      const key = e.response ? 'server' : 'network';
+      toast(i18next.t(`errors.${key}`));
+      throw e;
+    }
   };
-  try {
-    const response = await axios.post(url, { data });
-    dispatch(runCheckSuccess({ check: response.data }));
-  } catch (e) {
-    dispatch(runCheckFailure({ code: e.response.status }));
-    const key = e.response ? 'server' : 'network';
-    toast(i18next.t(`errors.${key}`));
-    throw e;
-  }
+
+  return {
+    runCheck,
+  };
 };
 
-const actions = { ...slice.actions, runCheck };
-export { actions };
+const actions = { ...slice.actions };
+export { actions, useCheckInfoActions };
 export default slice.reducer;

@@ -2,7 +2,7 @@
 
 import { combineReducers } from 'redux';
 
-import checkInfo, { actions as checkInfoActions } from './checkInfo';
+import checkInfo, { actions as checkInfoActions, useCheckInfoActions } from './checkInfo';
 import currentTabInfo, { actions as currentTabInfoActions } from './currentTabInfo';
 import lessonState, { actions as lessonActions } from './lessonState';
 import solutionState, { actions as solutionActions } from './solutionState';
@@ -24,6 +24,11 @@ const actions = {
   ...currentTabInfoActions,
 };
 
+const asyncActions = {
+  useCheckInfoActions,
+};
+
 export {
   actions,
+  asyncActions,
 };
