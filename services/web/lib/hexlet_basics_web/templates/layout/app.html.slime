@@ -10,8 +10,8 @@ html.h-100 lang=@locale
 
   body.h-100.d-flex.flex-column
     = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html", assigns
-    header.px-3
-      nav.navbar.navbar-expand-lg.navbar-light
+    header
+      nav.px-3.navbar.navbar-expand-lg.navbar-light
         a.navbar-brand href="/"
           img width="30px" src=Routes.static_path(@conn, "/images/logo.png") alt="Code Basics Logo"
           / = gettext("Code Basics")
@@ -77,15 +77,15 @@ html.h-100 lang=@locale
           .col.mb-4.mb-lg-0.order-0.order-md-3
             h3.h2= gettext "Social"
             .h1
-              = link to: facebook_curl, target: :_blank, rel: "noopener noreferrer" do
+              = link to: facebook_curl(), target: :_blank, rel: "noopener noreferrer" do
                 span.fab.fa-facebook.mr-3.text-muted
-              = link to: telegram_curl, target: :_blank, rel: "noopener noreferrer" do
+              = link to: telegram_curl(), target: :_blank, rel: "noopener noreferrer" do
                 span.fab.fa-telegram.mr-3.text-muted
-              = link to: twitter_curl, target: :_blank, rel: "noopener noreferrer" do
+              = link to: twitter_curl(), target: :_blank, rel: "noopener noreferrer" do
                 span.fab.fa-twitter.mr-3.text-muted
-              = link to: youtube_curl, target: :_blank, rel: "noopener noreferrer" do
+              = link to: youtube_curl(), target: :_blank, rel: "noopener noreferrer" do
                 span.fab.fa-youtube.mr-3.text-muted
-              = link to: slack_curl, target: :_blank, rel: "noopener noreferrer" do
+              = link to: slack_curl(), target: :_blank, rel: "noopener noreferrer" do
                 span.fab.fa-slack.text-muted
 
           .col.mb-4.mb-lg-0.order-1.order-md-4
