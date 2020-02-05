@@ -35,11 +35,12 @@
 
   .col-12.col-md-7.pl-md-0.h-md-100
     = if current_user(@conn).guest do
-      .p-4.p-md-0
-        p.lead= gettext "Only for signed users"
-        p= gettext "Please Sign In"
-        .text-center
-          = link gettext("Sign In"), to: Routes.session_path(@conn, :new), class: "btn btn-primary"
+      .card.h-100
+        .card-header
+         .card-title = gettext "Only for signed users"
+        .card-body
+          p = gettext "Please Sign In"
+          p = link gettext("Sign In"), to: Routes.session_path(@conn, :new), class: "btn btn-primary"
     - else
       #basics-lesson-container.d-flex.flex-column.vh-100.h-md-100
 
