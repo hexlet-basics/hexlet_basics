@@ -11,7 +11,7 @@ html.h-100 lang=@locale
   body.h-100.d-flex.flex-column
     = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html", assigns
     header
-      nav.px-3.navbar.navbar-expand-lg.navbar-light
+      nav.px-3.navbar.navbar-expand-lg
         a.navbar-brand href="/"
           img width="30px" src=Routes.static_path(@conn, "/images/logo.png") alt="Code Basics Logo"
           / = gettext("Code Basics")
@@ -34,7 +34,7 @@ html.h-100 lang=@locale
 
           = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
-    main.mt-5.flex-fill
+    main.mt-6.flex-fill
       .container-xl
         = for name <- [:info, :error] do
           - message = get_flash(@conn, name)
@@ -76,17 +76,16 @@ html.h-100 lang=@locale
                 a class="text-muted" href="#{Routes.page_path(@conn, :show, "privacy")}"= gettext "Privacy"
           .col.mb-4.mb-lg-0.order-0.order-md-3
             h3.h2= gettext "Social"
-            .h1
-              = link to: facebook_curl(), target: :_blank, rel: "noopener noreferrer" do
-                span.fab.fa-facebook.mr-3.text-muted
-              = link to: telegram_curl(), target: :_blank, rel: "noopener noreferrer" do
-                span.fab.fa-telegram.mr-3.text-muted
-              = link to: twitter_curl(), target: :_blank, rel: "noopener noreferrer" do
-                span.fab.fa-twitter.mr-3.text-muted
-              = link to: youtube_curl(), target: :_blank, rel: "noopener noreferrer" do
-                span.fab.fa-youtube.mr-3.text-muted
-              = link to: slack_curl(), target: :_blank, rel: "noopener noreferrer" do
-                span.fab.fa-slack.text-muted
+            = link to: facebook_curl(), target: :_blank, rel: "noopener noreferrer" do
+              span.fab.fa-facebook.mr-3.text-muted
+            = link to: telegram_curl(), target: :_blank, rel: "noopener noreferrer" do
+              span.fab.fa-telegram.mr-3.text-muted
+            = link to: twitter_curl(), target: :_blank, rel: "noopener noreferrer" do
+              span.fab.fa-twitter.mr-3.text-muted
+            = link to: youtube_curl(), target: :_blank, rel: "noopener noreferrer" do
+              span.fab.fa-youtube.mr-3.text-muted
+            = link to: slack_curl(), target: :_blank, rel: "noopener noreferrer" do
+              span.fab.fa-slack.text-muted
 
           .col.mb-4.mb-lg-0.order-1.order-md-4
             h3.h2= gettext "Resources"

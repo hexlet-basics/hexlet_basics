@@ -8,33 +8,33 @@ html.h-md-100 lang="#{@locale}"
         | #{raw(render_schema(@schema))}
     = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
 
-  body.h-md-100
+  body.h-md-100.d-flex.flex-column
     = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html"
-    .container-fluid.h-md-100.d-flex.flex-column
-      header.header
-        nav.navbar.navbar-expand-lg.navbar-light
-          ol.breadcrumb.mr-auto
-            li.breadcrumb-item
-              a href="/" title=gettext("Home")
-                i.fas.fa-home
-            li.breadcrumb-item
-              a href=Routes.language_path(@conn, :show, @language.slug) title=@language.slug
-                = @language.slug
-            li.breadcrumb-item.active.text-dark
-              = @module_description.name
-              | &nbsp;
-              = @lesson.natural_order
-              | /
-              = @lessons_count
+    header
+      nav.px-3.navbar.navbar-expand-lg
+        ol.breadcrumb.mr-auto
+          li.breadcrumb-item
+            a href="/" title=gettext("Home")
+              i.fas.fa-home
+          li.breadcrumb-item
+            a href=Routes.language_path(@conn, :show, @language.slug) title=@language.slug
+              = @language.slug
+          li.breadcrumb-item.active.text-dark
+            = @module_description.name
+            | &nbsp;
+            = @lesson.natural_order
+            | /
+            = @lessons_count
 
-          button.navbar-toggler.px-0(type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation")
-            span.navbar-toggler-icon
+        button.navbar-toggler.px-0(type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation")
+          span.navbar-toggler-icon
 
-          #navbarToggler.collapse.navbar-collapse.flex-grow-0.navbar-expand-md
-            = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
+        #navbarToggler.collapse.navbar-collapse.flex-grow-0.navbar-expand-md
+          = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
-      main.h-md-100.overflow-hidden.mb-1 role="main"
-        = render @view_module, @view_template, assigns
+      .container-fluid.h-md-100
+        main.h-md-100.overflow-hidden.mb-1 role="main"
+          = render @view_module, @view_template, assigns
       / footer.mt-1
 
     script src="#{Routes.static_path(@conn, "/js/runtime.js")}"

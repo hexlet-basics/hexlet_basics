@@ -1,4 +1,4 @@
-h1.text-center.display-3= @header
+h1.text-center.display-4= @header
 
 - anchor = if @first_lesson == @next_lesson, do: gettext("Start learning"), else: gettext("Continue Learning")
 = if @next_lesson do

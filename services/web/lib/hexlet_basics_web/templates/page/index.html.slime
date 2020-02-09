@@ -1,5 +1,5 @@
-.row.justify-content-center.mb-5
-  .col-12.col-md-10.col-lg-9.col-xl-7.text-center
+.row.justify-content-center.mb-6
+  .col-12.col-md-10.col-lg-9.col-xl-8.text-center
     h1= gettext("Free programming courses")
     .h2.font-weight-light
      == gettext("For beginners. From creators %{hexlet_link}", hexlet_link: safe_to_string(link(gettext("of Hexlet"), to: hexlet_link, class: 'text-muted')))
