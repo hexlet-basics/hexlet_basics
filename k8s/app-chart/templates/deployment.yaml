@@ -55,8 +55,8 @@ spec:
         - name: phoenix
           securityContext:
             privileged: true
-          imagePullPolicy: "{{ .Values.app.image.imagePullPolicy }}"
-          image: "{{ .Values.app.image.repository }}:{{ .Values.version }}"
+          imagePullPolicy: "{{ .Values.web.image.imagePullPolicy }}"
+          image: "{{ .Values.web.image.repository }}:{{ .Values.version }}"
           readinessProbe:
             httpGet:
               path: /

@@ -1,0 +1,12 @@
+ul.navbar-nav
+  = if signed_in?(@conn) do
+    = if @current_user.email do
+      li.nav-item
+        = link @current_user.nickname, to: Routes.profile_path(@conn, :show), class: "nav-link"
+    li.nav-item
+      = button gettext("Sign Out"), to: Routes.session_path(@conn, :delete), method: "delete", class: "nav-link btn btn-link font-weight-normal"
+  - else
+    li.nav-item
+      = link gettext("Sign In"), to: Routes.session_path(@conn, :new), class: "nav-link"
+    li.nav-item
+      = link gettext("Sign Up"), to: Routes.user_path(@conn, :new), class: "nav-link"

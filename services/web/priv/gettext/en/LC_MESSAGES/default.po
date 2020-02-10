@@ -1,0 +1,749 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Start"
+msgstr ""
+
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:16
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:46
+msgid "Failed to authenticate."
+msgstr ""
+
+#: lib/hexlet_basics_web/plugs/require_auth.ex:12
+msgid "Require auth"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1 lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1 lib/hexlet_basics_web/templates/session/new.html.slime:1
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Sign In"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
+msgid "Sign Out"
+msgstr ""
+
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:41
+msgid "Successfully authenticated."
+msgstr ""
+
+#: lib/hexlet_basics_web/controllers/lesson_controller.ex:35
+msgid "You did it!"
+msgstr ""
+
+#: lib/hexlet_basics_web/controllers/session_controller.ex:41
+msgid "You have been logged out!"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "Exercise available only for signed in users"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "discuss"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "instructions"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "lesson"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Code Basics"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/show.html.slime:1
+msgid "Continue Learning"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/show.html.slime:1
+msgid "Start learning"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Blog"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Chat"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Guides"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Matrix"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Projects"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Recommended Books"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Facebook"
+msgstr "Code Basics on Facebook"
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Source code"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "tips"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "definitions"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Credits"
+msgstr "With the help of Hexlet Community."
+
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "All lessons completed!"
+msgstr "All lessons completed!"
+
+#: lib/hexlet_basics_web/controllers/page_controller.ex:29
+#: lib/hexlet_basics_web/controllers/page_controller.ex:32
+msgid "Code Basics Description"
+msgstr "Learn the basics of programming for free with interactive exercises. No prior experience required!"
+
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+msgid "Code Basics Author"
+msgstr "Kirill Mokevnin, Rakhim Davletkaliyev, Natalia Bass"
+
+#: lib/hexlet_basics_web/controllers/page_controller.ex:28
+#: lib/hexlet_basics_web/controllers/page_controller.ex:40
+msgid "Code Basics Title"
+msgstr "Code Basics: basics of programming"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "About"
+msgstr "About"
+
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Courses in development"
+msgstr "Courses in development"
+
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Courses in development description"
+msgstr "These courses are under development and are not the final version. You can help with the development by sending a Pull Request to the GitHub repository."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "Only for signed users"
+msgstr "Exercise available only for signed users."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "Please Sign In"
+msgstr "Please sign in with your GitHub account, this is necessary to track the progress of the lessons. If you do not have an account yet, now is the time to create an account on Github."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Continue"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "issues"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Contributions"
+msgstr "Source code of Code Basics platform, all lessons and exercisees is available on Github. You can contribute by improving lessons, fixing mistakes and extending the content to cover more programming languages."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Extended credits"
+msgstr "Idea, syllabus, platform: Kirill Mokevnin. Core lessons: Rakhim Davletkaliyev, Natalia Bass. Extensions and adaptation: Kirill Mokevnin, Ulugbek Tuychiev, Aleksey Pyltsyn and other Hexlet community members."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Projects goal"
+msgstr "The goal of Code Basics is to provide quality interactive lessons on the basics of programming, free of charge, available to everybody."
+
+## For meta tags in language_controller
+msgid "OG title php"
+msgstr "Code Basics: basics of programming on PHP"
+
+## For meta tags in language_controller
+msgid "OG description php"
+msgstr "The study of programming is a difficult and lengthy process. Learning the syntax of the language - it is impossible to start without it. This The course is devoted to the basics of writing programs for a PHP. He is preparing a springboard for writing meaningful programs."
+
+## For meta tags in language_controller
+msgid "OG title javascript"
+msgstr "Code Basics: basics of programming on Javascript"
+
+## For meta tags in language_controller
+msgid "OG description javascript"
+msgstr "The study of programming is a difficult and lengthy process. Learning the syntax of the language - it is impossible to start without it. This The course is devoted to the basics of writing programs for a Javascript. He is preparing a springboard for writing meaningful programs."
+
+## For meta tags in language_controller
+msgid "OG title python"
+msgstr "Code Basics: basics of programming on Python"
+
+## For meta tags in language_controller
+msgid "OG description python"
+msgstr "The study of programming is a difficult and lengthy process. Learning the syntax of the language - it is impossible to start without it. This The course is devoted to the basics of writing programs for a racket. He is preparing a springboard for writing meaningful programs."
+
+## For meta tags in language_controller
+msgid "OG title racket"
+msgstr "Code Basics: basics of programming on Racket"
+
+## For meta tags in language_controller
+msgid "OG description racket"
+msgstr "The racket belongs to the Lisp-language family. These programmers should learn them from the very beginning. This module is about introducing the syntax and concepts underlying any lisp."
+
+## For meta tags in language_controller
+msgid "OG title java"
+msgstr "Code Basics: basics of programming on Java"
+
+## For meta tags in language_controller
+msgid "OG description java"
+msgstr "The study of programming is a difficult and lengthy process. Learning the syntax of the language - it is impossible to start without it. This The course is devoted to the basics of writing programs for a Java. He is preparing a springboard for writing meaningful programs."
+
+## For meta tags in language_controller
+msgid "OG title html"
+msgstr "Code Basics: The Basics Of HTML Document Layout"
+
+## For meta tags in language_controller
+msgid "OG description html"
+msgstr "To standardize the output of text inside the browser, an HTML standard was created that describes the rules for formatting text data for correct output. This course is devoted to the basics of HTML markup, working with typography, outputting media documents and working with forms."
+
+## For meta tags in language_controller
+msgid "OG title css"
+msgstr "Code Basics: The Basics Of Using CSS"
+
+## For meta tags in language_controller
+msgid "OG description css"
+msgstr "Cascading Style Sheets (CSS) - cascading style sheets that allow you to design the content of the page in accordance with the described rules. Text styles, block layout on a page, animation - everything is described using cascading style sheets."
+
+## For meta tags in language_controller
+msgid "OG title ruby"
+msgstr "Code Basics: basics of programming on Ruby"
+
+## For meta tags in language_controller
+msgid "OG description ruby"
+msgstr "Ruby is a language designed to make programmers happy. He took from himself the best of Lisp, Smalltalk and Perl - he is object-oriented, but at the same time his declarative nature allows writing in a procedural and functional paradigm."
+
+## For meta tags in language_controller
+msgid "OG title elixir"
+msgstr "Code Basics: basics of programming on Elixir"
+
+## For meta tags in language_controller
+msgid "OG description elixir"
+msgstr "Elixir is a programming language that runs on top of Erlang. How this happens is a functional language with rigorous computations, unambiguous assignment and dynamic typing, creation to support distributed, fault-tolerant, non-stop, hot-swappable applications."
+
+## For meta tags in language_controller
+msgid "OG title go"
+msgstr "Code Basics: basics of programming on Go"
+
+## For meta tags in language_controller
+msgid "OG description go"
+msgstr "Go is a general-purpose language with rich features and clear syntax. Thanks to its multi-platform, reliable, well-documented standard library and focus on convenient approaches to the development itself, Go is an ideal language for the first steps in programming."
+
+## Header in module page
+msgid "Header php"
+msgstr "PHP for beginners"
+
+## Header in module page
+msgid "Header javascript"
+msgstr "JavaScript for beginners"
+
+## Header in module page
+msgid "Header python"
+msgstr "Python for beginners"
+
+## Header in module page
+msgid "Header java"
+msgstr "Java for beginners"
+
+## Header in module page
+msgid "Header html"
+msgstr "HTML for beginners"
+
+## Header in module page
+msgid "Header css"
+msgstr "CSS for beginners"
+
+## Header in module page
+msgid "Header racket"
+msgstr "Racket for beginners"
+
+## Header in module page
+msgid "Header ruby"
+msgstr "Ruby for beginners"
+
+## Header in module page
+msgid "Header elixir"
+msgstr "Elixir for beginners"
+
+## Header in module page
+msgid "Header go"
+msgstr "Go for beginners"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Privacy"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Terms of Service"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Courses"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Professions"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Community"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Try Hexlet %{courses} or join to %{professions}"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1 lib/hexlet_basics_web/templates/session/new.html.slime:1
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Sign Up"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1 lib/hexlet_basics_web/templates/session/new.html.slime:1
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Email"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1 lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Registration"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+msgid "Dont have account?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+msgid "Forgot Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Oops, something went wrong! Please check the errors below."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+msgid "Remind Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+msgid "Trying sign in?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics/email.ex:17
+msgid "Confirm registration"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1
+msgid "Forgot password?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/password_controller.ex:62
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:44
+msgid "Message with instructions for reset password was sent"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/password_controller.ex:34
+msgid "Password was change"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics/email.ex:33
+msgid "Reset password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
+msgid "Update Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/password_controller.ex:14
+#: lib/hexlet_basics_web/controllers/password_controller.ex:21 lib/hexlet_basics_web/controllers/password_controller.ex:38
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:48 lib/hexlet_basics_web/controllers/user_controller.ex:87
+msgid "User not found"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/session_controller.ex:47
+msgid "Signed in successfully."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
+msgid "Change Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/user_controller.ex:56
+msgid "User created! Check your email for confirm registration"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/user_controller.ex:82
+msgid "Registration confirmed! Welcome!"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/session_controller.ex:54
+msgid "There was a problem with your email/password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Switch language to"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:29
+msgid "Please confirm the email in your %{provider} account, then try again"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/shared/social_sign_in.html.slime:1
+msgid "Sign In Github"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
+msgid "Delete account"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
+msgid "Do you really want to delete your account?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
+msgid "Email is not confirmed"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
+msgid "First name"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
+msgid "Last name"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
+msgid "Nickname"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics/user_manager/error_handler.ex:12
+msgid "Sorry, you have to sign in."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
+msgid "Send an email with a confirmation link again."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
+msgid "Change password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:53
+msgid "Account successfully added."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:57
+msgid "Error adding account."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:1
+msgid "Social networks"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:31
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:57 lib/hexlet_basics_web/controllers/user_controller.ex:123
+msgid "Something went wrong! Please contact support <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
+msgid "User information"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:49
+msgid "Your %{provider} account has been successfully deleted"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:25
+msgid "Your account has been successfully deleted"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
+msgid "Add %{provider} account"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
+msgid "Delete %{provider} account"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:1
+msgid "There were problems with the delivery of letters to your address. Please check that emails reach your inbox."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/user_controller.ex:112
+msgid "We sent an email to confirm the email - %{email}, follow the link from the email to complete the procedure."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Free programming courses"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Information"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Resources"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Social"
+msgstr ""
+
+# Description for php
+msgid "Description php"
+msgstr "Learn the basics of programming in PHP for free with interactive exercises. No prior experience required!"
+
+# Description for javascript
+msgid "Description javascript"
+msgstr "Learn the basics of programming in Javascript for free with interactive exercises. No prior experience required!"
+
+# Description for python
+msgid "Description python"
+msgstr "Learn the basics of programming in Python for free with interactive exercises. No prior experience required!"
+
+# Description for racket
+msgid "Description racket"
+msgstr "Learn the basics of programming in Racket for free with interactive exercises. No prior experience required!"
+
+# Description for html
+msgid "Description html"
+msgstr "Learn the basics of HTML for free with interactive exercises. No prior experience required!"
+
+# Description for css
+msgid "Description css"
+msgstr "Learn the basics of CSS for free with interactive exercises. No prior experience required!"
+
+# Description for ruby
+msgid "Description ruby"
+msgstr "Learn the basics of programming in Ruby for free with interactive exercises. No prior experience required!"
+
+# Description for elixir
+msgid "Description elixir"
+msgstr "Learn the basics of programming in Elixir for free with interactive exercises. No prior experience required!"
+
+# Description for go
+msgid "Description go"
+msgstr "Learn the basics of programming in Go for free with interactive exercises. No prior experience required!"
+
+# Description for about
+msgid "Code Basics Description about"
+msgstr ""
+
+# Description for about
+msgid "Code Basics Description privacy"
+msgstr ""
+
+# Description for about
+msgid "Code Basics Description tos"
+msgstr ""
+
+# Description for session
+#: lib/hexlet_basics_web/controllers/session_controller.ex:14
+#: lib/hexlet_basics_web/controllers/session_controller.ex:17
+msgid "Code Basics Login Description"
+msgstr "Login"
+
+# Description for session
+#: lib/hexlet_basics_web/controllers/session_controller.ex:13
+#: lib/hexlet_basics_web/controllers/session_controller.ex:25
+msgid "Code Basics Login Title"
+msgstr "Login"
+
+# Title for about
+msgid "Code Basics Title about"
+msgstr ""
+
+# Title for about
+msgid "Code Basics Title privacy"
+msgstr ""
+
+# Title for about
+msgid "Code Basics Title tos"
+msgstr ""
+
+# Description for registration
+#: lib/hexlet_basics_web/controllers/user_controller.ex:16
+#: lib/hexlet_basics_web/controllers/user_controller.ex:19
+msgid "Code Basics Registration Description"
+msgstr "Registration"
+
+# Description for registration
+#: lib/hexlet_basics_web/controllers/user_controller.ex:15
+#: lib/hexlet_basics_web/controllers/user_controller.ex:27
+msgid "Code Basics Registration Title"
+msgstr "Registration"
+
+# Description for remind password
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:11
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:14
+msgid "Code Basics Remind Password Description"
+msgstr "Remind password"
+
+# Description for remind password
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:10
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:22
+msgid "Code Basics Remind Password Title"
+msgstr "Remind password"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1
+msgid "Dont have an account?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Have an account?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/lesson.html.slime:1
+msgid "Home"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+msgid "Module available in "
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+msgid "Russian only"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/lesson_controller.ex:38
+msgid "Congratulations! You have already finished all exercise! Now you are ready for studying on <a class='text-muted' href=%{hexlet_link}>Hexlet</a> "
+msgstr ""
+
+#, elixir-format, fuzzy
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "For beginners. From creators %{hexlet_link}"
+msgstr ""
+
+#, elixir-format, fuzzy
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "of Hexlet"
+msgstr ""

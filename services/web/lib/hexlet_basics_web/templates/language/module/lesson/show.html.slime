@@ -1,0 +1,59 @@
+.row.h-md-100.mt-2
+  .col-12.col-md-5.h-md-100
+    .card.h-md-100
+      ul.nav.nav-tabs.justify-content-center data-toggle="tabs"
+        li.nav-item
+          a.nav-link.active href="#lesson-tab" data-toggle="tab" role="tab"= gettext "lesson"
+        li.nav-item
+          a.nav-link href="#discuss-tab" data-toggle="tab" role="tab"= gettext "discuss"
+
+      .card-body.overflow-auto
+        .tab-content
+          .tab-pane.fade.show.active#lesson-tab(role="tabpanel")
+            h1= @lesson_description.name
+            == @lesson_theory_html
+            h2= gettext "instructions"
+            == @lesson_instructions_html
+            = if (Enum.count(@lesson_description.tips) + Enum.count(@lesson_description.definitions)) > 0 do
+              hr.my-4
+            = if !Enum.empty?(@lesson_description.tips) do
+              h3.mt-4= gettext "tips"
+              ul.pl-4
+                = for tip <- @lesson_description.tips do
+                  li== Earmark.as_html!(tip)
+            = if !Enum.empty?(@lesson_description.definitions) do
+              h3= gettext "definitions"
+              ul.pl-4
+                = for definition <- @lesson_description.definitions do
+                  li== Earmark.as_html!("#{definition["name"]} — #{definition["description"]}")
+            hr.my-4
+            .small.text-muted
+              = gettext "issues"
+              a.ml-1(target="_blank" href="https://github.com/hexlet-basics") https://github.com/hexlet-basics
+          .tab-pane.fade#discuss-tab(role="tabpanel")
+            #disqus_thread
+
+  .col-12.col-md-7.pl-md-0.h-md-100
+    = if current_user(@conn).guest do
+      .card.h-100
+        .card-header
+         .card-title = gettext "Only for signed users"
+        .card-body
+          p = gettext "Please Sign In"
+          .text-center= link gettext("Sign In"), to: Routes.session_path(@conn, :new), class: "btn btn-primary"
+    - else
+      #basics-lesson-container.d-flex.flex-column.vh-100.h-md-100
+
+javascript:
+  var lesson = Gon.getAsset('lesson');
+  var disqus = Gon.getAsset('disqus');
+  var disqus_config = function () {
+    // this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = `lesson-${lesson.id}`
+  };
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = `https://${disqus}.disqus.com/embed.js`;
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();

@@ -1,17 +1,17 @@
 ---
 
-version: v237
+version: v257
 
 replicaCount: 1
 
 caddy:
   image:
-    repository: gcr.io/hexlet-basics/caddy
+    repository: hexletbasics/services-caddy
     imagePullPolicy: Always
 
-app:
+web:
   image:
-    repository: gcr.io/hexlet-basics/app
+    repository: hexletbasics/services-web
     imagePullPolicy: Always
 
 slack_notification: ['/app/deploy-notify.sh']

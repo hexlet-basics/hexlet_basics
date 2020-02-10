@@ -1,0 +1,14 @@
+.row.justify-content-center.mt-3.mb-5
+  .col
+    h1
+      = gettext "About"
+    p.lead
+      = gettext "Projects goal"
+    p.lead
+      = gettext "Extended credits"
+    p.lead
+      = gettext "Contributions"
+    a.btn.btn-black.d-inline-flex.align-items-center target="_blank" href="https://github.com/hexlet-basics"
+      i.fab.mr-2.fa-github.fa-2x
+      span
+        = gettext "Source code"

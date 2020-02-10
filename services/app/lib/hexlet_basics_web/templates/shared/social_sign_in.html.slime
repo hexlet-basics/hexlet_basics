@@ -1,9 +1,0 @@
-= if @current_user.guest do
-  = link to: Routes.auth_path(@conn, :request, "github"), class: "align-items-center btn btn-black d-flex justify-content-center w-100" do
-    i.fab.mr-2.fa-github.fa-2x
-    = gettext("Sign In Github")
-  / .row.mt-3
-  /   .col-12
-  /     = link to: Routes.auth_path(@conn, :request, "facebook"), class: "btn btn-primary w-100" do
-  /       i.fab.mr-2.fa-facebook
-  /       = gettext("Sign In Facebook")

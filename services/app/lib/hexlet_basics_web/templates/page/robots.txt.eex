@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /languages/ruby
-Disallow: /languages/elixir
-
-Host: <%= @conn.host %>

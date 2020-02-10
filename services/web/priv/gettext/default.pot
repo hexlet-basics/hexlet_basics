@@ -1,0 +1,749 @@
+## This file is a PO Template file.
+##
+## `msgid`s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run `mix gettext.extract` to bring this file up to
+## date. Leave `msgstr`s empty as changing them here as no
+## effect: edit them in PO (`.po`) files instead.
+msgid ""
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Start"
+msgstr ""
+
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:16
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:46
+msgid "Failed to authenticate."
+msgstr ""
+
+#: lib/hexlet_basics_web/plugs/require_auth.ex:12
+msgid "Require auth"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1 lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1 lib/hexlet_basics_web/templates/session/new.html.slime:1
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Sign In"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
+msgid "Sign Out"
+msgstr ""
+
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:41
+msgid "Successfully authenticated."
+msgstr ""
+
+#: lib/hexlet_basics_web/controllers/lesson_controller.ex:35
+msgid "You did it!"
+msgstr ""
+
+#: lib/hexlet_basics_web/controllers/session_controller.ex:41
+msgid "You have been logged out!"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "Exercise available only for signed in users"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "discuss"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "instructions"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "lesson"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Code Basics"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/show.html.slime:1
+msgid "Continue Learning"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/show.html.slime:1
+msgid "Start learning"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Blog"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Chat"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Guides"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Matrix"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Projects"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Recommended Books"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Facebook"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Source code"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "tips"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "definitions"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Credits"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "All lessons completed!"
+msgstr ""
+
+#: lib/hexlet_basics_web/controllers/page_controller.ex:29
+#: lib/hexlet_basics_web/controllers/page_controller.ex:32
+msgid "Code Basics Description"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/layout/shared/head.html.slime:1
+msgid "Code Basics Author"
+msgstr ""
+
+#: lib/hexlet_basics_web/controllers/page_controller.ex:28
+#: lib/hexlet_basics_web/controllers/page_controller.ex:40
+msgid "Code Basics Title"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "About"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Courses in development"
+msgstr ""
+
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Courses in development description"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "Only for signed users"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "Please Sign In"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1 lib/hexlet_basics_web/templates/page/index.html.slime:1
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Continue"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "issues"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Contributions"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Extended credits"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+msgid "Projects goal"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title php"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description php"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title javascript"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description javascript"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title python"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description python"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title racket"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description racket"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title java"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description java"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title html"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description html"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title css"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description css"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title ruby"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description ruby"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title elixir"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description elixir"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG title go"
+msgstr ""
+
+## For meta tags in language_controller
+msgid "OG description go"
+msgstr ""
+
+## Header in module page
+msgid "Header php"
+msgstr ""
+
+## Header in module page
+msgid "Header javascript"
+msgstr ""
+
+## Header in module page
+msgid "Header python"
+msgstr ""
+
+## Header in module page
+msgid "Header java"
+msgstr ""
+
+## Header in module page
+msgid "Header html"
+msgstr ""
+
+## Header in module page
+msgid "Header css"
+msgstr ""
+
+## Header in module page
+msgid "Header racket"
+msgstr ""
+
+## Header in module page
+msgid "Header ruby"
+msgstr ""
+
+## Header in module page
+msgid "Header elixir"
+msgstr ""
+
+## Header in module page
+msgid "Header go"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Privacy"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Terms of Service"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Courses"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Professions"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Community"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Try Hexlet %{courses} or join to %{professions}"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1 lib/hexlet_basics_web/templates/session/new.html.slime:1
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Sign Up"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1 lib/hexlet_basics_web/templates/session/new.html.slime:1
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Email"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1 lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Registration"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+msgid "Dont have account?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+msgid "Forgot Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Oops, something went wrong! Please check the errors below."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+msgid "Remind Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
+msgid "Trying sign in?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics/email.ex:17
+msgid "Confirm registration"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1
+msgid "Forgot password?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/password_controller.ex:62
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:44
+msgid "Message with instructions for reset password was sent"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/password_controller.ex:34
+msgid "Password was change"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics/email.ex:33
+msgid "Reset password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
+msgid "Update Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/password_controller.ex:14
+#: lib/hexlet_basics_web/controllers/password_controller.ex:21 lib/hexlet_basics_web/controllers/password_controller.ex:38
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:48 lib/hexlet_basics_web/controllers/user_controller.ex:87
+msgid "User not found"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/session_controller.ex:47
+msgid "Signed in successfully."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/password/edit.html.slime:1
+msgid "Change Password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/user_controller.ex:56
+msgid "User created! Check your email for confirm registration"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/user_controller.ex:82
+msgid "Registration confirmed! Welcome!"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/session_controller.ex:54
+msgid "There was a problem with your email/password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Switch language to"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:29
+msgid "Please confirm the email in your %{provider} account, then try again"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/shared/social_sign_in.html.slime:1
+msgid "Sign In Github"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
+msgid "Delete account"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
+msgid "Do you really want to delete your account?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
+msgid "Email is not confirmed"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
+msgid "First name"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
+msgid "Last name"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:6
+msgid "Nickname"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics/user_manager/error_handler.ex:12
+msgid "Sorry, you have to sign in."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
+msgid "Send an email with a confirmation link again."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
+msgid "Change password"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:53
+msgid "Account successfully added."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/auth_controller.ex:57
+msgid "Error adding account."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:1
+msgid "Social networks"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:31
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:57 lib/hexlet_basics_web/controllers/user_controller.ex:123
+msgid "Something went wrong! Please contact support <a href=mailto:support@hexlet.io> support@hexlet.io </a>."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:3
+msgid "User information"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:49
+msgid "Your %{provider} account has been successfully deleted"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/profile_controller.ex:25
+msgid "Your account has been successfully deleted"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
+msgid "Add %{provider} account"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:2
+msgid "Delete %{provider} account"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/profile/show.html.slime:1
+msgid "There were problems with the delivery of letters to your address. Please check that emails reach your inbox."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/user_controller.ex:112
+msgid "We sent an email to confirm the email - %{email}, follow the link from the email to complete the procedure."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "Free programming courses"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Information"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Resources"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+msgid "Social"
+msgstr ""
+
+# Description for php
+msgid "Description php"
+msgstr ""
+
+# Description for javascript
+msgid "Description javascript"
+msgstr ""
+
+# Description for python
+msgid "Description python"
+msgstr ""
+
+# Description for racket
+msgid "Description racket"
+msgstr ""
+
+# Description for html
+msgid "Description html"
+msgstr ""
+
+# Description for css
+msgid "Description css"
+msgstr ""
+
+# Description for ruby
+msgid "Description ruby"
+msgstr ""
+
+# Description for elixir
+msgid "Description elixir"
+msgstr ""
+
+# Description for go
+msgid "Description go"
+msgstr ""
+
+# Description for about
+msgid "Code Basics Description about"
+msgstr ""
+
+# Description for about
+msgid "Code Basics Description privacy"
+msgstr ""
+
+# Description for about
+msgid "Code Basics Description tos"
+msgstr ""
+
+# Description for session
+#: lib/hexlet_basics_web/controllers/session_controller.ex:14
+#: lib/hexlet_basics_web/controllers/session_controller.ex:17
+msgid "Code Basics Login Description"
+msgstr ""
+
+# Description for session
+#: lib/hexlet_basics_web/controllers/session_controller.ex:13
+#: lib/hexlet_basics_web/controllers/session_controller.ex:25
+msgid "Code Basics Login Title"
+msgstr ""
+
+# Title for about
+msgid "Code Basics Title about"
+msgstr ""
+
+# Title for about
+msgid "Code Basics Title privacy"
+msgstr ""
+
+# Title for about
+msgid "Code Basics Title tos"
+msgstr ""
+
+# Description for registration
+#: lib/hexlet_basics_web/controllers/user_controller.ex:16
+#: lib/hexlet_basics_web/controllers/user_controller.ex:19
+msgid "Code Basics Registration Description"
+msgstr ""
+
+# Description for registration
+#: lib/hexlet_basics_web/controllers/user_controller.ex:15
+#: lib/hexlet_basics_web/controllers/user_controller.ex:27
+msgid "Code Basics Registration Title"
+msgstr ""
+
+# Description for remind password
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:11
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:14
+msgid "Code Basics Remind Password Description"
+msgstr ""
+
+# Description for remind password
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:10
+#: lib/hexlet_basics_web/controllers/remind_password_controller.ex:22
+msgid "Code Basics Remind Password Title"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/session/new.html.slime:1
+msgid "Dont have an account?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/user/new.html.slime:1
+msgid "Have an account?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/lesson.html.slime:1
+msgid "Home"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+msgid "Module available in "
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
+msgid "Russian only"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/controllers/lesson_controller.ex:38
+msgid "Congratulations! You have already finished all exercise! Now you are ready for studying on <a class='text-muted' href=%{hexlet_link}>Hexlet</a> "
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "For beginners. From creators %{hexlet_link}"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/page/index.html.slime:1
+msgid "of Hexlet"
+msgstr ""

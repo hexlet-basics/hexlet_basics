@@ -1,32 +1,36 @@
-S := app
-TAG := latest
+S := web
+VERSION := latest
 PROJECT := hexlet-basics
 
 include make-compose.mk
-include make-services-app.mk
-include make-gcp.mk
+include make-services-web.mk
+include make-services-caddy.mk
 include k8s/Makefile
 
-project-setup: project-files-touch docker-ansible-build-image project-env-generate compose-setup
+project-setup: project-files-touch project-env-generate compose-setup
+	npm install
 
 project-files-touch:
 	mkdir -p tmp
-	touch tmp/ansible-vault-password
+	if [ ! -f tmp/ansible-vault-password ]; then echo 'jopa' > tmp/ansible-vault-password; fi;
 
 project-env-generate:
-	docker run -it -v $(CURDIR):/app -w /app ansible ansible-playbook ansible/development.yml -i ansible/development -vv
-
-docker-init:
-	gcloud auth configure-docker
+	docker run --rm -e RUNNER_PLAYBOOK=ansible/development.yml \
+		-v $(CURDIR)/ansible/development:/runner/inventory \
+		-v $(CURDIR):/runner/project \
+		ansible/ansible-runner
 
 terraform-vars-generate:
-	docker run -it -v $(CURDIR):/app -w /app ansible ansible-playbook ansible/terraform.yml -i ansible/production -vv --vault-password-file=tmp/ansible-vault-password
+	docker run --rm -e RUNNER_PLAYBOOK=ansible/terraform.yml \
+		-v $(CURDIR)/ansible/production:/runner/inventory \
+		-v $(CURDIR):/runner/project \
+		ansible/ansible-runner
 
 ansible-vaults-edit:
-	docker run -it -v $(CURDIR):/app -w /app ansible ansible-vault edit ansible/production/group_vars/all/vault.yml --vault-password-file=tmp/ansible-vault-password
+	# docker run -it -v $(CURDIR):/web -w /web ansible ansible-vault edit ansible/production/group_vars/all/vault.yml --vault-password-file=tmp/ansible-vault-password
+	docker run -it --rm \
+		-v $(CURDIR):/runner/project \
+		ansible/ansible-runner ansible-vault edit project/ansible/production/group_vars/all/vault.yml
 
-docker-ansible-build-image:
-	docker build -t ansible ansible
-
-tag:
-	git tag $(TAG) && git push --tags
+gcloud-cluster-init:
+	gcloud container clusters get-credentials hexlet-basics-6 --region europe-west3-a --project ${PROJECT}

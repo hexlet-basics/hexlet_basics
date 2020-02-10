@@ -1,7 +1,8 @@
 localhost, ru.code-basics.test, en.code-basics.test, code-basics.test {
     gzip
     tls self_signed
-    proxy / app:4000 {
+    proxy / web:4000 {
+        insecure_skip_verify
         transparent
         websocket
         header_upstream X-Forwarded-Host {host}

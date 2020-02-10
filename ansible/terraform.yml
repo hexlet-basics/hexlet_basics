@@ -1,6 +1,7 @@
 ---
 
 - hosts: localhost
+  gather_facts: false
   tasks:
     - template:
         src: secrets.auto.tfvars.j2
