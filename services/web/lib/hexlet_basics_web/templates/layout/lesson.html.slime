@@ -32,9 +32,8 @@ html.h-md-100 lang="#{@locale}"
         #navbarToggler.collapse.navbar-collapse.flex-grow-0.navbar-expand-md
           = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
 
-      .container-fluid.h-md-100
-        main.h-md-100.overflow-hidden.mb-1 role="main"
-          = render @view_module, @view_template, assigns
+    main.container-fluid.h-md-100.overflow-hidden.mb-1 role="main"
+      = render @view_module, @view_template, assigns
       / footer.mt-1
 
     script src="#{Routes.static_path(@conn, "/js/runtime.js")}"
