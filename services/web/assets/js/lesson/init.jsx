@@ -8,13 +8,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
+import { persistStore } from 'redux-persist';
 import reducer, { actions } from './slices';
 
 // import configureStore from '../lib/configureStore';
 import App from './components/App';
 import EntityContext from './EntityContext';
 
-import { persistStore } from 'redux-persist';
 
 const lesson = gon.getAsset('lesson');
 const language = gon.getAsset('language');

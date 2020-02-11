@@ -12,4 +12,8 @@ const persistChangeCodeConfig = {
   storage,
 };
 
-export const persistChangeCodeReducer = (reducer) => persistReducer(persistChangeCodeConfig, reducer);
+const persistChangeCodeReducer = (reducer) => persistReducer(persistChangeCodeConfig, reducer);
+
+export default {
+  persistChangeCodeReducer,
+}
