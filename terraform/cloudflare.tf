@@ -41,7 +41,7 @@ resource "cloudflare_record" "google-verification-ru" {
 resource "cloudflare_record" "google-verification-com" {
   domain  = "${var.domain}"
   name  = "${var.domain}"
-  value   = "google-site-verification=fLdLHe9AG4S3LblT-1jYMQHuna8D9YtQh0TqLrv_KtA"
+  value   = "google-site-verification=0kk3DdOciLvoog-nVFcbRzmZH65FWmNW-_aYElP0gJk"
   type    = "TXT"
 }
 
