@@ -3,6 +3,8 @@
 
 import { createSlice } from '@reduxjs/toolkit';
 
+import { persistChangeCodeReducer } from '../../lib/persistReducer';
+
 const slice = createSlice({
   name: 'editor',
   initialState: { content: '' },
@@ -15,4 +17,4 @@ const slice = createSlice({
 });
 
 export const { actions } = slice;
-export default slice.reducer;
+export default persistChangeCodeReducer(slice.reducer);

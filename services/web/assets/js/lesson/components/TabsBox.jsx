@@ -21,7 +21,7 @@ const TabsBox = (props) => {
 
   const { t } = useTranslation();
   const { lesson, language } = useContext(EntityContext);
-  const { currentTabInfo, checkInfo } = useSelector((state) => state);
+  const { editor, currentTabInfo, checkInfo } = useSelector((state) => state);
 
   // TODO: badge-<classes> does not work. It seems tabler has a bug.
   const badgeClassName = cn('badge mb-2 mb-sm-0 p-2', {
@@ -29,6 +29,8 @@ const TabsBox = (props) => {
     'text-warning': !checkInfo.passed,
   });
   const headline = checkInfo.result ? t(`check.${checkInfo.result}.headline`) : null;
+
+  const defaultValue = editor.content ? Object.values(editor.content).join('') : lesson.prepared_code;
 
   return (
     <Tab.Container id="tabs" activeKey={currentTabInfo.title} onSelect={selectTab}>
@@ -53,7 +55,7 @@ const TabsBox = (props) => {
       <Tab.Content bsPrefix="d-flex h-100 tab-content overflow-auto">
         <Tab.Pane eventKey="editor" bsPrefix="tab-pane h-100 w-100 overflow-hidden">
           <Editor
-            defaultValue={lesson.prepared_code}
+            defaultValue={defaultValue}
             onCodeChange={changeCode}
             language={language.slug}
             current={currentTabInfo.title === 'editor'}

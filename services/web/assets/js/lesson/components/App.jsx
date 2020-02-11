@@ -1,10 +1,12 @@
 // @ts-check
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import TabsBox from './TabsBox';
 import HTMLPreview from './HTMLPreview';
 import ControlBox from './ControlBox';
+import EntityContext from '../EntityContext';
 
 const getViewOptions = (languageName) => {
   const { editor } = useSelector((state) => state);
@@ -33,18 +35,22 @@ const App = (props) => {
 
   const { currentTabInfo } = useSelector((state) => state);
 
+  const { persistor } = useContext(EntityContext);
+
   const currentViewOptions = getViewOptions(language.name);
 
   return (
     <>
-      <TabsBox
-        startTime={startTime}
-        className={currentViewOptions.tabsBoxClassName}
-        active={currentTabInfo.current}
-        userFinishedLesson={userFinishedLesson}
-      />
-      {currentTabInfo.title === 'editor' && currentViewOptions.component}
-      <ControlBox userFinishedLesson={userFinishedLesson} />
+      <PersistGate loading={null} persistor={persistor}>
+        <TabsBox
+          startTime={startTime}
+          className={currentViewOptions.tabsBoxClassName}
+          active={currentTabInfo.current}
+          userFinishedLesson={userFinishedLesson}
+        />
+        {currentTabInfo.title === 'editor' && currentViewOptions.component}
+        <ControlBox userFinishedLesson={userFinishedLesson} />
+      </PersistGate>
     </>
   );
 };

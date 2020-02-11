@@ -6,7 +6,7 @@ import gon from 'gon';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import reducer, { actions } from './slices';
 
@@ -14,7 +14,7 @@ import reducer, { actions } from './slices';
 import App from './components/App';
 import EntityContext from './EntityContext';
 
-import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist';
 
 const lesson = gon.getAsset('lesson');
 const language = gon.getAsset('language');
@@ -23,10 +23,17 @@ const userFinishedLesson = gon.getAsset('user_finished_lesson');
 const prevLesson = gon.getAsset('prev_lesson');
 
 export default () => {
-  const { store, persistor } = configureStore({
+  const middleware = getDefaultMiddleware({
+    serializableCheck: false,
+  });
+
+  const store = configureStore({
     reducer,
     // code: lesson.prepared_code,
+    middleware,
   });
+
+  const persistor = persistStore(store);
 
   store.dispatch(actions.initLessonState({
     userFinishedLesson,
@@ -37,19 +44,18 @@ export default () => {
     language,
     lesson,
     lessonDescription,
+    persistor,
   };
 
   ReactDOM.render(
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <EntityContext.Provider value={entities}>
-          <App
-            userFinishedLesson={userFinishedLesson}
-            language={language}
-            startTime={Date.now()}
-          />
-        </EntityContext.Provider>
-      </PersistGate>
+      <EntityContext.Provider value={entities}>
+        <App
+          userFinishedLesson={userFinishedLesson}
+          language={language}
+          startTime={Date.now()}
+        />
+      </EntityContext.Provider>
     </Provider>,
     document.getElementById('basics-lesson-container'),
   );

@@ -9,6 +9,7 @@ import { Button, Spinner } from 'react-bootstrap';
 import { asyncActions } from '../slices';
 import routes from '../routes';
 import EntityContext from '../EntityContext';
+import connect from '../connect';
 
 const renderRunButtonContent = ({ checkInfo }, t) => {
   const text = t('run');
@@ -30,12 +31,17 @@ const renderRunButtonContent = ({ checkInfo }, t) => {
   );
 };
 
-const ControlBox = () => {
+const ControlBox = (props) => {
+  const { changeCode } = props;
   const { t } = useTranslation();
   const { lesson, language, prevLesson } = useContext(EntityContext);
   const { checkInfo, lessonState, editor } = useSelector((state) => state);
   const { useCheckInfoActions } = asyncActions;
   const { runCheck } = useCheckInfoActions();
+
+  const handleResetCode = () => {
+    changeCode({ content: lesson.prepared_code });
+  };
 
   const handleRunCheck = () => {
     runCheck({ lesson, editor });
@@ -60,6 +66,7 @@ const ControlBox = () => {
           className="btn btn-outline-secondary mr-3"
           href={window.location.href}
           title={t('reset_code')}
+          onClick={handleResetCode}
           data-confirm={t('confirm')}
         >
           <i className="fas fa-sync-alt" />
@@ -78,4 +85,4 @@ const ControlBox = () => {
   );
 };
 
-export default ControlBox;
+export default connect()(ControlBox);
