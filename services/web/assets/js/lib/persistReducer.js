@@ -16,4 +16,4 @@ const persistChangeCodeReducer = (reducer) => persistReducer(persistChangeCodeCo
 
 export default {
   persistChangeCodeReducer,
-}
+};
