@@ -46,6 +46,7 @@
     "react-toastify": "^5.5.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "redux-persist": "^6.0.0",
     "regenerator-runtime": "^0.13.3",
     "sanitize-html": "^1.21.1",
     "tabler": "github:tabler/tabler#dev",
