@@ -23,7 +23,7 @@ defmodule HexletBasics.Email do
     email_address
     |>base_email(subject, user)
     |> render(
-      "user/confirmation.#{locale}.html",
+      "confirmation.#{locale}.html",
       confirmation_url: url,
       subject: subject
     )
@@ -39,7 +39,7 @@ defmodule HexletBasics.Email do
     email_address
     |>base_email(subject, user)
     |> render(
-      "user/reset_password.#{locale}.html",
+      "reset_password.#{locale}.html",
       reset_password_url: url,
       subject: subject
     )
