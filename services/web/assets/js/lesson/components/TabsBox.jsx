@@ -11,6 +11,9 @@ import Solution from './Solution';
 import connect from '../connect';
 import EntityContext from '../EntityContext';
 
+/**
+ * @param {Object} props
+ */
 const TabsBox = (props) => {
   const {
     changeCode,

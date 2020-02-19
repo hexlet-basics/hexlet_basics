@@ -60,20 +60,14 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
     %{assigns: %{locale: locale, current_user: current_user}} = conn
 
     language = Repo.get_by!(Language, slug: language_id)
-    module = Repo.get_by!(Language.Module, language_id: language.id, slug: module_id)
-
-    module_description =
-      Repo.get_by!(Language.Module.Description, module_id: module.id, locale: locale)
-
-    lesson =
-      Repo.get_by!(Language.Module.Lesson,
-        language_id: language.id,
-        module_id: module.id,
-        slug: id
-      )
-
-    lesson_description =
-      Repo.get_by!(Language.Module.Lesson.Description, lesson_id: lesson.id, locale: locale)
+    module = Repo.get_assoc_by!(language, :modules, slug: module_id)
+    # module = Repo.get_by!(Language.Module, language_id: language.id, slug: module_id)
+    lesson = Repo.get_assoc_by!(module, :lessons, slug: id) |> Repo.preload(module: :language)
+    # lesson = Repo.get_by!(Language.Module.Lesson, language_id: language.id, module_id: module.id, slug: id)
+    module_description = Repo.get_assoc_by!(module, :descriptions, locale: locale)
+    # module_description = Repo.get_by!(Language.Module.Description, module_id: module.id, locale: locale)
+    lesson_description = Repo.get_assoc_by!(lesson, :descriptions, locale: locale)
+    # lesson_description = Repo.get_by!(Language.Module.Lesson.Description, lesson_id: lesson.id, locale: locale)
 
     user_finished_lesson =
       if current_user.guest do

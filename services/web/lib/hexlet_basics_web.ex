@@ -33,7 +33,7 @@ defmodule HexletBasicsWeb do
       use Phoenix.View,
         root: "lib/hexlet_basics_web/templates",
         namespace: HexletBasicsWeb,
-        pattern: "**/*"
+        pattern: "*"
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]

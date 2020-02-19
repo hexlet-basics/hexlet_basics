@@ -1,5 +1,5 @@
 h1 <%= @language.slug %>
-h2 
+h2
   = @module.slug
   |  (
   = length(@lessons)

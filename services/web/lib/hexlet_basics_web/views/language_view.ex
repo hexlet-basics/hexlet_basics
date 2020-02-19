@@ -1,7 +1,10 @@
 defmodule HexletBasicsWeb.LanguageView do
   use HexletBasicsWeb, :view
 
-  def locales_switch_map, do: %{"ru" => "en", "en" => "ru"}
+  # FIXME: remove after fix views loading
+  # def locales_switch_map, do: %{"ru" => "en", "en" => "ru"}
+  # def description_on_github_cpath(conn, lesson) do
+  # end
 
   def hexlet_profession_cpath(language) do
     hexlet_professions_map = %{

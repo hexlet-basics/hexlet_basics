@@ -6,10 +6,10 @@ html.h-100 lang=@locale
     = if assigns[:schema] do
       script type="application/ld+json"
         | #{raw(render_schema(@schema))}
-    = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
+    = render HexletBasicsWeb.Layout.SharedView, "head.html", assigns
 
   body.h-100.d-flex.flex-column
-    = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html", assigns
+    = render HexletBasicsWeb.Layout.SharedView, "start_body_scripts.html", assigns
     header
       nav.px-3.navbar.navbar-expand-lg
         a.navbar-brand href="/"
@@ -32,7 +32,7 @@ html.h-100 lang=@locale
             li.nav-item
               a.nav-link target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Community"
 
-          = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
+          = render HexletBasicsWeb.Layout.SharedView, "auth.html", assigns
 
     main.flex-fill
       .container-xl.mt-1

@@ -29,7 +29,7 @@
             hr.my-4
             .small.text-muted
               = gettext "issues"
-              a.ml-1(target="_blank" href="https://github.com/hexlet-basics") https://github.com/hexlet-basics
+              a.ml-1(target="_blank" href=description_on_github_cpath(@conn, @lesson)) https://github.com/hexlet-basics
           .tab-pane.fade#discuss-tab(role="tabpanel")
             #disqus_thread
 

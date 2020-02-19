@@ -15,6 +15,9 @@ const languageMapping = {
   racket: 'scheme',
 };
 
+/**
+ * @param {Object} props
+ */
 const Solution = (props) => {
   const {
     startTime,
@@ -74,6 +77,9 @@ const Solution = (props) => {
     </>
   );
 
+  /**
+   * @param {Object} countdownData
+   */
   const renderContent = () => (countdownData) => {
     const { minutes, seconds, completed } = countdownData;
 
