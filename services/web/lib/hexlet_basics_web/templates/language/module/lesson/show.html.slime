@@ -1,4 +1,4 @@
-.row.h-md-100.mt-2
+.row.h-md-100.pt-2
   .col-12.col-md-5.h-md-100
     .card.h-md-100
       ul.nav.nav-tabs.justify-content-center data-toggle="tabs"
@@ -9,7 +9,7 @@
 
       .card-body.overflow-auto
         .tab-content
-          .tab-pane.fade.show.active#lesson-tab(role="tabpanel")
+          .tab-pane.fade.show.active.hexlet-basics-theory-card#lesson-tab(role="tabpanel")
             h1= @lesson_description.name
             == @lesson_theory_html
             h2= gettext "instructions"
@@ -29,7 +29,7 @@
             hr.my-4
             .small.text-muted
               = gettext "issues"
-              a.ml-1(target="_blank" href="https://github.com/hexlet-basics") https://github.com/hexlet-basics
+              a.ml-1(target="_blank" href=description_on_github_cpath(@conn, @lesson)) https://github.com/hexlet-basics
           .tab-pane.fade#discuss-tab(role="tabpanel")
             #disqus_thread
 

@@ -11,6 +11,9 @@ import Solution from './Solution';
 import connect from '../connect';
 import EntityContext from '../EntityContext';
 
+/**
+ * @param {Object} props
+ */
 const TabsBox = (props) => {
   const {
     changeCode,
@@ -26,7 +29,6 @@ const TabsBox = (props) => {
   // TODO: badge-<classes> does not work. It seems tabler has a bug.
   const badgeClassName = cn('badge mb-2 mb-sm-0 p-2', {
     'text-success': checkInfo.passed,
-    'text-warning': !checkInfo.passed,
   });
   const headline = checkInfo.result ? t(`check.${checkInfo.result}.headline`) : null;
 

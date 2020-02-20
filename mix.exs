@@ -13,8 +13,8 @@ defmodule Mixfile do
 
   defp deps do
     [
-      {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false}
+      {:credo, "~> 1.2.2", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.0.0-rc.7", only: [:dev], runtime: false}
     ]
   end
 end

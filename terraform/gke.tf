@@ -2,9 +2,9 @@ resource "google_container_cluster" "hexlet_basics_2" {
   min_master_version = "1.12.7-gke.10"
 
   # remove_default_node_pool = true
-  project            = "${var.project_name}"
-  name               = "${var.gke_cluster_name_2}"
-  zone               = "${var.zone}"
+  project            = var.project_name
+  name               = var.gke_cluster_name_2
+  location               = var.zone
   initial_node_count = 1
 
   node_config {

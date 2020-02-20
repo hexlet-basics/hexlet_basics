@@ -6,10 +6,10 @@ html.h-100 lang=@locale
     = if assigns[:schema] do
       script type="application/ld+json"
         | #{raw(render_schema(@schema))}
-    = render HexletBasicsWeb.LayoutView, "shared/head.html", assigns
+    = render HexletBasicsWeb.Layout.SharedView, "head.html", assigns
 
   body.h-100.d-flex.flex-column
-    = render HexletBasicsWeb.LayoutView, "shared/start_body_scripts.html", assigns
+    = render HexletBasicsWeb.Layout.SharedView, "start_body_scripts.html", assigns
     header
       nav.px-3.navbar.navbar-expand-lg
         a.navbar-brand href="/"
@@ -32,10 +32,10 @@ html.h-100 lang=@locale
             li.nav-item
               a.nav-link target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Community"
 
-          = render HexletBasicsWeb.LayoutView, "shared/auth.html", assigns
+          = render HexletBasicsWeb.Layout.SharedView, "auth.html", assigns
 
-    main.mt-6.flex-fill
-      .container-xl
+    main.flex-fill
+      .container-xl.mt-1
         = for name <- [:info, :error] do
           - message = get_flash(@conn, name)
           = if message do
@@ -44,7 +44,8 @@ html.h-100 lang=@locale
               button.close type="button" data-dismiss="alert" aria-label="Close"
                 span aria-hidden="true" &times;
 
-        = render @view_module, @view_template, assigns
+        .mt-6
+          = render @view_module, @view_template, assigns
 
     footer
       .container-xl.mt-7.pt-6.pb-3.border-top

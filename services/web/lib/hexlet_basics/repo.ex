@@ -14,4 +14,8 @@ defmodule HexletBasics.Repo do
       {:ok, opts}
     end
   end
+
+  def get_assoc_by!(model, associationName, query) do
+    get_by!(Ecto.assoc(model, associationName), query)
+  end
 end

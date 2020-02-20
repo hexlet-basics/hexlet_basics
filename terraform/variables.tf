@@ -51,7 +51,7 @@ variable "app_ru_host" {}
 variable "app_scheme" {}
 
 variable "repositories" {
-  type = "map"
+  type = map
 
   default = {
     "exercises_php"        = "github_hexlet-basics_exercises-php"
