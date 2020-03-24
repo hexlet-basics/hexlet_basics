@@ -173,7 +173,7 @@ msgstr "Exercise available only for signed users."
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "Please Sign In"
-msgstr "Please sign in with your GitHub account, this is necessary to track the progress of the lessons. If you do not have an account yet, now is the time to create an account on Github."
+msgstr "Please sign in with your GitHub account, this is necessary to track the progress of the lessons. If you do not have an account yet, now is the time to create an account on GitHub."
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
@@ -194,7 +194,7 @@ msgstr ""
 #, elixir-format
 #: lib/hexlet_basics_web/templates/page/about.html.slime:1
 msgid "Contributions"
-msgstr "Source code of Code Basics platform, all lessons and exercisees is available on Github. You can contribute by improving lessons, fixing mistakes and extending the content to cover more programming languages."
+msgstr "Source code of Code Basics platform, all lessons and exercisees is available on GitHub. You can contribute by improving lessons, fixing mistakes and extending the content to cover more programming languages."
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/page/about.html.slime:1
@@ -485,7 +485,7 @@ msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/shared/social_sign_in.html.slime:1
-msgid "Sign In Github"
+msgid "Sign In GitHub"
 msgstr ""
 
 #, elixir-format
