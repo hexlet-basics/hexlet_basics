@@ -27,7 +27,7 @@
                 = for definition <- @lesson_description.definitions do
                   li== Earmark.as_html!("#{definition["name"]} — #{definition["description"]}")
             hr.my-4
-            .small.text-muted
+            .small.text-muted.mb-3
               = gettext "issues"
               a.ml-1(target="_blank" href=description_on_github_cpath(@conn, @lesson)) https://github.com/hexlet-basics
           .tab-pane.fade#discuss-tab(role="tabpanel")
