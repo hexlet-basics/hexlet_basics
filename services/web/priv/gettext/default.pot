@@ -485,7 +485,7 @@ msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/shared/social_sign_in.html.slime:1
-msgid "Sign In Github"
+msgid "Sign In GitHub"
 msgstr ""
 
 #, elixir-format
