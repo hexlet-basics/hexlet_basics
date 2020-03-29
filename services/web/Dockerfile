@@ -1,4 +1,4 @@
-FROM elixir:1.9.4
+FROM elixir:1.10.2
 
 ENV HOME /home/shared
 WORKDIR /app
