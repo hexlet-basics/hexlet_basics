@@ -11,7 +11,7 @@ html.h-100 lang=@locale
   body.h-100.d-flex.flex-column
     = render HexletBasicsWeb.Layout.SharedView, "start_body_scripts.html", assigns
     header
-      nav.px-3.navbar.navbar-expand-lg
+      nav.px-3.navbar.navbar-light.navbar-expand-md
         a.navbar-brand href="/"
           img width="30px" src=Routes.static_path(@conn, "/images/logo.png") alt="Code Basics Logo"
           / = gettext("Code Basics")
