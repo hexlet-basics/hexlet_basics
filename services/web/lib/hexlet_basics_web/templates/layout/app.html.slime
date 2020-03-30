@@ -77,16 +77,21 @@ html.h-100 lang=@locale
                 a class="text-muted" href="#{Routes.page_path(@conn, :show, "privacy")}"= gettext "Privacy"
           .col.mb-4.mb-lg-0.order-0.order-md-3
             h3.h2= gettext "Social"
-            = link to: facebook_curl(), target: :_blank, rel: "noopener noreferrer" do
-              span.fab.fa-facebook.mr-3.text-muted
-            = link to: telegram_curl(), target: :_blank, rel: "noopener noreferrer" do
-              span.fab.fa-telegram.mr-3.text-muted
-            = link to: twitter_curl(), target: :_blank, rel: "noopener noreferrer" do
-              span.fab.fa-twitter.mr-3.text-muted
-            = link to: youtube_curl(), target: :_blank, rel: "noopener noreferrer" do
-              span.fab.fa-youtube.mr-3.text-muted
-            = link to: slack_curl(), target: :_blank, rel: "noopener noreferrer" do
-              span.fab.fa-slack.text-muted
+            span.mr-3
+              = link to: facebook_curl(), class: "rouned-circle", target: :_blank, rel: "noopener noreferrer" do
+                span.fab.fa-lg.fa-facebook.text-muted
+            span.mr-3
+              = link to: telegram_curl(), class: "rouned-circle", target: :_blank, rel: "noopener noreferrer" do
+                span.fab.fa-lg.fa-telegram.text-muted
+            span.mr-3
+              = link to: twitter_curl(), class: "rouned-circle", target: :_blank, rel: "noopener noreferrer" do
+                span.fab.fa-lg.fa-twitter.text-muted
+            span.mr-3
+              = link to: youtube_curl(), class: "rouned-circle", target: :_blank, rel: "noopener noreferrer" do
+                span.fab.fa-lg.fa-youtube.text-muted
+            span
+              = link to: slack_curl(), class: "rouned-circle", target: :_blank, rel: "noopener noreferrer" do
+                span.fab.fa-lg.fa-slack.text-muted
 
           .col.mb-4.mb-lg-0.order-1.order-md-4
             h3.h2= gettext "Resources"
