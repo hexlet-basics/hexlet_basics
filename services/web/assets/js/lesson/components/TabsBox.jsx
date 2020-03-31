@@ -26,9 +26,9 @@ const TabsBox = (props) => {
   const { lesson, language } = useContext(EntityContext);
   const { currentTabInfo, checkInfo } = useSelector((state) => state);
 
-  // TODO: badge-<classes> does not work. It seems tabler has a bug.
-  const badgeClassName = cn('badge mb-2 mb-sm-0 p-2', {
-    'text-success': checkInfo.passed,
+  const badgeClassName = cn('badge badge-outline mb-2 mb-sm-0 p-2', {
+    'bg-green-lt': checkInfo.passed,
+    'bg-red-lt': !checkInfo.passed,
   });
   const headline = checkInfo.result ? t(`check.${checkInfo.result}.headline`) : null;
 
