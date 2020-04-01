@@ -14,10 +14,10 @@ RUN npm install -g npm-check-updates env-cmd
 RUN mix local.hex --force
 # Install rebar (Erlang build tool)
 RUN mix local.rebar --force
-RUN mix archive.install hex phx_new 1.4.12
+RUN mix archive.install --force hex phx_new 1.4.16
 
 ENV DOCKER_CHANNEL edge
-ENV DOCKER_VERSION 19.03.5
+ENV DOCKER_VERSION 19.03.8
 RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_64/docker-${DOCKER_VERSION}.tgz" \
   | tar -xzC /usr/local/bin --strip=1 docker/docker
 

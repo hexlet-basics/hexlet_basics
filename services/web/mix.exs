@@ -92,11 +92,19 @@ defmodule HexletBasics.Mixfile do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      "ecto.setup": ["ecto.create", "ecto.load --skip-if-loaded", "run priv/repo/seeds.exs"],
+      "ecto.setup": [
+        "ecto.create",
+        "ecto.load --skip-if-loaded",
+        "run priv/repo/seeds.exs"
+      ],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       "db.migrate": ["ecto.migrate", "ecto.dump"],
       "db.rollback": ["ecto.rollback", "ecto.dump"],
-      test: ["ecto.setup", "test"],
+      test: [
+        "ecto.setup --quite",
+        "ecto.load --skip-if-loaded",
+        "test"
+      ],
       # compile: ["compile --warnings-as-errors"]
     ]
   end

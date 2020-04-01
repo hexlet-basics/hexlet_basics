@@ -45,6 +45,7 @@ defmodule HexletBasicsWeb.Endpoint do
   plug(Plug.Session,
     store: :cookie,
     key: "_hexlet_basics_key",
+    # FIXME extract to env!
     signing_salt: "mKGV92uB",
     domain: System.fetch_env!("APP_HOST")
   )
