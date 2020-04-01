@@ -73,6 +73,7 @@ msgid "Code Basics"
 msgstr "Основы программирования"
 
 #: lib/hexlet_basics_web/templates/language/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "Continue Learning"
 msgstr "Продолжить обучение"
 
@@ -735,3 +736,23 @@ msgstr "Хекслета"
 #: lib/hexlet_basics_web/templates/shared/social_sign_in.html.slime:1
 msgid "Sign In Github"
 msgstr "Войти через GitHub"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Congratulations"
+msgstr "Поздравляем!"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Now you know the basic syntax, you can perform operations with different data types, define and call functions, and process information using loops."
+msgstr "Теперь вы знаете базовый синтаксис, умеете выполнять операции с разными типами данных, определять и вызывать функции, обрабатывать информацию с помощью циклов."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Other professions on Hexlet"
+msgstr "Другие профессии на Хекслете"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "You have completed the course %{course}"
+msgstr "Вы успешно завершили курс по %{course}"

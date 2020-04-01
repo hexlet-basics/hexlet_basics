@@ -40,3 +40,36 @@ h1.text-center.display-4= @header
 
       .col-12.col-md-6.mt-4
         = module_description.description
+
+
+- profession_path = hexlet_profession_cpath(@language.slug)
+
+.mt-7.mt-md-8
+  .d-flex.justify-content-center.my-3
+    img(width="72" height="72" src=Routes.static_path(@conn, "/images/party_emoj.png") alt="party popper emoj")
+  .row
+    .col-md-9.col-lg-7.mx-auto
+      h2.h1.text-center
+        span.d-block= gettext("Congratulations")
+        span= gettext("You have completed the course %{course}", course: @language.slug)
+      .mt-4= gettext("Now you know the basic syntax, you can perform operations with different data types, define and call functions, and process information using loops.")
+
+      .mt-5
+        .card
+          .card-body.p-sm-5
+            .row.row-0
+              .col-3.col-sm-3.col-md-2.mx-auto.mb-3.mb-sm-0.mt-sm-2.ml-sm-0.mr-sm-4
+                / тут будет иконка нужной профессии, не забыть про alt
+                img(src=Routes.static_path(@conn, "/images/prof_icons/javascript.svg") alt="Javascript icon")
+              .col-12.col-sm
+                p Вступайте в профессию ${название профессии} на Хекслете. Это позволит:
+                ul
+                  li Углубить знания по ${название языка}
+                  li Научиться решать практические задачи
+                  li Написать первые полноценные приложения, которые станут частью вашего портфолио разработчика
+                  li Получить сертификат Хекслета и содействие в трудоустройстве по окончании обучения
+                p Первые курсы в профессии ${название профессии} доступны бесплатно. Чтобы начать изучать профессиональный ${название языка}, достаточно зарегистрироваться и вступить в профессию.
+                .text-center.text-sm-left.mt-2.mt-sm-5.mb-sm-3
+                  = link(gettext("Continue Learning"), to: hexlet_link(profession_path), class: "btn btn-primary btn-lg")
+        .text-center.pt-2
+          = link(gettext("Other professions on Hexlet"), to: hexlet_link("/professions"))
