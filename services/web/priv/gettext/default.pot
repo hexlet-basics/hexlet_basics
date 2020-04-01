@@ -744,15 +744,45 @@ msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
-msgid "Now you know the basic syntax, you can perform operations with different data types, define and call functions, and process information using loops."
-msgstr ""
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "Other professions on Hexlet"
 msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
-msgid "You have completed the course %{course}"
+msgid "Deepen your knowledge"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "First courses in the profession are available for free. All you need to start learning is register and join the profession."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Get the Hexlet Certificate and employment assistance at the end of your study"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Join the profession on Hexlet. You will:"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Learn how to solve practical problems"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Now you know the basic syntax. You can perform operations with different data types, define and call functions, and process data using loops."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Write the first complete applications that will be part of your developer portfolio"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "You successfully finish course with %{course}"
 msgstr ""

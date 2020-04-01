@@ -744,15 +744,45 @@ msgstr "Поздравляем!"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
-msgid "Now you know the basic syntax, you can perform operations with different data types, define and call functions, and process information using loops."
-msgstr "Теперь вы знаете базовый синтаксис, умеете выполнять операции с разными типами данных, определять и вызывать функции, обрабатывать информацию с помощью циклов."
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "Other professions on Hexlet"
 msgstr "Другие профессии на Хекслете"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
-msgid "You have completed the course %{course}"
+msgid "Deepen your knowledge"
+msgstr "Углубить свои знания"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "First courses in the profession are available for free. All you need to start learning is register and join the profession."
+msgstr "Первые курсы в профессии доступны бесплатно. Чтобы начать изучение материала, достаточно зарегистрироваться и вступить в профессию."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Get the Hexlet Certificate and employment assistance at the end of your study"
+msgstr "Получить сертификат Хекслета и содействие в трудоустройстве по окончании обучения"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Join the profession on Hexlet. You will:"
+msgstr "Вступайте в профессию на Хекслете. Это позволит:"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Learn how to solve practical problems"
+msgstr "Научиться решать практические задачи"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Now you know the basic syntax. You can perform operations with different data types, define and call functions, and process data using loops."
+msgstr "Теперь вы знаете базовый синтаксис, умеете выполнять операции с разными типами данных, определять и вызывать функции, обрабатывать информацию с помощью циклов."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Write the first complete applications that will be part of your developer portfolio"
+msgstr "Написать первые полноценные приложения, которые станут частью вашего портфолио разработчика"
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "You successfully finish course with %{course}"
 msgstr "Вы успешно завершили курс по %{course}"

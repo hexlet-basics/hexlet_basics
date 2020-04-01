@@ -44,15 +44,15 @@ h1.text-center.display-4= @header
 
 - profession_path = hexlet_profession_cpath(@language.slug)
 
-.mt-7.mt-md-8
+.mt-7.mt-md-8#finish
   .d-flex.justify-content-center.my-3
     img(width="72" height="72" src=Routes.static_path(@conn, "/images/party_emoj.png") alt="party popper emoj")
   .row
     .col-md-9.col-lg-7.mx-auto
       h2.h1.text-center
         span.d-block= gettext("Congratulations")
-        span= gettext("You have completed the course %{course}", course: @language.slug)
-      .mt-4= gettext("Now you know the basic syntax, you can perform operations with different data types, define and call functions, and process information using loops.")
+        span= gettext("You successfully finish course with %{course}", course: @language.slug)
+      .mt-4= gettext("Now you know the basic syntax. You can perform operations with different data types, define and call functions, and process data using loops.")
 
       .mt-5
         .card
@@ -62,13 +62,13 @@ h1.text-center.display-4= @header
                 / тут будет иконка нужной профессии, не забыть про alt
                 img(src=Routes.static_path(@conn, "/images/prof_icons/javascript.svg") alt="Javascript icon")
               .col-12.col-sm
-                p Вступайте в профессию ${название профессии} на Хекслете. Это позволит:
+                p= gettext("Join the profession on Hexlet. You will:")
                 ul
-                  li Углубить знания по ${название языка}
-                  li Научиться решать практические задачи
-                  li Написать первые полноценные приложения, которые станут частью вашего портфолио разработчика
-                  li Получить сертификат Хекслета и содействие в трудоустройстве по окончании обучения
-                p Первые курсы в профессии ${название профессии} доступны бесплатно. Чтобы начать изучать профессиональный ${название языка}, достаточно зарегистрироваться и вступить в профессию.
+                  li= gettext("Deepen your knowledge")
+                  li= gettext("Learn how to solve practical problems")
+                  li= gettext("Write the first complete applications that will be part of your developer portfolio")
+                  li= gettext("Get the Hexlet Certificate and employment assistance at the end of your study")
+                p= gettext("First courses in the profession are available for free. All you need to start learning is register and join the profession.")
                 .text-center.text-sm-left.mt-2.mt-sm-5.mb-sm-3
                   = link(gettext("Continue Learning"), to: hexlet_link(profession_path), class: "btn btn-primary btn-lg")
         .text-center.pt-2
