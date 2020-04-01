@@ -29,7 +29,6 @@ msgid "Require auth"
 msgstr ""
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 #: lib/hexlet_basics_web/templates/layout/shared/auth.html.slime:1 lib/hexlet_basics_web/templates/remind_password/new.html.slime:1
 #: lib/hexlet_basics_web/templates/session/new.html.slime:1 lib/hexlet_basics_web/templates/session/new.html.slime:1
 #: lib/hexlet_basics_web/templates/user/new.html.slime:1
@@ -58,17 +57,14 @@ msgid "Exercise available only for signed in users"
 msgstr ""
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "discuss"
 msgstr ""
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "instructions"
 msgstr ""
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "lesson"
 msgstr ""
 
@@ -77,6 +73,7 @@ msgid "Code Basics"
 msgstr ""
 
 #: lib/hexlet_basics_web/templates/language/show.html.slime:1
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "Continue Learning"
 msgstr ""
 
@@ -118,12 +115,10 @@ msgid "Source code"
 msgstr ""
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "tips"
 msgstr ""
 
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "definitions"
 msgstr ""
 
@@ -165,13 +160,11 @@ msgstr "These courses are under development and are not the final version. You c
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "Only for signed users"
 msgstr "Exercise available only for signed users."
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "Please Sign In"
 msgstr "Please sign in with your GitHub account, this is necessary to track the progress of the lessons. If you do not have an account yet, now is the time to create an account on GitHub."
 
@@ -187,7 +180,6 @@ msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "issues"
 msgstr ""
 
@@ -474,18 +466,12 @@ msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Switch language to"
 msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/controllers/auth_controller.ex:29
 msgid "Please confirm the email in your %{provider} account, then try again"
-msgstr ""
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/shared/social_sign_in.html.slime:1
-msgid "Sign In GitHub"
 msgstr ""
 
 #, elixir-format
@@ -723,13 +709,11 @@ msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
 msgid "Module available in "
 msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
-#: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1 lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
 msgid "Russian only"
 msgstr ""
 
@@ -738,12 +722,67 @@ msgstr ""
 msgid "Congratulations! You have already finished all exercise! Now you are ready for studying on <a class='text-muted' href=%{hexlet_link}>Hexlet</a> "
 msgstr ""
 
-#, elixir-format, fuzzy
+#, elixir-format
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "For beginners. From creators %{hexlet_link}"
 msgstr ""
 
-#, elixir-format, fuzzy
+#, elixir-format
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "of Hexlet"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/shared/social_sign_in.html.slime:1
+msgid "Sign In Github"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Congratulations"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Other professions on Hexlet"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Deepen your knowledge"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "First courses in the profession are available for free. All you need to start learning is register and join the profession."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Get the Hexlet Certificate and employment assistance at the end of your study"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Join the profession on Hexlet. You will:"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Learn how to solve practical problems"
+msgstr ""
+
+#, elixir-format, fuzzy
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Now you know the basic syntax. You can perform operations with different data types, define and call functions, and process data using loops."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "Write the first complete applications that will be part of your developer portfolio"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "You successfully finish course with %{course}"
 msgstr ""
