@@ -9,7 +9,7 @@
 
       .card-body.overflow-auto
         .tab-content
-          .tab-pane.fade.show.active.hexlet-basics-theory-card#lesson-tab(role="tabpanel")
+          .tab-pane.fade.show.active.hexlet-basics-theory-card.markdown#lesson-tab(role="tabpanel")
             h1= @lesson_description.name
             == @lesson_theory_html
             h2= gettext "instructions"

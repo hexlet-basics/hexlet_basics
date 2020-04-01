@@ -40,23 +40,7 @@
   }
 
   table {
-    @extend .table;
-
-    color: inherit;
     width: auto;
-
-    thead {
-      th {
-        border-bottom: 2px solid $table-border-color;
-        border-top: 1px solid $table-border-color;
-      }
-    }
-
-    tbody {
-      td {
-        border-top: 1px solid $table-border-color;
-      }
-    }
   }
 
   pre {
