@@ -1,5 +1,4 @@
 User-agent: *
 Disallow: /languages/ruby
 Disallow: /languages/elixir
-
-Host: https://<%= @conn.host %>
+Disallow: /*utm_*
