@@ -7,36 +7,37 @@ h1.text-center.display-4= @header
       class: 'btn btn-lg btn-primary px-4 mb-3 mt-2'
 
 - else
-  .mt-5#finish
+  .my-5.mb-md-6
     .d-flex.justify-content-center.my-3
       img(width="72" height="72" src=Routes.static_path(@conn, "/images/party_emoj.png") alt="party popper emoj")
     .row
-      .col-md-9.col-lg-7.mx-auto
+      .col-md-9.col-lg-8.mx-auto
         h2.h1.text-center
           span.d-block= gettext("Congratulations")
-          span= gettext("You successfully finish course with %{course}", course: @language.slug)
-        / .mt-4= gettext("Now you know the basic syntax. You can perform operations with different data types, define and call functions, and process data using loops.")
+          span= gettext("You have successfully completed the basic course ")
+          span.d-inline-block= gettext("on Code Basics.")
+        .text-center= gettext("This is the first step into the world of professional development. What’s next?")
 
+      .col-md-9.col-lg-7.mx-auto
         .mt-5
           .card
             .card-body.p-sm-5
               .row.row-0
                 .col-3.col-sm-3.col-md-2.mx-auto.mb-3.mb-sm-0.mt-sm-2.ml-sm-0.mr-sm-4
-                  / тут будет иконка нужной профессии, не забыть про alt
-                  img(src=Routes.static_path(@conn, "/images/prof_icons/#{@language.slug}.svg") alt="Javascript icon")
+                  img(src=profession_static_cpath(@language.slug) alt="professions icon")
                 .col-12.col-sm
                   p= gettext("Join the profession on Hexlet. You will:")
                   ul
-                    li= gettext("Deepen your knowledge")
+                    li= gettext("Get the fundamental programming knowledge")
                     li= gettext("Learn how to solve practical problems")
                     li= gettext("Write the first complete applications that will be part of your developer portfolio")
                     li= gettext("Get the Hexlet Certificate and employment assistance at the end of your study")
                   p= gettext("First courses in the profession are available for free. All you need to start learning is register and join the profession.")
-                  .text-center.text-sm-left.mt-2.mt-sm-5.mb-sm-3
-                    = link(gettext("Continue Learning"),
-                      to: hexlet_profession_cpath(@language.slug),
-                      class: "btn btn-primary btn-lg",
-                      target: "_blank")
+                .col-12.text-center.mt-2.mt-sm-5.mb-sm-3
+                  = link(gettext("Continue Learning"),
+                    to: hexlet_link(hexlet_profession_cpath(@language.slug)),
+                    class: "btn btn-primary btn-lg",
+                    target: "_blank")
           .text-center.pt-2
             = link(gettext("Other professions on Hexlet"), to: hexlet_link("/professions"))
 
