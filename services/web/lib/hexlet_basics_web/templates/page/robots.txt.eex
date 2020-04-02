@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: /languages/ruby
 Disallow: /languages/elixir
+Disallow: /*utm_*
