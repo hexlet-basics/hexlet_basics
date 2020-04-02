@@ -329,13 +329,11 @@ msgid "Terms of Service"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/language/show.html.slime:2
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Courses"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/language/show.html.slime:2
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Professions"
 msgstr ""
@@ -343,11 +341,6 @@ msgstr ""
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Community"
-msgstr ""
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/language/show.html.slime:2
-msgid "Try Hexlet %{courses} or join to %{professions}"
 msgstr ""
 
 #, elixir-format
@@ -743,13 +736,8 @@ msgid "Congratulations"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+#: lib/hexlet_basics_web/templates/language/show.html.slime:5
 msgid "Other professions on Hexlet"
-msgstr ""
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/language/show.html.slime:2
-msgid "Deepen your knowledge"
 msgstr ""
 
 #, elixir-format
@@ -774,15 +762,25 @@ msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
-msgid "Now you know the basic syntax. You can perform operations with different data types, define and call functions, and process data using loops."
-msgstr ""
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "Write the first complete applications that will be part of your developer portfolio"
 msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
-msgid "You successfully finish course with %{course}"
+msgid "Get the fundamental programming knowledge"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "This is the first step into the world of professional development. What’s next?"
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "You have successfully completed the basic course "
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/show.html.slime:2
+msgid "on Code Basics."
 msgstr ""
