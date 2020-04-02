@@ -711,11 +711,6 @@ msgid "Russian only"
 msgstr ""
 
 #, elixir-format
-#: lib/hexlet_basics_web/controllers/lesson_controller.ex:38
-msgid "Congratulations! You have already finished all exercise! Now you are ready for studying on <a class='text-muted' href=%{hexlet_link}>Hexlet</a> "
-msgstr "Поздравляю! Вы прошли все доступные упражнения. Теперь вы готовы к урокам на <a class='text-muted' href=%{hexlet_link}>Хекслете</a>."
-
-#, elixir-format
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "For beginners. From creators %{hexlet_link}"
 msgstr "Для тех, кто начинает с нуля. От создателей %{hexlet_link}"
