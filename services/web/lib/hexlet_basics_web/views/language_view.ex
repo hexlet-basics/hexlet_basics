@@ -23,7 +23,7 @@ defmodule HexletBasicsWeb.LanguageView do
     if lang do
       "/images/prof_icons/#{lang}.svg"
     else
-      "/images/logo.png"
+      "/images/hexlet_logo.png"
     end
   end
 end
