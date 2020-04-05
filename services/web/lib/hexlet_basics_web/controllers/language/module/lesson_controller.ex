@@ -135,8 +135,11 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
       %{rel: 'image_src', href: Routes.static_url(conn, "/images/#{language.slug}.png")}
     ]
 
+    title = "#{lesson_description.name}. #{module_description.name}. #{language.slug}"
+
     schema = LessonSchema.build(conn, lesson, lesson_description, lesson_theory_html)
-    render(conn,
+    render(
+      conn,
       language: language,
       module: module,
       lesson: lesson,
@@ -150,6 +153,7 @@ defmodule HexletBasicsWeb.Language.Module.LessonController do
       meta_attrs: meta_attrs,
       link_attrs: link_attrs,
       schema: schema,
+      title: title,
       layout: {HexletBasicsWeb.LayoutView, "lesson.html"}
     )
   end

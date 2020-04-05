@@ -70,7 +70,7 @@ msgstr "Урок"
 
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Code Basics"
-msgstr "Основы программирования"
+msgstr "Обучение программированию"
 
 #: lib/hexlet_basics_web/templates/language/show.html.slime:1
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
@@ -200,7 +200,7 @@ msgstr "Цель Code Basics — предоставить качественны
 
 ## For meta tags in language_controller
 msgid "OG title php"
-msgstr "Code Basics: основы программирования на PHP"
+msgstr "PHP для начинающих"
 
 ## For meta tags in language_controller
 msgid "OG description php"
@@ -208,7 +208,7 @@ msgstr "Изучение программирования — непростой
 
 ## For meta tags in language_controller
 msgid "OG title javascript"
-msgstr "Code Basics: основы программирования на Javascript"
+msgstr "JavaScript для начинащих"
 
 ## For meta tags in language_controller
 msgid "OG description javascript"
@@ -216,7 +216,7 @@ msgstr "Изучение программирования — непростой
 
 ## For meta tags in language_controller
 msgid "OG title python"
-msgstr "Code Basics: основы программирования на Python"
+msgstr "Python для начинающих"
 
 ## For meta tags in language_controller
 msgid "OG description python"
@@ -224,7 +224,7 @@ msgstr "Изучение программирования — непростой
 
 ## For meta tags in language_controller
 msgid "OG title racket"
-msgstr "Code Basics: основы программирования на Racket"
+msgstr "Язык Racket"
 
 ## For meta tags in language_controller
 msgid "OG description racket"
@@ -232,7 +232,7 @@ msgstr "Racket относится к семейству Lisp-языков. Эт�
 
 ## For meta tags in language_controller
 msgid "OG title java"
-msgstr "Code Basics: основы программирования на Java"
+msgstr "Java для начинающих"
 
 ## For meta tags in language_controller
 msgid "OG description java"
@@ -240,7 +240,7 @@ msgstr "Изучение программирования — непростой
 
 ## For meta tags in language_controller
 msgid "OG title html"
-msgstr "Code Basics: основы разметки HTML документа"
+msgstr "HTML для начинающих"
 
 ## For meta tags in language_controller
 msgid "OG description html"
@@ -256,7 +256,7 @@ msgstr "Cascading Style Sheets (CSS) — каскадные таблицы ст�
 
 ## For meta tags in language_controller
 msgid "OG title ruby"
-msgstr "Code Basics: основы программирования на Ruby"
+msgstr "Обучение Ruby"
 
 ## For meta tags in language_controller
 msgid "OG description ruby"
@@ -264,7 +264,7 @@ msgstr "Руби — язык, созданный для того, чтобы п
 
 ## For meta tags in language_controller
 msgid "OG title elixir"
-msgstr "Code Basics: основы программирования на Elixir"
+msgstr "Язык Elixir"
 
 ## For meta tags in language_controller
 msgid "OG description elixir"
@@ -272,7 +272,7 @@ msgstr "Эликсир — язык программирования, работ
 
 ## For meta tags in language_controller
 msgid "OG title go"
-msgstr "Code Basics: основы программирования на Go"
+msgstr "Язык GO обучение"
 
 ## For meta tags in language_controller
 msgid "OG description go"
@@ -572,7 +572,7 @@ msgstr "Мы отправили письмо для подтверждения e
 #, elixir-format
 #: lib/hexlet_basics_web/templates/page/index.html.slime:1
 msgid "Free programming courses"
-msgstr "Бесплатные практические уроки по программированию"
+msgstr "Обучение программированию. Онлайн. Бесплатно."
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
@@ -603,7 +603,7 @@ msgstr "Бесплатные практические уроки по прогр
 
 # Description for racket
 msgid "Description racket"
-msgstr "Бесплатные практические уроки по программированию на Racket для тех, кто начинает с нуля"
+msgstr "Бесплатные практические уроки по программированию на Racket (Lisp)"
 
 # Description for html
 msgid "Description html"
@@ -615,15 +615,15 @@ msgstr "Бесплатные практические уроки по CSS для
 
 # Description for ruby
 msgid "Description ruby"
-msgstr "Бесплатные практические уроки по программированию на Ruby для тех, кто начинает с нуля"
+msgstr "Бесплатные практические уроки по программированию на Ruby"
 
 # Description for elixir
 msgid "Description elixir"
-msgstr "Бесплатные практические уроки по программированию на Elixir для тех, кто начинает с нуля"
+msgstr "Бесплатные практические уроки по программированию на Elixir для тех"
 
 # Description for go
 msgid "Description go"
-msgstr "Бесплатные практические уроки по программированию на Go для тех, кто начинает с нуля"
+msgstr "Бесплатные практические уроки по программированию на Go для тех"
 
 # Description for about
 msgid "Code Basics Description about"
