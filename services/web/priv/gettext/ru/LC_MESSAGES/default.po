@@ -89,7 +89,7 @@ msgstr "Блог"
 msgid "Chat"
 msgstr "Чат сообщества"
 
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1
 msgid "Guides"
 msgstr "Гайды"
 
@@ -329,17 +329,17 @@ msgid "Terms of Service"
 msgstr "Условия использования"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1
 msgid "Courses"
 msgstr "Курсы"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1
 msgid "Professions"
 msgstr "Профессии"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/layout/app.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1
 msgid "Community"
 msgstr "Сообщество"
 
@@ -696,9 +696,9 @@ msgid "Have an account?"
 msgstr "Есть аккаунт?"
 
 #, elixir-format
-#: lib/hexlet_basics_web/templates/layout/lesson.html.slime:1
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "Home"
-msgstr ""
+msgstr "Домой"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/index.html.slime:1
