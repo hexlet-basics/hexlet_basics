@@ -10,27 +10,8 @@ html.h-md-100 lang="#{@locale}"
 
   body.h-md-100.d-flex.flex-column
     = render HexletBasicsWeb.Layout.SharedView, "start_body_scripts.html"
-    header
-      nav.px-3.navbar.navbar-light.navbar-expand-md
-        ol.breadcrumb.mr-auto
-          li.breadcrumb-item
-            a href="/" title=gettext("Home")
-              i.fas.fa-home
-          li.breadcrumb-item
-            a href=Routes.language_path(@conn, :show, @language.slug) title=@language.slug
-              = @language.slug
-          li.breadcrumb-item.active.text-dark
-            = @module_description.name
-            | &nbsp;
-            = @lesson.natural_order
-            | /
-            = @lessons_count
 
-        button.navbar-toggler.px-0(type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation")
-          span.navbar-toggler-icon
-
-        #navbarToggler.collapse.navbar-collapse.flex-grow-0.navbar-expand-md
-          = render HexletBasicsWeb.Layout.SharedView, "auth.html", assigns
+    = render HexletBasicsWeb.Layout.SharedView, "header.html", assigns
 
     main.container-fluid.h-md-100.overflow-hidden.mb-1 role="main"
       = render @view_module, @view_template, assigns

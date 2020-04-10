@@ -7,29 +7,45 @@
         li.nav-item
           a.nav-link href="#discuss-tab" data-toggle="tab" role="tab"= gettext "discuss"
 
-      .card-body.overflow-auto
+      .card-body.overflow-auto.pt-2
         .tab-content
-          .tab-pane.fade.show.active.hexlet-basics-theory-card.markdown#lesson-tab(role="tabpanel")
-            h1= @lesson_description.name
-            == @lesson_theory_html
-            h2= gettext "instructions"
-            == @lesson_instructions_html
-            = if (Enum.count(@lesson_description.tips) + Enum.count(@lesson_description.definitions)) > 0 do
+          .tab-pane.fade.show.active#lesson-tab(role="tabpanel")
+
+            ol.breadcrumb.flex-nowrap
+              li.breadcrumb-item
+                a href="/" title=gettext("Home")
+                  i.fas.fa-home
+              li.breadcrumb-item
+                a href=Routes.language_path(@conn, :show, @language.slug) title=@language.slug
+                  = @language.slug
+              li.breadcrumb-item.active.text-dark.text-truncate.d-inline
+                = @module_description.name
+                | &nbsp;
+                = @lesson.natural_order
+                | /
+                = @lessons_count
+
+            .hexlet-basics-theory-card.markdown.mt-3
+              h1= @lesson_description.name
+              == @lesson_theory_html
+              h2= gettext "instructions"
+              == @lesson_instructions_html
+              = if (Enum.count(@lesson_description.tips) + Enum.count(@lesson_description.definitions)) > 0 do
+                hr.my-4
+              = if !Enum.empty?(@lesson_description.tips) do
+                h3.mt-4= gettext "tips"
+                ul.pl-4
+                  = for tip <- @lesson_description.tips do
+                    li== Earmark.as_html!(tip)
+              = if !Enum.empty?(@lesson_description.definitions) do
+                h3= gettext "definitions"
+                ul.pl-4
+                  = for definition <- @lesson_description.definitions do
+                    li== Earmark.as_html!("#{definition["name"]} — #{definition["description"]}")
               hr.my-4
-            = if !Enum.empty?(@lesson_description.tips) do
-              h3.mt-4= gettext "tips"
-              ul.pl-4
-                = for tip <- @lesson_description.tips do
-                  li== Earmark.as_html!(tip)
-            = if !Enum.empty?(@lesson_description.definitions) do
-              h3= gettext "definitions"
-              ul.pl-4
-                = for definition <- @lesson_description.definitions do
-                  li== Earmark.as_html!("#{definition["name"]} — #{definition["description"]}")
-            hr.my-4
-            .small.text-muted
-              = gettext "issues"
-              a.ml-1(target="_blank" href=description_on_github_cpath(@conn, @lesson)) https://github.com/hexlet-basics
+              .small.text-muted
+                = gettext "issues"
+                a.ml-1(target="_blank" href=description_on_github_cpath(@conn, @lesson)) https://github.com/hexlet-basics
           .tab-pane.fade#discuss-tab(role="tabpanel")
             #disqus_thread
 

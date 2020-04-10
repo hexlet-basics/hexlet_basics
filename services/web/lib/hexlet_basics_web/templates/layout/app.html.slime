@@ -10,29 +10,8 @@ html.h-100 lang=@locale
 
   body.h-100.d-flex.flex-column
     = render HexletBasicsWeb.Layout.SharedView, "start_body_scripts.html", assigns
-    header
-      nav.px-3.navbar.navbar-light.navbar-expand-md
-        a.navbar-brand href="/"
-          img width="30px" src=Routes.static_path(@conn, "/images/logo.png") alt="Code Basics Logo"
-          / = gettext("Code Basics")
-        button.navbar-toggler(
-          type="button" data-toggle="collapse"
-          data-target="#navbarToggler" aria-controls="navbarToggler"
-          aria-expanded="false" aria-label="Toggle navigation"
-        )
-          span.navbar-toggler-icon
-        #navbarToggler.collapse.navbar-collapse
-          ul.navbar-nav.mr-auto.px-3
-            li.nav-item
-              a.nav-link target="_blank" href="http://guides.hexlet.io"= gettext "Guides"
-            li.nav-item
-              a.nav-link target="_blank" href="https://ru.hexlet.io/courses"= gettext "Courses"
-            li.nav-item
-              a.nav-link target="_blank" href="https://ru.hexlet.io/professions"= gettext "Professions"
-            li.nav-item
-              a.nav-link target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Community"
 
-          = render HexletBasicsWeb.Layout.SharedView, "auth.html", assigns
+    = render HexletBasicsWeb.Layout.SharedView, "header.html", assigns
 
     main.flex-fill
       .container-xl.mt-1
