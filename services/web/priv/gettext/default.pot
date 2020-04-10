@@ -774,3 +774,13 @@ msgstr ""
 #: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1
 msgid "Change course"
 msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "If you got stuck and don't know what to do, you can ask a question in our huge and friendly "
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
+msgid "community"
+msgstr ""

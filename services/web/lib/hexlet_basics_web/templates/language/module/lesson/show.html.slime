@@ -47,6 +47,9 @@
                 = gettext "issues"
                 a.ml-1(target="_blank" href=description_on_github_cpath(@conn, @lesson)) https://github.com/hexlet-basics
           .tab-pane.fade#discuss-tab(role="tabpanel")
+            .alert.alert-info.small.my-2
+              span.align-baseline= gettext "If you got stuck and don't know what to do, you can ask a question in our huge and friendly "
+              a.align-baseline target="_blank" href="http://slack-ru.hexlet.io/"= gettext "community"
             #disqus_thread
 
   .col-12.col-md-7.pl-md-0.h-md-100
