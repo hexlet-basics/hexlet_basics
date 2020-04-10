@@ -1,7 +1,7 @@
 .row.h-md-100.pt-2
   .col-12.col-md-5.h-md-100
     .card.h-md-100
-      ul.nav.nav-tabs.justify-content-center data-toggle="tabs"
+      ul.nav.nav-tabs.justify-content-center.flex-shrink-0 data-toggle="tabs"
         li.nav-item
           a.nav-link.active href="#lesson-tab" data-toggle="tab" role="tab"= gettext "lesson"
         li.nav-item
