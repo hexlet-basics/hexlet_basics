@@ -146,7 +146,7 @@ msgstr "Code Basics: основы программирования"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
-#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1 lib/hexlet_basics_web/templates/page/about.html.slime:1
 msgid "About"
 msgstr "О проекте"
 
@@ -327,16 +327,6 @@ msgstr "Политика конфиденциальности"
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Terms of Service"
 msgstr "Условия использования"
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1
-msgid "Courses"
-msgstr "Курсы"
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1
-msgid "Professions"
-msgstr "Профессии"
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1
@@ -779,3 +769,8 @@ msgstr "Вы успешно завершили базовый курс "
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "on Code Basics."
 msgstr "на Code Basics."
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1
+msgid "Change course"
+msgstr "Выберите курс"

@@ -146,7 +146,7 @@ msgstr ""
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
-#: lib/hexlet_basics_web/templates/page/about.html.slime:1
+#: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1 lib/hexlet_basics_web/templates/page/about.html.slime:1
 msgid "About"
 msgstr ""
 
@@ -326,16 +326,6 @@ msgstr ""
 #, elixir-format
 #: lib/hexlet_basics_web/templates/layout/app.html.slime:1
 msgid "Terms of Service"
-msgstr ""
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1
-msgid "Courses"
-msgstr ""
-
-#, elixir-format
-#: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1
-msgid "Professions"
 msgstr ""
 
 #, elixir-format
@@ -778,4 +768,9 @@ msgstr ""
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/show.html.slime:2
 msgid "on Code Basics."
+msgstr ""
+
+#, elixir-format
+#: lib/hexlet_basics_web/templates/layout/shared/header.html.slime:1
+msgid "Change course"
 msgstr ""

@@ -12,11 +12,37 @@ header
     #navbarToggler.collapse.navbar-collapse
       ul.navbar-nav.mr-auto.px-3
         li.nav-item
-          a.nav-link target="_blank" href="http://guides.hexlet.io"= gettext "Guides"
+          a.nav-link.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+            = gettext "Change course"
+          .dropdown-menu.dropdown-menu-columns.dropdown-menu-arrow aria-labelledby="dropdownMenuLink"
+            = link to: Routes.language_path(@conn, :show, "php"), class: "dropdown-item" do
+              span.dropdown-item-icon.fab.fa-php.d-flex.justify-content-center.align-items-center
+              span.dropdown-item-text PHP
+            = link to: Routes.language_path(@conn, :show, "javascript"), class: "dropdown-item" do
+              span.dropdown-item-icon.fab.fa-js-square.d-flex.justify-content-center.align-items-center
+              span.dropdown-item-text JavaScript
+            = link to: Routes.language_path(@conn, :show, "python"), class: "dropdown-item" do
+              span.dropdown-item-icon.fab.fa-python.d-flex.justify-content-center.align-items-center
+              span.dropdown-item-text Python
+            = link to: Routes.language_path(@conn, :show, "java"), class: "dropdown-item" do
+              span.dropdown-item-icon.fab.fa-java.d-flex.justify-content-center.align-items-center
+              span.dropdown-item-text Java
+            = link to: Routes.language_path(@conn, :show, "html"), class: "dropdown-item" do
+              span.dropdown-item-icon.fab.fa-html5.d-flex.justify-content-center.align-items-center
+              span.dropdown-item-text HTML
+            = link to: Routes.language_path(@conn, :show, "css"), class: "dropdown-item" do
+              span.dropdown-item-icon.fab.fa-css3-alt.d-flex.justify-content-center.align-items-center
+              span.dropdown-item-text CSS
+            = link to: Routes.language_path(@conn, :show, "racket"), class: "dropdown-item" do
+              span.dropdown-item-icon.fas.fa-rocket.d-flex.justify-content-center.align-items-center
+              span.dropdown-item-text Racket
+            .dropdown-divider
+            = link "Ruby", to: Routes.language_path(@conn, :show, "ruby"), class: "dropdown-item"
+            = link "Elixir", to: Routes.language_path(@conn, :show, "elixir"), class: "dropdown-item"
+            = link "Go", to: Routes.language_path(@conn, :show, "go"), class: "dropdown-item"
+
         li.nav-item
-          a.nav-link target="_blank" href="https://ru.hexlet.io/courses"= gettext "Courses"
-        li.nav-item
-          a.nav-link target="_blank" href="https://ru.hexlet.io/professions"= gettext "Professions"
+          a.nav-link href="#{Routes.page_path(@conn, :show, "about")}"= gettext "About"
         li.nav-item
           a.nav-link target="_blank" href="http://slack-ru.hexlet.io/"= gettext "Community"
 
