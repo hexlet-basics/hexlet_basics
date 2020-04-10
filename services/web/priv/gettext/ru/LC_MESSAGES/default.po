@@ -778,7 +778,7 @@ msgstr "Выберите курс"
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
 msgid "If you got stuck and don't know what to do, you can ask a question in our huge and friendly "
-msgstr "Если вы столкнулись с трудностями и не знаете что делать, можете задать вопрос в нашем большом и дружном "
+msgstr "Если вы столкнулись с трудностями и не знаете, что делать, задайте вопрос в нашем большом и дружном "
 
 #, elixir-format
 #: lib/hexlet_basics_web/templates/language/module/lesson/show.html.slime:1
