@@ -1,32 +1,32 @@
-.row.justify-content-center.mb-6
+.row.justify-content-center.mb-5
   .col-12.col-md-10.col-lg-9.col-xl-8.text-center
     h1= gettext("Free programming courses")
     .h2.font-weight-light
      == gettext("For beginners. From creators %{hexlet_link}", hexlet_link: safe_to_string(link(gettext("of Hexlet"), to: hexlet_link(), class: 'text-muted')))
 
 .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4
-  .col.mb-5
+  .col.mb-4
     .card.h-100
       .card-body.text-center class=style_for_lang(:php, :bg)
         h2.card-title.text-white PHP
         img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/php.png") alt="php programming lessons")
         - phpAnchor = if Enum.member?(@started_languages_by_slug, "php"), do: gettext("Continue"), else: gettext("Start")
         = link phpAnchor, to: Routes.language_path(@conn, :show, "php"), class: "btn btn-light btn-block stretched-link"
-  .col.mb-5
+  .col.mb-4
     .card.h-100
       .card-body.text-center class=style_for_lang(:javascript, :bg)
         h2.card-title.text-white JavaScript
         img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/javascript.png") alt="JavaScript programming lessons")
         - jsAnchor = if Enum.member?(@started_languages_by_slug, "javascript"), do: gettext("Continue"), else: gettext("Start")
         = link jsAnchor, to: Routes.language_path(@conn, :show, "javascript"), class: "btn btn-light btn-block stretched-link"
-  .col.mb-5
+  .col.mb-4
     .card.h-100
       .card-body.text-center class=style_for_lang(:python, :bg)
         h2.card-title.text-white Python
         img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/python.png") alt="Python programming lessons")
         - pythonAnchor = if Enum.member?(@started_languages_by_slug, "python"), do: gettext("Continue"), else: gettext("Start")
         = link pythonAnchor, to: Routes.language_path(@conn, :show, "python"), class: "btn btn-light btn-block stretched-link"
-  .col.mb-5
+  .col.mb-4
     .card.h-100
       .card-body.text-center class=style_for_lang(:java, :bg)
         h2.card-title.text-white Java
@@ -34,7 +34,7 @@
         - javaAnchor = if Enum.member?(@started_languages_by_slug, "java"), do: gettext("Continue"), else: gettext("Start")
         = link javaAnchor, to: Routes.language_path(@conn, :show, "java"), class: "btn btn-light btn-block stretched-link"
 
-  .col.mb-5
+  .col.mb-4
     .card.h-100
       .card-body.text-center class=style_for_lang(:html, :bg)
         h2.card-title.text-white HTML
@@ -42,7 +42,7 @@
         - htmlAnchor = if Enum.member?(@started_languages_by_slug, "html"), do: gettext("Continue"), else: gettext("Start")
         = link htmlAnchor, to: Routes.language_path(@conn, :show, "html"), class: "btn btn-light btn-block stretched-link"
 
-  .col.mb-5
+  .col.mb-4
     .card.h-100
       .card-body.text-center class=style_for_lang(:css, :bg)
         h2.card-title.text-white CSS
@@ -50,7 +50,7 @@
         - cssAnchor = if Enum.member?(@started_languages_by_slug, "css"), do: gettext("Continue"), else: gettext("Start")
         = link cssAnchor, to: Routes.language_path(@conn, :show, "css"), class: "btn btn-light btn-block stretched-link"
 
-  .col.mb-5
+  .col.mb-4
     .card.h-100
       .card-body.text-center class=style_for_lang(:racket, :bg)
         h2.card-title.text-white Racket
@@ -58,27 +58,27 @@
         - racketAnchor = if Enum.member?(@started_languages_by_slug, "racket"), do: gettext("Continue"), else: gettext("Start")
         = link racketAnchor, to: Routes.language_path(@conn, :show, "racket"), class: "btn btn-light btn-block stretched-link"
 
-.row.justify-content-center.mb-5.mt-5
+.row.justify-content-center.mb-4.mt-5
   .col-12.col-md-9.text-center
     h3.h1.font-weight-light = gettext("Courses in development")
     p = gettext("Courses in development description")
 
 .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4
-  .col.mb-5
+  .col.mb-4
     .card.h-100
       .card-body.text-center class=style_for_lang(:ruby, :bg)
         h2.card-title.text-white Ruby
         img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/ruby.png") alt="ruby programming lessons")
         - rubyAnchor = if Enum.member?(@started_languages_by_slug, "ruby"), do: gettext("Continue"), else: gettext("Start")
         = link rubyAnchor, to: Routes.language_path(@conn, :show, "ruby"), class: "btn btn-light btn-block stretched-link"
-  .col.mb-5
+  .col.mb-4
     .card.h-100
       .card-body.text-center class=style_for_lang(:elixir, :bg)
         h2.card-title.text-white Elixir
         img.img-fluid.mt-3.mb-4(src=Routes.static_path(@conn, "/images/elixir.png") alt="elixir programming lessons")
         - elixirAnchor = if Enum.member?(@started_languages_by_slug, "elixir"), do: gettext("Continue"), else: gettext("Start")
         = link elixirAnchor, to: Routes.language_path(@conn, :show, "elixir"), class: "btn btn-light btn-block stretched-link"
-  .col.mb-5
+  .col.mb-4
     .card.h-100
       .card-body.text-center class=style_for_lang(:go, :bg)
         h2.card-title.text-white Go

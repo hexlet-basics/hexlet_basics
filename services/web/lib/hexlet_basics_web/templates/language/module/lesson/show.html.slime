@@ -3,9 +3,9 @@
     .card.h-md-100
       ul.nav.nav-tabs.justify-content-center.flex-shrink-0 data-toggle="tabs"
         li.nav-item
-          a.nav-link.active href="#lesson-tab" data-toggle="tab" role="tab"= gettext "lesson"
+          a.nav-link.rounded-0.active href="#lesson-tab" data-toggle="tab" role="tab"= gettext "lesson"
         li.nav-item
-          a.nav-link href="#discuss-tab" data-toggle="tab" role="tab"= gettext "discuss"
+          a.nav-link.rounded-0 href="#discuss-tab" data-toggle="tab" role="tab"= gettext "discuss"
 
       .card-body.overflow-auto.pt-2
         .tab-content

@@ -8,19 +8,20 @@
     .show id="module_#{@module.id}"
       .row
         .col-12.col-md-6.mt-4
-          ul class="list-group"
-          = for lesson <- @lessons do
-            - lesson_description = @descriptions_by_lesson[lesson.id]
-            - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
-            li class="list-group-item d-flex"
-              - url = Routes.language_module_lesson_path(@conn, :show, @language.slug, @module.slug, lesson.slug)
-              = link to: url, class: "stretched-link text-decoration-none" do
-                = lesson.natural_order
-                | .&nbsp;
-                = lesson_description.name
-              = if finished_lesson do
-                .ml-auto
-                  i class="text-primary fas fa-check"
+          .card
+            ul.list-group.card-list-group
+              = for lesson <- @lessons do
+                - lesson_description = @descriptions_by_lesson[lesson.id]
+                - finished_lesson = @user_finished_lessons_by_lesson[lesson.id]
+                li.list-group-item.d-flex
+                  - url = Routes.language_module_lesson_path(@conn, :show, @language.slug, @module.slug, lesson.slug)
+                  = link to: url, class: "stretched-link text-decoration-none" do
+                    = lesson.natural_order
+                    | .&nbsp;
+                    = lesson_description.name
+                  = if finished_lesson do
+                    .ml-auto
+                      span.text-primary.fas.fa-check
 
         .col-12.col-md-6.mt-4
           = module_description.description
@@ -32,4 +33,3 @@
       = link to: Routes.locale_path(@conn, :switch, redirect_url: redirect_current_url(@conn, switch_map[@locale]), locale: switch_map[@locale]) do
         = gettext("Russian only")
         i.fas.fa-arrow-right.ml-1
-
