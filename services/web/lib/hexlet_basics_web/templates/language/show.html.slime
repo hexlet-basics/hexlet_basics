@@ -63,7 +63,7 @@ h1.text-center.display-4= @header
                   = lesson_description.name
                 = if finished_lesson do
                   .ml-auto
-                    i class="text-primary fas fa-check"
+                    span.text-primary.fas.fa-check
 
       .col-12.col-md-6.mt-4
         = module_description.description
