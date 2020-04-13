@@ -23,11 +23,11 @@ html.h-100 lang=@locale
               button.close type="button" data-dismiss="alert" aria-label="Close"
                 span aria-hidden="true" &times;
 
-        .mt-6
+        .mt-5
           = render @view_module, @view_template, assigns
 
-    footer
-      .container-xl.mt-7.pt-6.pb-3.border-top
+    footer.mt-6
+      .container-xl.pt-6.pb-3.border-top
         .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4
           .col.mb-4.mb-lg-0.order-4.order-md-0
             div
