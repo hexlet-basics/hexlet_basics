@@ -41,13 +41,13 @@ const TabsBox = (props) => {
         <div className="mr-auto">
           <Nav variant="tabs">
             <Nav.Item>
-              <Nav.Link eventKey="editor" title={t('editor')}>{t('editor')}</Nav.Link>
+              <Nav.Link className="rounded-0" eventKey="editor" title={t('editor')}>{t('editor')}</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="console" title={t('console')}>{t('console')}</Nav.Link>
+              <Nav.Link className="rounded-0" eventKey="console" title={t('console')}>{t('console')}</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="solution" title={t('solution')}>{t('solution')}</Nav.Link>
+              <Nav.Link className="rounded-0" eventKey="solution" title={t('solution')}>{t('solution')}</Nav.Link>
             </Nav.Item>
           </Nav>
         </div>
