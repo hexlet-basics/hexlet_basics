@@ -11,7 +11,7 @@ header
       span.navbar-toggler-icon
     #navbarToggler.collapse.navbar-collapse
       ul.navbar-nav.mr-auto.px-3
-        li.nav-item
+        li.nav-item.dropdown
           a.nav-link.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
             = gettext "Change course"
           .dropdown-menu.dropdown-menu-columns.dropdown-menu-arrow aria-labelledby="dropdownMenuLink"
