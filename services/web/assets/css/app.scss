@@ -5,6 +5,7 @@
 @import '@fortawesome/fontawesome-free/scss/solid';
 @import '@fortawesome/fontawesome-free/scss/brands';
 
+// generage vh-{breakpoint}-{size} class (vh-md-50, etc)
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
@@ -16,11 +17,12 @@
   }
 }
 
+// generage w/h-{breakpoint}-{size} class (w-md-25, h-md-100, etc)
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
     @each $prop, $abbrev in (width: w, height: h) {
-      @each $size, $length in $sizes {
+      @each $size, $length in $size-values {
         .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
       }
     }
