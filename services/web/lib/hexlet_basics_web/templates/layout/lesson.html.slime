@@ -1,5 +1,5 @@
 doctype html
-html.h-md-100 lang="#{@locale}"
+html.x-h-md-100 lang="#{@locale}"
   head
     link rel="stylesheet" href="#{Routes.static_path(@conn, "/css/vendors.css")}"
     link rel="stylesheet" href="#{Routes.static_path(@conn, "/css/lesson.css")}"
@@ -8,12 +8,12 @@ html.h-md-100 lang="#{@locale}"
         | #{raw(render_schema(@schema))}
     = render HexletBasicsWeb.Layout.SharedView, "head.html", assigns
 
-  body.h-md-100.d-flex.flex-column
+  body.x-h-md-100.d-flex.flex-column
     = render HexletBasicsWeb.Layout.SharedView, "start_body_scripts.html"
 
     = render HexletBasicsWeb.Layout.SharedView, "header.html", assigns
 
-    main.container-fluid.h-md-100.overflow-hidden.mb-1 role="main"
+    main.container-fluid.x-h-md-100.overflow-hidden.mb-1 role="main"
       = render @view_module, @view_template, assigns
       / footer.mt-1
 
