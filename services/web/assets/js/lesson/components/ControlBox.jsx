@@ -15,17 +15,17 @@ const renderRunButtonContent = ({ checkInfo }, t) => {
   if (checkInfo.processing) {
     return (
       <>
-        <Spinner className="mr-1" as="span" animation="border" size="sm" role="status" aria-hidden="true" />
+        <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />
         <span className="sr-only">Loading...</span>
-        {text}
+        <span className="d-none d-sm-block d-md-none d-lg-block ml-1">{text}</span>
       </>
     );
   }
 
   return (
     <>
-      <i className="fas fa-play-circle mr-1" />
-      {text}
+      <span className="fas fa-play-circle" />
+      <span className="d-none d-sm-block d-md-none d-lg-block ml-1">{text}</span>
     </>
   );
 };
@@ -41,12 +41,12 @@ const ControlBox = () => {
     runCheck({ lesson, editor });
   };
 
-  const nextButtonClasses = cn('btn btn-link font-weight-normal', {
-    'text-muted disabled': !lessonState.finished,
+  const prevButtonClasses = cn('btn btn-outline-secondary font-weight-normal mr-3 order-first order-sm-0 order-md-first order-lg-0', {
+    'disabled': !prevLesson,
   });
 
-  const prevButtonClasses = cn('btn btn-link font-weight-normal', {
-    'text-muted disabled': !prevLesson,
+  const nextButtonClasses = cn('btn btn-outline-primary font-weight-normal', {
+    'disabled': !lessonState.finished,
   });
 
   // TODO move to js routes
@@ -55,23 +55,26 @@ const ControlBox = () => {
 
   return (
     <Hotkeys keyName="ctrl+Enter" onKeyUp={handleRunCheck}>
-      <div className="mx-auto align-items-center d-flex text-center my-3">
+      <div className="mx-auto d-flex align-items-center text-center my-3">
         <a
-          className="btn btn-outline-secondary"
+          className="btn btn-outline-secondary mr-3"
           href={window.location.href}
           title={t('reset_code')}
           data-confirm={t('confirm')}
         >
-          <i className="fas fa-sync-alt" />
+          <span className="fas fa-sync-alt" />
+          <span className="d-none d-sm-block d-md-none d-lg-block">&nbsp;</span>
         </a>
         <a className={prevButtonClasses} href={prevLessonPath}>
-          <span>{t('prev_lesson')}</span>
+          <span className="d-sm-none d-md-block d-lg-none fas fa-arrow-left" />
+          <span className="d-none d-sm-block d-md-none d-lg-block">{t('prev_lesson')}</span>
         </a>
-        <Button variant="primary" onClick={handleRunCheck} disabled={checkInfo.processing}>
+        <Button variant="primary" className="mr-3" onClick={handleRunCheck} disabled={checkInfo.processing}>
           {renderRunButtonContent({ checkInfo }, t)}
         </Button>
         <a className={nextButtonClasses} href={nextLessonPath}>
-          <span>{t('next_lesson')}</span>
+          <span className="d-sm-none d-md-block d-lg-none fas fa-arrow-right" />
+          <span className="d-none d-sm-block d-md-none d-lg-block">{t('next_lesson')}</span>
         </a>
       </div>
     </Hotkeys>
