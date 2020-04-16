@@ -51,12 +51,12 @@ export default class Editor extends React.Component {
   render() {
     const options = {
       fontSize: 14,
+      minimap: {
+        enabled: false,
+      },
       // scrollBeyondLastLine: false,
       // selectOnLineNumbers: true,
       // automaticLayout: true,
-      // minimap: {
-      //   enabled: false,
-      // },
     };
 
     const { language, defaultValue } = this.props;
