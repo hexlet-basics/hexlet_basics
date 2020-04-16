@@ -35,7 +35,7 @@ const TabsBox = (props) => {
   return (
     <Tab.Container id="tabs" activeKey={currentTabInfo.title} onSelect={selectTab}>
       <div className="d-flex flex-column flex-sm-row-reverse flex-shrink-0">
-        <div className="my-auto">
+        <div className="my-auto d-none d-sm-block">
           {headline && <span className={badgeClassName}>{headline}</span>}
         </div>
         <div className="mr-auto flex-shrink-0">
