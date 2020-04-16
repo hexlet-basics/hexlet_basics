@@ -34,11 +34,11 @@ const TabsBox = (props) => {
 
   return (
     <Tab.Container id="tabs" activeKey={currentTabInfo.title} onSelect={selectTab}>
-      <div className="d-flex flex-column flex-sm-row-reverse">
+      <div className="d-flex flex-column flex-sm-row-reverse flex-shrink-0">
         <div className="my-auto">
           {headline && <span className={badgeClassName}>{headline}</span>}
         </div>
-        <div className="mr-auto">
+        <div className="mr-auto flex-shrink-0">
           <Nav variant="tabs">
             <Nav.Item>
               <Nav.Link eventKey="editor" title={t('editor')}>{t('editor')}</Nav.Link>
