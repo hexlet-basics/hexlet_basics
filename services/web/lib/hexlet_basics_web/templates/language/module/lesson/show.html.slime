@@ -7,10 +7,9 @@
         li.nav-item
           a.nav-link href="#discuss-tab" data-toggle="tab" role="tab"= gettext "discuss"
 
-      .card-body.overflow-auto.pt-2
-        .tab-content
-          .tab-pane.fade.show.active#lesson-tab(role="tabpanel")
-
+      .tab-content.h-100.overflow-hidden
+        .tab-pane.fade.show.active.overflow-auto.h-100#lesson-tab(role="tabpanel")
+          .card-body.pt-2
             ol.breadcrumb.flex-nowrap
               li.breadcrumb-item
                 a href="/" title=gettext("Home")
@@ -46,7 +45,8 @@
               .small.text-muted
                 = gettext "issues"
                 a.ml-1(target="_blank" href=description_on_github_cpath(@conn, @lesson)) https://github.com/hexlet-basics
-          .tab-pane.fade#discuss-tab(role="tabpanel")
+        .tab-pane.fade.overflow-auto.h-100#discuss-tab(role="tabpanel")
+          .card-body.pt-2
             .alert.alert-info.small.my-2
               span.align-baseline= gettext "If you got stuck and don't know what to do, you can ask a question in our huge and friendly "
               a.align-baseline target="_blank" href="http://slack-ru.hexlet.io/"= gettext "community"
