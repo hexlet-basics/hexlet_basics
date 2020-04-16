@@ -44,7 +44,7 @@
               hr.my-4
               .small.text-muted
                 = gettext "issues"
-                a.ml-1(target="_blank" href=description_on_github_cpath(@conn, @lesson)) https://github.com/hexlet-basics
+                a(target="_blank" href=description_on_github_cpath(@conn, @lesson)) https://github.com/hexlet-basics
         .tab-pane.fade.overflow-auto.h-100#discuss-tab(role="tabpanel")
           .card-body.pt-2.pb-0
             .alert.alert-info.small.my-2
