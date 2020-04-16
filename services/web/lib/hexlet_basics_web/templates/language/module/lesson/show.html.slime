@@ -1,5 +1,5 @@
 .row.x-h-md-100.pt-2
-  .col-12.col-md-5.x-h-md-100
+  .col-12.col-md-6.col-lg-5.x-h-md-100
     .card.x-h-md-100
       ul.nav.nav-tabs.justify-content-center.flex-shrink-0 data-toggle="tabs"
         li.nav-item
@@ -52,7 +52,7 @@
               a.align-baseline target="_blank" href="http://slack-ru.hexlet.io/"= gettext "community"
             #disqus_thread
 
-  .col-12.col-md-7.pl-md-0.x-h-md-100
+  .col-12.col-md-6.col-lg-7.pl-md-0.x-h-md-100
     = if current_user(@conn).guest do
       .card.h-100
         .card-header
