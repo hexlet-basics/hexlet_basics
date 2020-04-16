@@ -41,11 +41,11 @@ const ControlBox = () => {
     runCheck({ lesson, editor });
   };
 
-  const nextButtonClasses = cn({
+  const nextButtonClasses = cn('btn btn-link font-weight-normal', {
     'text-muted disabled': !lessonState.finished,
   });
 
-  const prevButtonClasses = cn('mr-3', {
+  const prevButtonClasses = cn('btn btn-link font-weight-normal', {
     'text-muted disabled': !prevLesson,
   });
 
@@ -57,7 +57,7 @@ const ControlBox = () => {
     <Hotkeys keyName="ctrl+Enter" onKeyUp={handleRunCheck}>
       <div className="mx-auto align-items-center d-flex text-center my-3">
         <a
-          className="btn btn-outline-secondary mr-3"
+          className="btn btn-outline-secondary"
           href={window.location.href}
           title={t('reset_code')}
           data-confirm={t('confirm')}
@@ -67,7 +67,7 @@ const ControlBox = () => {
         <a className={prevButtonClasses} href={prevLessonPath}>
           <span>{t('prev_lesson')}</span>
         </a>
-        <Button variant="primary" className="mr-3" onClick={handleRunCheck} disabled={checkInfo.processing}>
+        <Button variant="primary" onClick={handleRunCheck} disabled={checkInfo.processing}>
           {renderRunButtonContent({ checkInfo }, t)}
         </Button>
         <a className={nextButtonClasses} href={nextLessonPath}>
