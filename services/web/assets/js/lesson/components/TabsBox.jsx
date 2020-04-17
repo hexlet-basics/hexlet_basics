@@ -41,13 +41,13 @@ const TabsBox = (props) => {
         <div className="mr-auto flex-shrink-0">
           <Nav variant="tabs">
             <Nav.Item>
-              <Nav.Link eventKey="editor" title={t('editor')}>{t('editor')}</Nav.Link>
+              <Nav.Link eventKey="editor" className="px-3 px-sm-4" title={t('editor')}>{t('editor')}</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="console" title={t('console')}>{t('console')}</Nav.Link>
+              <Nav.Link eventKey="console" className="px-3 px-sm-4" title={t('console')}>{t('console')}</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="solution" title={t('solution')}>{t('solution')}</Nav.Link>
+              <Nav.Link eventKey="solution" className="px-3 px-sm-4" title={t('solution')}>{t('solution')}</Nav.Link>
             </Nav.Item>
           </Nav>
         </div>
