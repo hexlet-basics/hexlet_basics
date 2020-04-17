@@ -52,7 +52,7 @@ const Solution = (props) => {
     const mappedLanguage = get(languageMapping, language, language);
 
     return (
-      <div className="p-3 pt-2 x-overflow-y-scroll" id="basics-solution">
+      <div className="p-lg-3" id="basics-solution">
         <p className="mb-0">{t('teacher_solution')}</p>
         <Highlight languages={[mappedLanguage]}>
           {defaultValue}
@@ -98,7 +98,7 @@ const Solution = (props) => {
   const waitingTime = 20 * 60 * 1000;
 
   return (
-    <div className="p-3 pt-2 d-flex flex-column flex-fill h-100 w-100">
+    <div className="p-3">
       <Countdown date={startTime + waitingTime} renderer={renderContent()} />
     </div>
   );
