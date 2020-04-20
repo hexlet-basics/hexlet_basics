@@ -1,21 +1,14 @@
 ---
+
 kind: Service
 apiVersion: v1
 metadata:
-  name: "{{ .Release.Name }}-frontend"
-  labels:
-    app.kubernetes.io/name: "{{ .Chart.Name }}"
-    app.kubernetes.io/instance: "{{ .Release.Name }}"
-    app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
-    app.kubernetes.io/managed-by: "{{ .Release.Service }}"
-    helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+  name: "{{.Release.Name }}-frontend-service"
   annotations:
-    beta.cloud.google.com/backend-config: '{"ports": {"8080":"hexlet-basics-backend-config"}}'
-
+    beta.cloud.google.com/backend-config: '{"ports": {"8080":"hexlet-backend-config"}}'
 spec:
   selector:
     app.kubernetes.io/name: "{{ .Release.Name }}-web-pod"
-    app.kubernetes.io/instance: "{{ .Release.Name }}"
   type: NodePort
   ports:
     - protocol: TCP

@@ -1,0 +1,19 @@
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "{{.Release.Name }}-frontend-ingress-nginx"
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/limit-rps: "4"
+    nginx.ingress.kubernetes.io/limit-rpm: "110"
+    external-dns.alpha.kubernetes.io/hostname: "code-basics.com.,ru.code-basics.com."
+spec:
+  rules:
+    - host: "*.code-basics.com"
+      http:
+        paths:
+          - backend:
+              serviceName: "{{.Release.Name }}-frontend-service"
+              servicePort: 8080

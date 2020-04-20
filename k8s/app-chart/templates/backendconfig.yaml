@@ -1,7 +1,7 @@
 apiVersion: cloud.google.com/v1beta1
 kind: BackendConfig
 metadata:
-  name: hexlet-basics-backend-config
+  name: hexlet-backend-config
 spec:
   sessionAffinity:
     affinityType: "GENERATED_COOKIE"
