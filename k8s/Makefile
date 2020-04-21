@@ -61,6 +61,10 @@ helm-init:
 # helm install --name app ./app-chart
 helm-upgrade-app:
 	helm upgrade --kube-context=$(KUBE_CONTEXT) app $(CURRENT_DIR)/app-chart
+	git reset HEAD
+	git add $(CURRENT_DIR)/app-chart/values.yaml
+	git commit -m "deploy"
+	git push
 
 # helm install -f ./values-external-dns.yml --name external-dns stable/external-dns
 helm-upgrade-external-dns:
