@@ -71,7 +71,7 @@ helm-upgrade-gcloud-sqlproxy:
 	helm upgrade --kube-context=$(KUBE_CONTEXT) -f $(CURRENT_DIR)/values-gcloud-proxy.yml pg-sqlproxy rimusz/gcloud-sqlproxy
 
 helm-upgrade-nginx-ingress:
-	helm upgrade --kube-context=$(KUBE_CONTEXT) -f $(CURRENT_DIR)/values-gcloud-proxy.yml nginx-ingress nginx-stable/nginx-ingress
+	helm upgrade --kube-context=$(KUBE_CONTEXT) -f $(CURRENT_DIR)/values-nginx-ingress.yml nginx-ingress nginx-stable/nginx-ingress
 
 get-pods:
 	kubectl get pod -w -o wide
