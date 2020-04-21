@@ -1,5 +1,5 @@
 controller:
-  replicaCount: 3
+  replicaCount: 2
   config:
     use-forwarded-headers: "true"
 
