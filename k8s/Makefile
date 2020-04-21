@@ -50,13 +50,14 @@ apply-exercises-go:
 	kubectl delete jobs exercises-go-job || true
 	kubectl apply -f $(CURRENT_DIR)/exercises-go.job.yml
 
-helm-init:
+helm-install: helm-install-nginx-ingress
 	helm install app ./app-chart
-	# NOTE nginx ingress should be initialized after app chart due to datamap config loaded
-	helm install -f ./values-nginx-ingress.yml nginx-ingress nginx-stable/nginx-ingress
 	helm install -f ./values-gcloud-proxy.yml pg-sqlproxy rimusz/gcloud-sqlproxy
 	helm install -f ./values-external-dns.yml external-dns stable/external-dns
 
+helm-install-nginx-ingress:
+	helm install -f ./values-nginx-ingress.yml nginx-ingress nginx-stable/nginx-ingress
+	kubectl replace nginx-ingress-nginx-ingress -f $(CURRENT_DIR)/app-chart/templates/nginx-config.yaml
 
 # helm install --name app ./app-chart
 helm-upgrade-app:
@@ -76,6 +77,7 @@ helm-upgrade-gcloud-sqlproxy:
 
 helm-upgrade-nginx-ingress:
 	helm upgrade --kube-context=$(KUBE_CONTEXT) -f $(CURRENT_DIR)/values-nginx-ingress.yml nginx-ingress nginx-stable/nginx-ingress
+	kubectl replace nginx-ingress-nginx-ingress -f $(CURRENT_DIR)/app-chart/templates/nginx-config.yaml
 
 get-pods:
 	kubectl get pod -w -o wide

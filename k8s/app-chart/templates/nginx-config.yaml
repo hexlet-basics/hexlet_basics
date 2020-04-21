@@ -1,4 +1,5 @@
 # https://stackoverflow.com/questions/40791459/upstream-sent-too-big-header-while-reading-response-header-from-upstream
+# NOTE kubectl replace nginx-ingress-nginx-ingress -f app-chart/templates/nginx-config.yaml
 apiVersion: v1
 data:
   proxy-buffers: "4 256k"
