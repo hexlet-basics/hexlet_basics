@@ -23,6 +23,11 @@ resource "google_project" "hexlet_basics" {
   org_id          = var.org_id
 }
 
+provider "digitalocean" {
+  version = "~> 1.16.0"
+  token   =  var.digitalocean_token
+}
+
 output "project_id" {
   value = google_project.hexlet_basics.project_id
 }

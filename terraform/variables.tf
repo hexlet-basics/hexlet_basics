@@ -46,6 +46,7 @@ variable "rollbar_access_token" {}
 variable "sparkpost_smtp_username" {}
 variable "sparkpost_smtp_password" {}
 variable "guardian_secret_key" {}
+variable "digitalocean_token" {}
 variable "app_host" {}
 variable "app_ru_host" {}
 variable "app_scheme" {}
