@@ -36,3 +36,13 @@ $ make compose
 
 Go to [https://ru.code-basics.test](https://ru.code-basics.test)
 Go to [https://en.code-basics.test](https://en.code-basics.test)
+
+
+### Kubernetes
+
+1. sudo snap install doctl
+2. doctl auth init
+3.  doctl kubernetes cluster kubeconfig save hexlet-basics
+4. kubectl ctx do-fra1-hexlet-basics
+
+
