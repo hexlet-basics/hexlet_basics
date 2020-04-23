@@ -26,3 +26,24 @@ resource "google_sql_database" "hexlet_basics_prod" {
   name     = var.db_name
   instance = google_sql_database_instance.master.name
 }
+
+resource "digitalocean_database_cluster" "hexlet_basics" {
+  name = "master3"
+  engine = "pg"
+  version = "10"
+
+  size = "db-s-1vcpu-1gb"
+  region = "fra1"
+  node_count = 1
+}
+
+# resource "digitalocean_database_user" "hexlet_basics" {
+#   name     = "hexlet_basics"
+#   cluster_id = digitalocean_database_cluster.hexlet_basics.id
+#   password = var.db_password
+# }
+
+resource "digitalocean_database_db" "hexlet_basics_prod" {
+  name     = var.db_name
+  cluster_id = digitalocean_database_cluster.hexlet_basics.id
+}
