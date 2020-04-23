@@ -56,8 +56,8 @@ helm-install: helm-install-nginx-ingress
 	helm install -f ./values-external-dns.yml external-dns stable/external-dns
 
 helm-install-nginx-ingress:
-	helm install -f ./values-nginx-ingress.yml nginx-ingress nginx-stable/nginx-ingress
-	kubectl replace nginx-ingress-nginx-ingress -f $(CURRENT_DIR)/app-chart/templates/nginx-config.yaml
+	helm install -f ./values-nginx-ingress.yml nginx-ingress nginx-stable/nginx-ingress --set controller.publishService.enabled=true
+	kubectl replace nginx-ingress-nginx-ingress -f $(CURRENT_DIR)/nginx-config.yaml
 
 # helm install --name app ./app-chart
 helm-upgrade-app:

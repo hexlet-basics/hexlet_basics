@@ -4,8 +4,8 @@ kind: Service
 apiVersion: v1
 metadata:
   name: "{{.Release.Name }}-frontend-service"
-  annotations:
-    beta.cloud.google.com/backend-config: '{"ports": {"8080":"hexlet-backend-config"}}'
+  # annotations:
+  #   beta.cloud.google.com/backend-config: '{"ports": {"8080":"hexlet-backend-config"}}'
 spec:
   selector:
     app.kubernetes.io/name: "{{ .Release.Name }}-web-pod"
