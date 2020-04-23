@@ -47,3 +47,46 @@ resource "digitalocean_database_db" "hexlet_basics_prod" {
   name     = var.db_name
   cluster_id = digitalocean_database_cluster.hexlet_basics.id
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+# resource "google_sql_database_instance" "master-10" {
+#   project          = var.project_name
+#   name             = "master-10"
+#   database_version = "POSTGRES_10"
+#   region           = var.region
+
+#   settings {
+#     tier              = "db-f1-micro"
+#     availability_type = "REGIONAL"
+
+#     backup_configuration {
+#       enabled = false
+#     }
+#   }
+# }
+
+# resource "google_sql_user" "hexlet_basics-10" {
+#   project  = var.project_name
+#   name     = "hexlet_basics"
+#   instance = google_sql_database_instance.master.name
+#   password = var.db_password
+# }
+
+# resource "google_sql_database" "hexlet_basics_prod-10" {
+#   project  = var.project_name
+#   name     = var.db_name
+#   instance = google_sql_database_instance.master-10.name
+# }
+
+
