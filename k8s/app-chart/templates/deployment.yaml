@@ -83,8 +83,6 @@ spec:
             - secretRef:
                 name: hexlet-basics-secrets
             - secretRef:
-                name: cloudsql-db-credentials
-            - secretRef:
                 name: github-credentials
             - secretRef:
                 name: facebook-credentials

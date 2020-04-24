@@ -41,7 +41,9 @@ config :hexlet_basics, HexletBasics.Repo,
   database: System.fetch_env!("DB_NAME"),
   hostname: System.fetch_env!("DB_HOSTNAME"),
   port: System.fetch_env!("DB_PORT"),
+  ssl: System.fetch_env!("DB_SSL_MODE"),
   pool_size: 2
+
 
 # config :playfair, Playfair.Gettext, default_locale: "ru_RU"
 
