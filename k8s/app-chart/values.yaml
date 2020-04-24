@@ -2,7 +2,7 @@
 
 version: v271
 
-replicaCount: 1
+replicaCount: 2
 
 caddy:
   image:

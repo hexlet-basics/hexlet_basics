@@ -25,7 +25,21 @@ spec:
       labels:
         app.kubernetes.io/name: "{{ .Release.Name }}-web-pod"
         app.kubernetes.io/instance: "{{ .Release.Name }}"
+        hexlet/pod: "{{ .Release.Name }}-{{ .Values.version }}-web-pod"
+
     spec:
+
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app.kubernetes.io/name"
+                    operator: In
+                    values:
+                      - "{{ .Release.Name }}-{{ .Values.version }}-web-pod"
+              topologyKey: "kubernetes.io/hostname"
+
       volumes:
         - name: users-code-path
           hostPath:

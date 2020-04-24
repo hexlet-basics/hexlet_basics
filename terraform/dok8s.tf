@@ -7,6 +7,6 @@ resource "digitalocean_kubernetes_cluster" "hexlet_basics" {
   node_pool {
     name       = "hexlet-basics-node-pool"
     size       = "s-2vcpu-4gb"
-    node_count = 1
+    node_count = 2
   }
 }
