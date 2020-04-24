@@ -10,6 +10,12 @@ include k8s/Makefile
 project-setup: project-files-touch project-env-generate compose-setup
 	npm install
 
+cluster-setup:
+	doctl auth init
+	doctl kubernetes cluster kubeconfig save hexlet-basics
+	kubectx do-fra1-hexlet-basics
+
+
 project-files-touch:
 	mkdir -p tmp
 	if [ ! -f tmp/ansible-vault-password ]; then echo 'jopa' > tmp/ansible-vault-password; fi;
@@ -31,6 +37,3 @@ ansible-vaults-edit:
 	docker run -it --rm \
 		-v $(CURDIR):/runner/project \
 		ansible/ansible-runner ansible-vault edit project/ansible/production/group_vars/all/vault.yml
-
-gcloud-cluster-init:
-	gcloud container clusters get-credentials hexlet-basics-6 --region europe-west3-a --project ${PROJECT}

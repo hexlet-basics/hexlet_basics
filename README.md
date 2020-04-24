@@ -5,6 +5,9 @@
 
 This repository is created and maintained by the team and the community of Hexlet, an educational project. [Read more about Hexlet (in Russian)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=hexlet-basics).
 ##
+
+## Development
+
 ### Requirements
 
 * Mac / Linux
@@ -38,11 +41,16 @@ Go to [https://ru.code-basics.test](https://ru.code-basics.test)
 Go to [https://en.code-basics.test](https://en.code-basics.test)
 
 
-### Kubernetes
+## Kubernetes (Production)
 
-1. sudo snap install doctl
-2. doctl auth init
-3.  doctl kubernetes cluster kubeconfig save hexlet-basics
-4. kubectl ctx do-fra1-hexlet-basics
+### Requirements
 
+* doctl
+* kubectl
+* [kubectx](https://github.com/ahmetb/kubectx)
 
+### Setup
+
+```sh
+$ make cluster-setup
+```
