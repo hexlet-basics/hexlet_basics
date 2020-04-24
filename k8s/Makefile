@@ -70,7 +70,7 @@ helm-upgrade-external-dns:
 
 helm-upgrade-nginx-ingress:
 	helm upgrade  -f $(CURRENT_DIR)/values-nginx-ingress.yml nginx-ingress nginx-stable/nginx-ingress
-	kubectl replace nginx-ingress-nginx-ingress -f $(CURRENT_DIR)/app-chart/templates/nginx-config.yaml
+	kubectl replace nginx-ingress-nginx-ingress -f $(CURRENT_DIR)/nginx-config.yaml
 
 get-pods:
 	kubectl get pod -w -o wide
