@@ -1,23 +1,23 @@
-resource "kubernetes_secret" "cloudsql_db_credentials" {
-  metadata {
-    name = "cloudsql-db-credentials"
-  }
+# resource "kubernetes_secret" "cloudsql_db_credentials" {
+#   metadata {
+#     name = "cloudsql-db-credentials"
+#   }
 
-  data = {
-    DB_USERNAME = "${var.db_username}"
-    DB_PASSWORD = "${var.db_password}"
-  }
-}
+#   data = {
+#     DB_USERNAME = "${var.db_username}"
+#     DB_PASSWORD = "${var.db_password}"
+#   }
+# }
 
-resource "kubernetes_secret" "cloudsql_instance_credentials" {
-  metadata {
-    name = "cloudsql-instance-credentials"
-  }
+# resource "kubernetes_secret" "cloudsql_instance_credentials" {
+#   metadata {
+#     name = "cloudsql-instance-credentials"
+#   }
 
-  data = {
-    "credentials.json" = "${base64decode(google_service_account_key.cloudsql_proxy.private_key)}"
-  }
-}
+#   data = {
+#     "credentials.json" = "${base64decode(google_service_account_key.cloudsql_proxy.private_key)}"
+#   }
+# }
 
 resource "kubernetes_secret" "cloudflare_credentials" {
   metadata {
