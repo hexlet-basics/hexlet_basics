@@ -40,6 +40,7 @@ config :hexlet_basics, HexletBasics.Repo,
   password: System.fetch_env!("DB_PASSWORD"),
   database: System.fetch_env!("DB_NAME"),
   hostname: System.fetch_env!("DB_HOSTNAME"),
+  port: System.fetch_env!("DB_PORT"),
   pool_size: 2
 
 # config :playfair, Playfair.Gettext, default_locale: "ru_RU"
