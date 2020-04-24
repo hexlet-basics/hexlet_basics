@@ -5,8 +5,6 @@ KUBE_CONTEXT := gke_hexlet-basics_europe-west3-a_hexlet-basics-6
 
 init:
 	brew install kubernetes-helm
-	helm repo add rimusz https://charts.rimusz.net
-	helm repo update
 
 apply-exercises: apply-exercises-go apply-exercises-ruby apply-exercises-elixir apply-exercises-html apply-exercises-css apply-exercises-js apply-exercises-java apply-exercises-racket apply-exercises-php apply-exercises-python
 
@@ -52,7 +50,6 @@ apply-exercises-go:
 
 helm-install: helm-install-nginx-ingress
 	helm install app ./app-chart
-	helm install -f ./values-gcloud-proxy.yml pg-sqlproxy rimusz/gcloud-sqlproxy
 	helm install -f ./values-external-dns.yml external-dns stable/external-dns
 
 helm-install-nginx-ingress:
@@ -70,10 +67,6 @@ helm-upgrade-app:
 # helm install -f ./values-external-dns.yml --name external-dns stable/external-dns
 helm-upgrade-external-dns:
 	helm upgrade  -f $(CURRENT_DIR)/values-external-dns.yml external-dns stable/external-dns
-
-# helm install -f ./values-gcloud-proxy.yml --name pg-sqlproxy rimusz/gcloud-sqlproxy
-helm-upgrade-gcloud-sqlproxy:
-	helm upgrade  -f $(CURRENT_DIR)/values-gcloud-proxy.yml pg-sqlproxy rimusz/gcloud-sqlproxy
 
 helm-upgrade-nginx-ingress:
 	helm upgrade  -f $(CURRENT_DIR)/values-nginx-ingress.yml nginx-ingress nginx-stable/nginx-ingress
