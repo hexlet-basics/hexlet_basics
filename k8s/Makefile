@@ -61,7 +61,7 @@ helm-install-nginx-ingress:
 
 # helm install --name app ./app-chart
 helm-upgrade-app:
-	helm upgrade --kube-context=$(KUBE_CONTEXT) app $(CURRENT_DIR)/app-chart
+	helm upgrade  app $(CURRENT_DIR)/app-chart
 	git reset HEAD
 	git add $(CURRENT_DIR)/app-chart/values.yaml
 	git commit -m "deploy"
@@ -69,14 +69,14 @@ helm-upgrade-app:
 
 # helm install -f ./values-external-dns.yml --name external-dns stable/external-dns
 helm-upgrade-external-dns:
-	helm upgrade --kube-context=$(KUBE_CONTEXT) -f $(CURRENT_DIR)/values-external-dns.yml external-dns stable/external-dns
+	helm upgrade  -f $(CURRENT_DIR)/values-external-dns.yml external-dns stable/external-dns
 
 # helm install -f ./values-gcloud-proxy.yml --name pg-sqlproxy rimusz/gcloud-sqlproxy
 helm-upgrade-gcloud-sqlproxy:
-	helm upgrade --kube-context=$(KUBE_CONTEXT) -f $(CURRENT_DIR)/values-gcloud-proxy.yml pg-sqlproxy rimusz/gcloud-sqlproxy
+	helm upgrade  -f $(CURRENT_DIR)/values-gcloud-proxy.yml pg-sqlproxy rimusz/gcloud-sqlproxy
 
 helm-upgrade-nginx-ingress:
-	helm upgrade --kube-context=$(KUBE_CONTEXT) -f $(CURRENT_DIR)/values-nginx-ingress.yml nginx-ingress nginx-stable/nginx-ingress
+	helm upgrade  -f $(CURRENT_DIR)/values-nginx-ingress.yml nginx-ingress nginx-stable/nginx-ingress
 	kubectl replace nginx-ingress-nginx-ingress -f $(CURRENT_DIR)/app-chart/templates/nginx-config.yaml
 
 get-pods:

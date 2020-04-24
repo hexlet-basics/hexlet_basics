@@ -48,6 +48,11 @@ resource "digitalocean_database_db" "hexlet_basics_prod" {
   cluster_id = digitalocean_database_cluster.hexlet_basics.id
 }
 
+resource "digitalocean_database_db" "postgres" {
+  name     = "postgres"
+  cluster_id = digitalocean_database_cluster.hexlet_basics.id
+}
+
 
 
 
