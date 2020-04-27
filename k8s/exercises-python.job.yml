@@ -30,7 +30,7 @@ spec:
 
         - name: app
           imagePullPolicy: Always
-          image: gcr.io/hexlet-basics/app:v152
+          image: hexletbasics/services-web:v271
           command:
             - mix
             - x.exercises.load
@@ -44,8 +44,6 @@ spec:
           envFrom:
             - secretRef:
                 name: hexlet-basics-secrets
-            - secretRef:
-                name: cloudsql-db-credentials
             - secretRef:
                 name: github-credentials
             - configMapRef:
