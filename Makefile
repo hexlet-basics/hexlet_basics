@@ -9,8 +9,8 @@ include k8s/Makefile
 
 project-setup: project-files-touch project-env-generate compose-setup
 	npm install
-	pip install autoenv
-	grep -qxF 'source `which activate.sh`' ~/.bash_profile || echo 'source `which activate.sh`' >> ~/.bash_profile
+	git clone git://github.com/inishchith/autoenv.git ~/.autoenv || true
+	grep -qxF 'source ~/.autoenv/activate.sh' ~/.bash_profile || echo 'source ~/.autoenv/activate.sh' >> ~/.bash_profile
 	grep -qxF 'export AUTOENV_ENV_FILENAME=.autoenv' ~/.bash_profile || echo 'export AUTOENV_ENV_FILENAME=.autoenv' >> ~/.bash_profile
 	export AUTOENV_ENV_FILENAME=.autoenv
 	mkdir .kube
