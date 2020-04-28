@@ -12,6 +12,7 @@ project-setup: project-files-touch project-env-generate compose-setup
 	pip install autoenv
 	grep -qxF 'source `which activate.sh`' ~/.bash_profile || echo 'source `which activate.sh`' >> ~/.bash_profile
 	grep -qxF 'export AUTOENV_ENV_FILENAME=.autoenv' ~/.bash_profile || echo 'export AUTOENV_ENV_FILENAME=.autoenv' >> ~/.bash_profile
+	export AUTOENV_ENV_FILENAME=.autoenv
 	mkdir .kube
 
 cluster-setup:
