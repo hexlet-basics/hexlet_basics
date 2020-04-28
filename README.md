@@ -48,8 +48,11 @@ Go to [https://en.code-basics.test](https://en.code-basics.test)
 * doctl
 * kubectl
 * [kubectx](https://github.com/ahmetb/kubectx)
+* [autoenv](https://github.com/inishchith/autoenv)
 
 ### Setup
+
+* doctl kubernetes cluster kubeconfig save <cluster_name>
 
 ```sh
 $ make cluster-setup

@@ -44,3 +44,4 @@ google.key.json
 .env
 .elixir_ls
 tmp
+.kube
