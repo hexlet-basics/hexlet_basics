@@ -85,5 +85,5 @@
 
 // hides the disqus block, which breaks the layout and blinks.
 .adsbox {
-  @extend .sr-only;
+  @extend .position-absolute;
 }
