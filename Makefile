@@ -9,12 +9,15 @@ include k8s/Makefile
 
 project-setup: project-files-touch project-env-generate compose-setup
 	npm install
+	pip install autoenv
+	grep -qxF 'source `which activate.sh`' ~/.bash_profile || echo 'source `which activate.sh`' >> ~/.bash_profile
+	grep -qxF 'export AUTOENV_ENV_FILENAME=.autoenv' ~/.bash_profile || echo 'export AUTOENV_ENV_FILENAME=.autoenv' >> ~/.bash_profile
+	mkdir .kube
 
 cluster-setup:
 	doctl auth init
 	doctl kubernetes cluster kubeconfig save hexlet-basics
 	kubectx do-fra1-hexlet-basics
-
 
 project-files-touch:
 	mkdir -p tmp
