@@ -12,6 +12,8 @@ project-setup: project-files-touch project-env-generate compose-setup
 	git clone git://github.com/inishchith/autoenv.git ~/.autoenv || true
 	grep -qxF 'source ~/.autoenv/activate.sh' ~/.bash_profile || echo 'source ~/.autoenv/activate.sh' >> ~/.bash_profile
 	grep -qxF 'export AUTOENV_ENV_FILENAME=.autoenv' ~/.bash_profile || echo 'export AUTOENV_ENV_FILENAME=.autoenv' >> ~/.bash_profile
+	grep -qxF 'export AUTOENV_ENV_LEAVE_FILENAME=.autoenv.leave' ~/.bash_profile || echo 'export AUTOENV_ENV_LEAVE_FILENAME=.autoenv.leave' >> ~/.bash_profile
+	grep -qxF 'export AUTOENV_ENABLE_LEAVE=true' ~/.bash_profile || echo 'export AUTOENV_ENABLE_LEAVE=true' >> ~/.bash_profile
 	export AUTOENV_ENV_FILENAME=.autoenv
 	mkdir .kube
 
