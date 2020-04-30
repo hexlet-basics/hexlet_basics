@@ -23,7 +23,8 @@ config :hexlet_basics, HexletBasicsWeb.Endpoint,
 
 config :rollbax,
   access_token: System.fetch_env!("ROLLBAR_ACCESS_TOKEN"),
-  environment: "production"
+  environment: "production",
+  enabled: true
 
 config :hexlet_basics,
   code_directory: "/tmp/hexlet-basics/code",
