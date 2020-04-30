@@ -7,43 +7,56 @@ init:
 
 apply-exercises: apply-exercises-go apply-exercises-ruby apply-exercises-elixir apply-exercises-html apply-exercises-css apply-exercises-js apply-exercises-java apply-exercises-racket apply-exercises-php apply-exercises-python
 
+pull-exercise-image:
+	kubectl get pod -l app.kubernetes.io/name=app-web-pod -o custom-columns=name:metadata.name --no-headers --field-selector=status.phase=Running | xargs -I{} kubectl exec {} -c phoenix docker pull hexletbasics/exercises-$(LANG)
+
 apply-exercises-ruby:
+	make pull-exercise-image LANG=ruby
 	kubectl delete jobs exercises-ruby-job || true
 	kubectl apply -f $(CURRENT_DIR)/exercises-ruby.job.yml
 
 apply-exercises-elixir:
+	make pull-exercise-image LANG=elixir
 	kubectl delete jobs exercises-elixir-job || true
 	kubectl apply -f $(CURRENT_DIR)/exercises-elixir.job.yml
 
 apply-exercises-html:
+	make pull-exercise-image LANG=html
 	kubectl delete jobs exercises-html-job || true
 	kubectl apply -f $(CURRENT_DIR)/exercises-html.job.yml
 
 apply-exercises-css:
+	make pull-exercise-image LANG=css
 	kubectl delete jobs exercises-css-job || true
 	kubectl apply -f $(CURRENT_DIR)/exercises-css.job.yml
 
 apply-exercises-js:
+	make pull-exercise-image LANG=javascript
 	kubectl delete jobs exercises-javascript-job || true
 	kubectl apply -f $(CURRENT_DIR)/exercises-javascript.job.yml
 
 apply-exercises-java:
+	make pull-exercise-image LANG=java
 	kubectl delete jobs exercises-java-job || true
 	kubectl apply -f $(CURRENT_DIR)/exercises-java.job.yml
 
 apply-exercises-racket:
+	make pull-exercise-image LANG=racket
 	kubectl delete jobs exercises-racket-job || true
 	kubectl apply -f $(CURRENT_DIR)/exercises-racket.job.yml
 
 apply-exercises-php:
+	make pull-exercise-image LANG=php
 	kubectl delete jobs exercises-php-job || true
 	kubectl apply -f $(CURRENT_DIR)/exercises-php.job.yml
 
 apply-exercises-python:
+	make pull-exercise-image LANG=python
 	kubectl delete jobs exercises-python-job || true
 	kubectl apply -f $(CURRENT_DIR)/exercises-python.job.yml
 
 apply-exercises-go:
+	make pull-exercise-image LANG=go
 	kubectl delete jobs exercises-go-job || true
 	kubectl apply -f $(CURRENT_DIR)/exercises-go.job.yml
 
