@@ -48,40 +48,40 @@ html.h-100 lang=@locale
           .col.mb-4.mb-lg-0.order-2.order-md-2
             h3.h2= gettext "Information"
             ul.list-unstyled
-              li
+              li.my-2.my-lg-0
                 a class="text-muted" href="#{Routes.page_path(@conn, :show, "about")}"= gettext "About"
-              li
+              li.my-2.my-lg-0
                 a class="text-muted" href="#{Routes.page_path(@conn, :show, "tos")}"= gettext "Terms of Service"
-              li
+              li.my-2.my-lg-0
                 a class="text-muted" href="#{Routes.page_path(@conn, :show, "privacy")}"= gettext "Privacy"
           .col.mb-4.mb-lg-0.order-0.order-md-3
             h3.h2= gettext "Social"
             span.mr-3
               = link to: facebook_curl(), class: "rouned-circle", target: :_blank, rel: "noopener noreferrer" do
-                span.fab.fa-lg.fa-facebook.text-muted
+                span.fab.fa-lg.fa-facebook.text-muted.mx-2.mx-lg-0
             span.mr-3
               = link to: telegram_curl(), class: "rouned-circle", target: :_blank, rel: "noopener noreferrer" do
-                span.fab.fa-lg.fa-telegram.text-muted
+                span.fab.fa-lg.fa-telegram.text-muted.mx-2.mx-lg-0
             span.mr-3
               = link to: twitter_curl(), class: "rouned-circle", target: :_blank, rel: "noopener noreferrer" do
-                span.fab.fa-lg.fa-twitter.text-muted
+                span.fab.fa-lg.fa-twitter.text-muted.mx-2.mx-lg-0
             span.mr-3
               = link to: youtube_curl(), class: "rouned-circle", target: :_blank, rel: "noopener noreferrer" do
-                span.fab.fa-lg.fa-youtube.text-muted
+                span.fab.fa-lg.fa-youtube.text-muted.mx-2.mx-lg-0
             span
               = link to: slack_curl(), class: "rouned-circle", target: :_blank, rel: "noopener noreferrer" do
-                span.fab.fa-lg.fa-slack.text-muted
+                span.fab.fa-lg.fa-slack.text-muted.mx-2.mx-lg-0
 
           .col.mb-4.mb-lg-0.order-1.order-md-4
             h3.h2= gettext "Resources"
             ul.list-unstyled
-              li
+              li.my-2.my-lg-0
                 a target="_blank" class="text-muted" href="https://ru.hexlet.io/blog"= gettext "Blog"
-              li
+              li.my-2.my-lg-0
                 a target="_blank" class="text-muted" href="https://ru.hexlet.io/pages/recommended-books"= gettext "Recommended Books"
-              li
+              li.my-2.my-lg-0
                 a target="_blank" class="text-muted" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSr58Xg4DVX2WdmAkv3hE2ITJ3fPeNUmRFe0Ekro53U-ACFrhcUkV8PlUm4ddcn53Uh-5UIezZtZZgc/pubhtml"= gettext "Matrix"
-              li
+              li.my-2.my-lg-0
                 a target="_blank" class="text-muted" href="https://github.com/hexlet-basics"
                   = gettext "Source code"
                   span.fas.fa-link.ml-2
