@@ -80,7 +80,7 @@ spec:
             successThreshold: 1
           resources:
             requests:
-              cpu: 10m
+              cpu: 20m
           command:
             - make
             - start
