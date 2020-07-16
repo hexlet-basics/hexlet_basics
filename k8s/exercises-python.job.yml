@@ -16,7 +16,7 @@ spec:
 
       initContainers:
         - name: exercises-python
-          image: hexletbasics/exercises-python
+          image: hexletbasics/exercises-python:latest
           command:
             - cp
             - "-r"
@@ -46,5 +46,7 @@ spec:
                 name: hexlet-basics-secrets
             - secretRef:
                 name: github-credentials
+            - secretRef:
+                name: sparkpost-credentials
             - configMapRef:
                 name: hexlet-basics-config-map
