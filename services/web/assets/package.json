@@ -48,7 +48,7 @@
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.5",
     "sanitize-html": "^1.22.1",
-    "tabler": "github:tabler/tabler#dev",
+    "tabler": "v1.0.0-alpha.4",
     "tether": "^1.4.7"
   },
   "devDependencies": {
