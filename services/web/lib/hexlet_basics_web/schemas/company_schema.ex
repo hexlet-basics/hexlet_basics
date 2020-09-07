@@ -18,7 +18,7 @@ defmodule HexletBasicsWeb.Schemas.CompanySchema do
       ],
       address: %{
         "@type": "PostalAddress",
-        name: "Puolikkotie 8, 02230 Espoo, Finland"
+        name: "UMA Esplanadi, Pohjoisesplanadi 39, 00100 Helsinki, Finland"
       },
       logo: %{
         "@type": "ImageObject",
