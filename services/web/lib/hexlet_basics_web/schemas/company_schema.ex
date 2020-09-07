@@ -9,7 +9,7 @@ defmodule HexletBasicsWeb.Schemas.CompanySchema do
       name: "Hexlet",
       legalName: "Hexlet Ltd.",
       vatID: "VAT ID: FI26641607",
-      telephone: "+44 20 3514 2938",
+      telephone: "+7 499 609 12 31",
       sameAs: [
         "https://www.facebook.com/Hexlet",
         "https://www.youtube.com/user/HexletUniversity",
