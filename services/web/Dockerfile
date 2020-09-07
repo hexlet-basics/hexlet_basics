@@ -1,6 +1,8 @@
 FROM elixir:1.10.2
 
 ENV HOME /home/shared
+ENV LANG C.UTF-8
+
 WORKDIR /app
 
 RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
