@@ -28,7 +28,7 @@ const slice = createSlice({
       state.processing = false;
       state.result = attributes.result;
       state.passed = attributes.passed;
-      state.output = atob(attributes.output);
+      state.output = attributes.output;
     },
     runCheckFailure(state) {
       state.processing = false;
