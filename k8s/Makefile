@@ -60,13 +60,18 @@ apply-exercises-go:
 	kubectl delete jobs exercises-go-job || true
 	kubectl apply -f $(CURRENT_DIR)/exercises-go.job.yml
 
-helm-install: helm-install-nginx-ingress
+helm-install: helm-install-nginx-ingress helm-install-metrics
 	helm install app ./app-chart
 	helm install -f ./values-external-dns.yml external-dns stable/external-dns
 
 helm-install-ingress-nginx:
 	helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 	helm install nginx-ingress ingress-nginx/ingress-nginx
+
+helm-install-metrics:
+	helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+	helm repo update
+	helm install metrics-server stable/metrics-server --set args={--kubelet-preferred-address-types=InternalIP}
 
 
 # helm install --name app ./app-chart
