@@ -54,11 +54,11 @@ resource "digitalocean_database_db" "postgres" {
 }
 
 resource "digitalocean_database_firewall" "k8s" {
-  depends_on = [digitalocean_kubernetes_cluster.hexlet_basics_2]
+  depends_on = [digitalocean_kubernetes_cluster.hexlet_basics_3]
 
   cluster_id = digitalocean_database_cluster.hexlet_basics.id
   rule {
     type  = "k8s"
-    value = digitalocean_kubernetes_cluster.hexlet_basics_2.id
+    value = digitalocean_kubernetes_cluster.hexlet_basics_3.id
   }
 }
