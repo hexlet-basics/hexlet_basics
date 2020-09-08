@@ -25,7 +25,7 @@ spec:
       labels:
         app.kubernetes.io/name: "{{ .Release.Name }}-web-pod"
         app.kubernetes.io/instance: "{{ .Release.Name }}"
-        hexlet/pod: "{{ .Release.Name }}-{{ .Values.version }}-web-pod"
+        code-basics/web-pod: "{{ .Release.Name }}-{{ .Values.version }}-web-pod"
 
     spec:
 
@@ -34,7 +34,7 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:
                 matchExpressions:
-                  - key: "app.kubernetes.io/name"
+                  - key: "code-basics/web-pod"
                     operator: In
                     values:
                       - "{{ .Release.Name }}-{{ .Values.version }}-web-pod"
