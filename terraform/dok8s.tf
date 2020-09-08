@@ -23,6 +23,6 @@ resource "digitalocean_kubernetes_cluster" "hexlet_basics_3" {
     auto_scale = true
 
     min_nodes  = 3
-    max_nodes  = 5
+    max_nodes  = 3
   }
 }

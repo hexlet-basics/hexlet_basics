@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: "{{ .Release.Name }}-deployment"
   labels:
-    app.kubernetes.io/name: "{{ .Release.Name }}-web-deployment"
+    app.kubernetes.io/name: "{{ .Release.Name }}-web-pod"
     app.kubernetes.io/instance: "{{ .Release.Name }}"
     app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
     app.kubernetes.io/managed-by: "{{ .Release.Service }}"
