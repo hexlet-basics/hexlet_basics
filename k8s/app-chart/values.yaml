@@ -2,7 +2,7 @@
 
 version: v280
 
-replicaCount: 2
+replicaCount: 3
 
 caddy:
   image:
