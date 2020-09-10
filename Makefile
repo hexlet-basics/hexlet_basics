@@ -19,8 +19,8 @@ project-setup: project-files-touch project-env-generate compose-setup
 
 cluster-setup:
 	doctl auth init
-	doctl kubernetes cluster kubeconfig save hexlet-basics-2
-	kubectx do-fra1-hexlet-basics-2
+	doctl kubernetes cluster kubeconfig save hexlet-basics-3
+	kubectx do-fra1-hexlet-basics-3
 
 project-files-touch:
 	mkdir -p tmp
