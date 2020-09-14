@@ -7,6 +7,7 @@ defmodule HexletBasicsWeb.Router do
   end
 
   defp handle_errors(_conn, %{reason: %Phoenix.Router.NoRouteError{}}), do: :ok
+  defp handle_errors(_conn, %{reason: %Ecto.NoResultsError{}}), do: :ok
 
   defp handle_errors(conn, %{kind: kind, reason: reason, stack: stacktrace}) do
     conn =
