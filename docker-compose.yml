@@ -8,8 +8,12 @@ services:
     image: postgres:12.2-alpine
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
+    container_name: postgres
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - /var/tmp/db:/var/lib/postgresql/data
+    networks:
+      - default
+      - hexlet-basics
 
   caddy:
     build:
@@ -17,6 +21,7 @@ services:
       dockerfile: Dockerfile.development
     ports:
       - "443:2015"
+      - "80:80"
     volumes:
       - "./services/caddy/files/development/Caddyfile:/etc/Caddyfile"
     depends_on:
@@ -48,3 +53,8 @@ volumes:
   web_static:
   # app_build:
   # app_deps:
+  #
+networks:
+  hexlet-basics:
+    external:
+      name: hexlet-basics_hexlet-basics
