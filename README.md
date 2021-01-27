@@ -1,5 +1,7 @@
 [![On Push](https://github.com/hexlet-basics/hexlet_basics/workflows/On%20Push/badge.svg?branch=master)](https://github.com/hexlet-basics/hexlet_basics/actions)
 
+# This repository is outdated. See the new version on [hexlet-basics](https://github.com/hexlet-basics/hexlet-basics)
+
 ##
 [![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/hexletguides.github.io/master/images/hexlet_logo128.png)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=hexlet-basics)
 
